@@ -1,0 +1,28 @@
+background        no
+out_to_console 	  yes
+out_to_x	  no
+update_interval	  2
+total_run_times	  0
+short_units	  yes
+pad_percents	  3
+
+override_utf8_locale yes
+
+TEXT
+[
+  {"full_text": " ❤ $acpitemp°C [$cpu%] ","color": "\#DC322F"},
+  {"full_text": " ≣ [$membar] ", "color":"\#B58900"},
+${if_up wlp3s0}
+  {"full_text": " ≈ ${wireless_essid wlp3s0} [${wireless_link_qual_perc wlp3s0}%] ","color":"\#33CC99"},
+$else
+  ${if_up enp2s0}
+    {"full_text": " ≈ enp2s0 ","color":"\#33CC99"},
+  $else
+    {"full_text": " ≈ no connection ","color":"\#33CC99"},
+  $endif
+$endif
+  {"full_text": " ☇ [${battery_percent BAT1}%] ","color":"\#9933CC"${if_match ${battery_percent BAT1} <= 75}, "urgent": true $endif },
+  {"full_text": " ♪ [${exec amixer -c 0 get Master | grep -oe '[[:digit:]]*%'}] ", "color":"\#268BD2"},
+  {"full_text": " ${time %a %d %b} ${time %H:%M} "}
+],
+

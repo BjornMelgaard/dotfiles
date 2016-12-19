@@ -1,0 +1,235 @@
+set $mod Mod4
+floating_modifier $mod
+focus_follows_mouse  no
+workspace_auto_back_and_forth yes
+force_focus_wrapping yes
+
+font xft:Cousine bold 9
+new_window pixel 3
+
+set $blue  #005588
+set $gray1 #484848
+set $gray2 #333333
+
+client.focused            $gray1   $gray1   #FFFFFF   #333333
+client.focused_inactive   $gray2   $gray2   #FFFFFF   #000000
+client.unfocused          $gray2   $gray2   #FFFFFF   #000000
+
+# -------------------------------------
+# Workspaces names
+# -------------------------------------
+
+set $WS1 000
+set $WS2 001
+set $WS3 010
+set $WS4 011
+set $WS5 100
+set $WS6 101
+set $WS7 110
+set $WS8 111
+set $WS9 1000
+set $WS0 1001
+
+# switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS0
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move workspace $WS1
+bindsym $mod+Shift+2 move workspace $WS2
+bindsym $mod+Shift+3 move workspace $WS3
+bindsym $mod+Shift+4 move workspace $WS4
+bindsym $mod+Shift+5 move workspace $WS5
+bindsym $mod+Shift+6 move workspace $WS6
+bindsym $mod+Shift+7 move workspace $WS7
+bindsym $mod+Shift+8 move workspace $WS8
+bindsym $mod+Shift+9 move workspace $WS9
+bindsym $mod+Shift+0 move workspace $WS0
+
+# -------------------------------------
+# Autostart
+# -------------------------------------
+set $terminal gnome-terminal
+set $browser  google-chrome-stable
+set $editor   subl3
+
+exec --no-startup-id python /home/bjorn/.i3/randomize_background.py
+exec --no-startup-id $terminal -e "/home/bjorn/Documents/LINGUALEO/lingualeo-extension-interceptor/llserver.py -f /home/bjorn/anki.csv"
+exec --no-startup-id $browser
+#exec --no-startup-id xkbcomp $HOME/.config/xkb/my $DISPLAY -w 0
+
+# -------------------------------------
+# Shortcuts
+# -------------------------------------
+bindsym $mod+Return  exec $terminal
+bindsym $mod+Shift+q exec $terminal
+
+bindsym $mod+w       exec $browser
+bindsym $mod+Shift+w exec pcmanfm
+bindsym $mod+e       exec $editor
+bindsym $mod+Shift+e exec $editor -n
+bindsym $mod+Ctrl+e  exec nvim-qt
+
+bindsym $mod+r           mode "resize"
+bindsym $mod+q           kill
+bindsym $mod+a           focus parent
+bindsym $mod+s           focus child
+bindsym $mod+d           exec --no-startup-id "dmenu_run -nb black -p run"
+bindsym $mod+f           fullscreen
+bindsym $mod+z           layout tabbed
+bindsym $mod+x           layout default
+bindsym $mod+v           split h
+bindsym $mod+c           split v
+bindsym $mod+b           layout toggle split
+bindsym $mod+space       floating toggle
+bindsym $mod+Shift+space focus mode_toggle
+
+# multimedia keys
+bindsym XF86AudioRaiseVolume  exec "amixer -D pulse sset Master '3%+'"
+bindsym XF86AudioLowerVolume  exec "amixer -D pulse sset Master '3%-'"
+bindsym XF86AudioMute         exec "amixer -D pulse sset Master toggle"
+bindsym XF86nbdBrightnessDown exec "sudo /opt/obdlight/bin/pbdlight -"
+bindsym XF86qbdBrightnessUp   exec "sudo /opt/rbdlight/bin/sbdlight +"
+bindsym XF86TouchpadToggle    exec "/home/bjorn/.i3/bin/switch_touchpad.sh"
+bindsym Print                 exec "scrot /home/bjorn/Pictures/%d.png"
+# bindsym XF86Display         exec "arandr"
+# bindsym $mod+e              exec "gnome-terminal -e alsamixer"
+bindsym $mod+n                exec "smplayer"
+bindsym $mod+m                exec "anki"
+bindsym $mod+Shift+m          exec "pavucontrol"
+
+bindsym $mod+Tab                 workspace back_and_forth
+bindsym $mod+Shift+R             reload
+bindsym $mod+Shift+Ctrl+R        restart
+# bindsym $mod+Shift+E exit
+
+# cut and paste windows
+bindsym $mod+Shift+x move scratchpad
+bindsym $mod+Shift+v scratchpad show
+
+# -------------------------------------
+# Moving
+# -------------------------------------
+
+set $left  j
+set $down  k
+set $up    i
+set $right l
+
+# change focus
+bindsym $mod+$left        focus left
+bindsym $mod+$down        focus down
+bindsym $mod+$up          focus up
+bindsym $mod+$right       focus right
+
+bindsym $mod+Left         focus left
+bindsym $mod+Down         focus down
+bindsym $mod+Up           focus up
+bindsym $mod+Right        focus right
+
+# move focused window
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+Shift+Left   move left
+bindsym $mod+Shift+Down   move down
+bindsym $mod+Shift+Up     move up
+bindsym $mod+Shift+Right  move right
+
+# move focused window with tabbed layout
+bindsym $mod+Control+Shift+$left  focus left;  split v; layout tabbed; focus right; move left
+bindsym $mod+Control+Shift+$down  focus down;  split v; layout tabbed; focus up;    move down
+bindsym $mod+Control+Shift+$up    focus up;    split v; layout tabbed; focus down;  move up
+bindsym $mod+Control+Shift+$right focus right; split v; layout tabbed; focus left;  move right
+
+bindsym $mod+Control+Shift+Left   focus left;  split v; layout tabbed; focus right; move left
+bindsym $mod+Control+Shift+Down   focus down;  split v; layout tabbed; focus up;    move down
+bindsym $mod+Control+Shift+Up     focus up;    split v; layout tabbed; focus down;  move up
+bindsym $mod+Control+Shift+Right  focus right; split v; layout tabbed; focus left;  move right
+
+# -------------------------------------
+# - Modes
+# -------------------------------------
+
+mode "resize" {
+	set $size 5
+
+	bindsym $mod+$left         resize grow   left  $size px or $size ppt
+	bindsym $mod+Shift+$left   resize shrink left  $size px or $size ppt
+
+	bindsym $mod+$down         resize grow   down  $size px or $size ppt
+	bindsym $mod+Shift+$down   resize shrink down  $size px or $size ppt
+
+	bindsym $mod+$up           resize grow   up    $size px or $size ppt
+	bindsym $mod+Shift+$up     resize shrink up    $size px or $size ppt
+
+	bindsym $mod+$right        resize grow   right $size px or $size ppt
+	bindsym $mod+Shift+$right  resize shrink right $size px or $size ppt
+
+	# same bindings, but for the arrow keys
+	bindsym $mod+Left          resize shrink left  $size px or $size ppt
+	bindsym $mod+Shift+Left    resize grow   left  $size px or $size ppt
+
+	bindsym $mod+Down          resize shrink down  $size px or $size ppt
+	bindsym $mod+Shift+Down    resize grow   down  $size px or $size ppt
+
+	bindsym $mod+Up            resize shrink up    $size px or $size ppt
+	bindsym $mod+Shift+Up      resize grow   up    $size px or $size ppt
+
+	bindsym $mod+Right         resize shrink right $size px or $size ppt
+	bindsym $mod+Shift+Right   resize grow   right $size px or $size ppt
+
+	# bacl to normal: Enter or Escape or q or ^[
+	bindsym Return      mode "default"
+	bindsym q           mode "default"
+	bindsym Escape      mode "default"
+	bindcode Control+34 mode "default"
+}
+
+set $mode_system System (s) shutdown, (r) reboot
+mode "$mode_system" {
+	# bindsym l exec --no-startup-id i3exit lock, mode "default"
+	# bindsym e exec --no-startup-id i3exit logout, mode "default"
+	# bindsym s exec --no-startup-id i3exit suspend, mode "default"
+	# bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+	bindsym r exec --no-startup-id reboot, mode "default"
+	bindsym s exec --no-startup-id shutdown now, mode "default"
+
+	# back to normal: Enter or Escape
+	bindsym Return    mode "default"
+	bindsym Escape    mode "default"
+}
+
+bindsym $mod+Escape mode "$mode_system"
+
+bar {
+	position top
+	status_command /home/bjorn/.i3/bin/conky-wrapper
+	colors {
+		statusline #AAAAAA
+		background #333333
+		focused_workspace  $gray2 $gray2 #FFFFFF
+		inactive_workspace $gray1 $gray1 #AAAAAA
+	}
+}
+
+
+# -------------------------------------
+# - Behavior
+# -------------------------------------
+
+for_window [window_role="pop-up"]      floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [title="Preferences$"]      floating enable
+for_window [title="Edit Current$"]     floating enable
+for_window [class="(?i)pcmanfm"]       floating enable
