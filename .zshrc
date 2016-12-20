@@ -44,7 +44,7 @@ bindkey -M viins '^[k' down-line-or-history          # alt+k
 
 bindkey -M viins 'kj'  vi-cmd-mode
 bindkey -M viins 'jk'  vi-cmd-mode
-bindkey -M viins '^;'  vi-cmd-mode
+# bindkey -M viins '^;'  vi-cmd-mode
 
 bindkey -M viins '^P'  history-substring-search-up   # ctrl+p
 bindkey -M viins '^N'  history-substring-search-down # ctrl+n
