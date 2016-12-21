@@ -5,7 +5,6 @@ DEFAULT_USER="bjorn"
 DISABLE_AUTO_UPDATE="true"
 plugins=(
   # core
-  vi-mode
   history-substring-search
   common-aliases
   dircycle dirpersist # enables cycling through the directory stack using Ctrl+Shift+Left/Right
@@ -25,54 +24,19 @@ source $ZSH/oh-my-zsh.sh
 # user settings
 autoload -U zmv
 
-# common
-bindkey -M viins '^?'      backward-delete-char          # backspase
-bindkey -M viins '^H'      backward-kill-word            # ctrl+backspase
-bindkey -M viins '^[[3~'   delete-char                   # delete
-bindkey -M viins '^[[3;5~' kill-word                     # ctrl+delete
+bindkey "^[i" up-line-or-history
+bindkey "^[k" down-line-or-history
+bindkey "^[l" forward-char
+bindkey "^[j" backward-char
 
-bindkey -M vicmd '^?'      backward-delete-char          # backspase
-bindkey -M vicmd '^H'      backward-kill-word            # ctrl+backspase
-bindkey -M vicmd '^[[3~'   delete-char                   # delete
-bindkey -M vicmd '^[[3;5~' kill-word                     # ctrl+delete
+bindkey "^[u" backward-word
+bindkey "^[o" forward-word
 
-# insert mode
-bindkey -M viins '^[l' vi-forward-char               # alt+l
-bindkey -M viins '^[h' vi-backward-char              # alt+h
-bindkey -M viins '^[i' up-line-or-history            # alt+i
-bindkey -M viins '^[k' down-line-or-history          # alt+k
+bindkey "^[a" backward-delete-char
+bindkey "^[s" delete-char
 
-bindkey -M viins 'kj'  vi-cmd-mode
-bindkey -M viins 'jk'  vi-cmd-mode
-# bindkey -M viins '^;'  vi-cmd-mode
-
-bindkey -M viins '^P'  history-substring-search-up   # ctrl+p
-bindkey -M viins '^N'  history-substring-search-down # ctrl+n
-
-# command mode
-bindkey -M vicmd 'i' history-substring-search-up
-bindkey -M vicmd 'k' history-substring-search-down
-bindkey -M vicmd "j" vi-backward-char
-bindkey -M vicmd "l" vi-forward-char
-
-bindkey -M vicmd "z" undo
-bindkey -M vicmd "Z" redo
-
-bindkey -M vicmd "u"   vi-backward-word
-bindkey -M vicmd "o"   vi-forward-word
-bindkey -M vicmd "^U"  vi-backward-word-end
-bindkey -M vicmd "^O"  vi-forward-word-end
-
-bindkey -M vicmd "h" vi-digit-or-beginning-of-line
-bindkey -M vicmd "p" vi-end-of-line
-
-bindkey -M vicmd "d" vi-add-next
-bindkey -M vicmd "f" vi-insert
-
-bindkey -M vicmd "s" vi-delete
-bindkey -M vicmd "S" vi-kill-eol
-
-bindkey -M vicmd "r" vi-change
+bindkey "^[q" backward-kill-word
+bindkey "^[w" kill-word
 
 alias st="subl3"
 alias stt="subl3 -n ."
