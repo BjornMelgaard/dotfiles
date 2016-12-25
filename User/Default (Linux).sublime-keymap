@@ -30,9 +30,6 @@
   { "keys": ["l"], "command": "move", "args": {"by": "characters", "forward": true}, "context":  [ {"key": "control", "operand": "sidebar_tree"} ] },
   { "keys": ["f2"], "command": "nerd_tree" },
 
-  // Window commands
-  // { "keys": ["Q"], "command": "close", "args": {"direction": "self"},"context": [{"key": "vi_command_mode_aware"}]},
-
   // Miscellaneous
   { "keys": ["f3"], "command": "toggle_setting", "args": {"setting": "word_wrap"}},
   { "keys": ["ctrl+shift+x"], "command": "cut",   "context": [{"key": "vi_command_mode_aware"}] },
@@ -48,5 +45,12 @@
   { "keys": ["alt+shift+f"], "command": "show_panel", "args": {"panel": "replace", "reverse": false} },
   { "keys": ["ctrl+t"], "command": "transpose" },
   { "keys": ["ctrl+shift+t"], "command": "reopen_last_file" },
-  { "keys": ["alt+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
+  { "keys": ["alt+r"], "command": "show_overlay",
+    "args": {"overlay": "goto", "text": "@"},
+    "context": [ { "key": "panel_visible", "operator": "equal", "operand": false } ]
+  },
+  // { "keys": ["alt+."], "command": "close_tag" }, // can use it in insert mode
+  { "keys": ["alt+shift+r"], "command": "goto_symbol_in_project" },
+  { "keys": ["alt+shift+i"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse": true} },
+  { "keys": ["alt+shift+h"], "command": "replace_next" },
 ]
