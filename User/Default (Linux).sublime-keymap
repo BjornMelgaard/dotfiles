@@ -48,4 +48,5 @@
   { "keys": ["alt+shift+f"], "command": "show_panel", "args": {"panel": "replace", "reverse": false} },
   { "keys": ["ctrl+t"], "command": "transpose" },
   { "keys": ["ctrl+shift+t"], "command": "reopen_last_file" },
+  { "keys": ["alt+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
 ]
