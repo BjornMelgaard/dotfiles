@@ -1,0 +1,20 @@
+[user]
+	name = BjornMelgaard
+	email = melgaardbjorn@gmail.com
+[credential]
+	helper = cache --timeout=3600
+[core]
+	autocrlf = false
+	safecrlf = true
+	editor = subl3 -n -w
+	excludesfile = /home/bjorn/.gitignore_global
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+[github]
+	user = BjornMelgaard
