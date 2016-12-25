@@ -119,9 +119,9 @@ bindsym $mod+Shift+v scratchpad show
 # Moving
 # -------------------------------------
 
-set $left  j
-set $down  k
-set $up    i
+set $left  h
+set $down  j
+set $up    k
 set $right l
 
 # change focus

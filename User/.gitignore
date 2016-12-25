@@ -1,0 +1,7 @@
+Package Control.cache/
+Package Control.merged-ca-bundle
+Package Control.user-ca-bundle
+Package Control.last-run
+SublimeLinter/
+tmp*.py
+tmp/

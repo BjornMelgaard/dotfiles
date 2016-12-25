@@ -1,0 +1,5 @@
+<snippet>
+  <content>require 'pry'; binding.pry;</content>
+  <tabTrigger>pry</tabTrigger>
+  <scope>source.ruby</scope>
+</snippet>

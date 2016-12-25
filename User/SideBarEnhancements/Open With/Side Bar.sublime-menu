@@ -1,0 +1,21 @@
+[
+	{"id": "side-bar-files-open-with",
+		"children":
+		[
+
+			//application 1
+			{
+				"caption": "Gimp",
+				"id": "side-bar-files-open-with-gimp",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": ['/usr/bin/gimp'],
+									"extensions":"psd|png|jpg|jpeg",  //any file with these extensions
+									"args":[]
+								},
+				"open_automatically" : false // will close the view/tab and launch the application
+			}
+		]
+	}
+]

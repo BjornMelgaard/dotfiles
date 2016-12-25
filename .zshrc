@@ -22,12 +22,14 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
 source $ZSH/oh-my-zsh.sh
 
 # user settings
+export EDITOR='subl3'
+
 autoload -U zmv
 
-bindkey "^[i" up-line-or-history
-bindkey "^[k" down-line-or-history
+bindkey "^[k" up-line-or-history
+bindkey "^[j" down-line-or-history
 bindkey "^[l" forward-char
-bindkey "^[j" backward-char
+bindkey "^[h" backward-char
 
 bindkey "^[u" backward-word
 bindkey "^[o" forward-word
@@ -38,8 +40,12 @@ bindkey "^[s" delete-char
 bindkey "^[q" backward-kill-word
 bindkey "^[w" kill-word
 
+bindkey "^[z" undo
+bindkey "^[Z" redo
+
 alias st="subl3"
 alias stt="subl3 -n ."
+alias vim="nvim"
 
 alias llserver="/home/bjorn/Documents/LINGUALEO/lingualeo-extension-interceptor/llserver.py -f /home/bjorn/anki.csv"
 alias makesubtitles="/home/bjorn/Documents/LINGUALEO/lingualeo-extension-interceptor/makesubtitles.py"

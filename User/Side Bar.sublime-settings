@@ -1,0 +1,22 @@
+{
+
+  "disabled_menuitem_edit": true,
+  "disabled_menuitem_edit_to_right": true,
+  "disabled_menuitem_open_run": true,
+  "disabled_menuitem_open_in_browser": true,
+  "disabled_menuitem_open_in_new_window": false,
+  "disabled_menuitem_find_in_project": false,
+  "disabled_menuitem_copy_name": false,
+  "disabled_menuitem_copy_path": false,
+  "disabled_menuitem_paste_in_parent": false,
+  "disabled_menuitem_empty": true,
+
+  //if installed in a default location maybe this works.
+  "default_browser": "chrome", //one of this list: firefox, chrome, canary, chromium, opera, safari, ie
+  "open_all_browsers": ["chrome"], //any of this list: firefox, chrome, canary, chromium, opera, safari, ie, edge
+
+  "use_powershell": false,
+
+  "auto_close_empty_groups": false
+
+}

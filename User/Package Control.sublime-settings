@@ -1,0 +1,43 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AceJump",
+		"Alignment",
+		"Angular 2 Snippets (John Papa)",
+		"Babel",
+		"Better CoffeeScript",
+		"Color Highlighter",
+		"ColorPicker",
+		"CSS3",
+		"Emmet",
+		"GitGutter",
+		"HTML-CSS-JS Prettify",
+		"MarkAndMove",
+		"Origami",
+		"Package Control",
+		"Quick File Creator",
+		"React ES6 Snippets",
+		"Ruby Slim",
+		"Sass",
+		"Seti_UI",
+		"Seti_UX",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-coffeelint",
+		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-contrib-scss-lint",
+		"SublimeLinter-rubocop",
+		"TypeScript",
+		"VimL",
+		"Vintageous",
+		"VintageousOrigami"
+	],
+	"repositories":
+	[
+		"https://github.com/titoBouzout/SideBarEnhancements/tree/st3"
+	]
+}

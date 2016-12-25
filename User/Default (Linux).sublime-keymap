@@ -1,0 +1,51 @@
+[
+  // Additional movement
+  { "keys": ["alt+h"], "command": "move", "args": {"by": "characters", "forward": false, "extend": false} },
+  { "keys": ["alt+l"], "command": "move", "args": {"by": "characters", "forward": true, "extend": false} },
+  { "keys": ["alt+k"], "command": "move", "args": {"by": "lines", "forward": false, "extend": false} },
+  { "keys": ["alt+j"], "command": "move", "args": {"by": "lines", "forward": true, "extend": false} },
+
+  // Esc
+  { "keys": ["ctrl+["], "command": "press_key",          "args": {"key": "<esc>"},        "context": [{"key": "vi_command_mode_aware"}]},
+  { "keys": ["ctrl+["], "command": "_enter_normal_mode", "args": {"mode": "mode_insert"}, "context": [{"key": "vi_insert_mode_aware"}]},
+  { "keys": ["ctrl+["], "command": "clear_fields", "context":[  { "key": "has_next_field", "operator": "equal", "operand": true }] },
+  { "keys": ["ctrl+["], "command": "clear_fields", "context":[  { "key": "has_prev_field", "operator": "equal", "operand": true }]},
+  { "keys": ["ctrl+["], "command": "hide_panel", "args": {"cancel": true}, "context": [   { "key": "panel_visible", "operator": "equal", "operand": true } ]},
+  { "keys": ["ctrl+["], "command": "hide_overlay", "context":[  { "key": "overlay_visible", "operator": "equal", "operand": true }]},
+  { "keys": ["ctrl+["], "command": "hide_popup", "context":[  { "key": "popup_visible", "operator": "equal", "operand": true }]},
+  { "keys": ["j", "k"], "command": "_enter_normal_mode", "args": {"mode": "mode_insert"}, "context": [{"key": "vi_insert_mode_aware"}] },
+  { "keys": ["k", "j"], "command": "_enter_normal_mode", "args": {"mode": "mode_insert"}, "context": [{"key": "vi_insert_mode_aware"}] },
+
+  // MarkAndMove
+  { "keys": ["alt+m", "alt+m"], "command": "mark_and_move_save"   ,"context":[{"key":"vi_command_mode_aware"}]},
+  { "keys": ["alt+m", "alt+r"], "command": "mark_and_move_recall" ,"context":[{"key":"vi_command_mode_aware"}]},
+  { "keys": ["alt+m", "alt+l"], "command": "mark_and_move_next"   ,"context":[{"key":"vi_command_mode_aware"}]},
+  { "keys": ["alt+m", "alt+h"], "command": "mark_and_move_prev"   ,"context":[{"key":"vi_command_mode_aware"}]},
+  { "keys": ["alt+m", "alt+c"], "command": "mark_and_move_clear"  ,"context":[{"key":"vi_command_mode_aware"}]},
+
+  // Sidebar navifation
+  { "keys": ["h"], "command": "move", "args": {"by": "characters", "forward": false}, "context": [ {"key": "control", "operand": "sidebar_tree"} ] },
+  { "keys": ["j"], "command": "move", "args": {"by": "lines", "forward": true}, "context":  [ {"key": "control", "operand": "sidebar_tree"} ] },
+  { "keys": ["k"], "command": "move", "args": {"by": "lines", "forward": false}, "context":  [ {"key": "control", "operand": "sidebar_tree"} ] },
+  { "keys": ["l"], "command": "move", "args": {"by": "characters", "forward": true}, "context":  [ {"key": "control", "operand": "sidebar_tree"} ] },
+  { "keys": ["f2"], "command": "nerd_tree" },
+
+  // Window commands
+  // { "keys": ["Q"], "command": "close", "args": {"direction": "self"},"context": [{"key": "vi_command_mode_aware"}]},
+
+  // Miscellaneous
+  { "keys": ["f3"], "command": "toggle_setting", "args": {"setting": "word_wrap"}},
+  { "keys": ["ctrl+shift+x"], "command": "cut",   "context": [{"key": "vi_command_mode_aware"}] },
+  { "keys": ["ctrl+shift+c"], "command": "copy",  "context": [{"key": "vi_command_mode_aware"}] },
+  { "keys": ["ctrl+shift+v"], "command": "paste", "context": [{"key": "vi_command_mode_aware"}] },
+  { "keys": ["ctrl+s"],       "command": "save" },
+  { "keys": ["ctrl+a"],       "command": "select_all" },
+  { "keys": ["ctrl+j"],       "command": "join_lines" },
+  { "keys": ["ctrl+shift+l"], "command": "split_selection_into_lines" },
+  { "keys": ["alt+o"],        "command": "prompt_open_file" },
+  { "keys": ["alt+n"],        "command": "new_file" },
+  { "keys": ["alt+f"], "command": "show_panel", "args": {"panel": "find", "reverse": false} },
+  { "keys": ["alt+shift+f"], "command": "show_panel", "args": {"panel": "replace", "reverse": false} },
+  { "keys": ["ctrl+t"], "command": "transpose" },
+  { "keys": ["ctrl+shift+t"], "command": "reopen_last_file" },
+]
