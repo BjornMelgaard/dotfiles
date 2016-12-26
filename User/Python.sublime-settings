@@ -1,7 +1,7 @@
 // These settings override both User and Default settings for the Python syntax
 {
   "tab_size": 4,
-  "translate_tabs_to_spaces": false,
+  "translate_tabs_to_spaces": true,
   "extensions":
   [
     "*.py",
