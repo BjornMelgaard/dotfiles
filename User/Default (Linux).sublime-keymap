@@ -5,6 +5,12 @@
   { "keys": ["alt+k"], "command": "move", "args": {"by": "lines", "forward": false, "extend": false} },
   { "keys": ["alt+j"], "command": "move", "args": {"by": "lines", "forward": true, "extend": false} },
 
+  // By subwords
+  { "keys": ["alt+e"], "command": "move", "args": {"by": "subwords", "forward": false} },
+  { "keys": ["alt+w"], "command": "move", "args": {"by": "subword_ends", "forward": true} },
+  { "keys": ["alt+shift+e"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
+  { "keys": ["alt+shift+w"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true} },
+
   //
   { "keys": ["ctrl+]"], "command": "press_key", "args": {"key": "<C-]>"}, "context": [{"key": "vi_command_mode_aware"},  {"key": "vi_use_ctrl_keys"}]},
 
@@ -56,4 +62,5 @@
   { "keys": ["alt+shift+r"], "command": "goto_symbol_in_project" },
   { "keys": ["alt+shift+i"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse": true} },
   { "keys": ["alt+shift+h"], "command": "replace_next" },
+  { "keys": ["ctrl+shift+d"], "command": "duplicate_line" },
 ]
