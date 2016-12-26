@@ -2,9 +2,6 @@
 PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
 
-# angular-cli
-source /home/bjorn/.oh-my-zsh/custom/plugins/angular-cli-autocomplete/angular-cli-autocomplete.plugin.zsh
-
 # heroku
 export PATH=/usr/local/heroku/bin:$PATH
 
