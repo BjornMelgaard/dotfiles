@@ -6,9 +6,9 @@
   { "keys": ["alt+j"], "command": "move", "args": {"by": "lines", "forward": true, "extend": false} },
 
   // By subwords
-  { "keys": ["alt+e"], "command": "move", "args": {"by": "subwords", "forward": false} },
+  { "keys": ["alt+b"], "command": "move", "args": {"by": "subwords", "forward": false} },
   { "keys": ["alt+w"], "command": "move", "args": {"by": "subword_ends", "forward": true} },
-  { "keys": ["alt+shift+e"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
+  { "keys": ["alt+shift+b"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
   { "keys": ["alt+shift+w"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true} },
 
   // Esc
@@ -19,6 +19,7 @@
   { "keys": ["ctrl+["], "command": "hide_panel", "args": {"cancel": true}, "context": [   { "key": "panel_visible", "operator": "equal", "operand": true } ]},
   { "keys": ["ctrl+["], "command": "hide_overlay", "context":[  { "key": "overlay_visible", "operator": "equal", "operand": true }]},
   { "keys": ["ctrl+["], "command": "hide_popup", "context":[  { "key": "popup_visible", "operator": "equal", "operand": true }]},
+  { "keys": ["ctrl+]"], "command": "_enter_normal_mode", "args": {"mode": "mode_insert"}, "context": [{"key": "vi_insert_mode_aware"}]},
   { "keys": ["j", "k"], "command": "_enter_normal_mode", "args": {"mode": "mode_insert"}, "context": [{"key": "vi_insert_mode_aware"}] },
   { "keys": ["k", "j"], "command": "_enter_normal_mode", "args": {"mode": "mode_insert"}, "context": [{"key": "vi_insert_mode_aware"}] },
 
