@@ -1,5 +1,3 @@
-// to ~/.config/xkb/my
-
 xkb_keymap {
   xkb_keycodes      { include "evdev+aliases(qwerty)" };
   xkb_geometry      { include "pc(pc104)" };
@@ -9,11 +7,11 @@ xkb_keymap {
   xkb_symbols {
     include "pc+us+ru:2+inet(evdev)"
     include "group(rctrl_rshift_toggle)"
-    include "ctrl(nocaps)"
+    include "capslock(swapescape)"
 
-    replace key <PAUS> {  [ Caps_Lock ] };
+    // replace key <PAUS> {  [ Caps_Lock ] };
 
-    // include "capslock(swapescape)"
+    // include "ctrl(nocaps)"
     // replace key <ESC>  {  [ Caps_Lock ] };
     // replace key <CAPS> {  [ Control_L ] };
     // replace key <LCTL> {  [ Escape    ] };

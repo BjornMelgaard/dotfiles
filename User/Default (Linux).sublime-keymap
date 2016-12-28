@@ -11,18 +11,6 @@
   { "keys": ["alt+shift+b"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
   { "keys": ["alt+shift+w"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true} },
 
-  // Esc
-  { "keys": ["ctrl+["], "command": "press_key",          "args": {"key": "<esc>"},        "context": [{"key": "vi_command_mode_aware"}]},
-  { "keys": ["ctrl+["], "command": "_enter_normal_mode", "args": {"mode": "mode_insert"}, "context": [{"key": "vi_insert_mode_aware"}]},
-  { "keys": ["ctrl+["], "command": "clear_fields", "context":[  { "key": "has_next_field", "operator": "equal", "operand": true }] },
-  { "keys": ["ctrl+["], "command": "clear_fields", "context":[  { "key": "has_prev_field", "operator": "equal", "operand": true }]},
-  { "keys": ["ctrl+["], "command": "hide_panel", "args": {"cancel": true}, "context": [   { "key": "panel_visible", "operator": "equal", "operand": true } ]},
-  { "keys": ["ctrl+["], "command": "hide_overlay", "context":[  { "key": "overlay_visible", "operator": "equal", "operand": true }]},
-  { "keys": ["ctrl+["], "command": "hide_popup", "context":[  { "key": "popup_visible", "operator": "equal", "operand": true }]},
-  { "keys": ["ctrl+]"], "command": "_enter_normal_mode", "args": {"mode": "mode_insert"}, "context": [{"key": "vi_insert_mode_aware"}]},
-  { "keys": ["j", "k"], "command": "_enter_normal_mode", "args": {"mode": "mode_insert"}, "context": [{"key": "vi_insert_mode_aware"}] },
-  { "keys": ["k", "j"], "command": "_enter_normal_mode", "args": {"mode": "mode_insert"}, "context": [{"key": "vi_insert_mode_aware"}] },
-
   // MarkAndMove
   { "keys": ["alt+m", "alt+m"], "command": "mark_and_move_save"   ,"context":[{"key":"vi_command_mode_aware"}]},
   { "keys": ["alt+m", "alt+r"], "command": "mark_and_move_recall" ,"context":[{"key":"vi_command_mode_aware"}]},

@@ -12,7 +12,7 @@ export OPTIMUS_PREFIX="primusrun"
 xset -dpms
 xset s off
 xinput --disable 'ETPS/2 Elantech Touchpad'
-xkbcomp $HOME/.config/xkb/my $DISPLAY
+xkbcomp $HOME/.config/xkb $DISPLAY
 
 start-pulseaudio-x11
 
