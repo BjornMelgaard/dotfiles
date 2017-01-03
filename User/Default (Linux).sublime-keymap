@@ -11,6 +11,12 @@
   { "keys": ["alt+shift+b"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
   { "keys": ["alt+shift+w"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true} },
 
+  // Vintageous clipboard actions
+  { "keys": ["alt+d"], "command": "press_key", "args": {"key": "<M-d>"}, "context": [{"key": "vi_command_mode_aware"}]},
+  { "keys": ["alt+y"], "command": "press_key", "args": {"key": "<M-y>"}, "context": [{"key": "vi_command_mode_aware"}]},
+  { "keys": ["alt+p"], "command": "press_key", "args": {"key": "<M-p>"}, "context": [{"key": "vi_command_mode_aware"}]},
+  { "keys": ["alt+P"], "command": "press_key", "args": {"key": "<M-P>"}, "context": [{"key": "vi_command_mode_aware"}]},
+
   // MarkAndMove
   { "keys": ["alt+m", "alt+m"], "command": "mark_and_move_save"   ,"context":[{"key":"vi_command_mode_aware"}]},
   { "keys": ["alt+m", "alt+r"], "command": "mark_and_move_recall" ,"context":[{"key":"vi_command_mode_aware"}]},
@@ -18,18 +24,32 @@
   { "keys": ["alt+m", "alt+h"], "command": "mark_and_move_prev"   ,"context":[{"key":"vi_command_mode_aware"}]},
   { "keys": ["alt+m", "alt+c"], "command": "mark_and_move_clear"  ,"context":[{"key":"vi_command_mode_aware"}]},
 
+  // FileBrowser
+  {
+    "keys": ["f1"],
+    "command": "dired",
+    "args": {
+      "immediate": true,
+      "single_pane": true,
+      "other_group": "left",
+      "project": true
+    }
+  },
+
   // Sidebar navifation
   { "keys": ["h"], "command": "move", "args": {"by": "characters", "forward": false}, "context": [ {"key": "control", "operand": "sidebar_tree"} ] },
   { "keys": ["j"], "command": "move", "args": {"by": "lines", "forward": true}, "context":  [ {"key": "control", "operand": "sidebar_tree"} ] },
   { "keys": ["k"], "command": "move", "args": {"by": "lines", "forward": false}, "context":  [ {"key": "control", "operand": "sidebar_tree"} ] },
   { "keys": ["l"], "command": "move", "args": {"by": "characters", "forward": true}, "context":  [ {"key": "control", "operand": "sidebar_tree"} ] },
-  { "keys": ["f2"], "command": "nerd_tree" },
+  { "keys": ["f2"], "command": "my_sidebar_toggle" },
 
   // Miscellaneous
   { "keys": ["f3"], "command": "toggle_setting", "args": {"setting": "word_wrap"}},
+
   { "keys": ["ctrl+shift+x"], "command": "cut",   "context": [{"key": "vi_command_mode_aware"}] },
   { "keys": ["ctrl+shift+c"], "command": "copy",  "context": [{"key": "vi_command_mode_aware"}] },
   { "keys": ["ctrl+shift+v"], "command": "paste", "context": [{"key": "vi_command_mode_aware"}] },
+
   { "keys": ["ctrl+s"],       "command": "save" },
   { "keys": ["ctrl+a"],       "command": "select_all" },
   { "keys": ["ctrl+j"],       "command": "join_lines" },

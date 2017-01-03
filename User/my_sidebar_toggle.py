@@ -2,7 +2,7 @@ import sublime
 import sublime_plugin
 
 
-class NerdTreeCommand(sublime_plugin.WindowCommand):
+class MySidebarToggleCommand(sublime_plugin.WindowCommand):
     def run(self):
         was_visible = self.window.is_sidebar_visible()
         self.window.run_command("toggle_side_bar")
