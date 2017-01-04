@@ -50,6 +50,9 @@
   { "keys": ["ctrl+shift+c"], "command": "copy",  "context": [{"key": "vi_command_mode_aware"}] },
   { "keys": ["ctrl+shift+v"], "command": "paste", "context": [{"key": "vi_command_mode_aware"}] },
 
+  { "keys": ["ctrl+tab"], "command": "next_view", "context": [{"key": "vi_command_mode_aware"}] },
+  { "keys": ["ctrl+shift+tab"],  "command": "prev_view", "context": [{"key": "vi_command_mode_aware"}] },
+
   { "keys": ["ctrl+s"],       "command": "save" },
   { "keys": ["ctrl+a"],       "command": "select_all" },
   { "keys": ["ctrl+j"],       "command": "join_lines" },
