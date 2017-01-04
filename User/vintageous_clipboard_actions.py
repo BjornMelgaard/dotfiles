@@ -21,6 +21,25 @@ class ViClipboardCut(ViOperatorDef):
         cmd['action'] = '_vi_d'
         cmd['action_args'] = {'mode': state.mode,
                               'count': state.count,
+                              }
+
+        return cmd
+
+
+@plugins.register("<M-d><M-d>", _MODES_ACTION)
+class ViClipboardCutLine(ViOperatorDef):
+
+    def __init__(self, *args, **kwargs):
+        ViOperatorDef.__init__(self, *args, **kwargs)
+        self.updates_xpos = True
+        self.scroll_into_view = True
+        self.repeatable = True
+
+    def translate(self, state):
+        cmd = {}
+        cmd['action'] = '_vi_dd'
+        cmd['action_args'] = {'mode': state.mode,
+                              'count': state.count,
                               'register':  "+",
                               }
 
@@ -34,11 +53,31 @@ class ViClipboardCopy(ViOperatorDef):
         ViOperatorDef.__init__(self, *args, **kwargs)
         self.updates_xpos = True
         self.scroll_into_view = True
+        self.motion_required = True
         self.repeatable = True
 
     def translate(self, state):
         cmd = {}
         cmd['action'] = '_vi_y'
+        cmd['action_args'] = {'mode': state.mode,
+                              'count': state.count,
+                              'register':  "+",
+                              }
+
+        return cmd
+
+
+@plugins.register("<M-y><M-y>", _MODES_ACTION)
+class ViClipboardCopyLine(ViOperatorDef):
+
+    def __init__(self, *args, **kwargs):
+        ViOperatorDef.__init__(self, *args, **kwargs)
+        self.updates_xpos = True
+        self.scroll_into_view = True
+
+    def translate(self, state):
+        cmd = {}
+        cmd['action'] = '_vi_yy'
         cmd['action_args'] = {'mode': state.mode,
                               'count': state.count,
                               'register':  "+",
