@@ -21,6 +21,7 @@ class ViClipboardCut(ViOperatorDef):
         cmd['action'] = '_vi_d'
         cmd['action_args'] = {'mode': state.mode,
                               'count': state.count,
+                              'register':  "+",
                               }
 
         return cmd
