@@ -62,7 +62,7 @@ set $browser  google-chrome-stable
 set $editor   subl3
 
 exec --no-startup-id python /home/bjorn/.i3/randomize_background.py
-exec --no-startup-id $terminal -e "llserver"
+exec --no-startup-id $terminal -e "/home/bjorn/Documents/LINGUALEO/lingualeo2anki/llserver.py -f /home/bjorn/anki.csv"
 exec --no-startup-id $browser
 
 # -------------------------------------
