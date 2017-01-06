@@ -11,7 +11,6 @@ plugins=(
   colorize
   compleat
   command-not-found
-  zsh-256color
   zsh-autosuggestions
   # miscellaneous
   rake-fast bundler ruby rails gem rvm
@@ -47,8 +46,7 @@ alias st="subl3"
 alias stt="subl3 -n ."
 alias vim="nvim"
 
-alias llserver="/home/bjorn/Documents/LINGUALEO/lingualeo2anki/start_server.sh -f /home/bjorn/anki.csv"
-alias makesubtitles="/home/bjorn/Documents/LINGUALEO/lingualeo-extension-interceptor/makesubtitles.py"
+alias llserver="/home/bjorn/Documents/LINGUALEO/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
 alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
 alias update-angular-cli="npm uninstall -g angular-cli && npm cache clean && npm install -g angular-cli@latest"

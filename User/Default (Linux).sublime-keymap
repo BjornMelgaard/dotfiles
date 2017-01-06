@@ -53,6 +53,9 @@
   { "keys": ["ctrl+tab"], "command": "next_view", "context": [{"key": "vi_command_mode_aware"}] },
   { "keys": ["ctrl+shift+tab"],  "command": "prev_view", "context": [{"key": "vi_command_mode_aware"}] },
 
+  { "keys": ["enter"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line.sublime-macro"}, "context": [{"key": "vi_command_mode_aware"}]  },
+  { "keys": ["shift+enter"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line Before.sublime-macro"}, "context": [{"key": "vi_command_mode_aware"}]  },
+
   { "keys": ["ctrl+s"],       "command": "save" },
   { "keys": ["ctrl+a"],       "command": "select_all" },
   { "keys": ["ctrl+j"],       "command": "join_lines" },
