@@ -19,16 +19,16 @@ client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 # Workspaces names
 # -------------------------------------
 
-set $WS1 000
-set $WS2 001
-set $WS3 010
-set $WS4 011
-set $WS5 100
-set $WS6 101
-set $WS7 110
-set $WS8 111
-set $WS9 1000
-set $WS0 1001
+set $WS1 I
+set $WS2 II
+set $WS3 III
+set $WS4 IV
+set $WS5 V
+set $WS6 VI
+set $WS7 VII
+set $WS8 VIII
+set $WS9 IX
+set $WS0 X
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1

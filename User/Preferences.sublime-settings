@@ -10,6 +10,11 @@
 		".gitkeep",
 		".DS_Store"
 	],
+	"folder_exclude_patterns":
+	[
+		"tmp/cache",
+		".git"
+	],
 	"font_size": 9,
 	"highlight_line": true,
 	"ignored_packages":

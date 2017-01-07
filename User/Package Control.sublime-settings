@@ -29,6 +29,7 @@
 		"SublimeLinter",
 		"SublimeLinter-coffeelint",
 		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-contrib-haml-lint",
 		"SublimeLinter-contrib-scss-lint",
 		"SublimeLinter-pep8",
 		"SublimeLinter-rubocop",
