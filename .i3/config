@@ -19,40 +19,40 @@ client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 # Workspaces names
 # -------------------------------------
 
-set $WS1 I
-set $WS2 II
-set $WS3 III
-set $WS4 IV
-set $WS5 V
-set $WS6 VI
-set $WS7 VII
-set $WS8 VIII
-set $WS9 IX
-set $WS10 X
+set $WS0 "1:I"
+set $WS1 "2:II"
+set $WS2 "3:III"
+set $WS3 "3:IV"
+set $WS4 "4:V"
+set $WS5 "5:VI"
+set $WS6 "6:VII"
+set $WS7 "7:VIII"
+set $WS8 "8:IX"
+set $WS9 "9:X"
 
 # switch to workspace
-bindsym $mod+1 workspace $WS1
-bindsym $mod+2 workspace $WS2
-bindsym $mod+3 workspace $WS3
-bindsym $mod+4 workspace $WS4
-bindsym $mod+5 workspace $WS5
-bindsym $mod+6 workspace $WS6
-bindsym $mod+7 workspace $WS7
-bindsym $mod+8 workspace $WS8
-bindsym $mod+9 workspace $WS9
-bindsym $mod+0 workspace $WS10
+bindsym $mod+1 workspace $WS0
+bindsym $mod+2 workspace $WS1
+bindsym $mod+3 workspace $WS2
+bindsym $mod+4 workspace $WS3
+bindsym $mod+5 workspace $WS4
+bindsym $mod+6 workspace $WS5
+bindsym $mod+7 workspace $WS6
+bindsym $mod+8 workspace $WS7
+bindsym $mod+9 workspace $WS8
+bindsym $mod+0 workspace $WS9
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move workspace $WS1
-bindsym $mod+Shift+2 move workspace $WS2
-bindsym $mod+Shift+3 move workspace $WS3
-bindsym $mod+Shift+4 move workspace $WS4
-bindsym $mod+Shift+5 move workspace $WS5
-bindsym $mod+Shift+6 move workspace $WS6
-bindsym $mod+Shift+7 move workspace $WS7
-bindsym $mod+Shift+8 move workspace $WS8
-bindsym $mod+Shift+9 move workspace $WS9
-bindsym $mod+Shift+0 move workspace $WS10
+bindsym $mod+Shift+1 move workspace $WS0
+bindsym $mod+Shift+2 move workspace $WS1
+bindsym $mod+Shift+3 move workspace $WS2
+bindsym $mod+Shift+4 move workspace $WS3
+bindsym $mod+Shift+5 move workspace $WS4
+bindsym $mod+Shift+6 move workspace $WS5
+bindsym $mod+Shift+7 move workspace $WS6
+bindsym $mod+Shift+8 move workspace $WS7
+bindsym $mod+Shift+9 move workspace $WS8
+bindsym $mod+Shift+0 move workspace $WS9
 
 # -------------------------------------
 # Autostart
@@ -62,7 +62,7 @@ set $browser  google-chrome-stable
 set $editor   subl3
 
 exec --no-startup-id python /home/bjorn/.i3/randomize_background.py
-exec --no-startup-id $terminal -e "/home/bjorn/Documents/LINGUALEO/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
+exec --no-startup-id $terminal -e "/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
 exec --no-startup-id $browser
 
 # -------------------------------------
@@ -212,6 +212,7 @@ mode "$mode_system" {
 bindsym $mod+Caps_Lock mode "$mode_system"
 
 bar {
+	strip_workspace_numbers yes
 	position top
 	status_command /home/bjorn/.i3/bin/conky-wrapper
 	colors {

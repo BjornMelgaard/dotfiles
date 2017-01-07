@@ -12,6 +12,7 @@ plugins=(
   compleat
   command-not-found
   zsh-autosuggestions
+  pj
   # miscellaneous
   rake-fast bundler ruby rails gem rvm
   systemd sudo git archlinux
@@ -22,6 +23,7 @@ source $ZSH/oh-my-zsh.sh
 
 # user settings
 export EDITOR='subl3'
+export PROJECT_PATHS=(~/projects ~/.config)
 
 autoload -U zmv
 
@@ -55,7 +57,7 @@ alias -g :NE="2>/dev/null"
 alias -g :NO="1>/dev/null"
 alias -g :NUL='&>/dev/null'
 
-alias llserver="/home/bjorn/Documents/LINGUALEO/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
+alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
 alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
 alias update-angular-cli="npm uninstall -g angular-cli && npm cache clean && npm install -g angular-cli@latest"
