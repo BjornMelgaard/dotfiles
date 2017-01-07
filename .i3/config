@@ -28,7 +28,7 @@ set $WS6 VI
 set $WS7 VII
 set $WS8 VIII
 set $WS9 IX
-set $WS0 X
+set $WS10 X
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -40,7 +40,7 @@ bindsym $mod+6 workspace $WS6
 bindsym $mod+7 workspace $WS7
 bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
-bindsym $mod+0 workspace $WS0
+bindsym $mod+0 workspace $WS10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move workspace $WS1
@@ -52,7 +52,7 @@ bindsym $mod+Shift+6 move workspace $WS6
 bindsym $mod+Shift+7 move workspace $WS7
 bindsym $mod+Shift+8 move workspace $WS8
 bindsym $mod+Shift+9 move workspace $WS9
-bindsym $mod+Shift+0 move workspace $WS0
+bindsym $mod+Shift+0 move workspace $WS10
 
 # -------------------------------------
 # Autostart
