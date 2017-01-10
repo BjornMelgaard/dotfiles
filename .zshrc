@@ -3,23 +3,31 @@ ZSH=/usr/share/oh-my-zsh
 ZSH_THEME="agnoster"
 DEFAULT_USER="bjorn"
 DISABLE_AUTO_UPDATE="true"
+ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
+if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
+ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
+
 plugins=(
-  # core
   history-substring-search
   common-aliases
   dircycle dirpersist # enables cycling through the directory stack using Ctrl+Shift+Left/Right
   colorize
   compleat
   command-not-found
-  zsh-autosuggestions
   pj
+
   # miscellaneous
-  rake-fast bundler ruby rails gem rvm
+  bundler ruby rails gem rvm
   systemd sudo git archlinux
+
+  # custom plugins
+  rake-fast
+  zsh-autosuggestions
+  zsh-completions
 )
-ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
-if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
+
 source $ZSH/oh-my-zsh.sh
+autoload -U compinit && compinit
 
 # user settings
 export EDITOR='subl3'
