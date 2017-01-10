@@ -1,5 +1,5 @@
 # oh-my-zsh
-ZSH=/usr/share/oh-my-zsh/
+ZSH=/usr/share/oh-my-zsh
 ZSH_THEME="agnoster"
 DEFAULT_USER="bjorn"
 DISABLE_AUTO_UPDATE="true"
