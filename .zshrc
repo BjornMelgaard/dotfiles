@@ -31,7 +31,10 @@ autoload -U compinit && compinit
 
 # user settings
 export EDITOR='subl3'
-export PROJECT_PATHS=(~/projects ~/.config)
+export PROJECT_PATHS=(~/projects)
+
+alias pjdot="cd $HOME/.config/dotfiles"
+alias pjodot="$EDITOR $HOME/.config/dotfiles"
 
 autoload -U zmv
 
