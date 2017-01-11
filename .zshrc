@@ -27,7 +27,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-autoload -U compinit && compinit
+autoload -U compinit && compinit # for zsh-completions
 
 # user settings
 export EDITOR='nvim-qt'
