@@ -30,7 +30,7 @@ source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
 
 # user settings
-export EDITOR='subl3'
+export EDITOR='nvim-qt'
 export PROJECT_PATHS=(~/projects)
 
 alias pjdot="cd $HOME/.config/dotfiles"
@@ -57,7 +57,7 @@ bindkey "^[Z" redo
 
 alias st="subl3"
 alias stt="subl3 -n ."
-alias vim="nvim"
+alias vim="nvim-qt"
 
 alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"

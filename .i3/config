@@ -59,7 +59,6 @@ bindsym $mod+Shift+0 move workspace $WS9
 # -------------------------------------
 set $terminal gnome-terminal
 set $browser  google-chrome-stable
-set $editor   subl3
 
 exec --no-startup-id python /home/bjorn/.i3/randomize_background.py
 exec --no-startup-id $terminal -e "/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
@@ -72,10 +71,10 @@ bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
 
 bindsym $mod+w       exec $browser
-bindsym $mod+Shift+w exec pcmanfm
-bindsym $mod+e       exec $editor
-bindsym $mod+Shift+e exec $editor -n
-bindsym $mod+Ctrl+e  exec nvim-qt
+bindsym $mod+Shift+w exec $terminal -e "ranger"
+bindsym $mod+e       exec nvim-qt
+bindsym $mod+Shift+e exec subl3
+bindsym $mod+Ctrl+e  exec subl3 -n
 
 bindsym $mod+r           mode "resize"
 bindsym $mod+q           kill
