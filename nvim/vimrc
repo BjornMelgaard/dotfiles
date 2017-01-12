@@ -434,7 +434,9 @@
       nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
       vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
     "}}}
-    call dein#add('jiangmiao/auto-pairs')
+    call dein#add('jiangmiao/auto-pairs') "{{{
+      let g:AutoPairsShortcutToggle = ''
+    "}}}
     call dein#add('justinmk/vim-sneak') "{{{
       let g:sneak#streak = 1
     "}}}
@@ -654,22 +656,16 @@
   nnoremap <up> :tabnext<CR>
   nnoremap <down> :tabprev<CR>
 
-  " smash escape
-  inoremap jk <esc>
-  inoremap kj <esc>
-  cnoremap jk <esc>
-  cnoremap kj <esc>
-
   " change cursor position in insert and command mode
-  inoremap <M-h> <left>
-  inoremap <M-l> <right>
-  inoremap <M-j> <down>
-  inoremap <M-k> <up>
-
   cnoremap <M-h> <left>
   cnoremap <M-l> <right>
   cnoremap <M-j> <down>
   cnoremap <M-k> <up>
+
+  " clipboard actions
+  nnoremap <M-p> "+p
+  nnoremap <M-y> "+y
+  nnoremap <M-d> "+d
 
   inoremap <C-u> <C-g>u<C-u>
 

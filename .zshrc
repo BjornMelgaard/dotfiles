@@ -8,6 +8,7 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
 ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 
 plugins=(
+  vi-mode
   history-substring-search
   common-aliases
   dircycle dirpersist # enables cycling through the directory stack using Ctrl+Shift+Left/Right
@@ -35,22 +36,28 @@ alias pjodot="$EDITOR $HOME/.config/dotfiles"
 
 autoload -U zmv
 
-bindkey "^[k" up-line-or-history
-bindkey "^[j" down-line-or-history
-bindkey "^[l" forward-char
-bindkey "^[h" backward-char
+bindkey -M viins '^[[3~'   delete-char # delete
+bindkey -M viins '^[[3;5~' kill-word   # ctrl+delete
+bindkey -M vicmd '^[[3~'   delete-char # delete
+bindkey -M vicmd '^[[3;5~' kill-word   # ctrl+delete
 
-bindkey "^[u" backward-word
-bindkey "^[o" forward-word
+bindkey -M viins '^[f' vi-forward-char  # alt+f
+bindkey -M viins '^[b' vi-backward-char # alt+b
 
-bindkey "^[a" backward-delete-char
-bindkey "^[s" delete-char
+bindkey -M viins '^[[A' up-line-or-history   # up
+bindkey -M viins '^[[B' down-line-or-history # down
 
-bindkey "^[q" backward-kill-word
-bindkey "^[w" kill-word
+bindkey -M viins '^P'  history-substring-search-up   # ctrl+p
+bindkey -M viins '^N'  history-substring-search-down # ctrl+n
 
-bindkey "^[z" undo
-bindkey "^[Z" redo
+# quoted text objects
+autoload -U select-quoted
+zle -N select-quoted
+for m in visual viopp; do
+	for c in {a,i}{\',\",\`}; do
+		bindkey -M $m $c select-quoted
+	done
+done
 
 alias st="subl3"
 alias stt="subl3 -n ."
