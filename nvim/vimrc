@@ -436,10 +436,12 @@
     "}}}
     call dein#add('jiangmiao/auto-pairs') "{{{
       let g:AutoPairsShortcutToggle = ''
+      let g:AutoPairsMapCh = 0
     "}}}
     call dein#add('justinmk/vim-sneak') "{{{
       let g:sneak#streak = 1
     "}}}
+    call dein#add('vim-scripts/eraseSubword')
   endif "}}}
   if count(s:settings.plugin_groups, 'navigation') "{{{
     call dein#add('mileszs/ack.vim') "{{{
