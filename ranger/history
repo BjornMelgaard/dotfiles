@@ -1,7 +1,0 @@
-rename install.sh
-rename .zshrc
-shell nvim
-
-shell 
-shell nvim %s
-search va
