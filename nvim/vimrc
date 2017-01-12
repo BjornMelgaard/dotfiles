@@ -350,6 +350,7 @@
       " call dein#add('bitbucket:ludovicchabant/vim-lawrencium')
     endif
     call dein#add('tpope/vim-fugitive') "{{{
+      nnoremap <silent> <leader>ga :Git add --all<CR>
       nnoremap <silent> <leader>gs :Gstatus<CR>
       nnoremap <silent> <leader>gd :Gdiff<CR>
       nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -615,6 +616,7 @@
       nnoremap <F1> :Startify<cr>
     "}}}
     call dein#add('scrooloose/syntastic') "{{{
+      " let g:syntastic_aggregate_errors = 1
       let g:syntastic_error_symbol = '✗'
       let g:syntastic_style_error_symbol = '✠'
       let g:syntastic_warning_symbol = '∆'
@@ -669,6 +671,11 @@
   nnoremap <M-y> "+y
   nnoremap <M-d> "+d
 
+  vnoremap <M-p> "+p
+  vnoremap <M-y> "+y
+  vnoremap <M-d> "+d
+
+  " start new undo sequence if deleting word
   inoremap <C-u> <C-g>u<C-u>
 
   if mapcheck('<space>/') == ''

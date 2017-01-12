@@ -36,17 +36,24 @@ alias pjodot="$EDITOR $HOME/.config/dotfiles"
 
 autoload -U zmv
 
-bindkey -M viins '^[[3~'   delete-char # delete
-bindkey -M viins '^[[3;5~' kill-word   # ctrl+delete
-bindkey -M vicmd '^[[3~'   delete-char # delete
-bindkey -M vicmd '^[[3;5~' kill-word   # ctrl+delete
+# better deletion
+bindkey -M viins '^?'      backward-delete-char          # backspase
+bindkey -M viins '^H'      backward-kill-word            # ctrl+backspase
+bindkey -M viins '^[[3~'   delete-char                   # delete
+bindkey -M viins '^[[3;5~' kill-word                     # ctrl+delete
 
-bindkey -M viins '^[f' vi-forward-char  # alt+f
-bindkey -M viins '^[b' vi-backward-char # alt+b
+bindkey -M vicmd '^?'      backward-delete-char          # backspase
+bindkey -M vicmd '^H'      backward-kill-word            # ctrl+backspase
+bindkey -M vicmd '^[[3~'   delete-char                   # delete
+bindkey -M vicmd '^[[3;5~' kill-word                     # ctrl+delete
 
+# ranger movement
+bindkey -M viins '^F' vi-forward-char  # alt+f
+bindkey -M viins '^B' vi-backward-char # alt+b
+
+#
 bindkey -M viins '^[[A' up-line-or-history   # up
 bindkey -M viins '^[[B' down-line-or-history # down
-
 bindkey -M viins '^P'  history-substring-search-up   # ctrl+p
 bindkey -M viins '^N'  history-substring-search-down # ctrl+n
 
