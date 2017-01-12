@@ -149,7 +149,7 @@
   set showfulltag
   set modeline
   set modelines=5
-  set shell=zsh\ -i
+  set shell=zsh
   set noshelltemp                                     "use pipes
 
   " whitespace
