@@ -30,9 +30,6 @@ source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit # for zsh-completions
 
 # user settings
-export EDITOR='nvim'
-export PROJECT_PATHS=(~/projects)
-
 alias pjdot="cd $HOME/.config/dotfiles"
 alias pjodot="$EDITOR $HOME/.config/dotfiles"
 

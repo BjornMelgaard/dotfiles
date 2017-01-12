@@ -71,7 +71,7 @@ bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
 
 bindsym $mod+w       exec $browser
-bindsym $mod+Shift+w exec --no-startup-id $terminal -e "ranger"
+bindsym $mod+Shift+w exec $terminal -e "/bin/zsh -c ranger"
 bindsym $mod+e       exec nvim-qt
 bindsym $mod+Shift+e exec subl3
 bindsym $mod+Ctrl+e  exec subl3 -n
@@ -94,8 +94,8 @@ bindsym $mod+Shift+space focus mode_toggle
 bindsym XF86AudioRaiseVolume  exec "amixer -D pulse sset Master '3%+'"
 bindsym XF86AudioLowerVolume  exec "amixer -D pulse sset Master '3%-'"
 bindsym XF86AudioMute         exec "amixer -D pulse sset Master toggle"
-bindsym XF86nbdBrightnessDown exec "sudo /opt/obdlight/bin/pbdlight -"
-bindsym XF86qbdBrightnessUp   exec "sudo /opt/rbdlight/bin/sbdlight +"
+bindsym XF86nbdBrightnessDown exec "xbacklight - 10"
+bindsym XF86qbdBrightnessUp   exec "xbacklight + 10"
 bindsym XF86TouchpadToggle    exec "/home/bjorn/.i3/bin/switch_touchpad.sh"
 bindsym Print                 exec "scrot /home/bjorn/Pictures/%d.png"
 # bindsym XF86Display         exec "arandr"

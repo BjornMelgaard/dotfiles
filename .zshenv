@@ -1,3 +1,6 @@
+export EDITOR='/usr/bin/nvim'
+export PROJECT_PATHS=(~/projects)
+
 # nodejs
 PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
