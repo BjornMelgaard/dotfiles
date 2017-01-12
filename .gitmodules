@@ -1,9 +1,9 @@
-[submodule ".oh-my-zsh/custom/plugins/zsh-completions"]
-	path = .oh-my-zsh/custom/plugins/zsh-completions
+[submodule "oh-my-zsh/custom/plugins/zsh-completions"]
+	path = oh-my-zsh/custom/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
-[submodule ".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-	path = .oh-my-zsh/custom/plugins/zsh-autosuggestions
+[submodule "oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+	path = oh-my-zsh/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule ".oh-my-zsh/custom/plugins/rake-fast"]
-	path = .oh-my-zsh/custom/plugins/rake-fast
+[submodule "oh-my-zsh/custom/plugins/rake-fast"]
+	path = oh-my-zsh/custom/plugins/rake-fast
 	url = https://github.com/KevinBongart/rake-fast

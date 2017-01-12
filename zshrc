@@ -69,6 +69,7 @@ done
 alias st="subl3"
 alias stt="subl3 -n ."
 alias vim="nvim-qt"
+alias r="ranger"
 
 alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
