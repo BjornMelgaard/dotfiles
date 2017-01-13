@@ -16,3 +16,4 @@ ln -sf $DOTFILES_DIR/zshenv              $HOME/.zshenv
 ln -sf $DOTFILES_DIR/xinitrc             $HOME/.xinitrc
 ln -sf $DOTFILES_DIR/yaourtrc            $HOME/.yaourtrc
 ln -sf $DOTFILES_DIR/xkb                 $HOME/.config/xkb
+ln -sf $DOTFILES_DIR/Xresources          $HOME/.Xresources
