@@ -16,6 +16,7 @@ plugins=(
   compleat
   command-not-found
   pj
+  zsh-navigation-tools
 
   # miscellaneous
   bundler ruby rails gem rvm
@@ -37,25 +38,31 @@ alias pjodot="$EDITOR $HOME/.config/dotfiles"
 autoload -U zmv
 
 # better deletion
-bindkey -M viins '^?'      backward-delete-char          # backspase
-bindkey -M viins '^H'      backward-kill-word            # ctrl+backspase
-bindkey -M viins '^[[3~'   delete-char                   # delete
-bindkey -M viins '^[[3;5~' kill-word                     # ctrl+delete
+bindkey -M viins '^?'      backward-delete-char # backspase
+bindkey -M viins '^H'      backward-kill-word   # ctrl+backspase
+bindkey -M viins '^[[3~'   delete-char          # delete
+bindkey -M viins '^[[3;5~' kill-word            # ctrl+delete
 
-bindkey -M vicmd '^?'      backward-delete-char          # backspase
-bindkey -M vicmd '^H'      backward-kill-word            # ctrl+backspase
-bindkey -M vicmd '^[[3~'   delete-char                   # delete
-bindkey -M vicmd '^[[3;5~' kill-word                     # ctrl+delete
+bindkey -M vicmd '^?'      backward-delete-char # backspase
+bindkey -M vicmd '^H'      backward-kill-word   # ctrl+backspase
+bindkey -M vicmd '^[[3~'   delete-char          # delete
+bindkey -M vicmd '^[[3;5~' kill-word            # ctrl+delete
 
-# ranger movement
-bindkey -M viins '^F' vi-forward-char  # alt+f
-bindkey -M viins '^B' vi-backward-char # alt+b
+# movement
+bindkey -M viins '^[l' vi-forward-char      # alt+l
+bindkey -M viins '^[h' vi-backward-char     # alt+h
+bindkey -M viins '^[i' up-line-or-history   # alt+i
+bindkey -M viins '^[k' down-line-or-history # alt+k
 
-#
-bindkey -M viins '^[[A' up-line-or-history   # up
-bindkey -M viins '^[[B' down-line-or-history # down
-bindkey -M viins '^P'  history-substring-search-up   # ctrl+p
-bindkey -M viins '^N'  history-substring-search-down # ctrl+n
+# history
+bindkey -M viins '^[[A' up-line-or-history            # up
+bindkey -M viins '^[[B' down-line-or-history          # down
+bindkey -M viins '^P'   history-substring-search-up   # ctrl+p
+bindkey -M viins '^N'   history-substring-search-down # ctrl+n
+
+# push-line
+bindkey -M viins '^Q' push-line
+bindkey -M vicmd '^Q' push-line
 
 # quoted text objects
 autoload -U select-quoted
@@ -69,7 +76,7 @@ done
 alias st="subl3"
 alias stt="subl3 -n ."
 alias vim="nvim-qt"
-alias r="ranger"
+alias r="SHELL=/home/bjorn/.config/ranger/rshell ranger"
 
 alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
