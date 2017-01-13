@@ -443,6 +443,12 @@
       let g:sneak#streak = 1
     "}}}
     call dein#add('vim-scripts/eraseSubword')
+    call dein#add('tommcdo/vim-exchange')
+    call dein#add('junegunn/vim-easy-align') " {{{
+      xmap ga <Plug>(EasyAlign)
+      nmap ga <Plug>(EasyAlign)
+    " }}}
+    call dein#add('vim-scripts/ExtractMatches')
   endif "}}}
   if count(s:settings.plugin_groups, 'navigation') "{{{
     call dein#add('mileszs/ack.vim') "{{{
@@ -642,7 +648,7 @@
 " mappings {{{
   " formatting shortcuts
   nmap <leader>fef :call Preserve("normal gg=G")<CR>
-  nmap <leader>f$ :call StripTrailingWhitespace()<CR>
+  nmap <leader>ft :call StripTrailingWhitespace()<CR>
   vmap <leader>s :sort<cr>
 
   " eval vimscript by line or visual selection
