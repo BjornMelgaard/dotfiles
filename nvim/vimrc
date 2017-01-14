@@ -343,9 +343,7 @@
     call dein#add('nsf/gocode', {'on_ft':['go'], 'rtp':'vim'})
   endif "}}}
   if count(s:settings.plugin_groups, 'scm') "{{{
-    call dein#add('mhinz/vim-signify') "{{{
-      let g:signify_update_on_bufenter=0
-    "}}}
+    call dein#add('airblade/vim-gitgutter')
     if executable('hg')
       " call dein#add('bitbucket:ludovicchabant/vim-lawrencium')
     endif
@@ -449,9 +447,6 @@
       nmap ga <Plug>(EasyAlign)
     " }}}
     call dein#add('vim-scripts/ExtractMatches')
-    call dein#add('vim-scripts/vim-auto-save') " {{{
-      let g:auto_save = 1
-    " }}}
   endif "}}}
   if count(s:settings.plugin_groups, 'navigation') "{{{
     call dein#add('mileszs/ack.vim') "{{{
