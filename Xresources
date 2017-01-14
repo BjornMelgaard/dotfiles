@@ -42,50 +42,48 @@
 ! URxvt settings
 
 ! General
-!urxvt*termName:  rxvt-256color
-urxvt*loginShell:         true
-urxvt*scrollBar:         false
-urxvt*secondaryScroll:    true
-urxvt*saveLines:         65535
-urxvt*cursorBlink:       false
-urxvt*urgentOnBell:       true
-!urxvt*override-redirect:false
-!urxvt*borderLess:       false
-!urxvt*internalBorder:       0
-!urxvt*externalBorder:       0
+!URxvt.termName:  rxvt-256color
+URxvt.loginShell:         true
+URxvt.scrollBar:         false
+URxvt.secondaryScroll:    true
+URxvt.saveLines:         65535
+URxvt.cursorBlink:       false
+URxvt.urgentOnBell:       true
+!URxvt.override-redirect:false
+!URxvt.borderLess:       false
+!URxvt.internalBorder:       0
+!URxvt.externalBorder:       0
 
 ! Extensions
-urxvt*perl-lib:        /usr/lib/urxvt/perl/
-urxvt*perl-ext-common: default,matcher,searchable-scrollback,clipboard,keyboard-select
-urxvt*urlLauncher:     /usr/bin/google-chrome-stable
-urxvt*matcher.button:  1
+URxvt.perl-lib:        /usr/lib/urxvt/perl/
+URxvt.perl-ext-common: default,matcher,searchable-scrollback,clipboard,keyboard-select
+URxvt.urlLauncher:     /usr/bin/google-chrome-stable
+URxvt.matcher.button:  1
 !  - catch ugly URLs
-urxvt.keysym.M-Escape: perl:keyboard-select:activate
-urxvt.keysym.M-c:   perl:clipboard:copy
-urxvt.keysym.C-v:   perl:clipboard:paste
-urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-urxvt.clipboard.copycmd:  xsel -ib
-urxvt.clipboard.pastecmd: xsel -ob
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.C-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.clipboard.copycmd:  xsel -ib
+URxvt.clipboard.pastecmd: xsel -ob
 
+! this work
+! URxvt.font: -*-dejavu sans mono-medium-r-*-*-0-*-*-*-*-*-koi8-u
 
-URxvt*font: xft:DejaVu Sans Mono for Powerline:medium:size=12:antialiasing=true
-URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:bold:size=12:antialiasing=true:style=medium
-URxvt*italicFont: xft:DejaVu Sans Mono for Powerline:medium:size=12:antialiasing=true:style=medium
-URxvt*boldItalicFont: xft:DejaVu Sans Mono for Powerline:bold:size=12:antialiasing=true:style=medium
-URxvt*loginShell:        true
-URxvt*scrollBar:         false
+! this - not
+URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:size=12
 
 
 ! -----------------------------------------------------------------------------
-! File: gruvbox-urxvt256.xresources
+! File: gruvbox-URxvt256.xresources
 ! Description: Retro groove colorscheme generalized
 ! Author: morhetz <morhetz@gmail.com>
 ! Source: https://github.com/morhetz/gruvbox-generalized
 ! Last Modified: 13 Dec 2013
 ! -----------------------------------------------------------------------------
 
-URxvt*background: #282828
-URxvt*foreground: #ebdbb2
+URxvt.background: #282828
+URxvt.foreground: #ebdbb2
 
 URxvt.color24:  #076678
 URxvt.color66:  #427b58

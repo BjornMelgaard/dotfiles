@@ -492,27 +492,25 @@
       nnoremap [ctrlp]o :CtrlPFunky<cr>
       nnoremap [ctrlp]b :CtrlPBuffer<cr>
     "}}}
-    "call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']}) "{{{
-    "  let NERDTreeShowHidden=1
-    "  let NERDTreeQuitOnOpen=0
-    "  let NERDTreeShowLineNumbers=1
-    "  let NERDTreeChDirMode=0
-    "  let NERDTreeShowBookmarks=1
-    "  let NERDTreeIgnore=['\.git','\.hg']
-    "  let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
-    "  nnoremap <F2> :NERDTreeToggle<CR>
-    "  nnoremap <F3> :NERDTreeFind<CR>
-    ""}}}
-    call dein#add('francoiscabrol/ranger.vim') " {{{
+    call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']}) "{{{
+      let NERDTreeShowHidden=1
+      let NERDTreeQuitOnOpen=0
+      let NERDTreeShowLineNumbers=1
+      let NERDTreeChDirMode=0
+      let NERDTreeShowBookmarks=1
+      let NERDTreeIgnore=['\.git','\.hg']
+      let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
+      nnoremap <F2> :NERDTreeToggle<CR>
+      nnoremap <F3> :NERDTreeFind<CR>
+    "}}}
+    call dein#add('francoiscabrol/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
       let g:ranger_map_keys=0
-      nnoremap <F2> :Ranger<CR>
+      nnoremap <F1> :Ranger<CR>
     " }}}
     call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
       nnoremap <silent> <F9> :TagbarToggle<CR>
     "}}}
-    call dein#add('myusuf3/numbers.vim') "{{{
-      nnoremap <silent> <F9> :TagbarToggle<CR>
-    "}}}
+    call dein#add('myusuf3/numbers.vim')
     call dein#add('jacquesbh/vim-showmarks') "{{{
       map <f5> :DoShowMarks<cr>
     "}}}
@@ -602,6 +600,8 @@
     call dein#add('kana/vim-textobj-indent')
     call dein#add('kana/vim-textobj-entire')
     call dein#add('lucapette/vim-textobj-underscore')
+    call dein#add('beloglazov/vim-textobj-quotes')
+    call dein#add('kana/vim-textobj-line')
   endif "}}}
   if count(s:settings.plugin_groups, 'misc') "{{{
     if exists('$TMUX')
@@ -621,7 +621,7 @@
       let g:startify_session_dir = s:get_cache_dir('sessions')
       let g:startify_change_to_vcs_root = 1
       let g:startify_show_sessions = 1
-      nnoremap <F1> :Startify<cr>
+      nnoremap <F7> :Startify<cr>
     "}}}
     call dein#add('scrooloose/syntastic') "{{{
       " let g:syntastic_aggregate_errors = 1
@@ -638,6 +638,7 @@
       let g:goldenview__enable_default_mapping=0
       nmap <F4> <Plug>ToggleGoldenViewAutoResize
     "}}}
+    call dein#add('skammer/vim-css-color')
   endif "}}}
   if count(s:settings.plugin_groups, 'windows') "{{{
     call dein#add('PProvost/vim-ps1', {'on_ft':['ps1']}) "{{{
