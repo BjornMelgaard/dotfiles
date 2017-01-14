@@ -449,6 +449,9 @@
       nmap ga <Plug>(EasyAlign)
     " }}}
     call dein#add('vim-scripts/ExtractMatches')
+    call dein#add('vim-scripts/vim-auto-save') " {{{
+      let g:auto_save = 1
+    " }}}
   endif "}}}
   if count(s:settings.plugin_groups, 'navigation') "{{{
     call dein#add('mileszs/ack.vim') "{{{
