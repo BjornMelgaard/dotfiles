@@ -70,8 +70,11 @@ URxvt.clipboard.pastecmd: xsel -ob
 ! this work
 ! URxvt.font: -*-dejavu sans mono-medium-r-*-*-0-*-*-*-*-*-koi8-u
 
-! this - not
-URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:size=12
+! none of these - dont
+! URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:size=12
+! URxvt*font: xft:DejaVu Sans Mono for Powerline:style=Book:size=12
+! URxvt*font: xft:DejaVu Sans Mono for Powerline:size=12
+! URxvt*font: xft:DejaVu Sans Mono:size=12
 
 
 ! -----------------------------------------------------------------------------

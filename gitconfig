@@ -6,7 +6,7 @@
 [core]
 	autocrlf = false
 	safecrlf = true
-	editor = subl3 -n -w
+	editor = nvim
 	excludesfile = /home/bjorn/.gitignore_global
 [alias]
 	co = checkout
