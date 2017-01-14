@@ -68,12 +68,12 @@ urxvt.clipboard.copycmd:  xsel -ib
 urxvt.clipboard.pastecmd: xsel -ob
 
 
-URxvt*font: xft:Hermit:medium:size=12:antialiasing=true
-URxvt*boldFont: xft:Hermit:bold:size=12:antialiasing=true:style=medium
-URxvt*italicFont: xft:Hermit:medium:size=12:antialiasing=true:style=medium
-URxvt*boldItalicFont: xft:Hermit:bold:size=12:antialiasing=true:style=medium
+URxvt*font: xft:DejaVu Sans Mono for Powerline:medium:size=12:antialiasing=true
+URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:bold:size=12:antialiasing=true:style=medium
+URxvt*italicFont: xft:DejaVu Sans Mono for Powerline:medium:size=12:antialiasing=true:style=medium
+URxvt*boldItalicFont: xft:DejaVu Sans Mono for Powerline:bold:size=12:antialiasing=true:style=medium
 URxvt*loginShell:        true
-URxvt*scrollBar:         false 
+URxvt*scrollBar:         false
 
 
 ! -----------------------------------------------------------------------------
@@ -135,7 +135,7 @@ rofi.font: Hermit 10
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
-! Based on Adapta-Nokto GTK theme (https://github.com/adapta-project/adapta-gtk-theme)  
+! Based on Adapta-Nokto GTK theme (https://github.com/adapta-project/adapta-gtk-theme)
 ! User: PyGeek03
 ! Copyright: PyGeek03
 ! ------------------------------------------------------------------------------

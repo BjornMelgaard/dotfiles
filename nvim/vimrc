@@ -759,7 +759,7 @@
   nnoremap Y y$
 
   " hide annoying quit message
-  nnoremap <C-c> <C-c>:echo<cr>
+  " nnoremap <C-c> <C-c>:echo<cr>
 
   " window killer
   nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
