@@ -679,6 +679,9 @@
   vnoremap <M-y> "+y
   vnoremap <M-d> "+d
 
+  imap <M-p> <C-r>+
+  cmap <M-p> <C-r>+
+
   " start new undo sequence if deleting word
   inoremap <C-u> <C-g>u<C-u>
 
@@ -784,12 +787,6 @@
   command! -bang Q q<bang>
   command! -bang QA qa<bang>
   command! -bang Qa qa<bang>
-"}}}
-
-" copy/paste {{{
-  vmap <C-c> "+y
-  imap <C-v> <C-r>+
-  cmap <C-v> <C-r>+
 "}}}
 
 " autocmd {{{
