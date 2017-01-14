@@ -492,17 +492,21 @@
       nnoremap [ctrlp]o :CtrlPFunky<cr>
       nnoremap [ctrlp]b :CtrlPBuffer<cr>
     "}}}
-    call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']}) "{{{
-      let NERDTreeShowHidden=1
-      let NERDTreeQuitOnOpen=0
-      let NERDTreeShowLineNumbers=1
-      let NERDTreeChDirMode=0
-      let NERDTreeShowBookmarks=1
-      let NERDTreeIgnore=['\.git','\.hg']
-      let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
-      nnoremap <F2> :NERDTreeToggle<CR>
-      nnoremap <F3> :NERDTreeFind<CR>
-    "}}}
+    "call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']}) "{{{
+    "  let NERDTreeShowHidden=1
+    "  let NERDTreeQuitOnOpen=0
+    "  let NERDTreeShowLineNumbers=1
+    "  let NERDTreeChDirMode=0
+    "  let NERDTreeShowBookmarks=1
+    "  let NERDTreeIgnore=['\.git','\.hg']
+    "  let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
+    "  nnoremap <F2> :NERDTreeToggle<CR>
+    "  nnoremap <F3> :NERDTreeFind<CR>
+    ""}}}
+    call dein#add('francoiscabrol/ranger.vim') " {{{
+      let g:ranger_map_keys=0
+      nnoremap <F2> :Ranger<CR>
+    " }}}
     call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
       nnoremap <silent> <F9> :TagbarToggle<CR>
     "}}}
