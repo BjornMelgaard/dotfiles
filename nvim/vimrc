@@ -681,6 +681,10 @@
 
   imap <M-p> <C-r>+
   cmap <M-p> <C-r>+
+  
+  " autosave
+  autocmd FocusLost * silent! wa
+  set autowriteall
 
   " start new undo sequence if deleting word
   inoremap <C-u> <C-g>u<C-u>
