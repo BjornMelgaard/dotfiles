@@ -80,7 +80,7 @@ bindsym $mod+r           mode "resize"
 bindsym $mod+q           kill
 bindsym $mod+a           focus parent
 bindsym $mod+s           focus child
-bindsym $mod+d           exec --no-startup-id "dmenu_run -nb black -p run"
+bindsym $mod+d           exec --no-startup-id "rofi -show run"
 bindsym $mod+f           fullscreen
 bindsym $mod+z           layout tabbed
 bindsym $mod+x           layout default

@@ -125,32 +125,22 @@ Xft.hintstyle:  hintfull
 Xft.lcdfilter:  lcddefault
 Xft.rgba:       rgb
 
-! Rofi colors setup
+!-------------------------------------------------------------------------------
+! Rofi
+!-------------------------------------------------------------------------------
+
+rofi.location:                       2
+rofi.width:                          100
+rofi.font: Hermit 10
+
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
+! Based on Adapta-Nokto GTK theme (https://github.com/adapta-project/adapta-gtk-theme)  
+! User: PyGeek03
+! Copyright: PyGeek03
 ! ------------------------------------------------------------------------------
-! Use extended color scheme
-rofi.color-enabled:                  true
-! Color scheme for normal row
-rofi.color-normal:                   argb:00000000,  #D8DEE9 , argb:00000000,  #FFAF00 ,  #1B2B34
-! Color scheme for urgent row
-rofi.color-urgent:                   argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34
-! Color scheme for active row
-rofi.color-active:                   argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34
-! Color scheme window
-rofi.color-window:                   argb:ee222222,  #91E22E ,  #91E22E
-! Separator style (none, dash, solid)
-rofi.separator-style: dash
-! rofi.opacity: 85
-! rofi.width: 1924
-rofi.lines: 7
-rofi.columns: 4
-rofi.font: Hermit 11
-rofi.bw: 0
-rofi.location: 6
-rofi.padding: 2
-
-! Keybindings
-rofi.key-window: mod4+Tab
-rofi.key-run: mod4+p
-rofi.key-ssh: mod1+F3
+rofi.color-enabled: true
+rofi.color-window: #3a4c54, #2a373e, #c3c6c8
+rofi.color-normal: #455a64, #fafbfc, #455a64, #00bcd4, #fafbfc
+rofi.color-active: #455a64, #00bcd4, #455a64, #009688, #fdf6e3
+rofi.color-urgent: #455a64, #ff5252, #455a64, #ff5252, #fdf6e3
