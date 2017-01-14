@@ -681,7 +681,7 @@
 
   imap <M-p> <C-r>+
   cmap <M-p> <C-r>+
-  
+
   " autosave
   autocmd FocusLost * silent! wa
   set autowriteall
@@ -800,7 +800,7 @@
     \  exe 'normal! g`"zvzz' |
     \ endif
 
-  autocmd FileType js,scss,css autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+  autocmd BufWritePre * :call StripTrailingWhitespace()
   autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
   autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>
   autocmd FileType python setlocal foldmethod=indent
