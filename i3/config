@@ -160,7 +160,7 @@ bindsym $mod+Control+Shift+Right  focus right; split v; layout tabbed; focus lef
 # -------------------------------------
 
 mode "resize" {
-	set $size 5
+	set $size 10
 
 	bindsym $mod+$left         resize grow   left  $size px or $size ppt
 	bindsym $mod+Shift+$left   resize shrink left  $size px or $size ppt
@@ -232,3 +232,6 @@ for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"]      floating enable
 for_window [title="Edit Current$"]     floating enable
 for_window [class="(?i)pcmanfm"]       floating enable
+
+for_window [title="(?i)Terminal" floating]  resize set 800 1600
+for_window [title="(?i)n(eo)?vim" floating] resize set 800 1600

@@ -446,7 +446,7 @@
       xmap ga <Plug>(EasyAlign)
       nmap ga <Plug>(EasyAlign)
     " }}}
-    call dein#add('vim-scripts/ExtractMatches')
+    call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library','vim-scripts/PatternsOnText']})
   endif "}}}
   if count(s:settings.plugin_groups, 'navigation') "{{{
     call dein#add('mileszs/ack.vim') "{{{
@@ -475,7 +475,6 @@
       let g:ctrlp_reuse_window='startify'
       let g:ctrlp_extensions=['funky']
       let g:ctrlp_custom_ignore = {
-            \ 'dir': '\v(tmp)$',
             \ 'dir': '\v[\/]\.(git|hg|svn|idea)$',
             \ 'file': '\v\.DS_Store$'
             \ }
@@ -641,10 +640,7 @@
       nmap <F4> <Plug>ToggleGoldenViewAutoResize
     "}}}
   endif "}}}
-  if count(s:settings.plugin_groups, 'windows') "{{{
-    call dein#add('PProvost/vim-ps1', {'on_ft':['ps1']}) "{{{
-      autocmd BufNewFile,BufRead *.ps1,*.psd1,*.psm1 setlocal ft=ps1
-    "}}}
+  if count(s:settings.plugin_groups, 'sharp') "{{{
     call dein#add('nosami/Omnisharp', {'on_ft':['cs']})
   endif "}}}
 "}}}
