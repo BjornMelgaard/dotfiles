@@ -9,11 +9,13 @@ xkb_keymap {
     include "group(rctrl_rshift_toggle)"
     include "capslock(swapescape)"
 
-    // replace key <PAUS> {  [ Caps_Lock ] };
+    replace key <RALT> { [ Control_L ] };
+    modifier_map Control { <RALT> };
 
-    // include "ctrl(nocaps)"
-    // replace key <ESC>  {  [ Caps_Lock ] };
-    // replace key <CAPS> {  [ Control_L ] };
-    // replace key <LCTL> {  [ Escape    ] };
+    // helpers //
+    // xinput list
+    // xinput test 16
+    // xkbcomp $DISPLAY out.xkb
+    // cat /usr/share/X11/xkb/rules/base.lst
   };
 };
