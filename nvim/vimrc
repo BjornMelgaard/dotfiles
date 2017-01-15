@@ -475,6 +475,7 @@
       let g:ctrlp_reuse_window='startify'
       let g:ctrlp_extensions=['funky']
       let g:ctrlp_custom_ignore = {
+            \ 'dir': '\v(tmp)$',
             \ 'dir': '\v[\/]\.(git|hg|svn|idea)$',
             \ 'file': '\v\.DS_Store$'
             \ }
@@ -490,6 +491,7 @@
       nnoremap [ctrlp]T :CtrlPTag<cr>
       nnoremap [ctrlp]l :CtrlPLine<cr>
       nnoremap [ctrlp]o :CtrlPFunky<cr>
+      nnoremap [ctrlp]f :CtrlPMRUFiles<cr>
       nnoremap [ctrlp]b :CtrlPBuffer<cr>
     "}}}
     call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']}) "{{{
@@ -638,7 +640,6 @@
       let g:goldenview__enable_default_mapping=0
       nmap <F4> <Plug>ToggleGoldenViewAutoResize
     "}}}
-    call dein#add('skammer/vim-css-color')
   endif "}}}
   if count(s:settings.plugin_groups, 'windows') "{{{
     call dein#add('PProvost/vim-ps1', {'on_ft':['ps1']}) "{{{
