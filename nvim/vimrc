@@ -360,6 +360,7 @@
       autocmd BufReadPost fugitive://* set bufhidden=delete
     "}}}
     call dein#add('gregsexton/gitv', {'depends':['tpope/vim-fugitive'], 'on_cmd':'Gitv'}) "{{{
+      call dein#add('tpope/vim-fugitive')
       nnoremap <silent> <leader>gv :Gitv<CR>
       nnoremap <silent> <leader>gV :Gitv!<CR>
     "}}}
@@ -446,7 +447,10 @@
       xmap ga <Plug>(EasyAlign)
       nmap ga <Plug>(EasyAlign)
     " }}}
-    call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library','vim-scripts/PatternsOnText']})
+    call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library','vim-scripts/PatternsOnText']}) " {{{
+      call dein#add('vim-scripts/ingo-library')
+      call dein#add('vim-scripts/PatternsOnText')
+    " }}}
   endif "}}}
   if count(s:settings.plugin_groups, 'navigation') "{{{
     call dein#add('mileszs/ack.vim') "{{{
@@ -466,6 +470,7 @@
       nnoremap <leader>vo :GrepOptions<cr>
     "}}}
     call dein#add('ctrlpvim/ctrlp.vim', { 'depends': 'tacahiroy/ctrlp-funky' }) "{{{
+      call dein#add('tacahiroy/ctrlp-funky')
       let g:ctrlp_clear_cache_on_exit=1
       let g:ctrlp_max_height=40
       let g:ctrlp_show_hidden=0
@@ -505,6 +510,7 @@
       nnoremap <F3> :NERDTreeFind<CR>
     "}}}
     call dein#add('francoiscabrol/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
+      call dein#add('rbgrouleff/bclose.vim')
       let g:ranger_map_keys=0
       nnoremap <F1> :Ranger<CR>
     " }}}
@@ -632,6 +638,7 @@
       let g:syntastic_style_warning_symbol = '≈'
     "}}}
     call dein#add('mattn/gist-vim', { 'depends': 'mattn/webapi-vim', 'on_cmd': 'Gist' }) "{{{
+      call dein#add('mattn/webapi-vim')
       let g:gist_post_private=1
       let g:gist_show_privates=1
     "}}}
