@@ -37,7 +37,7 @@
     call add(s:settings.plugin_groups, 'python')
     call add(s:settings.plugin_groups, 'scala')
     call add(s:settings.plugin_groups, 'go')
-    call add(s:settings.plugin_groups, 'scm')
+    call add(s:settings.plugin_groups, 'git')
     call add(s:settings.plugin_groups, 'editing')
     call add(s:settings.plugin_groups, 'indents')
     call add(s:settings.plugin_groups, 'navigation')
@@ -342,11 +342,8 @@
     call dein#add('jnwhiteh/vim-golang', {'on_ft':['go']})
     call dein#add('nsf/gocode', {'on_ft':['go'], 'rtp':'vim'})
   endif "}}}
-  if count(s:settings.plugin_groups, 'scm') "{{{
+  if count(s:settings.plugin_groups, 'git') "{{{
     call dein#add('airblade/vim-gitgutter')
-    if executable('hg')
-      " call dein#add('bitbucket:ludovicchabant/vim-lawrencium')
-    endif
     call dein#add('tpope/vim-fugitive') "{{{
       nnoremap <silent> <leader>ga :Git add --all<CR>
       nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -360,7 +357,6 @@
       autocmd BufReadPost fugitive://* set bufhidden=delete
     "}}}
     call dein#add('gregsexton/gitv', {'depends':['tpope/vim-fugitive'], 'on_cmd':'Gitv'}) "{{{
-      call dein#add('tpope/vim-fugitive')
       nnoremap <silent> <leader>gv :Gitv<CR>
       nnoremap <silent> <leader>gV :Gitv!<CR>
     "}}}
@@ -441,7 +437,10 @@
     call dein#add('justinmk/vim-sneak') "{{{
       let g:sneak#streak = 1
     "}}}
-    call dein#add('vim-scripts/eraseSubword')
+    call dein#add('vim-scripts/eraseSubword') " {{{
+      let g:EraseSubword_insertMap = "<C-Q>"
+      " cnoremap <C-Q> <C-F>:call <SID>Erase()<C-C>
+    " }}}
     call dein#add('tommcdo/vim-exchange')
     call dein#add('junegunn/vim-easy-align') " {{{
       xmap ga <Plug>(EasyAlign)

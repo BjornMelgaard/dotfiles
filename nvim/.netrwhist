@@ -1,8 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/bjorn/projects/serrrtificator'
 let g:netrw_dirhist_2='/home/bjorn/.config/dotfiles'
 let g:netrw_dirhist_3='/home/bjorn/.config/dotfiles/nvim'
 let g:netrw_dirhist_4='/home/bjorn/.config/dotfiles'
 let g:netrw_dirhist_5='/home/bjorn/.config/dotfiles/ranger'
 let g:netrw_dirhist_6='/home/bjorn/.config/dotfiles'
+let g:netrw_dirhist_7='/home/bjorn/.config/dotfiles/oh-my-zsh'
+let g:netrw_dirhist_8='/home/bjorn/.config'
