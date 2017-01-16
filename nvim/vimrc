@@ -509,10 +509,8 @@
       nnoremap <F2> :NERDTreeToggle<CR>
       nnoremap <F3> :NERDTreeFind<CR>
     "}}}
-    call dein#add('francoiscabrol/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
-      call dein#add('rbgrouleff/bclose.vim')
-      let g:ranger_map_keys=0
-      nnoremap <F1> :Ranger<CR>
+    call dein#add('bramblex/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
+      let g:ranger_path='SHELL=/home/bjorn/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
     " }}}
     call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
       nnoremap <silent> <F9> :TagbarToggle<CR>
@@ -628,7 +626,7 @@
       let g:startify_session_dir = s:get_cache_dir('sessions')
       let g:startify_change_to_vcs_root = 1
       let g:startify_show_sessions = 1
-      nnoremap <F7> :Startify<cr>
+      nnoremap <F1> :Startify<cr>
     "}}}
     call dein#add('scrooloose/syntastic') "{{{
       " let g:syntastic_aggregate_errors = 1

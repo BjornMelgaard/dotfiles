@@ -67,6 +67,8 @@ URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt.clipboard.copycmd:  xsel -ib
 URxvt.clipboard.pastecmd: xsel -ob
 
+URxvt.letterSpace: -1
+URxvt.intensityStyles: false
 ! this work
 ! URxvt.font: -*-dejavu sans mono-medium-r-*-*-0-*-*-*-*-*-koi8-u
 
@@ -74,7 +76,7 @@ URxvt.clipboard.pastecmd: xsel -ob
 ! URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:size=12
 ! URxvt*font: xft:DejaVu Sans Mono for Powerline:style=Book:size=12
 ! URxvt*font: xft:DejaVu Sans Mono for Powerline:size=12
-! URxvt*font: xft:DejaVu Sans Mono:size=12
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=10:antialias=true
 
 
 ! -----------------------------------------------------------------------------
@@ -120,11 +122,9 @@ URxvt.color248: #bdae93
 URxvt.color250: #d5c4a1
 
 ! Xft font configuration
-Xft.antialias:  1
-Xft.hinting:    1
-Xft.hintstyle:  hintfull
-Xft.lcdfilter:  lcddefault
-Xft.rgba:       rgb
+! Xft.antialias:  true
+! Xft.hinting:    true
+! Xft.rgba:       none
 
 !-------------------------------------------------------------------------------
 ! Rofi
