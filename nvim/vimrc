@@ -17,14 +17,9 @@
   let s:settings = {}
   let s:settings.default_indent = 2
   let s:settings.max_column = 120
-  let s:settings.autocomplete_method = 'neocomplcache'
   let s:settings.enable_cursorcolumn = 0
   let s:settings.colorscheme = 'jellybeans'
-  if has('lua')
-    let s:settings.autocomplete_method = 'neocomplete'
-  elseif filereadable(expand("~/.config/nvim/bundle/YouCompleteMe/python/ycm_core.*"))
-    let s:settings.autocomplete_method = 'ycm'
-  endif
+  let s:settings.autocomplete_method = 'ycm'
 
   if exists('g:dotvim_settings.plugin_groups')
     let s:settings.plugin_groups = g:dotvim_settings.plugin_groups
@@ -363,48 +358,21 @@
   endif "}}}
   if count(s:settings.plugin_groups, 'autocomplete') "{{{
     call dein#add('honza/vim-snippets')
-    if s:settings.autocomplete_method == 'ycm' "{{{
-      call dein#add('Valloric/YouCompleteMe') "{{{
-        let g:ycm_complete_in_comments_and_strings=1
-        let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-        let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-        let g:ycm_filetype_blacklist={'unite': 1}
-      "}}}
-      call dein#add('SirVer/ultisnips') "{{{
-        let g:UltiSnipsExpandTrigger="<tab>"
-        let g:UltiSnipsJumpForwardTrigger="<tab>"
-        let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-        let g:UltiSnipsSnippetsDir='~/.config/nvim/snippets'
-      "}}}
-    else
-      call dein#add('Shougo/neosnippet-snippets')
-      call dein#add('Shougo/neosnippet.vim') "{{{
-        let g:neosnippet#snippets_directory='~/.config/nvim/bundle/vim-snippets/snippets,~/.config/nvim/snippets'
-        let g:neosnippet#enable_snipmate_compatibility=1
-
-        imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : (pumvisible() ? "\<C-n>" : "\<TAB>")
-        smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-        imap <expr><S-TAB> pumvisible() ? "\<C-p>" : ""
-        smap <expr><S-TAB> pumvisible() ? "\<C-p>" : ""
-      "}}}
-    endif "}}}
-    if s:settings.autocomplete_method == 'neocomplete' "{{{
-      call dein#add('Shougo/neocomplete.vim', {'on_i':1}) "{{{
-        let g:neocomplete#enable_at_startup=1
-        let g:neocomplete#data_directory=s:get_cache_dir('neocomplete')
-      "}}}
-      call dein#add('Konfekt/FastFold') "{{{
-        let g:fastfold_savehook = 1
-        let g:fastfold_fold_command_suffixes = []
-      "}}}
-    endif "}}}
-    if s:settings.autocomplete_method == 'neocomplcache' "{{{
-      call dein#add('Shougo/neocomplcache.vim', {'on_i':1}) "{{{
-        let g:neocomplcache_enable_at_startup=1
-        let g:neocomplcache_temporary_dir=s:get_cache_dir('neocomplcache')
-        let g:neocomplcache_enable_fuzzy_completion=1
-      "}}}
-    endif "}}}
+    " call dein#add('ervandew/supertab') " {{{
+    "   let g:SuperTabDefaultCompletionType = '<'
+    " " }}}
+    call dein#add('Valloric/YouCompleteMe') "{{{
+      let g:ycm_complete_in_comments_and_strings=1
+      let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+      let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+      let g:ycm_filetype_blacklist={'unite': 1}
+    "}}}
+    call dein#add('SirVer/ultisnips') "{{{
+      let g:UltiSnipsExpandTrigger="<M-f>"
+      let g:UltiSnipsJumpForwardTrigger="<M-t>"
+      let g:UltiSnipsJumpBackwardTrigger="<M-r>"
+      let g:UltiSnipsSnippetsDir='~/.config/nvim/snippets'
+    "}}}
   endif "}}}
   if count(s:settings.plugin_groups, 'editing') "{{{
     call dein#add('editorconfig/editorconfig-vim', {'on_i':1})
@@ -438,7 +406,7 @@
       let g:sneak#streak = 1
     "}}}
     call dein#add('vim-scripts/eraseSubword') " {{{
-      let g:EraseSubword_insertMap = "<C-Q>"
+      " TODO map to command mode
       " cnoremap <C-Q> <C-F>:call <SID>Erase()<C-C>
     " }}}
     call dein#add('tommcdo/vim-exchange')
@@ -608,9 +576,6 @@
     call dein#add('kana/vim-textobj-line')
   endif "}}}
   if count(s:settings.plugin_groups, 'misc') "{{{
-    if exists('$TMUX')
-      call dein#add('christoomey/vim-tmux-navigator')
-    endif
     call dein#add('kana/vim-vspec')
     call dein#add('tpope/vim-scriptease', {'on_ft':['vim']})
     call dein#add('tpope/vim-markdown',{'on_ft':['markdown']})
@@ -642,6 +607,7 @@
       let g:goldenview__enable_default_mapping=0
       nmap <F4> <Plug>ToggleGoldenViewAutoResize
     "}}}
+    call dein#add('jszakmeister/vim-togglecursor')
   endif "}}}
   if count(s:settings.plugin_groups, 'sharp') "{{{
     call dein#add('nosami/Omnisharp', {'on_ft':['cs']})
@@ -763,9 +729,6 @@
   " make Y consistent with C and D. See :help Y.
   nnoremap Y y$
 
-  " hide annoying quit message
-  " nnoremap <C-c> <C-c>:echo<cr>
-
   " window killer
   nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
 
@@ -778,7 +741,7 @@
 
   " general
   nmap <leader>l :set list! list?<cr>
-  nnoremap <BS> :set hlsearch! hlsearch?<cr>
+  nnoremap <BS> :noh<cr>
 
   map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
         \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -797,6 +760,10 @@
   command! -bang QA qa<bang>
   command! -bang Qa qa<bang>
 "}}}
+
+" to del autopairs easyly
+  inoremap <M-a> <BS>
+  inoremap <M-s> <Del>
 
 " autocmd {{{
   " go back to previous position of cursor if any

@@ -20,7 +20,6 @@ start-pulseaudio-x11
 #notification
 dunst -config ~/.i3/dunstrc &
 
-#>> /dev/null which nm-applet  && nm-applet &
 >> /dev/null which parcellite && parcellite &
 >> /dev/null which pasystray  && pasystray &
 
