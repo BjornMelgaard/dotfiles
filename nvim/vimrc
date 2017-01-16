@@ -617,7 +617,6 @@
     if executable('instant-markdown-d')
       call dein#add('suan/vim-instant-markdown', {'on_ft':['markdown']})
     endif
-    call dein#add('guns/xterm-color-table.vim', {'on_cmd':'XtermColorTable'})
     call dein#add('chrisbra/vim_faq')
     call dein#add('vimwiki/vimwiki')
     call dein#add('vim-scripts/bufkill.vim')
