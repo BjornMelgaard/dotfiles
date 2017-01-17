@@ -393,6 +393,10 @@
       vmap <Leader>a, :Tabularize /,<CR>
       nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
       vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+      nmap <Leader>a<Space> :Tabularize / <CR>
+      vmap <Leader>a<Space> :Tabularize / <CR>
+      nmap <Leader>a :Tab
+      vmap <Leader>a :Tab
     "}}}
     call dein#add('jiangmiao/auto-pairs') "{{{
       let g:AutoPairsShortcutToggle = ''
@@ -406,10 +410,6 @@
       " cnoremap <C-Q> <C-F>:call <SID>Erase()<C-C>
     " }}}
     call dein#add('tommcdo/vim-exchange')
-    call dein#add('junegunn/vim-easy-align') " {{{
-      xmap ga <Plug>(EasyAlign)
-      nmap ga <Plug>(EasyAlign)
-    " }}}
     call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library','vim-scripts/PatternsOnText']}) " {{{
       call dein#add('vim-scripts/ingo-library')
       call dein#add('vim-scripts/PatternsOnText')
@@ -639,10 +639,12 @@
 
   " clipboard actions
   nnoremap <M-p> "+p
+  nnoremap <M-P> "+P
   nnoremap <M-y> "+y
   nnoremap <M-d> "+d
 
   vnoremap <M-p> "+p
+  vnoremap <M-P> "+P
   vnoremap <M-y> "+y
   vnoremap <M-d> "+d
 
@@ -650,9 +652,8 @@
   cmap <M-p> <C-r>+
 
   " autosave
-  autocmd FocusLost * :wa
-  " set autowriteall
-  set autowrite
+  autocmd FocusLost * silent! wall
+  set autowriteall
 
   " start new undo sequence if deleting word
   inoremap <C-u> <C-g>u<C-u>

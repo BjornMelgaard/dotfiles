@@ -61,8 +61,8 @@ bindkey -M viins '^P'   history-substring-search-up   # ctrl+p
 bindkey -M viins '^N'   history-substring-search-down # ctrl+n
 
 # push-line
-bindkey -M viins '^Q' push-line
-bindkey -M vicmd '^Q' push-line
+bindkey -M viins '^Q' push-line-or-edit
+bindkey -M vicmd '^Q' push-line-or-edit
 
 bindkey -M viins '^H' backward-delete-char
 

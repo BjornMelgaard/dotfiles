@@ -1,99 +1,66 @@
-! -----------------------------------------------------------------------------
-! File: gruvbox-dark.xresources
-! Description: Retro groove colorscheme generalized
-! Author: morhetz <morhetz@gmail.com>
-! Source: https://github.com/morhetz/gruvbox-generalized
-! Last Modified: 6 Sep 2014
-! -----------------------------------------------------------------------------
-
 ! hard contrast: *background: #1d2021
-! *background: #282828
-! *background: #2b2222
 ! soft contrast: *background: #32302f
-! *foreground: #ebdbb2
 *foreground: #111111
+
 ! Black + DarkGrey
-*color0:  #282828
-*color8:  #928374
+*color0: #282828
+*color8: #928374
 ! DarkRed + Red
-*color1:  #cc241d
-*color9:  #fb4934
+*color1: #cc241d
+*color9: #fb4934
 ! DarkGreen + Green
-*color2:  #98971a
+*color2: #98971a
 *color10: #b8bb26
 ! DarkYellow + Yellow
-*color3:  #d79921
+*color3: #d79921
 *color11: #fabd2f
 ! DarkBlue + Blue
-*color4:  #458588
+*color4: #458588
 *color12: #83a598
 ! DarkMagenta + Magenta
-*color5:  #b16286
+*color5: #b16286
 *color13: #d3869b
 ! DarkCyan + Cyan
-*color6:  #689d6a
+*color6: #689d6a
 *color14: #8ec07c
 ! LightGrey + White
-*color7:  #a89984
+*color7: #a89984
 *color15: #ebdbb2
 
-
-
-! URxvt settings
-
 ! General
-!URxvt.termName:  rxvt-256color
-URxvt.loginShell:         true
-URxvt.scrollBar:         false
-URxvt.secondaryScroll:    true
-URxvt.saveLines:         65535
-URxvt.cursorBlink:       false
-URxvt.urgentOnBell:       true
-!URxvt.override-redirect:false
-!URxvt.borderLess:       false
-!URxvt.internalBorder:       0
-!URxvt.externalBorder:       0
+URxvt.loginShell: true
+URxvt.scrollBar: false
+URxvt.secondaryScroll: true
+URxvt.saveLines: 65535
+URxvt.cursorBlink: false
+URxvt.urgentOnBell: true
 
 ! Extensions
-URxvt.perl-lib:        /usr/lib/urxvt/perl/
+URxvt.perl-lib: /usr/lib/urxvt/perl/
 URxvt.perl-ext-common: default,matcher,searchable-scrollback,clipboard,keyboard-select
-URxvt.urlLauncher:     /usr/bin/google-chrome-stable
-URxvt.matcher.button:  1
-!  - catch ugly URLs
+URxvt.urlLauncher: /usr/bin/google-chrome-stable
+URxvt.matcher.button: 1
+
+! Catch ugly URLs
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-c:   perl:clipboard:copy
-URxvt.keysym.C-v:   perl:clipboard:paste
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.C-v: perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt.clipboard.copycmd:  xsel -ib
+URxvt.clipboard.copycmd: xsel -ib
 URxvt.clipboard.pastecmd: xsel -ob
 
-URxvt.letterSpace: -1
+URxvt.letterSpace: 0
 URxvt.intensityStyles: false
-! this work
-! URxvt.font: -*-dejavu sans mono-medium-r-*-*-0-*-*-*-*-*-koi8-u
+URxvt.font: xft:DejaVu Sans Mono for Powerline:Book:pixelsize=11:antialias=true, xft:Literation Mono for Powerline:Regular:pixelsize=11:antialias=true
+URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:Bold:pixelsize=11:antialias=true, xft:Literation Mono for Powerline:Bold:pixelsize=11:antialias=true
 
-! none of these - dont
-! URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:size=12
-! URxvt*font: xft:DejaVu Sans Mono for Powerline:style=Book:size=12
-! URxvt*font: xft:DejaVu Sans Mono for Powerline:size=12
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=10:antialias=true
-
-
-! -----------------------------------------------------------------------------
-! File: gruvbox-URxvt256.xresources
-! Description: Retro groove colorscheme generalized
-! Author: morhetz <morhetz@gmail.com>
-! Source: https://github.com/morhetz/gruvbox-generalized
-! Last Modified: 13 Dec 2013
-! -----------------------------------------------------------------------------
-
-URxvt.background: #282828
+URxvt.background: #424242
 URxvt.foreground: #ebdbb2
 
-URxvt.color24:  #076678
-URxvt.color66:  #427b58
-URxvt.color88:  #9d0006
-URxvt.color96:  #8f3f71
+URxvt.color24: #076678
+URxvt.color66: #427b58
+URxvt.color88: #9d0006
+URxvt.color96: #8f3f71
 URxvt.color100: #79740e
 URxvt.color108: #8ec07c
 URxvt.color109: #83a598
@@ -121,27 +88,16 @@ URxvt.color246: #a89984
 URxvt.color248: #bdae93
 URxvt.color250: #d5c4a1
 
-! Xft font configuration
-! Xft.antialias:  true
-! Xft.hinting:    true
-! Xft.rgba:       none
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: none
 
-!-------------------------------------------------------------------------------
-! Rofi
-!-------------------------------------------------------------------------------
-
-rofi.location:                       2
-rofi.width:                          100
+rofi.location: 2
+rofi.width: 100
 rofi.font: Hermit 10
 
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! Based on Adapta-Nokto GTK theme (https://github.com/adapta-project/adapta-gtk-theme)
-! User: PyGeek03
-! Copyright: PyGeek03
-! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: #3a4c54, #2a373e, #c3c6c8
+rofi.color-window: #3a4c54,#2a373e, #c3c6c8
 rofi.color-normal: #455a64, #fafbfc, #455a64, #00bcd4, #fafbfc
 rofi.color-active: #455a64, #00bcd4, #455a64, #009688, #fdf6e3
 rofi.color-urgent: #455a64, #ff5252, #455a64, #ff5252, #fdf6e3
