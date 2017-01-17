@@ -358,9 +358,6 @@
   endif "}}}
   if count(s:settings.plugin_groups, 'autocomplete') "{{{
     call dein#add('honza/vim-snippets')
-    " call dein#add('ervandew/supertab') " {{{
-    "   let g:SuperTabDefaultCompletionType = '<'
-    " " }}}
     call dein#add('Valloric/YouCompleteMe') "{{{
       let g:ycm_complete_in_comments_and_strings=1
       let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
@@ -368,9 +365,9 @@
       let g:ycm_filetype_blacklist={'unite': 1}
     "}}}
     call dein#add('SirVer/ultisnips') "{{{
-      let g:UltiSnipsExpandTrigger="<M-f>"
-      let g:UltiSnipsJumpForwardTrigger="<M-t>"
-      let g:UltiSnipsJumpBackwardTrigger="<M-r>"
+      let g:UltiSnipsExpandTrigger="<tab>"
+      let g:UltiSnipsJumpForwardTrigger="<tab>"
+      let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
       let g:UltiSnipsSnippetsDir='~/.config/nvim/snippets'
     "}}}
   endif "}}}
@@ -379,7 +376,6 @@
     call dein#add('tpope/vim-endwise')
     call dein#add('tpope/vim-speeddating')
     call dein#add('thinca/vim-visualstar')
-    " call dein#add('tomtom/tcomment_vim')
     call dein#add('tpope/vim-commentary')
     call dein#add('terryma/vim-expand-region')
     call dein#add('terryma/vim-multiple-cursors')
@@ -654,8 +650,9 @@
   cmap <M-p> <C-r>+
 
   " autosave
-  autocmd FocusLost * silent! wa
-  set autowriteall
+  autocmd FocusLost * :wa
+  " set autowriteall
+  set autowrite
 
   " start new undo sequence if deleting word
   inoremap <C-u> <C-g>u<C-u>
@@ -762,8 +759,7 @@
 "}}}
 
 " to del autopairs easyly
-  inoremap <M-a> <BS>
-  inoremap <M-s> <Del>
+  inoremap <C-d> <Del>
 
 " autocmd {{{
   " go back to previous position of cursor if any
