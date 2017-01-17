@@ -5,5 +5,5 @@ let g:dotvim_settings.autocomplete_method = 'ycm'
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 source ~/.config/nvim/vimrc
 
-" TODO Some plugin spoil iskeyword, find it
+" TODO Some plugin spoil iskeyword, find him
 set iskeyword&
