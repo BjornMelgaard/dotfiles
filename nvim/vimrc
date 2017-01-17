@@ -410,9 +410,19 @@
       " cnoremap <C-Q> <C-F>:call <SID>Erase()<C-C>
     " }}}
     call dein#add('tommcdo/vim-exchange')
+    call dein#add('junegunn/vim-easy-align') " {{{
+      xmap ga <Plug>(EasyAlign)
+      nmap ga <Plug>(EasyAlign)
+    " }}}
     call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library','vim-scripts/PatternsOnText']}) " {{{
       call dein#add('vim-scripts/ingo-library')
       call dein#add('vim-scripts/PatternsOnText')
+
+      nmap ym :%YankMatches:::+<left><left>
+      vmap ym :YankMatches:::+<left><left>
+
+      nmap yM :%PrintMatches::<left>
+      vmap yM :PrintMatches::<left>
     " }}}
   endif "}}}
   if count(s:settings.plugin_groups, 'navigation') "{{{
@@ -478,10 +488,8 @@
     call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
       nnoremap <silent> <F9> :TagbarToggle<CR>
     "}}}
+    call dein#add('kshenoy/vim-signature')
     call dein#add('myusuf3/numbers.vim')
-    call dein#add('jacquesbh/vim-showmarks') "{{{
-      map <f5> :DoShowMarks<cr>
-    "}}}
   endif "}}}
   if count(s:settings.plugin_groups, 'unite') "{{{
     function s:on_unite_source()
@@ -703,6 +711,7 @@
   vnoremap > >gv
 
   " reselect last paste
+  " TODO delete, dont work
   nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
   " find current word in quickfix

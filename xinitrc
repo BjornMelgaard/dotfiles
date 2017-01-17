@@ -9,7 +9,7 @@ fi
 
 export OPTIMUS_PREFIX="primusrun"
 
-xrdb -merge -I$HOME ~/.Xresources
+xrdb -merge -I$HOME ~/.Xresources/index
 xset -dpms
 xset s off
 xinput --disable 'ETPS/2 Elantech Touchpad'

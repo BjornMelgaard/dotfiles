@@ -1,32 +1,3 @@
-! hard contrast: *background: #1d2021
-! soft contrast: *background: #32302f
-*foreground: #111111
-
-! Black + DarkGrey
-*color0: #282828
-*color8: #928374
-! DarkRed + Red
-*color1: #cc241d
-*color9: #fb4934
-! DarkGreen + Green
-*color2: #98971a
-*color10: #b8bb26
-! DarkYellow + Yellow
-*color3: #d79921
-*color11: #fabd2f
-! DarkBlue + Blue
-*color4: #458588
-*color12: #83a598
-! DarkMagenta + Magenta
-*color5: #b16286
-*color13: #d3869b
-! DarkCyan + Cyan
-*color6: #689d6a
-*color14: #8ec07c
-! LightGrey + White
-*color7: #a89984
-*color15: #ebdbb2
-
 ! General
 URxvt.loginShell: true
 URxvt.scrollBar: false
@@ -88,16 +59,3 @@ URxvt.color246: #a89984
 URxvt.color248: #bdae93
 URxvt.color250: #d5c4a1
 
-Xft.antialias: true
-Xft.hinting: true
-Xft.rgba: none
-
-rofi.location: 2
-rofi.width: 100
-rofi.font: Hermit 10
-
-rofi.color-enabled: true
-rofi.color-window: #3a4c54,#2a373e, #c3c6c8
-rofi.color-normal: #455a64, #fafbfc, #455a64, #00bcd4, #fafbfc
-rofi.color-active: #455a64, #00bcd4, #455a64, #009688, #fdf6e3
-rofi.color-urgent: #455a64, #ff5252, #455a64, #ff5252, #fdf6e3
