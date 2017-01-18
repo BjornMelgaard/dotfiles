@@ -1,3 +1,4 @@
+# vim ft=sh
 set $mod Mod4
 floating_modifier $mod
 focus_follows_mouse  no
@@ -158,66 +159,66 @@ bindsym $mod+Control+Shift+Right  focus right; split v; layout tabbed; focus lef
 # -------------------------------------
 
 mode "resize" {
-	set $size 10
+  set $size 10
 
-	bindsym $left         resize grow   left  $size px or $size ppt
-	bindsym Shift+$left   resize shrink left  $size px or $size ppt
+  bindsym $left         resize grow   left  $size px or $size ppt
+  bindsym Shift+$left   resize shrink left  $size px or $size ppt
 
-	bindsym $down         resize grow   down  $size px or $size ppt
-	bindsym Shift+$down   resize shrink down  $size px or $size ppt
+  bindsym $down         resize grow   down  $size px or $size ppt
+  bindsym Shift+$down   resize shrink down  $size px or $size ppt
 
-	bindsym $up           resize grow   up    $size px or $size ppt
-	bindsym Shift+$up     resize shrink up    $size px or $size ppt
+  bindsym $up           resize grow   up    $size px or $size ppt
+  bindsym Shift+$up     resize shrink up    $size px or $size ppt
 
-	bindsym $right        resize grow   right $size px or $size ppt
-	bindsym Shift+$right  resize shrink right $size px or $size ppt
+  bindsym $right        resize grow   right $size px or $size ppt
+  bindsym Shift+$right  resize shrink right $size px or $size ppt
 
-	# same bindings, but for the arrow keys
-	bindsym Left          resize shrink left  $size px or $size ppt
-	bindsym Shift+Left    resize grow   left  $size px or $size ppt
+  # same bindings, but for the arrow keys
+  bindsym Left          resize shrink left  $size px or $size ppt
+  bindsym Shift+Left    resize grow   left  $size px or $size ppt
 
-	bindsym Down          resize shrink down  $size px or $size ppt
-	bindsym Shift+Down    resize grow   down  $size px or $size ppt
+  bindsym Down          resize shrink down  $size px or $size ppt
+  bindsym Shift+Down    resize grow   down  $size px or $size ppt
 
-	bindsym Up            resize shrink up    $size px or $size ppt
-	bindsym Shift+Up      resize grow   up    $size px or $size ppt
+  bindsym Up            resize shrink up    $size px or $size ppt
+  bindsym Shift+Up      resize grow   up    $size px or $size ppt
 
-	bindsym Right         resize shrink right $size px or $size ppt
-	bindsym Shift+Right   resize grow   right $size px or $size ppt
+  bindsym Right         resize shrink right $size px or $size ppt
+  bindsym Shift+Right   resize grow   right $size px or $size ppt
 
-	# bacl to normal: Enter or Escape or q or ^[
-	bindsym Return      mode "default"
-	bindsym q           mode "default"
-	bindsym Escape      mode "default"
-	bindcode Control+34 mode "default"
+  # bacl to normal: Enter or Escape or q or ^[
+  bindsym Return      mode "default"
+  bindsym q           mode "default"
+  bindsym Escape      mode "default"
+  bindcode Control+34 mode "default"
 }
 
 set $mode_system System (s) shutdown, (r) reboot
 mode "$mode_system" {
-	# bindsym l exec --no-startup-id i3exit lock, mode "default"
-	# bindsym e exec --no-startup-id i3exit logout, mode "default"
-	# bindsym s exec --no-startup-id i3exit suspend, mode "default"
-	# bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-	bindsym r exec --no-startup-id reboot, mode "default"
-	bindsym s exec --no-startup-id shutdown now, mode "default"
+  # bindsym l exec --no-startup-id i3exit lock, mode "default"
+  # bindsym e exec --no-startup-id i3exit logout, mode "default"
+  # bindsym s exec --no-startup-id i3exit suspend, mode "default"
+  # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+  bindsym r exec --no-startup-id reboot, mode "default"
+  bindsym s exec --no-startup-id shutdown now, mode "default"
 
-	# back to normal: Enter or Escape
-	bindsym Return    mode "default"
-	bindsym Escape    mode "default"
+  # back to normal: Enter or Escape
+  bindsym Return    mode "default"
+  bindsym Escape    mode "default"
 }
 
 bindsym $mod+Caps_Lock mode "$mode_system"
 
 bar {
-	strip_workspace_numbers yes
-	position top
-	status_command /home/bjorn/.i3/bin/conky-wrapper
-	colors {
-		statusline #AAAAAA
-		background #333333
-		focused_workspace  $gray2 $gray2 #FFFFFF
-		inactive_workspace $gray1 $gray1 #AAAAAA
-	}
+  strip_workspace_numbers yes
+  position top
+  status_command /home/bjorn/.i3/bin/conky-wrapper
+  colors {
+    statusline #AAAAAA
+    background #333333
+    focused_workspace  $gray2 $gray2 #FFFFFF
+    inactive_workspace $gray1 $gray1 #AAAAAA
+  }
 }
 
 
@@ -230,6 +231,3 @@ for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"]      floating enable
 for_window [title="Edit Current$"]     floating enable
 for_window [class="(?i)pcmanfm"]       floating enable
-
-for_window [title="(?i)Terminal" floating]  resize set 800 1600
-for_window [title="(?i)n(eo)?vim" floating] resize set 800 1600

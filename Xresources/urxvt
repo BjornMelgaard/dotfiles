@@ -23,5 +23,4 @@ URxvt.clipboard.pastecmd: xsel -ob
 
 URxvt.letterSpace: 0
 URxvt.intensityStyles: false
-URxvt.font: xft:DejaVu Sans Mono for Powerline:autohint=false:antialias=true:hinting=true:size=8, xft:Liberation Mono for Powerline:antialias=true:size=8
-URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:autohint=false:antialias=true:hinting=true:size=8, xft:Liberation Mono for Powerline:antialias=true:size=8
+URxvt*font: xft:DejaVu Sans Mono for Powerline:autohint=false:antialias=true:hinting=true:pixelsize=13:size=9
