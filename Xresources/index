@@ -1,5 +1,2 @@
-#include "xterm-colors"
-#include "urxvt"
-#include "xft"
 #include "rofi"
 

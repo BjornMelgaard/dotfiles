@@ -29,11 +29,20 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-autoload -U compinit && compinit # for zsh-completions
 
-# user settings
 alias pjdot="cd $HOME/.config/dotfiles"
 alias pjodot="$EDITOR $HOME/.config/dotfiles"
+
+alias vim="nvim"
+alias vimdiff="nvim -d"
+alias n="nvim"
+alias r="SHELL=/home/bjorn/.config/ranger/rshell ranger"
+
+alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
+alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
+alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
+alias update-angular-cli="npm uninstall -g angular-cli && npm cache clean && npm install -g angular-cli@latest"
+alias update-all="yaourt --aur  -Syu --noconfirm && sudo gem update --system && gem update && npm cache clean && npm update -g"
 
 autoload -U zmv
 
@@ -74,14 +83,3 @@ for m in visual viopp; do
 		bindkey -M $m $c select-quoted
 	done
 done
-
-alias st="subl3"
-alias stt="subl3 -n ."
-alias vim="nvim-qt"
-alias r="SHELL=/home/bjorn/.config/ranger/rshell ranger"
-
-alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
-alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
-alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
-alias update-angular-cli="npm uninstall -g angular-cli && npm cache clean && npm install -g angular-cli@latest"
-alias update-all="yaourt --aur  -Syu --noconfirm && sudo gem update --system && gem update && npm cache clean && npm update -g"

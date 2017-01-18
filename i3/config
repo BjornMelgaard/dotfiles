@@ -1,4 +1,4 @@
-# vim ft=sh
+# vim: set ft=sh
 set $mod Mod4
 floating_modifier $mod
 focus_follows_mouse  no
@@ -58,11 +58,11 @@ bindsym $mod+Shift+0 move workspace $WS9
 # -------------------------------------
 # Autostart
 # -------------------------------------
-set $terminal urxvt
+set $terminal termite
 set $browser  google-chrome-stable
 
 exec --no-startup-id python /home/bjorn/.i3/randomize_background.py
-exec --no-startup-id $terminal -e /home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt
+exec --no-startup-id $terminal -e "/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
 exec --no-startup-id $browser
 
 # -------------------------------------
@@ -72,8 +72,8 @@ bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
 
 bindsym $mod+w       exec $browser
-bindsym $mod+Shift+w exec $terminal -e zsh -c 'SHELL=/home/bjorn/.config/ranger/rshell ranger'
-bindsym $mod+e       exec $terminal -e zsh -ci nvim
+bindsym $mod+Shift+w exec $terminal -e "zsh -c 'SHELL=/home/bjorn/.config/ranger/rshell ranger'"
+bindsym $mod+e       exec $terminal -e "zsh -ci nvim"
 
 bindsym $mod+r           mode "resize"
 bindsym $mod+q           kill
@@ -98,7 +98,7 @@ bindsym XF86MonBrightnessUp   exec "xbacklight +10"
 bindsym XF86TouchpadToggle    exec "/home/bjorn/.i3/bin/switch_touchpad.sh"
 bindsym Print                 exec "scrot /home/bjorn/Pictures/%d.png"
 # bindsym XF86Display         exec "arandr"
-# bindsym $mod+e              exec "gnome-terminal -e alsamixer"
+# bindsym $mod+e              exec $terminal -e "alsamixer"
 bindsym $mod+n                exec "smplayer"
 bindsym $mod+m                exec "anki"
 bindsym $mod+Shift+m          exec "pavucontrol"

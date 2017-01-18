@@ -18,3 +18,5 @@ ln -sfT $DOTFILES_DIR/xinitrc              $HOME/.xinitrc
 ln -sfT $DOTFILES_DIR/yaourtrc             $HOME/.yaourtrc
 ln -sfT $DOTFILES_DIR/xkb                  $HOME/.config/xkb
 ln -sfT $DOTFILES_DIR/Xresources           $HOME/.Xresources
+ln -sfT $DOTFILES_DIR/termite              $HOME/.config/termite
+
