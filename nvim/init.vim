@@ -344,7 +344,7 @@ call dein#add('myusuf3/numbers.vim')
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TODO switch on Shougo/denite.nvim
-function s:on_unite_source()
+function! s:on_unite_source()
   call unite#filters#matcher_default#use(['matcher_fuzzy'])
   call unite#filters#sorter_default#use(['sorter_rank'])
   call unite#custom#profile('default', 'context', { 'start_insert': 1 })
