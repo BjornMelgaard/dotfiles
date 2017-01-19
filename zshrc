@@ -43,6 +43,7 @@ alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
 alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
 alias update-angular-cli="npm uninstall -g angular-cli && npm cache clean && npm install -g angular-cli@latest"
 alias update-all="yaourt --aur  -Syu --noconfirm && sudo gem update --system && gem update && npm cache clean && npm update -g"
+alias rvmnew="rvm use --create --ruby-version"
 
 autoload -U zmv
 
@@ -79,7 +80,7 @@ bindkey -M viins '^H' backward-delete-char
 autoload -U select-quoted
 zle -N select-quoted
 for m in visual viopp; do
-	for c in {a,i}{\',\",\`}; do
-		bindkey -M $m $c select-quoted
-	done
+  for c in {a,i}{\',\",\`}; do
+    bindkey -M $m $c select-quoted
+  done
 done
