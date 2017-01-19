@@ -37,6 +37,7 @@ alias vim="nvim"
 alias vimdiff="nvim -d"
 alias n="nvim"
 alias r="SHELL=/home/bjorn/.config/ranger/rshell ranger"
+alias top="htop"
 
 alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"

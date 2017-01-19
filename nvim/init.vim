@@ -9,14 +9,19 @@
   call dein#add('Shougo/dein.vim')
 "}}}
 
+let s:cache_dir = '~/.config/nvim/.cache'
 let s:settings = {}
-let s:settings.cache_dir = '~/.config/nvim/.cache'
 let s:settings.default_indent = 2
 let s:settings.max_column = 120
 let s:settings.enable_cursorcolumn = 0
+
 function! s:get_cache_dir(suffix) "{{{
-  return resolve(expand(s:settings.cache_dir . '/' . a:suffix))
+  return resolve(expand(s:cache_dir . '/' . a:suffix))
 endfunction "}}}
+
+if !executable('ag')
+  echoerr('You must install silver searcher')
+endif
 
 " base configuration
 set timeoutlen=300                                  "mapping timeout
@@ -64,14 +69,8 @@ set t_vb=
 " searching
 set ignorecase                                      "ignore case for searching
 set smartcase                                       "do case-sensitive if there's a capital letter
-if executable('ack')
-  set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
-  set grepformat=%f:%l:%c:%m
-endif
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
-  set grepformat=%f:%l:%c:%m
-endif
+set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+set grepformat=%f:%l:%c:%m
 
 let mapleader = ","
 let g:mapleader = ","
@@ -100,7 +99,7 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Core
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('vim-scripts/matchit.zip')
 call dein#add('vim-airline/vim-airline') "{{{
   let g:airline_powerline_fonts = 1
@@ -120,19 +119,36 @@ call dein#add('vim-airline/vim-airline') "{{{
 "}}}
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-repeat')
-call dein#add('tpope/vim-dispatch')
-call dein#add('tpope/vim-eunuch')
+call dein#add('tpope/vim-eunuch') " unix shell commands
 call dein#add('tpope/vim-unimpaired') "{{{
   nmap <c-up> [e
   nmap <c-down> ]e
   vmap <c-up> [egv
   vmap <c-down> ]egv
 "}}}
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+call dein#add('vim-scripts/bufkill.vim')
+call dein#add('mhinz/vim-startify') "{{{
+  let g:startify_session_dir = s:get_cache_dir('sessions')
+  let g:startify_change_to_vcs_root = 1
+  let g:startify_show_sessions = 1
+  nnoremap <F1> :Startify<cr>
+"}}}
+call dein#add('scrooloose/syntastic') "{{{
+  " let g:syntastic_aggregate_errors = 1
+  let g:syntastic_error_symbol = '✗'
+  let g:syntastic_style_error_symbol = '✠'
+  let g:syntastic_warning_symbol = '∆'
+  let g:syntastic_style_warning_symbol = '≈'
+"}}}
+call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
+  let g:goldenview__enable_default_mapping=0
+  nmap <F4> <Plug>ToggleGoldenViewAutoResize
+"}}}
+call dein#add('jszakmeister/vim-togglecursor')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Web
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('groenewege/vim-less', {'on_ft':['less']})
 call dein#add('cakebaker/scss-syntax.vim', {'on_ft':['scss','sass']})
 call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss','sass']})
@@ -148,6 +164,7 @@ call dein#add('mattn/emmet-vim', {'on_ft':['html','xml','xsl','xslt','xsd','css'
     endif
     return "\<plug>(emmet-expand-abbr)"
   endfunction
+  " TODO check in html
   autocmd FileType xml,xsl,xslt,xsd,css,sass,scss,less,mustache imap <buffer><tab> <c-y>,
   autocmd FileType html imap <buffer><expr><tab> <sid>zen_html_tab()
 "}}}
@@ -224,31 +241,12 @@ call dein#add('SirVer/ultisnips') "{{{
 " => Editing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('editorconfig/editorconfig-vim', {'on_i':1})
-call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-speeddating')
-call dein#add('thinca/vim-visualstar')
+call dein#add('tpope/vim-endwise') " wisely add 'end' in ruby, endfunction/endif/more in vim script
+call dein#add('tpope/vim-speeddating') " use CTRL-A/CTRL-X to increment dates
+call dein#add('thinca/vim-visualstar') " search your selection text
 call dein#add('tpope/vim-commentary')
-call dein#add('terryma/vim-expand-region')
-call dein#add('terryma/vim-multiple-cursors')
+call dein#add('terryma/vim-expand-region') " Press + to expand the visual selection and _ to shrink it
 call dein#add('chrisbra/NrrwRgn')
-call dein#add('godlygeek/tabular', {'on_cmd':'Tabularize'}) "{{{
-  nmap <Leader>a& :Tabularize /&<CR>
-  vmap <Leader>a& :Tabularize /&<CR>
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:<CR>
-  vmap <Leader>a: :Tabularize /:<CR>
-  nmap <Leader>a:: :Tabularize /:\zs<CR>
-  vmap <Leader>a:: :Tabularize /:\zs<CR>
-  nmap <Leader>a, :Tabularize /,<CR>
-  vmap <Leader>a, :Tabularize /,<CR>
-  nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-  vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-  nmap <Leader>a<Space> :Tabularize / <CR>
-  vmap <Leader>a<Space> :Tabularize / <CR>
-  nmap <Leader>a :Tab
-  vmap <Leader>a :Tab
-"}}}
 call dein#add('jiangmiao/auto-pairs') "{{{
   let g:AutoPairsShortcutToggle = ''
   let g:AutoPairsMapCh = 0
@@ -273,15 +271,14 @@ call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library
   nmap yM :%PrintMatches::<left>
   vmap yM :PrintMatches::<left>
 " }}}
+" TODO install or delete
 " call dein#add('bkad/CamelCaseMotion')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('mileszs/ack.vim') "{{{
-  if executable('ag')
-    let g:ackprg = "ag --nogroup --column --smart-case --follow"
-  endif
+  let g:ackprg = "ag --nogroup --column --smart-case --follow"
 "}}}
 call dein#add('mbbill/undotree', {'on_cmd':'UndotreeToggle'}) "{{{
   let g:undotree_SplitLocation='botright'
@@ -346,27 +343,19 @@ call dein#add('myusuf3/numbers.vim')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TODO switch on Shougo/denite.nvim
 function s:on_unite_source()
   call unite#filters#matcher_default#use(['matcher_fuzzy'])
   call unite#filters#sorter_default#use(['sorter_rank'])
   call unite#custom#profile('default', 'context', { 'start_insert': 1 })
 endfunction
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('Shougo/unite.vim', {'hook_post_source': function('s:on_unite_source')}) "{{{
-  if executable('ag')
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts =
-          \ '-i --vimgrep --hidden --ignore ' .
-          \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-    let g:unite_source_grep_recursive_opt = ''
-  elseif executable('pt')
-    let g:unite_source_grep_command = 'pt'
-    let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-    let g:unite_source_grep_recursive_opt = ''
-  elseif executable('ack')
-    let g:unite_source_grep_command = 'ack'
-    let g:unite_source_grep_default_opts = '-i --no-heading --no-color -k -H'
-    let g:unite_source_grep_recursive_opt = ''
-  endif
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts =
+        \ '-i --vimgrep --hidden --ignore ' .
+        \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+  let g:unite_source_grep_recursive_opt = ''
 
   function! s:unite_settings()
     nmap <buffer> Q <plug>(unite_exit)
@@ -381,7 +370,6 @@ call dein#add('Shougo/unite.vim', {'hook_post_source': function('s:on_unite_sour
   nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed file_rec/async:! buffer file_mru bookmark<cr><c-u>
   nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files file_rec/async:!<cr><c-u>
   nnoremap <silent> [unite]e :<C-u>Unite -buffer-name=recent file_mru<cr>
-  nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
   nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
   nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer file_mru<cr>
   nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
@@ -389,12 +377,9 @@ call dein#add('Shougo/unite.vim', {'hook_post_source': function('s:on_unite_sour
   nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
 "}}}
 call dein#add('Shougo/neomru.vim')
-call dein#add('osyo-manga/unite-airline_themes') "{{{
-  nnoremap <silent> [unite]a :<C-u>Unite -winheight=10 -auto-preview -buffer-name=airline_themes airline_themes<cr>
-"}}}
-call dein#add('ujihisa/unite-colorscheme') "{{{
-  nnoremap <silent> [unite]c :<C-u>Unite -winheight=10 -auto-preview -buffer-name=colorschemes colorscheme<cr>
-"}}}
+call dein#add('Shougo/neoyank.vim') " {{{
+  nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
+" }}}
 call dein#add('tsukkee/unite-tag') "{{{
   nnoremap <silent> [unite]t :<C-u>Unite -auto-resize -buffer-name=tag tag tag/file<cr>
 "}}}
@@ -410,24 +395,6 @@ call dein#add('Shougo/junkfile.vim') "{{{
 "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Indents
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('nathanaelkane/vim-indent-guides') "{{{
-  let g:indent_guides_start_level=1
-  let g:indent_guides_guide_size=1
-  let g:indent_guides_enable_on_vim_startup=0
-  let g:indent_guides_color_change_percent=3
-  if !has('gui_running')
-    let g:indent_guides_auto_colors=0
-    function! s:indent_set_console_colors()
-      hi IndentGuidesOdd ctermbg=235
-      hi IndentGuidesEven ctermbg=236
-    endfunction
-    autocmd VimEnter,Colorscheme * call s:indent_set_console_colors()
-  endif
-"}}}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Textobj
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('kana/vim-textobj-user')
@@ -440,38 +407,13 @@ call dein#add('kana/vim-textobj-line')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('kana/vim-vspec')
+call dein#add('kana/vim-vspec') " Testing framework
 call dein#add('tpope/vim-scriptease', {'on_ft':['vim']})
+
 call dein#add('tpope/vim-markdown',{'on_ft':['markdown']})
 if executable('instant-markdown-d')
   call dein#add('suan/vim-instant-markdown', {'on_ft':['markdown']})
 endif
-call dein#add('chrisbra/vim_faq')
-call dein#add('vimwiki/vimwiki')
-call dein#add('vim-scripts/bufkill.vim')
-call dein#add('mhinz/vim-startify') "{{{
-  let g:startify_session_dir = s:get_cache_dir('sessions')
-  let g:startify_change_to_vcs_root = 1
-  let g:startify_show_sessions = 1
-  nnoremap <F1> :Startify<cr>
-"}}}
-call dein#add('scrooloose/syntastic') "{{{
-  " let g:syntastic_aggregate_errors = 1
-  let g:syntastic_error_symbol = '✗'
-  let g:syntastic_style_error_symbol = '✠'
-  let g:syntastic_warning_symbol = '∆'
-  let g:syntastic_style_warning_symbol = '≈'
-"}}}
-call dein#add('mattn/gist-vim', { 'depends': 'mattn/webapi-vim', 'on_cmd': 'Gist' }) "{{{
-  call dein#add('mattn/webapi-vim')
-  let g:gist_post_private=1
-  let g:gist_show_privates=1
-"}}}
-call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
-  let g:goldenview__enable_default_mapping=0
-  nmap <F4> <Plug>ToggleGoldenViewAutoResize
-"}}}
-call dein#add('jszakmeister/vim-togglecursor')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
@@ -509,6 +451,7 @@ cmap     <M-p> <C-r>+
 
 " autosave
 autocmd FocusLost * silent! wall
+set autowrite
 set autowriteall
 
 " deleting
@@ -558,11 +501,6 @@ vnoremap > >gv
 " reselect last paste
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-" find current word in quickfix
-nnoremap <leader>fw :execute "vimgrep ".expand("<cword>")." %"<cr>:copen<cr>
-" find last search in quickfix
-nnoremap <leader>ff :execute 'vimgrep /'.@/.'/g %'<cr>:copen<cr>
-
 " shortcuts for windows
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s
@@ -582,14 +520,11 @@ nnoremap Y y$
 " quick buffer open
 nnoremap gb :ls<cr>:e #
 
-if dein#is_sourced('vim-dispatch')
-  nnoremap <leader>tag :Dispatch ctags -R<cr>
-endif
-
 " general
 nmap <leader>l :set list! list?<cr>
 nnoremap <BS> :noh<cr>
 
+" TODO what is this evaluate
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
