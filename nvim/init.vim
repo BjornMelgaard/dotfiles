@@ -4,7 +4,6 @@
 " => Initialize defaults
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " setup & dein {{{
-  set all&
   set rtp+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim
   call dein#begin(expand('~/.config/nvim/bundle/'))
   call dein#add('Shougo/dein.vim')
@@ -14,35 +13,36 @@ let s:cache_dir = '~/.config/nvim/.cache'
 let s:settings = {}
 let s:settings.default_indent = 2
 let s:settings.max_column = 120
-let s:settings.enable_cursorcolumn = 0
 
 function! s:get_cache_dir(suffix) "{{{
   return resolve(expand(s:cache_dir . '/' . a:suffix))
 endfunction "}}}
+
+function! EnsureExists(path) "{{{
+  if !isdirectory(expand(a:path))
+    call mkdir(expand(a:path))
+  endif
+endfunction "}}}
+
+" swap files
+let &directory = s:get_cache_dir('swap')
+set noswapfile
+
+call EnsureExists(s:cache_dir)
+call EnsureExists(&directory)
 
 if !executable('ag')
   echoerr('You must install silver searcher')
 endif
 
 " base configuration
-set timeoutlen=300                                  "mapping timeout
-set ttimeoutlen=50                                  "keycode timeout
-
-set mousehide                                       "hide when characters are typed
-set viewoptions=folds,options,cursor,unix,slash     "unix/windows compatibility
-set encoding=utf-8                                  "set encoding for text
-set clipboard=unnamed                               "sync with OS clipboard
-set fileformats+=mac                                "add mac to auto-detection of file format line endings
-set nrformats-=octal                                "always assume decimal numbers
-set showcmd
 set showfulltag
-set modeline
-set modelines=5
 set shell=zsh
 set noshelltemp                                     "use pipes
+set clipboard=unnamed
 
 " whitespace
-set autoindent                                      "automatically indent to match adjacent lines
+" set autoindent                                      "automatically indent to match adjacent lines
 set expandtab                                       "spaces instead of tabs
 let &tabstop=s:settings.default_indent              "number of spaces per tab for display
 let &softtabstop=s:settings.default_indent          "number of spaces per tab in insert mode
@@ -53,18 +53,13 @@ set shiftround
 set linebreak
 let &showbreak='↪ '
 
-set scrolloff=1                                     "always show content after scroll
-set scrolljump=5                                    "minimum number of lines to scroll
+" set scrolloff=1                                     "always show content after scroll
+" set scrolljump=5                                    "minimum number of lines to scroll
 set wildmode=list:full
 set wildignorecase
 
 set splitbelow
 set splitright
-
-" disable sounds
-set noerrorbells
-set novisualbell
-set t_vb=
 
 " searching
 set ignorecase                                      "ignore case for searching
@@ -81,7 +76,6 @@ set matchtime=2                                     "tens of a second to show ma
 set number
 set lazyredraw
 set noshowmode
-set foldenable                                      "enable folds by default
 set foldmethod=syntax                               "fold via syntax of files
 set foldlevelstart=99                               "open all folds by default
 let g:xml_syntax_folding=1                          "enable xml folding
@@ -90,12 +84,6 @@ set cursorline
 autocmd WinLeave * setlocal nocursorline
 autocmd WinEnter * setlocal cursorline
 let &colorcolumn=s:settings.max_column
-
-if s:settings.enable_cursorcolumn
-  set cursorcolumn
-  autocmd WinLeave * setlocal nocursorcolumn
-  autocmd WinEnter * setlocal cursorcolumn
-endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Core
@@ -343,57 +331,35 @@ call dein#add('myusuf3/numbers.vim')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('Shougo/denite.nvim')
+call dein#add('Shougo/denite.nvim') " {{{
+  call denite#custom#var('file_rec', 'command', ['ag', '--vimgrep', '--hidden',
+    \ '--ignore', '.hg',
+    \ '--ignore', '.svn',
+    \ '--ignore', '.git',
+    \ '--ignore', '.bzr',
+    \ '--ignore', '.cache'])
+  call denite#custom#map('normal', 'Q', '<denite:quit>', 'noremap')
+" }}}
 
-"function! s:on_unite_source()
-"  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-"  call unite#filters#sorter_default#use(['sorter_rank'])
-"  call unite#custom#profile('default', 'context', { 'start_insert': 1 })
-"endfunction
-"call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-"call dein#add('Shougo/unite.vim', {'hook_post_source': function('s:on_unite_source')}) "{{{
-"  let g:unite_source_grep_command = 'ag'
-"  let g:unite_source_grep_default_opts =
-"        \ '-i --vimgrep --hidden --ignore ''.hg'' ' .
-"        \ '--ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' --ignore ''.cache'''
-"  let g:unite_source_grep_recursive_opt = ''
 
-"  function! s:unite_settings()
-"    nmap <buffer> Q <plug>(unite_exit)
-"    nmap <buffer> <esc> <plug>(unite_exit)
-"    imap <buffer> <esc> <plug>(unite_exit)
-"  endfunction
-"  autocmd FileType unite call s:unite_settings()
+" {{{
+  nnoremap <silent> <space><space> :<C-u>Denite buffer<cr>
+" }}}
 
-"  nmap <space> [unite]
-"  nnoremap [unite] <nop>
+" git ls-files for file_rec {{{
+  call denite#custom#alias('source', 'file_rec/git', 'file_rec')
+  call denite#custom#var('file_rec/git', 'command',
+    \ ['git', 'ls-files', '-co', '--exclude-standard'])
+  nnoremap <silent> <space>p :<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+" }}}
 
-"  nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed file_rec/async:! buffer file_mru bookmark<cr><c-u>
-"  nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files file_rec/async:!<cr><c-u>
-"  nnoremap <silent> [unite]e :<C-u>Unite -buffer-name=recent file_mru<cr>
-"  nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
-"  nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer file_mru<cr>
-"  nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
-"  nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
-"  nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
-""}}}
-"call dein#add('Shougo/neomru.vim')
-"call dein#add('Shougo/neoyank.vim') " {{{
-"  nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
-"" }}}
-"call dein#add('tsukkee/unite-tag') "{{{
-"  nnoremap <silent> [unite]t :<C-u>Unite -auto-resize -buffer-name=tag tag tag/file<cr>
-""}}}
-"call dein#add('Shougo/unite-outline') "{{{
-"  nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
-""}}}
-"call dein#add('Shougo/unite-help') "{{{
-"  nnoremap <silent> [unite]h :<C-u>Unite -auto-resize -buffer-name=help help<cr>
-""}}}
-"call dein#add('Shougo/junkfile.vim') "{{{
-"  let g:junkfile#directory=s:get_cache_dir('junk')
-"  nnoremap <silent> [unite]j :<C-u>Unite -auto-resize -buffer-name=junk junkfile junkfile/new<cr>
-""}}}
+call dein#add('Shougo/neomru.vim') " {{{
+  nnoremap <silent> <space>m :<C-u>Denite file_mru <cr>
+" }}}
+
+call dein#add('Shougo/neoyank.vim') " {{{
+  nnoremap <silent> <space>y :<C-u>Denite neoyank<cr>
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Textobj
@@ -577,3 +543,4 @@ autocmd VimEnter * call dein#call_hook('post_source')
 filetype plugin indent on
 syntax enable
 colorscheme jellybeans
+
