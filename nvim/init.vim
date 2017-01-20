@@ -4,6 +4,7 @@
 " => Initialize defaults
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " setup & dein {{{
+  set all& " restore all, because 'iskeyword' spoiled, dunno why, TODO find
   set rtp+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim
   call dein#begin(expand('~/.config/nvim/bundle/'))
   call dein#add('Shougo/dein.vim')
@@ -344,55 +345,55 @@ call dein#add('myusuf3/numbers.vim')
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TODO switch on Shougo/denite.nvim
-function! s:on_unite_source()
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-  call unite#filters#sorter_default#use(['sorter_rank'])
-  call unite#custom#profile('default', 'context', { 'start_insert': 1 })
-endfunction
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('Shougo/unite.vim', {'hook_post_source': function('s:on_unite_source')}) "{{{
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts =
-        \ '-i --vimgrep --hidden --ignore ' .
-        \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-  let g:unite_source_grep_recursive_opt = ''
+"function! s:on_unite_source()
+"  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"  call unite#filters#sorter_default#use(['sorter_rank'])
+"  call unite#custom#profile('default', 'context', { 'start_insert': 1 })
+"endfunction
+"call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+"call dein#add('Shougo/unite.vim', {'hook_post_source': function('s:on_unite_source')}) "{{{
+"  let g:unite_source_grep_command = 'ag'
+"  let g:unite_source_grep_default_opts =
+"        \ '-i --vimgrep --hidden --ignore ''.hg'' ' .
+"        \ '--ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' --ignore ''.cache'''
+"  let g:unite_source_grep_recursive_opt = ''
 
-  function! s:unite_settings()
-    nmap <buffer> Q <plug>(unite_exit)
-    nmap <buffer> <esc> <plug>(unite_exit)
-    imap <buffer> <esc> <plug>(unite_exit)
-  endfunction
-  autocmd FileType unite call s:unite_settings()
+"  function! s:unite_settings()
+"    nmap <buffer> Q <plug>(unite_exit)
+"    nmap <buffer> <esc> <plug>(unite_exit)
+"    imap <buffer> <esc> <plug>(unite_exit)
+"  endfunction
+"  autocmd FileType unite call s:unite_settings()
 
-  nmap <space> [unite]
-  nnoremap [unite] <nop>
+"  nmap <space> [unite]
+"  nnoremap [unite] <nop>
 
-  nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed file_rec/async:! buffer file_mru bookmark<cr><c-u>
-  nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files file_rec/async:!<cr><c-u>
-  nnoremap <silent> [unite]e :<C-u>Unite -buffer-name=recent file_mru<cr>
-  nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
-  nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer file_mru<cr>
-  nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
-  nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
-  nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
-"}}}
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/neoyank.vim') " {{{
-  nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
-" }}}
-call dein#add('tsukkee/unite-tag') "{{{
-  nnoremap <silent> [unite]t :<C-u>Unite -auto-resize -buffer-name=tag tag tag/file<cr>
-"}}}
-call dein#add('Shougo/unite-outline') "{{{
-  nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
-"}}}
-call dein#add('Shougo/unite-help') "{{{
-  nnoremap <silent> [unite]h :<C-u>Unite -auto-resize -buffer-name=help help<cr>
-"}}}
-call dein#add('Shougo/junkfile.vim') "{{{
-  let g:junkfile#directory=s:get_cache_dir('junk')
-  nnoremap <silent> [unite]j :<C-u>Unite -auto-resize -buffer-name=junk junkfile junkfile/new<cr>
-"}}}
+"  nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed file_rec/async:! buffer file_mru bookmark<cr><c-u>
+"  nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files file_rec/async:!<cr><c-u>
+"  nnoremap <silent> [unite]e :<C-u>Unite -buffer-name=recent file_mru<cr>
+"  nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
+"  nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer file_mru<cr>
+"  nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
+"  nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
+"  nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
+""}}}
+"call dein#add('Shougo/neomru.vim')
+"call dein#add('Shougo/neoyank.vim') " {{{
+"  nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
+"" }}}
+"call dein#add('tsukkee/unite-tag') "{{{
+"  nnoremap <silent> [unite]t :<C-u>Unite -auto-resize -buffer-name=tag tag tag/file<cr>
+""}}}
+"call dein#add('Shougo/unite-outline') "{{{
+"  nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
+""}}}
+"call dein#add('Shougo/unite-help') "{{{
+"  nnoremap <silent> [unite]h :<C-u>Unite -auto-resize -buffer-name=help help<cr>
+""}}}
+"call dein#add('Shougo/junkfile.vim') "{{{
+"  let g:junkfile#directory=s:get_cache_dir('junk')
+"  nnoremap <silent> [unite]j :<C-u>Unite -auto-resize -buffer-name=junk junkfile junkfile/new<cr>
+""}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Textobj
