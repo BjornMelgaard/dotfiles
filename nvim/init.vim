@@ -32,7 +32,6 @@ set mousehide                                       "hide when characters are ty
 set viewoptions=folds,options,cursor,unix,slash     "unix/windows compatibility
 set encoding=utf-8                                  "set encoding for text
 set clipboard=unnamed                               "sync with OS clipboard
-set hidden                                          "allow buffer switching without saving
 set fileformats+=mac                                "add mac to auto-detection of file format line endings
 set nrformats-=octal                                "always assume decimal numbers
 set showcmd
@@ -539,6 +538,9 @@ nnoremap <silent> <leader>DQ :exe ":profile pause"<cr>:noautocmd qall!<cr>
 command! -bang Q q<bang>
 command! -bang QA qa<bang>
 command! -bang Qa qa<bang>
+
+" nvim terminal emulator
+tnoremap <M-Esc> <C-\><C-n>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocommands
