@@ -4,7 +4,7 @@
 " => Initialize defaults
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " setup & dein {{{
-  set all& " restore all, because 'iskeyword' spoiled, dunno why, TODO find
+  set all&
   set rtp+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim
   call dein#begin(expand('~/.config/nvim/bundle/'))
   call dein#add('Shougo/dein.vim')
@@ -344,7 +344,8 @@ call dein#add('myusuf3/numbers.vim')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TODO switch on Shougo/denite.nvim
+call dein#add('Shougo/denite.nvim')
+
 "function! s:on_unite_source()
 "  call unite#filters#matcher_default#use(['matcher_fuzzy'])
 "  call unite#filters#sorter_default#use(['sorter_rank'])
@@ -440,20 +441,18 @@ cnoremap <M-k> <up>
 
 " clipboard actions
 nnoremap <M-p> "+p
-nnoremap <M-P> "+P
-nnoremap <M-y> "+y
-nnoremap <M-d> "+d
 vnoremap <M-p> "+p
-vnoremap <M-P> "+P
-vnoremap <M-y> "+y
-vnoremap <M-d> "+d
 imap     <M-p> <C-r>+
 cmap     <M-p> <C-r>+
 
-" autosave
-autocmd FocusLost * silent! wall
-set autowrite
-set autowriteall
+nnoremap <M-P> "+P
+vnoremap <M-P> "+P
+
+nnoremap <M-y> "+y
+vnoremap <M-y> "+y
+
+nnoremap <M-d> "+d
+vnoremap <M-d> "+d
 
 " deleting
 inoremap <C-u> <C-g>u<C-u>
@@ -525,7 +524,7 @@ nnoremap gb :ls<cr>:e #
 nmap <leader>l :set list! list?<cr>
 nnoremap <BS> :noh<cr>
 
-" TODO what is this evaluate
+" TODO what this evaluate
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
@@ -550,13 +549,16 @@ autocmd BufReadPost *
   \  exe 'normal! g`"zvzz' |
   \ endif
 
-autocmd BufWritePre * :call StripTrailingWhitespace()
+" autosave
+autocmd FocusLost * silent! wall
+set autowrite
+set autowriteall
+
 autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
 autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal nolist
 autocmd FileType vim setlocal fdm=indent keywordprg=:help
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Finish
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

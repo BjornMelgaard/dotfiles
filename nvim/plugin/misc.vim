@@ -46,3 +46,5 @@ vmap <silent> <leader>e :call Source(line('v'), line('.'))<CR>
 
 " window killer
 nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
+
+autocmd BufWritePre * :call StripTrailingWhitespace()
