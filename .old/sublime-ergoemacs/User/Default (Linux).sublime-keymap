@@ -1,0 +1,127 @@
+[
+  //Easy motion
+  { "keys": ["alt+n", "<character>"], "command": "easy_motion","args": {"select_text": false} },
+  { "keys": ["alt+n", "enter"], "command": "easy_motion","args": {"select_text": false, "character": "enter"}},
+  { "keys": ["alt+shift+n", "<character>"], "command": "easy_motion","args": {"select_text": true} },
+  { "keys": ["alt+shift+n", "enter"], "command": "easy_motion","args": {"select_text": true, "character": "enter"}},
+
+  // Movement by chars
+  { "keys": ["alt+j"], "command": "move", "args": {"by": "characters", "forward": false, "extend": false} },
+  { "keys": ["alt+l"], "command": "move", "args": {"by": "characters", "forward": true, "extend": false} },
+  { "keys": ["alt+shift+j"], "command": "move", "args": {"by": "characters", "forward": false, "extend": true} },
+  { "keys": ["alt+shift+l"], "command": "move", "args": {"by": "characters", "forward": true, "extend": true} },
+  // Movement by sexpression
+  { "keys": ["ctrl+j"], "command": "backward_sexp" },
+  { "keys": ["ctrl+l"], "command": "forward_sexp" },
+
+  // Movement by lines
+  { "keys": ["alt+i"], "command": "move", "args": {"by": "lines", "forward": false, "extend": false} },
+  { "keys": ["alt+k"], "command": "move", "args": {"by": "lines", "forward": true, "extend": false} },
+  { "keys": ["alt+shift+i"], "command": "move", "args": {"by": "lines", "forward": false, "extend": true} },
+  { "keys": ["alt+shift+k"], "command": "move", "args": {"by": "lines", "forward": true, "extend": true} },
+
+  // Movement by subword
+  { "keys": ["alt+u"], "command": "move", "args": {"by": "words", "forward": false, "extend": false} },
+  { "keys": ["alt+o"], "command": "move", "args": {"by": "word_ends", "forward": true, "extend": false} },
+  { "keys": ["alt+shift+u"], "command": "move", "args": {"by": "words", "forward": false, "extend": true} },
+  { "keys": ["alt+shift+o"], "command": "move", "args": {"by": "word_ends", "forward": true, "extend": true} },
+
+  // Movement to beginning/end of line
+  { "keys": ["ctrl+u"], "command": "move_to", "args": {"to": "bol", "extend": false} },
+  { "keys": ["ctrl+o"], "command": "move_to", "args": {"to": "eol", "extend": false} },
+  { "keys": ["shift+ctrl+u"], "command": "move_to", "args": {"to": "bol", "extend": true} },
+  { "keys": ["shift+ctrl+o"], "command": "move_to", "args": {"to": "eol", "extend": true} },
+
+  // Movement by left, right
+  { "keys": ["alt+left"],  "command": "move_to", "args": {"to": "bol", "extend": false} },
+  { "keys": ["alt+right"], "command": "move_to", "args": {"to": "eol", "extend": false} },
+  { "keys": ["shift+alt+left"],  "command": "move_to", "args": {"to": "bol", "extend": true} },
+  { "keys": ["shift+alt+right"], "command": "move_to", "args": {"to": "eol", "extend": true} },
+
+  { "keys": ["shift+ctrl+left"],  "command": "move", "args": {"by": "words", "forward": false, "extend": true} },
+  { "keys": ["shift+ctrl+right"], "command": "move", "args": {"by": "word_ends", "forward": true, "extend": true} },
+
+  // Movement by paragraph
+  {"keys": ["alt+,"], "command": "move_by_paragraph", "args": {"forward": false}},
+  {"keys": ["alt+."], "command": "move_by_paragraph", "args": {"forward": true}},
+  {"keys": ["alt+shift+,"], "command": "move_by_paragraph", "args": {"forward": false, "extend": true}},
+  {"keys": ["alt+shift+."], "command": "move_by_paragraph", "args": {"forward": true, "extend": true}},
+  // Movement by pages
+  { "keys": ["alt+ctrl+,"], "command": "move", "args": {"by": "pages", "forward": false} },
+  { "keys": ["alt+ctrl+."], "command": "move", "args": {"by": "pages", "forward": true} },
+
+  // File and directories creation
+  { "keys": ["super+ctrl+o"], "command": "quick_create_file" },
+  { "keys": ["super+ctrl+d"], "command": "quick_create_directory" },
+
+  // Mark
+  { "keys": ["alt+space"], "command": "mark_and_move_do_it_all" },
+  { "keys": ["alt+z"], "command": "mark_and_move_recall" },
+  { "keys": ["alt+x"], "command": "mark_and_move_save" },
+  { "keys": ["alt+n"], "command": "mark_and_move_next" },
+  { "keys": ["alt+h"], "command": "mark_and_move_prev" },
+  { "keys": ["alt+m"], "command": "mark_and_move_clear" },
+  { "keys": ["alt+escape"], "command": "single_selection", "context":[{ "key": "num_selections", "operator": "not_equal", "operand": 1 }]},
+
+  // Selection and it's undo
+  { "keys": ["alt+8"], "command": "expand_region" },
+  { "keys": ["alt+shift+8"], "command": "expand_region", "args": {"undo": true}, "context": [{ "key": "expand_region_soft_undo" }]},
+  // Search
+  { "keys": ["alt+d"], "command": "find_under_expand" },
+  { "keys": ["alt+shift+d"], "command": "find_all_under" },
+  { "keys": ["alt+f"], "command": "find_under_expand_skip" },
+  { "keys": ["alt+e"], "command": "soft_undo" },
+
+  // Delete
+  { "keys": ["alt+a"], "command": "left_delete" },
+  { "keys": ["alt+s"], "command": "right_delete" },
+  { "keys": ["alt+q"], "command": "delete_word", "args": { "forward": false } },
+  { "keys": ["alt+w"], "command": "delete_word", "args": { "forward": true } },
+  { "keys": ["alt+shift+q"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete to Hard BOL.sublime-macro"} },
+  { "keys": ["alt+shift+w"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete to Hard EOL.sublime-macro"} },
+  { "keys": ["alt+ctrl+q"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+
+  // Windows
+  { "keys": ["ctrl+q"], "command": "toggle_side_bar" },
+  { "keys": ["ctrl+shift+q"], "command": "toggle_setting", "args": {"setting": "word_wrap"}},
+  // { "keys": ["alt+s"], "command": "move_cursor_next_pane" },
+  // { "keys": ["alt+shift+s"], "command": "move_cursor_previous_pane" },
+
+  // { "keys": ["alt+1"], "command": "delete_other_windows" },
+  // { "keys": ["alt+2"], "command": "split_window_vertically" },
+  // { "keys": ["alt+shift+2"], "command": "split_window_horizontally" },
+
+  // { "keys": ["ctrl+shift+tab"], "command": "mark_and_move_window_select" },
+  // { "keys": ["ctrl+tab"], "command": "mark_and_move_window_toggle" },
+  // { "keys": ["alt+shift+w"], "command": "close_all" },
+  // single window
+  { "keys": ["f1"], "command": "set_layout", "args": { "cols": [0.0, 1.0], "rows": [0.0, 1.0], "cells": [[0, 0, 1, 1]] } },
+  // 2 columns
+  { "keys": ["f2"], "command": "set_layout", "args": { "cols": [0.0, 0.5, 1.0],"rows": [0.0, 1.0],"cells": [[0, 0, 1, 1], [1, 0, 2, 1]] }},
+  // 2 rows
+  { "keys": ["f3"], "command": "set_layout", "args": { "cols": [0.0, 1.0], "rows": [0.0, 0.5, 1.0], "cells": [[0, 0, 1, 1], [0, 1, 1, 2]] } },
+  //paste_and_indent by default
+  { "keys": ["ctrl+v"], "command": "paste_and_indent" },
+  { "keys": ["ctrl+shift+v"], "command": "paste" },
+
+  // Remove or expand brakets
+  { "keys": ["ctrl+alt+2"], "command": "bh_remove_brackets"},
+  { "keys": ["ctrl+shift+2"], "command": "expand_region" },
+
+  //This is autocomplete-on-demant runaround for Linux
+  { "keys": ["ctrl+space"], "command": "auto_complete" },
+  { "keys": ["ctrl+space"], "command": "replace_completion_with_auto_complete", "context":
+    [
+      { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
+      { "key": "auto_complete_visible", "operator": "equal", "operand": false },
+      { "key": "setting.tab_completion", "operator": "equal", "operand": true }
+    ]
+  },
+  // Because I have language switch on ctrl+shift
+  { "keys": ["ctrl+alt+/"], "command": "toggle_comment", "args": { "block": true } },
+  { "keys": ["shift+ctrl+b"], "command": "exec", "args": {"kill": true} },
+  { "keys": ["ctrl+k", "ctrl+t"], "command": "title_case" },
+
+  { "keys": ["alt+c", "alt+c"], "command": "run_macro_file", "args": {"file": "res://Packages/User/log_selection.sublime-macro"} },
+
+]

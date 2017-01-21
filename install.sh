@@ -4,7 +4,6 @@ ln -sfT $DOTFILES_DIR/i3                   $HOME/.i3
 ln -sfT $DOTFILES_DIR/oh-my-zsh            $HOME/.oh-my-zsh
 ln -sfT $DOTFILES_DIR/nvim                 $HOME/.config/nvim
 ln -sfT $DOTFILES_DIR/ranger               $HOME/.config/ranger
-ln -sfT $DOTFILES_DIR/User                 $HOME/.config/sublime-text-3/Packages/User
 
 ln -sfT $DOTFILES_DIR/gitconfig            $HOME/.gitconfig
 ln -sfT $DOTFILES_DIR/gitignore_global     $HOME/.gitignore_global

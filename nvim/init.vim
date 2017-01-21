@@ -327,6 +327,9 @@ call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
 "}}}
 call dein#add('kshenoy/vim-signature')
 call dein#add('myusuf3/numbers.vim')
+call dein#add('rhysd/clever-f.vim') " {{{
+  nnoremap ; :
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
@@ -340,7 +343,6 @@ call dein#add('Shougo/denite.nvim') " {{{
     \ '--ignore', '.cache'])
   call denite#custom#map('normal', 'Q', '<denite:quit>', 'noremap')
 " }}}
-
 
 " {{{
   nnoremap <silent> <space><space> :<C-u>Denite buffer<cr>
@@ -381,6 +383,7 @@ call dein#add('tpope/vim-markdown',{'on_ft':['markdown']})
 if executable('instant-markdown-d')
   call dein#add('suan/vim-instant-markdown', {'on_ft':['markdown']})
 endif
+call dein#add('PotatoesMaster/i3-vim-syntax')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
@@ -416,8 +419,14 @@ vnoremap <M-P> "+P
 nnoremap <M-y> "+y
 vnoremap <M-y> "+y
 
+nnoremap <M-Y> "+y$
+vnoremap <M-Y> "+y$
+
 nnoremap <M-d> "+d
 vnoremap <M-d> "+d
+
+nnoremap <M-D> "+D
+vnoremap <M-D> "+D
 
 " deleting
 inoremap <C-u> <C-g>u<C-u>

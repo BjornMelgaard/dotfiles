@@ -1,4 +1,4 @@
-# vim: ft=sh
+# vim: ft=i3
 set $mod Mod4
 floating_modifier $mod
 focus_follows_mouse  no

@@ -12,6 +12,9 @@ xkb_keymap {
     replace key <RALT> { [ Control_L ] };
     modifier_map Control { <RALT> };
 
+    replace key <COMP> { [ Super_L ] };
+    modifier_map Mod4 { <COMP> };
+
     // helpers //
     // xinput list
     // xinput test 16
