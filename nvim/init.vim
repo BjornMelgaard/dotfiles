@@ -42,7 +42,6 @@ set noshelltemp                                     "use pipes
 set clipboard=unnamed
 
 " whitespace
-" set autoindent                                      "automatically indent to match adjacent lines
 set expandtab                                       "spaces instead of tabs
 let &tabstop=s:settings.default_indent              "number of spaces per tab for display
 let &softtabstop=s:settings.default_indent          "number of spaces per tab in insert mode
@@ -53,8 +52,6 @@ set shiftround
 set linebreak
 let &showbreak='↪ '
 
-" set scrolloff=1                                     "always show content after scroll
-" set scrolljump=5                                    "minimum number of lines to scroll
 set wildmode=list:full
 set wildignorecase
 
@@ -242,10 +239,6 @@ call dein#add('jiangmiao/auto-pairs') "{{{
 call dein#add('justinmk/vim-sneak') "{{{
   let g:sneak#streak = 1
 "}}}
-call dein#add('vim-scripts/eraseSubword') " {{{
-  " TODO map to command mode
-  " cnoremap <C-Q> <C-F>:call <SID>Erase()<C-C>
-" }}}
 call dein#add('tommcdo/vim-exchange')
 call dein#add('junegunn/vim-easy-align') " {{{
   xmap ga <Plug>(EasyAlign)
@@ -254,13 +247,24 @@ call dein#add('junegunn/vim-easy-align') " {{{
 call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library','vim-scripts/PatternsOnText']}) " {{{
   call dein#add('vim-scripts/ingo-library')
   call dein#add('vim-scripts/PatternsOnText')
-  nmap ym :%YankMatches:::+<left><left>
-  vmap ym :YankMatches:::+<left><left>
-  nmap yM :%PrintMatches::<left>
-  vmap yM :PrintMatches::<left>
+
+  function! s:digestLastSearch() "{{{
+    let temp = substitute(@/, '\\zs', '(', '')
+    return substitute(temp, '\\ze', ')', '')
+  endfunction "}}}
+
+  nmap ym :%YankMatches:<c-r>=<SID>digestLastSearch()<cr>::+<left><left>
+  vmap ym :YankMatches:<c-r>=<SID>digestLastSearch()<cr>::+<left><left>
+
+  nmap yM :%PrintMatches:<c-r>=<SID>digestLastSearch()<cr>:<left>
+  vmap yM :PrintMatches:<c-r>=<SID>digestLastSearch()<cr>:<left>
+
+  nnoremap dm :%s:::
+  vnoremap dm :s:::
 " }}}
-" TODO install or delete
-" call dein#add('bkad/CamelCaseMotion')
+
+call dein#add('junegunn/vim-peekaboo')
+call dein#add('bkad/CamelCaseMotion')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
@@ -410,8 +414,8 @@ cnoremap <M-k> <up>
 " clipboard actions
 nnoremap <M-p> "+p
 vnoremap <M-p> "+p
-imap     <M-p> <C-r>+
-cmap     <M-p> <C-r>+
+inoremap <M-p> <C-r>+
+cnoremap <M-p> <C-r>+
 
 nnoremap <M-P> "+P
 vnoremap <M-P> "+P
@@ -509,12 +513,7 @@ nnoremap <silent> <leader>DP :exe ":profile pause"<cr>
 nnoremap <silent> <leader>DC :exe ":profile continue"<cr>
 nnoremap <silent> <leader>DQ :exe ":profile pause"<cr>:noautocmd qall!<cr>
 
-" commands
-command! -bang Q q<bang>
-command! -bang QA qa<bang>
-command! -bang Qa qa<bang>
-
-" nvim terminal emulator
+" in nvim terminal emulator
 tnoremap <M-Esc> <C-\><C-n>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
