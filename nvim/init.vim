@@ -40,6 +40,7 @@ set showfulltag
 set shell=zsh
 set noshelltemp                                     "use pipes
 set clipboard=unnamed
+set inccommand=nosplit
 
 " whitespace
 set expandtab                                       "spaces instead of tabs
@@ -366,6 +367,7 @@ call dein#add('Shougo/neomru.vim') " {{{
 call dein#add('Shougo/neoyank.vim') " {{{
   nnoremap <silent> <space>y :<C-u>Denite neoyank<cr>
 " }}}
+call dein#add('Shougo/deol.nvim')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Textobj
@@ -501,11 +503,6 @@ nnoremap gb :ls<cr>:e #
 " general
 nmap <leader>l :set list! list?<cr>
 nnoremap <BS> :noh<cr>
-
-" TODO what this evaluate
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " helpers for profiling
 nnoremap <silent> <leader>DD :exe ":profile start profile.log"<cr>:exe ":profile func *"<cr>:exe ":profile file *"<cr>

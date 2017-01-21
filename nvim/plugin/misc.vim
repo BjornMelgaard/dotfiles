@@ -50,8 +50,8 @@ nmap <leader>ft :call StripTrailingWhitespace()<CR>
 nmap <silent> <leader>e :call Source(line('.'), line('.'))<CR>
 vmap <silent> <leader>e :call Source(line('v'), line('.'))<CR>
 
-nnoremap <C-D> :call Preserve("normal! yyp")<CR>
-vnoremap <C-D> :call DuplicateBlock()<CR>
+nnoremap <M-d> :call Preserve("normal! yyp")<CR>
+vnoremap <M-d> :call DuplicateBlock()<CR>
 
 " window killer
 nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
