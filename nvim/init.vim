@@ -26,7 +26,7 @@ endfunction "}}}
 
 " swap files
 let &directory = s:get_cache_dir('swap')
-set noswapfile
+" set noswapfile
 
 call EnsureExists(s:cache_dir)
 call EnsureExists(&directory)
@@ -112,7 +112,9 @@ call dein#add('tpope/vim-unimpaired') "{{{
   vmap <c-up> [egv
   vmap <c-down> ]egv
 "}}}
-call dein#add('vim-scripts/bufkill.vim')
+call dein#add('vim-scripts/bufkill.vim') " {{{
+  nnoremap <leader>bk :<C-u>bd!<cr>
+" }}}
 call dein#add('mhinz/vim-startify') "{{{
   let g:startify_session_dir = s:get_cache_dir('sessions')
   let g:startify_change_to_vcs_root = 1
@@ -298,10 +300,7 @@ call dein#add('ctrlpvim/ctrlp.vim', { 'depends': 'tacahiroy/ctrlp-funky' }) "{{{
         \ 'dir': '\v[\/]\.(git|hg|svn|idea)$',
         \ 'file': '\v\.DS_Store$'
         \ }
-
-  if executable('ag')
-    let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
-  endif
+  let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 
   nmap \ [ctrlp]
   nnoremap [ctrlp] <nop>
@@ -327,8 +326,8 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
 
 " because I remap ; and :
 function! s:on_ranger_source()
-  nnoremap <leader>f :call OpenRanger('%:p:h')<CR>
-  nnoremap <leader>F :call OpenRanger('')<CR>
+  noremap <leader>f :call OpenRanger('%:p:h')<CR>
+  noremap <leader>F :call OpenRanger('')<CR>
 endfunction
 call dein#add('bramblex/ranger.vim', {
       \ 'depends': 'rbgrouleff/bclose.vim',
@@ -351,6 +350,13 @@ call dein#add('rhysd/clever-f.vim') " {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <space> [denite]
+nnoremap [denite] <nop>
+
+if mapcheck('<space>/') == ''
+  nnoremap <space>/ :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
+endif
+
 call dein#add('Shougo/denite.nvim') " {{{
   call denite#custom#var('file_rec', 'command', ['ag', '--vimgrep', '--hidden',
     \ '--ignore', '.hg',
@@ -362,24 +368,33 @@ call dein#add('Shougo/denite.nvim') " {{{
 " }}}
 
 " {{{
-  nnoremap <silent> <space><space> :<C-u>Denite buffer<cr>
+  nnoremap <silent> [denite]b :<C-u>Denite buffer<cr>
 " }}}
 
 " git ls-files for file_rec {{{
   call denite#custom#alias('source', 'file_rec/git', 'file_rec')
   call denite#custom#var('file_rec/git', 'command',
     \ ['git', 'ls-files', '-co', '--exclude-standard'])
-  nnoremap <silent> <space>p :<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+  nnoremap <silent> [denite]p :<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
 " }}}
 
 call dein#add('Shougo/neomru.vim') " {{{
-  nnoremap <silent> <space>m :<C-u>Denite file_mru <cr>
+  nnoremap <silent> [denite]<space> :<C-u>Denite file_mru <cr>
 " }}}
 
 call dein#add('Shougo/neoyank.vim') " {{{
-  nnoremap <silent> <space>y :<C-u>Denite neoyank<cr>
+  nnoremap <silent> [denite]y :<C-u>Denite neoyank<cr>
 " }}}
-call dein#add('Shougo/deol.nvim')
+call dein#add('Shougo/deol.nvim') " {{{
+  nnoremap <silent> [denite]t :<C-u>Deol<cr>
+  nnoremap <silent> [denite]T :<C-u>terminal<cr>
+" }}}
+
+call dein#add('Shougo/junkfile.vim') " {{{
+  let g:junkfile#directory=s:get_cache_dir('junk')
+  command! -nargs=0 JunkfileTodo call junkfile#open_immediately('todo.md')
+  nnoremap <silent> [denite]j :<C-u>JunkfileTodo<cr>
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Textobj
@@ -402,15 +417,11 @@ if executable('instant-markdown-d')
   call dein#add('suan/vim-instant-markdown', {'on_ft':['markdown']})
 endif
 call dein#add('PotatoesMaster/i3-vim-syntax')
-call dein#add('Shougo/junkfile.vim') " {{{
-  let g:junkfile#directory=s:get_cache_dir('junk')
-  command! -nargs=0 JunkfileTodo call junkfile#open_immediately('todo.md')
-  nnoremap <silent> <space>j :<C-u>JunkfileTodo<cr>
-" }}}
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-vmap <leader>s :sort<cr>
+vnoremap <leader>s :sort<cr>
 
 nnoremap <leader>w :w<cr>
 
@@ -453,10 +464,6 @@ vnoremap <M-D> "+D
 " deleting
 inoremap <C-u> <C-g>u<C-u>
 inoremap <C-d> <Del>
-
-if mapcheck('<space>/') == ''
-  nnoremap <space>/ :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
-endif
 
 " sane regex
 nnoremap / /\v
@@ -519,6 +526,7 @@ nnoremap gb :ls<cr>:e #
 " general
 nnoremap <leader>l :set list! list?<cr>
 nnoremap <BS> :noh<cr>
+nnoremap <M-v> vg_
 
 " helpers for profiling
 nnoremap <silent> <leader>DD :exe ":profile start profile.log"<cr>:exe ":profile func *"<cr>:exe ":profile file *"<cr>
@@ -527,7 +535,7 @@ nnoremap <silent> <leader>DC :exe ":profile continue"<cr>
 nnoremap <silent> <leader>DQ :exe ":profile pause"<cr>:noautocmd qall!<cr>
 
 " in nvim terminal emulator
-tnoremap <M-Esc> <C-\><C-n>
+tnoremap <C-\><C-\> <C-\><C-n>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocommands
