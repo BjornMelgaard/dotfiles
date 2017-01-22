@@ -164,7 +164,7 @@ call dein#add('marijnh/tern_for_vim', {
       \ })
 call dein#add('pangloss/vim-javascript', {'on_ft':['javascript']})
 call dein#add('maksimr/vim-jsbeautify', {'on_ft':['javascript']}) "{{{
-  nnoremap <leader>fjs :call JsBeautify()<cr>
+  nnoremap <leader>rjs :call JsBeautify()<cr>
 "}}}
 call dein#add('leafgarland/typescript-vim', {'on_ft':['typescript']})
 call dein#add('kchmck/vim-coffee-script', {'on_ft':['coffee']})
@@ -254,11 +254,11 @@ call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library
     return substitute(temp, '\\ze', ')', '')
   endfunction "}}}
 
-  nmap ym :%YankMatches:<c-r>=<SID>digestLastSearch()<cr>::+<left><left>
-  vmap ym :YankMatches:<c-r>=<SID>digestLastSearch()<cr>::+<left><left>
+  nnoremap ym :%YankMatches:<c-r>=<SID>digestLastSearch()<cr>::+<left><left>
+  vnoremap ym :YankMatches:<c-r>=<SID>digestLastSearch()<cr>::+<left><left>
 
-  nmap yM :%PrintMatches:<c-r>=<SID>digestLastSearch()<cr>:<left>
-  vmap yM :PrintMatches:<c-r>=<SID>digestLastSearch()<cr>:<left>
+  nnoremap yM :%PrintMatches:<c-r>=<SID>digestLastSearch()<cr>:<left>
+  vnoremap yM :PrintMatches:<c-r>=<SID>digestLastSearch()<cr>:<left>
 
   nnoremap dm :%s:::
   vnoremap dm :s:::
@@ -326,6 +326,8 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
 "}}}
 call dein#add('bramblex/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
   let g:ranger_path='SHELL=/home/bjorn/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
+  noremap <leader>f :call OpenRanger('%:p:h')<CR>
+  noremap <leader>F :call OpenRanger('')<CR>
 " }}}
 call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
   nnoremap <silent> <F9> :TagbarToggle<CR>
@@ -334,6 +336,9 @@ call dein#add('kshenoy/vim-signature')
 call dein#add('myusuf3/numbers.vim')
 call dein#add('rhysd/clever-f.vim') " {{{
   nnoremap ; :
+  nnoremap : ;
+  vnoremap ; :
+  vnoremap : ;
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -491,8 +496,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " tab shortcuts
-map <leader>tn :tabnew<CR>
-map <leader>tc :tabclose<CR>
+nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>tc :tabclose<CR>
 
 " make Y consistent with C and D. See :help Y.
 nnoremap Y y$
@@ -501,7 +506,7 @@ nnoremap Y y$
 nnoremap gb :ls<cr>:e #
 
 " general
-nmap <leader>l :set list! list?<cr>
+nnoremap <leader>l :set list! list?<cr>
 nnoremap <BS> :noh<cr>
 
 " helpers for profiling

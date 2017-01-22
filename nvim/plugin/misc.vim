@@ -37,21 +37,22 @@ function! CloseWindowOrKillBuffer() "{{{
 endfunction "}}}
 
 function! DuplicateBlock() "{{{
-  let lines = getline(line('v'), line('.'))
-  echo lines
-  call append(line('.'), lines)
+  let existing_register_value = @0
+  execute 'normal! gvy`>p'
+  let @0 = existing_register_value
 endfunction "}}}
 
 " formatting shortcuts
-nmap <leader>fef :call Preserve("normal gg=G")<CR>
-nmap <leader>ft :call StripTrailingWhitespace()<CR>
+nnoremap <leader>ref :call Preserve("normal gg=G")<CR>
+nnoremap <leader>rt :call StripTrailingWhitespace()<CR>
+nnoremap <leader>rr :retab<CR>
 
 " eval vimscript by line or visual selection
-nmap <silent> <leader>e :call Source(line('.'), line('.'))<CR>
-vmap <silent> <leader>e :call Source(line('v'), line('.'))<CR>
+nnoremap <silent> <leader>e :call Source(line('.'), line('.'))<CR>
+vnoremap <silent> <leader>e :call Source(line('v'), line('.'))<CR>
 
 nnoremap <M-d> :call Preserve("normal! yyp")<CR>
-vnoremap <M-d> :call DuplicateBlock()<CR>
+vnoremap <M-d> :<C-u>call DuplicateBlock()<CR>
 
 " window killer
 nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
