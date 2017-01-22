@@ -324,11 +324,18 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   nnoremap <F2> :NERDTreeToggle<CR>
   nnoremap <F3> :NERDTreeFind<CR>
 "}}}
-call dein#add('bramblex/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
+
+" because I remap ; and :
+function! s:on_ranger_source()
+  nnoremap <leader>f :call OpenRanger('%:p:h')<CR>
+  nnoremap <leader>F :call OpenRanger('')<CR>
+endfunction
+call dein#add('bramblex/ranger.vim', {
+      \ 'depends': 'rbgrouleff/bclose.vim',
+      \ 'hook_post_source': function('s:on_ranger_source') }) " {{{
   let g:ranger_path='SHELL=/home/bjorn/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
-  noremap <leader>f :call OpenRanger('%:p:h')<CR>
-  noremap <leader>F :call OpenRanger('')<CR>
 " }}}
+
 call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
   nnoremap <silent> <F9> :TagbarToggle<CR>
 "}}}
@@ -395,7 +402,11 @@ if executable('instant-markdown-d')
   call dein#add('suan/vim-instant-markdown', {'on_ft':['markdown']})
 endif
 call dein#add('PotatoesMaster/i3-vim-syntax')
-
+call dein#add('Shougo/junkfile.vim') " {{{
+  let g:junkfile#directory=s:get_cache_dir('junk')
+  command! -nargs=0 JunkfileTodo call junkfile#open_immediately('todo.md')
+  nnoremap <silent> <space>j :<C-u>JunkfileTodo<cr>
+" }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
