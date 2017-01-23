@@ -37,7 +37,7 @@ endif
 
 " base configuration
 set showfulltag
-set shell=zsh
+set shell=/bin/zsh
 set noshelltemp                                     "use pipes
 set clipboard=unnamed
 set inccommand=nosplit
@@ -93,6 +93,7 @@ call dein#add('vim-airline/vim-airline') "{{{
   let g:airline#extensions#tabline#left_sep = ' '
   let g:airline#extensions#tabline#left_alt_sep = '¦'
   let g:airline#extensions#tabline#buffer_idx_mode = 1
+  let g:airline#extensions#syntastic#enabled = 1
   nmap <leader>1 <Plug>AirlineSelectTab1
   nmap <leader>2 <Plug>AirlineSelectTab2
   nmap <leader>3 <Plug>AirlineSelectTab3
@@ -122,11 +123,23 @@ call dein#add('mhinz/vim-startify') "{{{
   nnoremap <F1> :Startify<cr>
 "}}}
 call dein#add('scrooloose/syntastic') "{{{
-  " let g:syntastic_aggregate_errors = 1
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+  let g:syntastic_aggregate_errors = 1
+
   let g:syntastic_error_symbol = '✗'
   let g:syntastic_style_error_symbol = '✠'
   let g:syntastic_warning_symbol = '∆'
   let g:syntastic_style_warning_symbol = '≈'
+  let g:syntastic_enable_signs=1
+
+  " let g:syntastic_debug=3
+  let g:syntastic_shell = "/bin/sh"
+
+  let g:syntastic_ruby_checkers = ['rubocop']
+  let g:syntastic_haml_checkers = ['haml_lint']
 "}}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
   let g:goldenview__enable_default_mapping=0
@@ -536,6 +549,10 @@ nnoremap <silent> <leader>DQ :exe ":profile pause"<cr>:noautocmd qall!<cr>
 
 " in nvim terminal emulator
 tnoremap <C-\><C-\> <C-\><C-n>
+tnoremap <left> <C-\><C-n>:bprev<CR>
+tnoremap <right> :<C-\><C-n>bnext<CR>
+tnoremap <up> :<C-\><C-n>tabnext<CR>
+tnoremap <down> :<C-\><C-n>tabprev<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocommands
@@ -556,6 +573,7 @@ autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal nolist
 autocmd FileType vim setlocal fdm=indent keywordprg=:help
+autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Finish
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

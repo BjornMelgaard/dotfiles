@@ -22,7 +22,7 @@ function! StripTrailingWhitespace() "{{{
 endfunction "}}}
 
 function! CloseWindowOrKillBuffer() "{{{
-  wall
+  " write
   let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
   " never bdelete a nerd tree
   if matchstr(expand("%"), 'NERD') == 'NERD'
