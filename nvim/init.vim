@@ -124,7 +124,7 @@ call dein#add('mhinz/vim-startify') "{{{
 "}}}
 call dein#add('scrooloose/syntastic') "{{{
   let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
+  " let g:syntastic_auto_loc_list = 1
   let g:syntastic_check_on_open = 1
   let g:syntastic_check_on_wq = 0
   let g:syntastic_aggregate_errors = 1
@@ -140,6 +140,7 @@ call dein#add('scrooloose/syntastic') "{{{
 
   let g:syntastic_ruby_checkers = ['rubocop']
   let g:syntastic_haml_checkers = ['haml_lint']
+  let g:syntastic_scss_checkers = ['scss_lint']
 "}}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
   let g:goldenview__enable_default_mapping=0
@@ -280,7 +281,23 @@ call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library
 " }}}
 
 call dein#add('junegunn/vim-peekaboo')
-call dein#add('bkad/CamelCaseMotion')
+call dein#add('bkad/CamelCaseMotion') " {{{
+  map <silent> w <Plug>CamelCaseMotion_w
+  map <silent> b <Plug>CamelCaseMotion_b
+  map <silent> e <Plug>CamelCaseMotion_e
+  map <silent> ge <Plug>CamelCaseMotion_ge
+  sunmap w
+  sunmap b
+  sunmap e
+  sunmap ge
+
+  " omap <silent> iw <Plug>CamelCaseMotion_iw
+  " xmap <silent> iw <Plug>CamelCaseMotion_iw
+  " omap <silent> ib <Plug>CamelCaseMotion_ib
+  " xmap <silent> ib <Plug>CamelCaseMotion_ib
+  " omap <silent> ie <Plug>CamelCaseMotion_ie
+  " xmap <silent> ie <Plug>CamelCaseMotion_ie
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
