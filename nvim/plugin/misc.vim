@@ -55,6 +55,7 @@ nnoremap <M-d> :call Preserve("normal! yyp")<CR>
 vnoremap <M-d> :<C-u>call DuplicateBlock()<CR>
 
 " window killer
-nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
+nnoremap <silent> <M-q> :call CloseWindowOrKillBuffer()<cr>
+nnoremap <silent> Q :bd<cr>
 
 autocmd BufWritePre * :call StripTrailingWhitespace()

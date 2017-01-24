@@ -41,6 +41,7 @@ set shell=/bin/zsh
 set noshelltemp                                     "use pipes
 set clipboard=unnamed
 set inccommand=nosplit
+" set paste
 
 " whitespace
 set expandtab                                       "spaces instead of tabs
@@ -122,26 +123,10 @@ call dein#add('mhinz/vim-startify') "{{{
   let g:startify_show_sessions = 1
   nnoremap <F1> :Startify<cr>
 "}}}
-call dein#add('scrooloose/syntastic') "{{{
-  let g:syntastic_always_populate_loc_list = 1
-  " let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-  let g:syntastic_aggregate_errors = 1
-
-  let g:syntastic_error_symbol = '✗'
-  let g:syntastic_style_error_symbol = '✠'
-  let g:syntastic_warning_symbol = '∆'
-  let g:syntastic_style_warning_symbol = '≈'
-  let g:syntastic_enable_signs=1
-
-  let g:syntastic_debug=3
-  let g:syntastic_shell = "/bin/sh"
-
-  let g:syntastic_ruby_checkers = ['rubocop']
-  let g:syntastic_haml_checkers = ['haml_lint']
-  let g:syntastic_scss_checkers = ['scss_lint']
-"}}}
+call dein#add('neomake/neomake') " {{{
+  autocmd! BufWritePost * Neomake
+  let g:neomake_ruby_enabled_makers = ['rubocop']
+" }}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
   let g:goldenview__enable_default_mapping=0
   nmap <F4> <Plug>ToggleGoldenViewAutoResize
@@ -167,7 +152,8 @@ call dein#add('mattn/emmet-vim', {'on_ft':['html','xml','xsl','xslt','xsd','css'
     return "\<plug>(emmet-expand-abbr)"
   endfunction
   " TODO check in html
-  autocmd FileType xml,xsl,xslt,xsd,css,sass,scss,less,mustache imap <buffer><tab> <c-y>,
+  autocmd FileType xml,xsl,xslt,xsd,css,sass,scss,less,mustache imap <buffer><c-y><c-y> <c-y>,
+  autocmd FileType xml,xsl,xslt,xsd,css,sass,scss,less,mustache vmap <buffer><c-y><c-y> <c-y>,
   autocmd FileType html imap <buffer><expr><tab> <sid>zen_html_tab()
 "}}}
 
@@ -243,11 +229,11 @@ call dein#add('SirVer/ultisnips') "{{{
 " => Editing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('editorconfig/editorconfig-vim', {'on_i':1})
-call dein#add('tpope/vim-endwise') " wisely add 'end' in ruby, endfunction/endif/more in vim script
-call dein#add('tpope/vim-speeddating') " use CTRL-A/CTRL-X to increment dates
-call dein#add('thinca/vim-visualstar') " search your selection text
+call dein#add('tpope/vim-endwise')
+call dein#add('tpope/vim-speeddating')
+call dein#add('thinca/vim-visualstar')
 call dein#add('tpope/vim-commentary')
-call dein#add('terryma/vim-expand-region') " Press + to expand the visual selection and _ to shrink it
+call dein#add('terryma/vim-expand-region')
 call dein#add('chrisbra/NrrwRgn')
 call dein#add('jiangmiao/auto-pairs') "{{{
   let g:AutoPairsShortcutToggle = ''
@@ -460,7 +446,7 @@ vnoremap <leader>s :sort<cr>
 nnoremap <leader>w :w<cr>
 
 " toggle paste
-map <F6> :set invpaste<CR>:set paste?<CR>
+nnoremap <F6> :set invpaste<CR>:set paste?<CR>
 
 " remap arrow keys
 nnoremap <left> :bprev<CR>
