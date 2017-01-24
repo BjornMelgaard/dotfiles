@@ -51,8 +51,8 @@ nnoremap <leader>rr :retab<CR>
 nnoremap <silent> <leader>e :call Source(line('.'), line('.'))<CR>
 vnoremap <silent> <leader>e :call Source(line('v'), line('.'))<CR>
 
-nnoremap <M-D> :call Preserve("normal! yyp")<CR>
-vnoremap <M-D> :<C-u>call DuplicateBlock()<CR>
+nnoremap <C-M-d> :call Preserve("normal! yyp")<CR>
+vnoremap <C-M-d> :<C-u>call DuplicateBlock()<CR>
 
 " window killer
 nnoremap <silent> <M-q> :call CloseWindowOrKillBuffer()<cr>

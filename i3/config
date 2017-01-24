@@ -73,8 +73,8 @@ bindsym $mod+Shift+q exec $terminal
 
 bindsym $mod+w       exec $browser
 bindsym $mod+Shift+w exec $terminal -e "zsh -c 'SHELL=/home/bjorn/.config/ranger/rshell ranger'"
-bindsym $mod+e       exec $terminal -e "zsh -ci nvim"
-bindsym $mod+Shift+e exec nvim-qt
+bindsym $mod+e       exec nvim-qt
+bindsym $mod+Shift+e exec $terminal -e "zsh -ci nvim"
 
 bindsym $mod+r           mode "resize"
 bindsym $mod+q           kill
