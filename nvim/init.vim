@@ -37,7 +37,7 @@ endif
 
 " base configuration
 set showfulltag
-set shell=/bin/sh
+set shell=/bin/zsh
 set noshelltemp                                     "use pipes
 set clipboard=unnamed
 set inccommand=nosplit
@@ -126,6 +126,8 @@ call dein#add('mhinz/vim-startify') "{{{
 call dein#add('neomake/neomake') " {{{
   autocmd! BufWritePost * Neomake
   let g:neomake_ruby_enabled_makers = ['rubocop']
+  let g:neomake_verbose = 3
+  " let g:neomake_ruby_rubocop_exe = '/home/bjorn/.rvm/gems/ruby-2.4.0@rails-bookstore/bin/rubocop'
 " }}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
   let g:goldenview__enable_default_mapping=0
