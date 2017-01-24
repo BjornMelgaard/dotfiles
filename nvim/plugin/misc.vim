@@ -36,12 +36,6 @@ function! CloseWindowOrKillBuffer() "{{{
   endif
 endfunction "}}}
 
-function! DuplicateBlock() "{{{
-  let existing_register_value = @0
-  execute 'normal! gvy`>p'
-  let @0 = existing_register_value
-endfunction "}}}
-
 " formatting shortcuts
 nnoremap <leader>ref :call Preserve("normal gg=G")<CR>
 nnoremap <leader>rt :call StripTrailingWhitespace()<CR>
@@ -51,8 +45,9 @@ nnoremap <leader>rr :retab<CR>
 nnoremap <silent> <leader>e :call Source(line('.'), line('.'))<CR>
 vnoremap <silent> <leader>e :call Source(line('v'), line('.'))<CR>
 
+" dublicate
 nnoremap <C-M-d> :call Preserve("normal! yyp")<CR>
-vnoremap <C-M-d> :<C-u>call DuplicateBlock()<CR>
+vnoremap <C-M-d> :copy '><CR>
 
 " window killer
 nnoremap <silent> <M-q> :call CloseWindowOrKillBuffer()<cr>
