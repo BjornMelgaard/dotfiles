@@ -37,7 +37,7 @@ endif
 
 " base configuration
 set showfulltag
-set shell=/bin/zsh
+set shell=/bin/sh
 set noshelltemp                                     "use pipes
 set clipboard=unnamed
 set inccommand=nosplit
@@ -453,9 +453,11 @@ cnoremap <M-j> <down>
 cnoremap <M-k> <up>
 
 " clipboard actions
+inoremap <C-r> <C-r><C-p>
+
 nnoremap <M-p> "+p
 vnoremap <M-p> "+p
-inoremap <M-p> <C-r>+
+inoremap <M-p> <C-r><C-p>+
 cnoremap <M-p> <C-r>+
 
 nnoremap <M-P> "+P
