@@ -145,16 +145,8 @@ call dein#add('digitaltoad/vim-jade', {'on_ft':['jade']})
 call dein#add('mustache/vim-mustache-handlebars', {'on_ft':['mustache','handlebars']})
 call dein#add('gregsexton/MatchTag', {'on_ft':['html','xml']})
 call dein#add('mattn/emmet-vim', {'on_ft':['html','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars']}) "{{{
-  function! s:zen_html_tab()
-    if !emmet#isExpandable()
-      return "\<plug>(emmet-move-next)"
-    endif
-    return "\<plug>(emmet-expand-abbr)"
-  endfunction
-  " TODO check in html
   autocmd FileType xml,xsl,xslt,xsd,css,sass,scss,less,mustache imap <buffer><c-y><c-y> <c-y>,
   autocmd FileType xml,xsl,xslt,xsd,css,sass,scss,less,mustache vmap <buffer><c-y><c-y> <c-y>,
-  autocmd FileType html imap <buffer><expr><tab> <sid>zen_html_tab()
 "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
