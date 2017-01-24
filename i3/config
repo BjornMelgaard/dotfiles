@@ -23,13 +23,13 @@ client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 set $WS0 "1:I"
 set $WS1 "2:II"
 set $WS2 "3:III"
-set $WS3 "3:IV"
-set $WS4 "4:V"
-set $WS5 "5:VI"
-set $WS6 "6:VII"
-set $WS7 "7:VIII"
-set $WS8 "8:IX"
-set $WS9 "9:X"
+set $WS3 "4:IV"
+set $WS4 "5:V"
+set $WS5 "6:VI"
+set $WS6 "7:VII"
+set $WS7 "8:VIII"
+set $WS8 "9:IX"
+set $WS9 "10:X"
 
 # switch to workspace
 bindsym $mod+1 workspace $WS0
@@ -74,6 +74,7 @@ bindsym $mod+Shift+q exec $terminal
 bindsym $mod+w       exec $browser
 bindsym $mod+Shift+w exec $terminal -e "zsh -c 'SHELL=/home/bjorn/.config/ranger/rshell ranger'"
 bindsym $mod+e       exec $terminal -e "zsh -ci nvim"
+# bindsym $mod+e       exec nvim-qt
 
 bindsym $mod+r           mode "resize"
 bindsym $mod+q           kill

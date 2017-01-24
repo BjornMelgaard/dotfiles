@@ -135,7 +135,7 @@ call dein#add('scrooloose/syntastic') "{{{
   let g:syntastic_style_warning_symbol = '≈'
   let g:syntastic_enable_signs=1
 
-  " let g:syntastic_debug=3
+  let g:syntastic_debug=3
   let g:syntastic_shell = "/bin/sh"
 
   let g:syntastic_ruby_checkers = ['rubocop']
@@ -298,6 +298,10 @@ call dein#add('bkad/CamelCaseMotion') " {{{
   " omap <silent> ie <Plug>CamelCaseMotion_ie
   " xmap <silent> ie <Plug>CamelCaseMotion_ie
 " }}}
+call dein#add('vim-scripts/eraseSubword') " {{{
+  let g:EraseSubword_insertMap = "<C-w>"
+" }}}
+call dein#add('jeetsukumaran/vim-indentwise')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
@@ -582,7 +586,6 @@ autocmd BufReadPost *
 
 " autosave
 autocmd FocusLost * silent! wall
-set autowrite
 set autowriteall
 
 autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
