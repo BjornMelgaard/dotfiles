@@ -72,6 +72,7 @@ bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
 
 bindsym $mod+w       exec $browser
+bindsym $mod+Ctrl+w       exec pcmanfm
 bindsym $mod+Shift+w exec $terminal -e "zsh -c 'SHELL=/home/bjorn/.config/ranger/rshell ranger'"
 bindsym $mod+e       exec zsh -c nvim-qt
 bindsym $mod+Shift+e exec $terminal -e "zsh -ci nvim"
@@ -196,10 +197,6 @@ mode "resize" {
 
 set $mode_system System (s) shutdown, (r) reboot
 mode "$mode_system" {
-  # bindsym l exec --no-startup-id i3exit lock, mode "default"
-  # bindsym e exec --no-startup-id i3exit logout, mode "default"
-  # bindsym s exec --no-startup-id i3exit suspend, mode "default"
-  # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
   bindsym r exec --no-startup-id reboot, mode "default"
   bindsym s exec --no-startup-id shutdown now, mode "default"
 
@@ -227,8 +224,11 @@ bar {
 # - Behavior
 # -------------------------------------
 
+# floating_minimum_size 600 x 500
 for_window [window_role="pop-up"]      floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"]      floating enable
 for_window [title="Edit Current$"]     floating enable
 for_window [class="(?i)pcmanfm"]       floating enable
+
+for_window [class="(?i)nvim"] resize set 800 600

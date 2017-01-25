@@ -126,8 +126,7 @@ call dein#add('mhinz/vim-startify') "{{{
 call dein#add('neomake/neomake') " {{{
   autocmd! BufWritePost * Neomake
   let g:neomake_ruby_enabled_makers = ['rubocop']
-  let g:neomake_verbose = 3
-  " let g:neomake_ruby_rubocop_exe = '/home/bjorn/.rvm/gems/ruby-2.4.0@rails-bookstore/bin/rubocop'
+  " let g:neomake_verbose = 3
 " }}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
   let g:goldenview__enable_default_mapping=0
@@ -173,6 +172,8 @@ call dein#add('othree/javascript-libraries-syntax.vim', {'on_ft':['javascript','
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-bundler')
+call dein#add('jgdavey/vim-blockle')
+call dein#add('nelstrom/vim-textobj-rubyblock')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
@@ -205,19 +206,18 @@ call dein#add('tpope/vim-fugitive') "{{{
 " => Autocomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('honza/vim-snippets')
-call dein#add('Valloric/YouCompleteMe') "{{{
-  let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-  let g:ycm_complete_in_comments_and_strings=1
-  let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-  let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-  let g:ycm_filetype_blacklist={'unite': 1}
-"}}}
 call dein#add('SirVer/ultisnips') "{{{
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsJumpForwardTrigger="<tab>"
   let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
   let g:UltiSnipsSnippetsDir='~/.config/nvim/snippets'
 "}}}
+call dein#add('Shougo/deoplete.nvim') " {{{
+  call dein#add('fishbullet/deoplete-ruby')
+
+  let g:deoplete#enable_at_startup = 1
+  " call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy']) " to see the typed word in the completion menu
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing
@@ -570,12 +570,12 @@ autocmd BufReadPost *
 autocmd FocusLost * silent! wall
 set autowriteall
 
-autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
-autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>
-autocmd FileType python setlocal foldmethod=indent
-autocmd FileType markdown setlocal nolist
-autocmd FileType vim setlocal fdm=indent keywordprg=:help
-autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
+" autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
+" autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>
+" autocmd FileType python setlocal foldmethod=indent
+" autocmd FileType markdown setlocal nolist
+" autocmd FileType vim setlocal fdm=indent keywordprg=:help
+" autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Finish
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

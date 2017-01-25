@@ -7,7 +7,8 @@ font            = DejaVu Sans Mono for Powerline 9
 # special
 foreground      = #e6e1dc
 foreground_bold = #e6e1dc
-background      = #2b2b2b
+# background      = #2b2b2b
+background = rgba(43, 43, 43, 0.95)
 
 cursor = #e6e1dc
 cursor_foreground = #2b2b2b

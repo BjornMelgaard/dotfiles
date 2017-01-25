@@ -9,11 +9,12 @@ fi
 
 export OPTIMUS_PREFIX="primusrun"
 
-xrdb -merge -I$HOME ~/.Xresources/index
+xrdb -merge -I$HOME $HOME/.Xresources/index
 xset -dpms
 xset s off
 xinput --disable 'ETPS/2 Elantech Touchpad'
 xkbcomp $HOME/.config/xkb $DISPLAY
+compton -b --config $HOME/.config/compton.conf
 
 start-pulseaudio-x11
 
