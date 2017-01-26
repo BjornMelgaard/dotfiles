@@ -174,6 +174,7 @@ call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-bundler')
 call dein#add('jgdavey/vim-blockle')
 call dein#add('nelstrom/vim-textobj-rubyblock')
+call dein#add('thoughtbot/vim-rspec')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
@@ -338,14 +339,7 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   nnoremap <F3> :NERDTreeFind<CR>
 "}}}
 
-" because I remap ; and :
-function! s:on_ranger_source()
-  noremap <leader>f :call OpenRanger('%:p:h')<CR>
-  noremap <leader>F :call OpenRanger('')<CR>
-endfunction
-call dein#add('bramblex/ranger.vim', {
-      \ 'depends': 'rbgrouleff/bclose.vim',
-      \ 'hook_post_source': function('s:on_ranger_source') }) " {{{
+call dein#add('bramblex/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
   let g:ranger_path='SHELL=/home/bjorn/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
 " }}}
 
@@ -354,12 +348,7 @@ call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
 "}}}
 call dein#add('kshenoy/vim-signature')
 call dein#add('myusuf3/numbers.vim')
-call dein#add('rhysd/clever-f.vim') " {{{
-  nnoremap ; :
-  nnoremap : ;
-  vnoremap ; :
-  vnoremap : ;
-" }}}
+call dein#add('rhysd/clever-f.vim')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
