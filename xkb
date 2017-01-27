@@ -15,7 +15,7 @@ xkb_keymap {
     replace key <COMP> { [ Super_L ] };
     modifier_map Mod4 { <COMP> };
 
-    replace key <AC10> { [ colon, semicolon ],
+    replace key <AC10> { "[ colon, semicolon ],
                          [ Cyrillic_zhe, Cyrillic_ZHE ] };
 
     // helpers //

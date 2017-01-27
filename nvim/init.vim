@@ -113,7 +113,7 @@ call dein#add('tpope/vim-unimpaired') "{{{
   vmap <c-up> [egv
   vmap <c-down> ]egv
 "}}}
-call dein#add('vim-scripts/bufkill.vim') " {{{
+call dein#add('qpkorr/vim-bufkill') " {{{
   nnoremap <leader>bk :<C-u>bd!<cr>
 " }}}
 call dein#add('mhinz/vim-startify') "{{{
