@@ -172,9 +172,6 @@ call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-bundler')
 call dein#add('jgdavey/vim-blockle')
 call dein#add('nelstrom/vim-textobj-rubyblock')
-call dein#add('thoughtbot/vim-rspec') " {{{
-  let g:rspec_command = "term bundle exec rspec {spec}"
-" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
@@ -475,7 +472,7 @@ nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
-nnoremap :s/ :s/\v
+" nnoremap :s/ :s/\v
 
 " command-line window
 nnoremap q: q:i
