@@ -72,24 +72,33 @@ bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
 
 bindsym $mod+w       exec $browser
-bindsym $mod+Ctrl+w       exec pcmanfm
-bindsym $mod+Shift+w exec $terminal -e "zsh -c 'SHELL=/home/bjorn/.config/ranger/rshell ranger'"
+bindsym $mod+Shift+w exec qutebrowser
+bindsym $mod+f       exec $terminal -e "zsh -c 'SHELL=/home/bjorn/.config/ranger/rshell ranger'"
+bindsym $mod+Shift+f exec pcmanfm
 bindsym $mod+e       exec zsh -c nvim-qt
 bindsym $mod+Shift+e exec $terminal -e "zsh -ci nvim"
+bindsym $mod+p       exec copyq menu
+bindsym $mod+n       exec smplayer
+bindsym $mod+m       exec anki
+bindsym $mod+Shift+m exec pavucontrol
 
+bindsym $mod+u           focus parent
+bindsym $mod+o           focus child
+bindsym $mod+i           fullscreen
 bindsym $mod+r           mode "resize"
-bindsym $mod+q           kill
-bindsym $mod+a           focus parent
-bindsym $mod+s           focus child
-bindsym $mod+d           exec --no-startup-id "rofi -show run"
-bindsym $mod+f           fullscreen
+
 bindsym $mod+z           layout tabbed
 bindsym $mod+x           layout default
 bindsym $mod+v           split h
 bindsym $mod+c           split v
 bindsym $mod+b           layout toggle split
-bindsym $mod+space       floating toggle
-bindsym $mod+Shift+space focus mode_toggle
+
+bindsym $mod+q           kill
+bindsym $mod+d           exec --no-startup-id "rofi -show run"
+bindsym $mod+Shift+d     exec --no-startup-id "rofi -show window"
+
+bindsym $mod+space       focus mode_toggle
+bindsym $mod+Shift+space floating toggle
 
 # multimedia keys
 bindsym XF86AudioRaiseVolume  exec "amixer -D pulse sset Master '3%+'"
@@ -101,18 +110,15 @@ bindsym XF86TouchpadToggle    exec "/home/bjorn/.i3/bin/switch_touchpad.sh"
 bindsym Print                 exec "scrot /home/bjorn/Pictures/%d.png"
 # bindsym XF86Display         exec "arandr"
 # bindsym $mod+e              exec $terminal -e "alsamixer"
-bindsym $mod+n                exec "smplayer"
-bindsym $mod+m                exec "anki"
-bindsym $mod+Shift+m          exec "pavucontrol"
 
 bindsym $mod+Tab                 workspace back_and_forth
 bindsym $mod+Shift+R             reload
-bindsym $mod+Shift+Ctrl+R        restart
+# bindsym $mod+Shift+Ctrl+R        restart
 # bindsym $mod+Shift+E exit
 
 # cut and paste windows
-bindsym $mod+Shift+x move scratchpad
-bindsym $mod+Shift+v scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
 # -------------------------------------
 # Moving
@@ -229,6 +235,7 @@ for_window [window_role="pop-up"]      floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"]      floating enable
 for_window [title="Edit Current$"]     floating enable
+for_window [class="(?i)pcmanfm"]       floating enable
 for_window [class="(?i)pcmanfm"]       floating enable
 
 for_window [class="(?i)nvim"] resize set 800 600

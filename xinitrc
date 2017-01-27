@@ -21,7 +21,7 @@ start-pulseaudio-x11
 #notification
 dunst -config ~/.i3/dunstrc &
 
->> /dev/null which parcellite && parcellite &
->> /dev/null which pasystray  && pasystray &
+copyq &
+pasystray &
 
 exec i3

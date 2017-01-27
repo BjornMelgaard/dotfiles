@@ -107,7 +107,6 @@ call dein#add('vim-airline/vim-airline') "{{{
 "}}}
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-repeat')
-call dein#add('tpope/vim-eunuch') " unix shell commands
 call dein#add('tpope/vim-unimpaired') "{{{
   nmap <c-up> [e
   nmap <c-down> ]e
@@ -140,7 +139,6 @@ call dein#add('jszakmeister/vim-togglecursor')
 call dein#add('groenewege/vim-less', {'on_ft':['less']})
 call dein#add('cakebaker/scss-syntax.vim', {'on_ft':['scss','sass']})
 call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss','sass']})
-call dein#add('ap/vim-css-color', {'on_ft':['css','scss','sass','less','styl']})
 call dein#add('othree/html5.vim', {'on_ft':['html']})
 call dein#add('digitaltoad/vim-jade', {'on_ft':['jade']})
 call dein#add('mustache/vim-mustache-handlebars', {'on_ft':['mustache','handlebars']})
@@ -174,7 +172,9 @@ call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-bundler')
 call dein#add('jgdavey/vim-blockle')
 call dein#add('nelstrom/vim-textobj-rubyblock')
-call dein#add('thoughtbot/vim-rspec')
+call dein#add('thoughtbot/vim-rspec') " {{{
+  let g:rspec_command = "term bundle exec rspec {spec}"
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
@@ -503,8 +503,8 @@ nnoremap <silent> <C-o> <C-o>zz
 nnoremap <silent> <C-i> <C-i>zz
 
 " reselect visual block after indent
-vnoremap < <gv
-vnoremap > >gv
+" vnoremap < <gv
+" vnoremap > >gv
 
 " reselect last paste
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
