@@ -32,8 +32,8 @@ function! CloseWindowOrKillBuffer() "{{{
   if number_of_windows_to_this_buffer > 1
     wincmd c
   else
-    bdelete
-    " execute \"normal \<Plug>BufKillBd"
+    " bdelete
+    execute "normal \<Plug>BufKillBd"
   endif
 endfunction "}}}
 
