@@ -27,16 +27,13 @@ function! CloseWindowOrKillBuffer() "{{{
   " never bdelete a nerd tree
   if matchstr(expand("%"), 'NERD') == 'NERD'
     wincmd c
-    echom "1"
     return
   endif
   if number_of_windows_to_this_buffer > 1
-    echom "2"
     wincmd c
   else
-    echom "3"
-    " bdelete
-    execute "normal \<Plug>BufKillBd"
+    bdelete
+    " execute \"normal \<Plug>BufKillBd"
   endif
 endfunction "}}}
 
@@ -55,6 +52,6 @@ vnoremap <C-M-d> :copy '><CR>
 
 " window killer
 nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
-" nnoremap <silent> <M-q> :bd<cr>
+nnoremap <silent> <M-q> :bd!<cr>
 
 autocmd BufWritePre * :call StripTrailingWhitespace()

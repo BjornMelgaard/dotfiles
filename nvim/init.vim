@@ -41,6 +41,7 @@ set shell=/bin/zsh
 set noshelltemp                                     "use pipes
 set clipboard=unnamed
 set inccommand=nosplit
+set undofile
 " set paste
 
 " whitespace
@@ -113,9 +114,7 @@ call dein#add('tpope/vim-unimpaired') "{{{
   vmap <c-up> [egv
   vmap <c-down> ]egv
 "}}}
-call dein#add('qpkorr/vim-bufkill') " {{{
-  nnoremap <leader>bk :<C-u>bd!<cr>
-" }}}
+call dein#add('qpkorr/vim-bufkill')
 call dein#add('mhinz/vim-startify') "{{{
   let g:startify_session_dir = s:get_cache_dir('sessions')
   let g:startify_change_to_vcs_root = 1
