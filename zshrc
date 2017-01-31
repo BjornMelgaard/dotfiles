@@ -45,6 +45,7 @@ alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~
 alias update-angular-cli="npm uninstall -g angular-cli && npm cache clean && npm install -g angular-cli@latest"
 alias update-all="yaourt --aur  -Syu --noconfirm && sudo gem update --system && gem update && npm cache clean && npm update -g"
 alias rvmnew="rvm use --create --ruby-version"
+alias rails-recreate-db="rails db:migrate VERSION=0 && rails db:drop && rails db:migrate "
 
 autoload -U zmv
 

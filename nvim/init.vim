@@ -169,7 +169,6 @@ call dein#add('othree/javascript-libraries-syntax.vim', {'on_ft':['javascript','
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-bundler')
-call dein#add('jgdavey/vim-blockle')
 call dein#add('nelstrom/vim-textobj-rubyblock')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -202,18 +201,27 @@ call dein#add('tpope/vim-fugitive') "{{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('honza/vim-snippets')
-call dein#add('SirVer/ultisnips') "{{{
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-  let g:UltiSnipsSnippetsDir='~/.config/nvim/snippets'
-"}}}
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neosnippet') " {{{
+  set conceallevel=2 concealcursor=niv
+  let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+
+  imap <expr><TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ neosnippet#expandable_or_jumpable() ?
+    \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" }}}
+
 call dein#add('Shougo/deoplete.nvim') " {{{
   call dein#add('fishbullet/deoplete-ruby')
-
   let g:deoplete#enable_at_startup = 1
-  " call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy']) " to see the typed word in the completion menu
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -256,7 +264,6 @@ call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library
   nnoremap dm :%s:::
   vnoremap dm :s:::
 " }}}
-
 call dein#add('junegunn/vim-peekaboo')
 call dein#add('bkad/CamelCaseMotion') " {{{
   map <silent> w <Plug>CamelCaseMotion_w
@@ -279,6 +286,7 @@ call dein#add('vim-scripts/eraseSubword') " {{{
   let g:EraseSubword_insertMap = "<C-w>"
 " }}}
 call dein#add('jeetsukumaran/vim-indentwise')
+call dein#add('AndrewRadev/splitjoin.vim')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
