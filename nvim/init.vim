@@ -305,32 +305,6 @@ call dein#add('dkprice/vim-easygrep', {'on_cmd':'GrepOptions'}) "{{{
   let g:EasyGrepCommand=1
   nnoremap <leader>vo :GrepOptions<cr>
 "}}}
-call dein#add('ctrlpvim/ctrlp.vim', { 'depends': 'tacahiroy/ctrlp-funky' }) "{{{
-  call dein#add('tacahiroy/ctrlp-funky')
-  let g:ctrlp_clear_cache_on_exit=1
-  let g:ctrlp_max_height=40
-  let g:ctrlp_show_hidden=0
-  let g:ctrlp_follow_symlinks=1
-  let g:ctrlp_max_files=20000
-  let g:ctrlp_cache_dir=s:get_cache_dir('ctrlp')
-  let g:ctrlp_reuse_window='startify'
-  let g:ctrlp_extensions=['funky']
-  let g:ctrlp_custom_ignore = {
-        \ 'dir': '\v[\/]\.(git|hg|svn|idea)$',
-        \ 'file': '\v\.DS_Store$'
-        \ }
-  let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
-
-  nmap \ [ctrlp]
-  nnoremap [ctrlp] <nop>
-
-  nnoremap [ctrlp]t :CtrlPBufTag<cr>
-  nnoremap [ctrlp]T :CtrlPTag<cr>
-  nnoremap [ctrlp]l :CtrlPLine<cr>
-  nnoremap [ctrlp]o :CtrlPFunky<cr>
-  nnoremap [ctrlp]f :CtrlPMRUFiles<cr>
-  nnoremap [ctrlp]b :CtrlPBuffer<cr>
-"}}}
 call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']}) "{{{
   let NERDTreeShowHidden=1
   let NERDTreeQuitOnOpen=0
@@ -357,12 +331,6 @@ call dein#add('rhysd/clever-f.vim')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <space> [denite]
-nnoremap [denite] <nop>
-
-if mapcheck('<space>/') == ''
-  nnoremap <space>/ :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
-endif
 
 call dein#add('Shougo/denite.nvim') " {{{
   call denite#custom#var('file_rec', 'command', ['ag', '--vimgrep', '--hidden',
@@ -373,34 +341,33 @@ call dein#add('Shougo/denite.nvim') " {{{
     \ '--ignore', '.cache'])
   call denite#custom#map('normal', 'Q', '<denite:quit>', 'noremap')
 " }}}
-
-" {{{
-  nnoremap <silent> [denite]b :<C-u>Denite buffer<cr>
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/neoyank.vim')
+call dein#add('Shougo/deol.nvim')
+call dein#add('Shougo/junkfile.vim') " {{{
+  let g:junkfile#directory=s:get_cache_dir('junk')
+  command! -nargs=0 JunkfileTodo call junkfile#open_immediately('todo.md')
 " }}}
 
-" git ls-files for file_rec {{{
+nmap <space> [denite]
+nnoremap [denite] <nop>
+
+" nnoremap [ctrlp]t :CtrlPBufTag<cr>
+" nnoremap [ctrlp]T :CtrlPTag<cr>
+nnoremap <silent> [denite]l :<C-u>Denite line<cr>
+" nnoremap [ctrlp]o :CtrlPFunky<cr> " functions TODO
+nnoremap <silent> [denite]f :<C-u>Denite file_mru <cr>
+nnoremap <silent> [denite]b :<C-u>Denite buffer<cr>
+nnoremap <silent> [denite]j :<C-u>JunkfileTodo<cr>
+nnoremap <silent> [denite]y :<C-u>Denite neoyank<cr>
+nnoremap <silent> [denite]t :<C-u>Deol<cr>
+nnoremap <silent> [denite]T :<C-u>terminal<cr>
+
+" git project nav {{{
   call denite#custom#alias('source', 'file_rec/git', 'file_rec')
   call denite#custom#var('file_rec/git', 'command',
     \ ['git', 'ls-files', '-co', '--exclude-standard'])
   nnoremap <silent> [denite]p :<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
-" }}}
-
-call dein#add('Shougo/neomru.vim') " {{{
-  nnoremap <silent> [denite]<space> :<C-u>Denite file_mru <cr>
-" }}}
-
-call dein#add('Shougo/neoyank.vim') " {{{
-  nnoremap <silent> [denite]y :<C-u>Denite neoyank<cr>
-" }}}
-call dein#add('Shougo/deol.nvim') " {{{
-  nnoremap <silent> [denite]t :<C-u>Deol<cr>
-  nnoremap <silent> [denite]T :<C-u>terminal<cr>
-" }}}
-
-call dein#add('Shougo/junkfile.vim') " {{{
-  let g:junkfile#directory=s:get_cache_dir('junk')
-  command! -nargs=0 JunkfileTodo call junkfile#open_immediately('todo.md')
-  nnoremap <silent> [denite]j :<C-u>JunkfileTodo<cr>
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
