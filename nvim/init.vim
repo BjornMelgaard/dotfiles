@@ -264,7 +264,6 @@ call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library
   nnoremap dm :%s:::
   vnoremap dm :s:::
 " }}}
-call dein#add('junegunn/vim-peekaboo')
 call dein#add('bkad/CamelCaseMotion') " {{{
   map <silent> w <Plug>CamelCaseMotion_w
   map <silent> b <Plug>CamelCaseMotion_b
@@ -299,7 +298,7 @@ call dein#add('mbbill/undotree', {'on_cmd':'UndotreeToggle'}) "{{{
   let g:undotree_SetFocusWhenToggle=1
   nnoremap <silent> <F5> :UndotreeToggle<CR>
 "}}}
-call dein#add('dkprice/vim-easygrep', {'on_cmd':'GrepOptions'}) "{{{
+call dein#add('dkprice/vim-easygrep') "{{{
   let g:EasyGrepRecursive=1
   let g:EasyGrepAllOptionsInExplorer=1
   let g:EasyGrepCommand=1

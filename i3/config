@@ -82,20 +82,20 @@ bindsym $mod+n       exec smplayer
 bindsym $mod+m       exec anki
 bindsym $mod+Shift+m exec pavucontrol
 
-bindsym $mod+u           focus parent
-bindsym $mod+o           focus child
-bindsym $mod+f           fullscreen
-bindsym $mod+r           mode "resize"
+bindsym $mod+a       focus parent
+bindsym $mod+Shift+a focus child
+bindsym $mod+f       fullscreen
+bindsym $mod+r       mode "resize"
 
-bindsym $mod+z           layout tabbed
-bindsym $mod+x           layout default
-bindsym $mod+v           split h
-bindsym $mod+c           split v
-bindsym $mod+b           layout toggle split
+bindsym $mod+z       layout tabbed
+bindsym $mod+x       layout default
+bindsym $mod+v       split h
+bindsym $mod+c       split v
+bindsym $mod+b       layout toggle split
 
-bindsym $mod+q           kill
-bindsym $mod+d           exec --no-startup-id "rofi -show run"
-bindsym $mod+Shift+d     exec --no-startup-id "rofi -show window"
+bindsym $mod+q       kill
+bindsym $mod+d       exec --no-startup-id "rofi -show run"
+bindsym $mod+Shift+d exec --no-startup-id "rofi -show window"
 
 bindsym $mod+Shift+space focus mode_toggle
 bindsym $mod+space       floating toggle

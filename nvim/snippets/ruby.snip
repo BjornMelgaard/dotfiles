@@ -1,2 +1,20 @@
 snippet gem
   gem '${1:TARGET}'
+
+snippet     do
+abbr        do ... end
+  ${1}do
+    ${2:TARGET}
+  end
+
+snippet     dovar
+abbr        do |var| ... end
+  ${1}do |${2:#:var}|
+    ${3:TARGET}
+  end
+
+snippet pry
+  require 'pry'; binding.pry;
+
+snippet screenshot
+  save_and_open_screenshot

@@ -52,6 +52,7 @@ vnoremap <C-M-d> :copy '><CR>
 
 " window killer
 nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
-nnoremap <silent> <M-q> :bd!<cr>
+nnoremap <silent> <M-q> <C-w>c
+nnoremap <silent> <M-Q> :bd!<cr>
 
 autocmd BufWritePre * :call StripTrailingWhitespace()
