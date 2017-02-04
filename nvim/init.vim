@@ -415,24 +415,31 @@ cnoremap <M-k> <up>
 
 " clipboard actions
 inoremap <C-r> <C-r><C-p>
-
-nnoremap <M-p> "+p
-vnoremap <M-p> "+p
 inoremap <M-p> <C-r><C-p>+
 cnoremap <M-p> <C-r>+
 
-nnoremap <M-P> "+P
-vnoremap <M-P> "+P
+nnoremap p "+p
+vnoremap p "+p
+nnoremap <M-p> p
+vnoremap <M-p> p
 
-nnoremap <M-y> "+y
-vnoremap <M-y> "+y
+nnoremap P "+P
+vnoremap P "+P
+nnoremap <M-P> P
+vnoremap <M-P> P
 
-nnoremap <M-Y> "+y$
-vnoremap <M-Y> "+y$
+nnoremap y "+y
+vnoremap y "+y
+nnoremap <M-y> y
+vnoremap <M-y> y
+
+nnoremap Y "+y$
+vnoremap Y "+y$
+nnoremap <M-Y> y$
+vnoremap <M-Y> y$
 
 nnoremap <M-d> "+d
 vnoremap <M-d> "+d
-
 nnoremap <M-D> "+D
 vnoremap <M-D> "+D
 
