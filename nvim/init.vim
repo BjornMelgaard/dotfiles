@@ -413,6 +413,9 @@ cnoremap <M-l> <right>
 cnoremap <M-j> <down>
 cnoremap <M-k> <up>
 
+" make Y consistent with C and D. See :help Y.
+" nnoremap Y y$
+
 " clipboard actions
 inoremap <C-r> <C-r><C-p>
 inoremap <M-p> <C-r><C-p>+
@@ -434,7 +437,7 @@ nnoremap <M-y> y
 vnoremap <M-y> y
 
 nnoremap Y "+y$
-vnoremap Y "+y$
+vnoremap Y "+y
 nnoremap <M-Y> y$
 vnoremap <M-Y> y$
 
@@ -498,9 +501,6 @@ nnoremap <C-l> <C-w>l
 " tab shortcuts
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>tc :tabclose<CR>
-
-" make Y consistent with C and D. See :help Y.
-nnoremap Y y$
 
 " quick buffer open
 nnoremap gb :ls<cr>:e #
