@@ -413,15 +413,19 @@ nnoremap <up> :tabnext<CR>
 nnoremap <down> :tabprev<CR>
 
 " change cursor position in insert and command mode
-inoremap <M-h> <C-left>
-inoremap <M-l> <C-right>
-inoremap <M-j> <left>
-inoremap <M-k> <right>
+inoremap <M-u> <C-left>
+inoremap <M-o> <C-right>
+inoremap <M-h> <left>
+inoremap <M-l> <right>
+inoremap <M-j> <down>
+inoremap <M-k> <up>
 
-cnoremap <M-h> <C-left>
-cnoremap <M-l> <C-right>
-cnoremap <M-j> <left>
-cnoremap <M-k> <right>
+cnoremap <M-u> <C-left>
+cnoremap <M-o> <C-right>
+cnoremap <M-h> <left>
+cnoremap <M-l> <right>
+cnoremap <M-j> <down>
+cnoremap <M-k> <up>
 
 " make Y consistent with C and D. See :help Y.
 " nnoremap Y y$
