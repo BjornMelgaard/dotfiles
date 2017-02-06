@@ -326,7 +326,10 @@ call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
   nnoremap <silent> <F9> :TagbarToggle<CR>
 "}}}
 call dein#add('kshenoy/vim-signature')
-call dein#add('myusuf3/numbers.vim')
+call dein#add('myusuf3/numbers.vim') " {{{
+  nnoremap <silent> <F7> :NumbersToggle<cr>
+" }}}
+
 call dein#add('rhysd/clever-f.vim')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -410,10 +413,15 @@ nnoremap <up> :tabnext<CR>
 nnoremap <down> :tabprev<CR>
 
 " change cursor position in insert and command mode
-cnoremap <M-h> <left>
-cnoremap <M-l> <right>
-cnoremap <M-j> <down>
-cnoremap <M-k> <up>
+inoremap <M-h> <C-left>
+inoremap <M-l> <C-right>
+inoremap <M-j> <left>
+inoremap <M-k> <right>
+
+cnoremap <M-h> <C-left>
+cnoremap <M-l> <C-right>
+cnoremap <M-j> <left>
+cnoremap <M-k> <right>
 
 " make Y consistent with C and D. See :help Y.
 " nnoremap Y y$
