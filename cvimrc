@@ -1,0 +1,9 @@
+imap <A-u> backwardWord
+imap <A-o> forwardWord
+imap <A-h> backwardChar
+imap <A-l> forwardChar
+imap <A-j> forwardLine
+imap <A-k> backwardLine
+
+imap <C-h> deleteChar
+imap <C-d> deleteForwardChar
