@@ -397,6 +397,23 @@ endif
 call dein#add('PotatoesMaster/i3-vim-syntax')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Finish
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call dein#add('nanotech/jellybeans.vim')
+
+call dein#end()
+
+if dein#check_install()
+  call dein#install()
+endif
+
+autocmd VimEnter * call dein#call_hook('post_source')
+
+filetype plugin indent on
+syntax enable
+colorscheme jellybeans
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vnoremap <leader>s :sort<cr>
@@ -431,7 +448,6 @@ cnoremap <M-k> <up>
 " nnoremap Y y$
 
 " clipboard actions
-
 function! s:get_visual_selection()
   " Why is this not a built-in Vim script function?!
   let [lnum1, col1] = getpos("'<")[1:2]
@@ -517,8 +533,8 @@ nnoremap <silent> <C-o> <C-o>zz
 nnoremap <silent> <C-i> <C-i>zz
 
 " reselect visual block after indent
-" vnoremap < <gv
-" vnoremap > >gv
+vnoremap < <gv
+vnoremap > >gv
 
 " reselect last paste
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
@@ -576,20 +592,3 @@ set autowriteall
 " autocmd FileType markdown setlocal nolist
 " autocmd FileType vim setlocal fdm=indent keywordprg=:help
 " autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Finish
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('nanotech/jellybeans.vim')
-
-call dein#end()
-
-if dein#check_install()
-  call dein#install()
-endif
-
-autocmd VimEnter * call dein#call_hook('post_source')
-
-filetype plugin indent on
-syntax enable
-colorscheme jellybeans
-
