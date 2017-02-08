@@ -170,30 +170,30 @@ mode "resize" {
   set $small_pace 2
   set $big_pace 7
 
-  bindsym $down         resize grow   down  $big_pace px or $big_pace ppt
-  bindsym Shift+$down   resize shrink down  $big_pace px or $big_pace ppt
+  bindsym $mod+$down         resize grow   down  $big_pace px or $big_pace ppt
+  bindsym $mod+Shift+$down   resize shrink down  $big_pace px or $big_pace ppt
 
-  bindsym $up           resize grow   up    $big_pace px or $big_pace ppt
-  bindsym Shift+$up     resize shrink up    $big_pace px or $big_pace ppt
+  bindsym $mod+$up           resize grow   up    $big_pace px or $big_pace ppt
+  bindsym $mod+Shift+$up     resize shrink up    $big_pace px or $big_pace ppt
 
-  bindsym $left         resize grow   left  $small_pace px or $small_pace ppt
-  bindsym Shift+$left   resize shrink left  $small_pace px or $small_pace ppt
+  bindsym $mod+$left         resize grow   left  $small_pace px or $small_pace ppt
+  bindsym $mod+Shift+$left   resize shrink left  $small_pace px or $small_pace ppt
 
-  bindsym $right        resize grow   right $small_pace px or $small_pace ppt
-  bindsym Shift+$right  resize shrink right $small_pace px or $small_pace ppt
+  bindsym $mod+$right        resize grow   right $small_pace px or $small_pace ppt
+  bindsym $mod+Shift+$right  resize shrink right $small_pace px or $small_pace ppt
 
   # same bindings, but for the arrow keys
-  bindsym Down          resize shrink down  $big_pace px or $big_pace ppt
-  bindsym Shift+Down    resize grow   down  $big_pace px or $big_pace ppt
+  bindsym $mod+Down          resize shrink down  $big_pace px or $big_pace ppt
+  bindsym $mod+Shift+Down    resize grow   down  $big_pace px or $big_pace ppt
 
-  bindsym Up            resize shrink up    $big_pace px or $big_pace ppt
-  bindsym Shift+Up      resize grow   up    $big_pace px or $big_pace ppt
+  bindsym $mod+Up            resize shrink up    $big_pace px or $big_pace ppt
+  bindsym $mod+Shift+Up      resize grow   up    $big_pace px or $big_pace ppt
 
-  bindsym Left          resize shrink left  $small_pace px or $small_pace ppt
-  bindsym Shift+Left    resize grow   left  $small_pace px or $small_pace ppt
+  bindsym $mod+Left          resize shrink left  $small_pace px or $small_pace ppt
+  bindsym $mod+Shift+Left    resize grow   left  $small_pace px or $small_pace ppt
 
-  bindsym Right         resize shrink right $small_pace px or $small_pace ppt
-  bindsym Shift+Right   resize grow   right $small_pace px or $small_pace ppt
+  bindsym $mod+Right         resize shrink right $small_pace px or $small_pace ppt
+  bindsym $mod+Shift+Right   resize grow   right $small_pace px or $small_pace ppt
 
   # bacl to normal: Enter or Escape or q or ^[
   bindsym Return      mode "default"

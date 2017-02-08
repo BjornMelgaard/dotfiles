@@ -447,6 +447,10 @@ cnoremap <M-k> <up>
 " make Y consistent with C and D. See :help Y.
 " nnoremap Y y$
 
+" line movement like in kakoune
+nnoremap gh ^
+nnoremap gl $
+
 " clipboard actions
 function! s:get_visual_selection()
   " Why is this not a built-in Vim script function?!
@@ -491,10 +495,10 @@ vnoremap Y :<C-u>call <SID>append_to_clipboard()<CR>
 nnoremap <M-Y> y$
 vnoremap <M-Y> y$
 
-nnoremap <M-d> "+d
-vnoremap <M-d> "+d
-nnoremap <M-D> "+D
-vnoremap <M-D> "+D
+nnoremap ,d "+d
+vnoremap ,d "+d
+nnoremap ,D "+D
+vnoremap ,D "+D
 
 " deleting
 inoremap <C-u> <C-g>u<C-u>
@@ -559,12 +563,6 @@ nnoremap gb :ls<cr>:e #
 nnoremap <leader>l :set list! list?<cr>
 nnoremap <BS> :noh<cr>
 nnoremap <M-v> vg_
-
-" helpers for profiling
-nnoremap <silent> <leader>DD :exe ":profile start profile.log"<cr>:exe ":profile func *"<cr>:exe ":profile file *"<cr>
-nnoremap <silent> <leader>DP :exe ":profile pause"<cr>
-nnoremap <silent> <leader>DC :exe ":profile continue"<cr>
-nnoremap <silent> <leader>DQ :exe ":profile pause"<cr>:noautocmd qall!<cr>
 
 " in nvim terminal emulator
 tnoremap <C-\><C-\> <C-\><C-n>
