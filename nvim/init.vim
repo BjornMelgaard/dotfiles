@@ -450,6 +450,10 @@ cnoremap <M-k> <up>
 " line movement like in kakoune
 nnoremap gh ^
 nnoremap gl $
+vnoremap gh ^
+vnoremap gl $
+onoremap gh ^
+onoremap gl $
 
 " clipboard actions
 function! s:get_visual_selection()
