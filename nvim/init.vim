@@ -124,7 +124,12 @@ call dein#add('mhinz/vim-startify') "{{{
 call dein#add('neomake/neomake') " {{{
   autocmd! BufWritePost * Neomake
   let g:neomake_ruby_enabled_makers = ['rubocop']
+  let g:neomake_open_list = 1
   " let g:neomake_verbose = 3
+
+  nnoremap <leader>ms :<C-u>NeomakeSh<space>
+  nnoremap <leader>mc :<C-u>NeomakeCancelJob<space>
+  nnoremap <silent> <leader>ml :<C-u>NeomakeListJobs<CR>
 " }}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
   let g:goldenview__enable_default_mapping=0
