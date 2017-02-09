@@ -67,10 +67,10 @@ bindkey -M vicmd '^[[3~'   delete-char          # delete
 bindkey -M vicmd '^[[3;5~' kill-word            # ctrl+delete
 
 # movement
-bindkey -M viins '^[l' vi-forward-char      # alt+l
-bindkey -M viins '^[h' vi-backward-char     # alt+h
-bindkey -M viins '^[i' up-line-or-history   # alt+i
-bindkey -M viins '^[k' down-line-or-history # alt+k
+bindkey -M viins '^[l' vi-forward-char
+bindkey -M viins '^[h' vi-backward-char
+bindkey -M viins '^[k' up-line-or-history
+bindkey -M viins '^[j' down-line-or-history
 
 # history
 bindkey -M viins '^[[A' up-line-or-history            # up
