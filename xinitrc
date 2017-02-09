@@ -18,7 +18,6 @@ compton -b --config $HOME/.config/compton.conf
 
 start-pulseaudio-x11
 
-#notification
 dunst -config ~/.i3/dunstrc &
 
 copyq &

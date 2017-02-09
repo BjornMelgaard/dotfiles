@@ -331,6 +331,9 @@ call dein#add('myusuf3/numbers.vim') " {{{
 " }}}
 
 call dein#add('rhysd/clever-f.vim')
+" call dein#add('dahu/vim-fanfingtastic')
+" call dein#add('svermeulen/vim-extended-ft')
+" call dein#add('deris/vim-shot-f')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
@@ -383,6 +386,7 @@ call dein#add('kana/vim-textobj-entire')
 call dein#add('lucapette/vim-textobj-underscore')
 call dein#add('beloglazov/vim-textobj-quotes')
 call dein#add('kana/vim-textobj-line')
+call dein#add('jasonlong/vim-textobj-css')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
@@ -449,11 +453,11 @@ cnoremap <M-k> <up>
 
 " line movement like in kakoune
 nnoremap gh ^
-nnoremap gl $
+nnoremap gl g_
 vnoremap gh ^
-vnoremap gl $
+vnoremap gl g_
 onoremap gh ^
-onoremap gl $
+onoremap gl g_
 
 " clipboard actions
 function! s:get_visual_selection()
@@ -566,7 +570,7 @@ nnoremap gb :ls<cr>:e #
 " general
 nnoremap <leader>l :set list! list?<cr>
 nnoremap <BS> :noh<cr>
-nnoremap <M-v> vg_
+" nnoremap <M-v> vg_
 
 " in nvim terminal emulator
 tnoremap <C-\><C-\> <C-\><C-n>

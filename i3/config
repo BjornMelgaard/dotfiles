@@ -71,12 +71,12 @@ exec --no-startup-id $browser
 bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
 
+bindsym $mod+e       exec $terminal -e "zsh -ci nvim"
+bindsym $mod+Shift+e exec zsh -c nvim-qt
 bindsym $mod+w       exec $browser
 bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+s       exec $terminal -e "zsh -c 'SHELL=/home/bjorn/.config/ranger/rshell ranger'"
 bindsym $mod+Shift+s exec pcmanfm
-bindsym $mod+e       exec zsh -c nvim-qt
-bindsym $mod+Shift+e exec $terminal -e "zsh -ci nvim"
 bindsym $mod+p       exec copyq menu
 bindsym $mod+n       exec smplayer
 bindsym $mod+m       exec anki
