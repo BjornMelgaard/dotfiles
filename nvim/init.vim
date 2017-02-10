@@ -108,7 +108,7 @@ call dein#add('vim-airline/vim-airline') "{{{
 "}}}
 " call dein#add('edkolev/tmuxline.vim') " {{{
 "   let g:tmuxline_theme = 'jellybeans'
-"   let g:tmuxline_preset = 'crosshair'
+"   let g:tmuxline_preset = 'minimal'
 " " }}}
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-repeat')
@@ -602,6 +602,10 @@ autocmd BufReadPost *
 " autosave
 autocmd FocusLost * silent! wall
 set autowriteall
+
+" tmux status line
+autocmd VimEnter * silent! !tmux source ~/.config/dotfiles/tmux/themes/jellybeans_tmuxline
+autocmd VimLeave * silent! !tmux source ~/.config/dotfiles/tmux/themes/iceberg_tmuxline
 
 " autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
 " autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>

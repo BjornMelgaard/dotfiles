@@ -71,7 +71,8 @@ exec --no-startup-id $browser
 bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
 
-bindsym $mod+e       exec $terminal -e "zsh -ci nvim"
+bindsym $mod+e       exec $terminal -e nvim
+# bindsym $mod+e       exec $terminal -e "zsh -ci nvim"
 # bindsym $mod+e       exec $terminal -e "RUN=nvim zsh -i"
 # bindsym $mod+e       exec $terminal -e "zsh -is eval 'nvim'"
 bindsym $mod+Shift+e exec zsh -c nvim-qt
