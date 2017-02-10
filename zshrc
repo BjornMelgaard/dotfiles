@@ -8,10 +8,11 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
 ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 
 plugins=(
+  tmux
   vi-mode
   history-substring-search
   common-aliases
-  dircycle dirpersist # enables cycling through the directory stack using Ctrl+Shift+Left/Right
+  dircycle dirpersist
   colorize
   compleat
   command-not-found
@@ -28,6 +29,8 @@ plugins=(
   zsh-completions
 )
 
+ZSH_TMUX_AUTOSTART=true
+
 source $ZSH/oh-my-zsh.sh
 
 alias pjdot="cd $HOME/.config/dotfiles"
@@ -38,12 +41,14 @@ alias vimdiff="nvim -d"
 alias n="nvim"
 alias r="SHELL=/home/bjorn/.config/ranger/rshell ranger"
 alias top="htop"
+alias tka="tmux ls | awk '{print substr(\$1, 0, length(\$1)-1)}' | xargs -n1 tmux kill-session -t"
 
 alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
 alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
 alias update-angular-cli="npm uninstall -g angular-cli && npm cache clean && npm install -g angular-cli@latest"
 alias update-all="yaourt --aur  -Syu --noconfirm && sudo gem update --system && gem update && npm cache clean && npm update -g"
+
 alias rvmnew="rvm use --create --ruby-version"
 
 # sqlite

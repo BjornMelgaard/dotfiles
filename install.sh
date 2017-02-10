@@ -20,3 +20,5 @@ ln -sfT $DOTFILES_DIR/Xresources           $HOME/.Xresources
 ln -sfT $DOTFILES_DIR/termite              $HOME/.config/termite
 ln -sfT $DOTFILES_DIR/compton.conf         $HOME/.config/compton.conf
 
+ln -sfT $DOTFILES_DIR/tmux                 $HOME/.tmux
+ln -sfT $DOTFILES_DIR/tmux.conf            $HOME/.tmux.conf

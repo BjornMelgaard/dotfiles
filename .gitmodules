@@ -1,12 +1,26 @@
 [submodule "oh-my-zsh/custom/plugins/zsh-completions"]
-	path = oh-my-zsh/custom/plugins/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions
+  path = oh-my-zsh/custom/plugins/zsh-completions
+  url = https://github.com/zsh-users/zsh-completions
 [submodule "oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-	path = oh-my-zsh/custom/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
+  path = oh-my-zsh/custom/plugins/zsh-autosuggestions
+  url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule "oh-my-zsh/custom/plugins/rake-fast"]
-	path = oh-my-zsh/custom/plugins/rake-fast
-	url = https://github.com/KevinBongart/rake-fast
+  path = oh-my-zsh/custom/plugins/rake-fast
+  url = https://github.com/KevinBongart/rake-fast
+
 [submodule "nvim/bundle/repos/github.com/Shougo/dein.vim"]
-	path = nvim/bundle/repos/github.com/Shougo/dein.vim
-	url = https://github.com/Shougo/dein.vim
+  path = nvim/bundle/repos/github.com/Shougo/dein.vim
+  url = https://github.com/Shougo/dein.vim
+
+[submodule "tmux/plugins/tpm"]
+  path = tmux/plugins/tpm
+  url = https://github.com/tmux-plugins/tpm
+[submodule "tmux/plugins/tmux-sensible"]
+  path = tmux/plugins/tmux-sensible
+  url = https://github.com/tmux-plugins/tmux-sensible
+[submodule "tmux/plugins/tmux-pain-control"]
+  path = tmux/plugins/tmux-pain-control
+  url = https://github.com/tmux-plugins/tmux-pain-control
+[submodule "tmux/plugins/vim-tmux-navigator"]
+	path = tmux/plugins/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator

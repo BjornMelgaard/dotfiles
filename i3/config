@@ -72,6 +72,8 @@ bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
 
 bindsym $mod+e       exec $terminal -e "zsh -ci nvim"
+# bindsym $mod+e       exec $terminal -e "RUN=nvim zsh -i"
+# bindsym $mod+e       exec $terminal -e "zsh -is eval 'nvim'"
 bindsym $mod+Shift+e exec zsh -c nvim-qt
 bindsym $mod+w       exec $browser
 bindsym $mod+Shift+w exec qutebrowser
@@ -168,7 +170,7 @@ bindsym $mod+Control+Shift+Right  focus right; split v; layout tabbed; focus lef
 
 mode "resize" {
   set $small_pace 2
-  set $big_pace 7
+  set $big_pace 5
 
   bindsym $mod+$down         resize grow   down  $big_pace px or $big_pace ppt
   bindsym $mod+Shift+$down   resize shrink down  $big_pace px or $big_pace ppt

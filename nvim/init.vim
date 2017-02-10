@@ -106,6 +106,10 @@ call dein#add('vim-airline/vim-airline') "{{{
   nmap <leader>8 <Plug>AirlineSelectTab8
   nmap <leader>9 <Plug>AirlineSelectTab9
 "}}}
+" call dein#add('edkolev/tmuxline.vim') " {{{
+"   let g:tmuxline_theme = 'jellybeans'
+"   let g:tmuxline_preset = 'crosshair'
+" " }}}
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-unimpaired') "{{{
@@ -124,17 +128,20 @@ call dein#add('mhinz/vim-startify') "{{{
 call dein#add('neomake/neomake') " {{{
   autocmd! BufWritePost * Neomake
   let g:neomake_ruby_enabled_makers = ['rubocop']
-  let g:neomake_open_list = 1
+  " let g:neomake_open_list = 1
   " let g:neomake_verbose = 3
 
-  nnoremap <leader>ms :<C-u>NeomakeSh<space>
-  nnoremap <leader>mc :<C-u>NeomakeCancelJob<space>
-  nnoremap <silent> <leader>ml :<C-u>NeomakeListJobs<CR>
+  " nnoremap <leader>ms :<C-u>NeomakeSh<space>
+  " nnoremap <leader>mc :<C-u>NeomakeCancelJob<space>
+  " nnoremap <silent> <leader>ml :<C-u>NeomakeListJobs<CR>
 " }}}
-call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
-  let g:goldenview__enable_default_mapping=0
-  nmap <F4> <Plug>ToggleGoldenViewAutoResize
-"}}}
+"call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
+"  let g:goldenview__enable_default_mapping=0
+"  nmap <F4> <Plug>ToggleGoldenViewAutoResize
+""}}}
+call dein#add('tpope/vim-dispatch') " {{{
+  " call dein#add('radenling/vim-dispatch-neovim')
+" }}}
 call dein#add('jszakmeister/vim-togglecursor')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -293,6 +300,8 @@ call dein#add('vim-scripts/eraseSubword') " {{{
 " }}}
 call dein#add('jeetsukumaran/vim-indentwise')
 call dein#add('AndrewRadev/splitjoin.vim')
+call dein#add('christoomey/vim-tmux-navigator')
+call dein#add('vim-utils/vim-husk')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
@@ -398,12 +407,12 @@ call dein#add('jasonlong/vim-textobj-css')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('kana/vim-vspec') " Testing framework
 call dein#add('tpope/vim-scriptease', {'on_ft':['vim']})
-
 call dein#add('tpope/vim-markdown',{'on_ft':['markdown']})
 if executable('instant-markdown-d')
   call dein#add('suan/vim-instant-markdown', {'on_ft':['markdown']})
 endif
 call dein#add('PotatoesMaster/i3-vim-syntax')
+call dein#add('tmux-plugins/vim-tmux')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Finish
@@ -452,9 +461,6 @@ cnoremap <M-h> <left>
 cnoremap <M-l> <right>
 cnoremap <M-j> <down>
 cnoremap <M-k> <up>
-
-" make Y consistent with C and D. See :help Y.
-" nnoremap Y y$
 
 " line movement like in kakoune
 nnoremap gh ^
@@ -560,10 +566,10 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s
 nnoremap <leader>vsa :vert sba<cr>
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
 
 " tab shortcuts
 nnoremap <leader>tn :tabnew<CR>
@@ -580,9 +586,9 @@ nnoremap <BS> :noh<cr>
 " in nvim terminal emulator
 tnoremap <C-\><C-\> <C-\><C-n>
 tnoremap <left> <C-\><C-n>:bprev<CR>
-tnoremap <right> :<C-\><C-n>bnext<CR>
-tnoremap <up> :<C-\><C-n>tabnext<CR>
-tnoremap <down> :<C-\><C-n>tabprev<CR>
+tnoremap <right> <C-\><C-n>:bnext<CR>
+tnoremap <up> <C-\><C-n>:tabnext<CR>
+tnoremap <down> <C-\><C-n>:tabprev<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocommands
