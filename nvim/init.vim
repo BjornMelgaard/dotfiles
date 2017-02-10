@@ -301,7 +301,11 @@ call dein#add('vim-scripts/eraseSubword') " {{{
 call dein#add('jeetsukumaran/vim-indentwise')
 call dein#add('AndrewRadev/splitjoin.vim')
 call dein#add('christoomey/vim-tmux-navigator')
-call dein#add('vim-utils/vim-husk')
+call dein#add('vim-utils/vim-husk') " {{{
+  cnoremap <expr> <M-u> husk#left()
+  cnoremap <expr> <M-o> husk#right()
+" }}}
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
@@ -331,6 +335,29 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   nnoremap <F2> :NERDTreeToggle<CR>
   nnoremap <F3> :NERDTreeFind<CR>
 "}}}
+
+" " inspired by francoiscabrol plugin
+" function! OpenRanger(dir)
+"   let currentPath = expand(a:dir)
+"   let tmp_file_path = tempname()
+"   let rangerCallback = { 'name': 'ranger' , 'tmp_file_path': tmp_file_path}
+"   function! rangerCallback.on_exit(id, code)
+"     call system('notify-send callback')
+"     " bdelete!
+"     if filereadable(self.tmp_file_path)
+"       for f in readfile(self.tmp_file_path)
+"         exec 'edit '. f
+"       endfor
+"       call delete(self.tmp_file_path)
+"     endif
+"   endfunction
+"   tabnew
+"   call termopen('tmux splitw ranger --choosefiles=' . shellescape(tmp_file_path) . ' ' . currentPath, rangerCallback)
+"   startinsert
+" endfunction
+
+" nnoremap <leader>f :call OpenRanger('%:p:h')<CR>
+" nnoremap <leader>F :call OpenRanger('')<CR>
 
 call dein#add('bramblex/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
   let g:ranger_path='SHELL=/home/bjorn/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
@@ -448,15 +475,15 @@ nnoremap <up> :tabnext<CR>
 nnoremap <down> :tabprev<CR>
 
 " change cursor position in insert and command mode
-inoremap <M-u> <C-left>
-inoremap <M-o> <C-right>
-inoremap <M-h> <left>
-inoremap <M-l> <right>
-inoremap <M-j> <down>
-inoremap <M-k> <up>
+" inoremap <M-u> <C-left>
+" inoremap <M-o> <C-right>
+" inoremap <M-h> <left>
+" inoremap <M-l> <right>
+" inoremap <M-j> <down>
+" inoremap <M-k> <up>
 
-cnoremap <M-u> <C-left>
-cnoremap <M-o> <C-right>
+" cnoremap <M-u> <C-left>
+" cnoremap <M-o> <C-right>
 cnoremap <M-h> <left>
 cnoremap <M-l> <right>
 cnoremap <M-j> <down>
