@@ -350,7 +350,6 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   nnoremap <F3> :NERDTreeFind<CR>
 "}}}
 
-" " inspired by francoiscabrol plugin
 " function! OpenRanger(dir)
 "   let currentPath = expand(a:dir)
 "   let tmp_file_path = tempname()
@@ -390,8 +389,8 @@ call dein#add('rhysd/clever-f.vim')
 call dein#add('mhinz/vim-sayonara') " {{{
   let g:sayonara_confirm_quit = 1
 
-  nnoremap Q :Sayonara!<cr>
-  nnoremap <M-q> :Sayonara<cr>
+  nnoremap Q :Sayonara<cr>
+  nnoremap <M-q> :Sayonara!<cr>
 
   " nnoremap <silent> <M-q> <C-w>c
   " nnoremap <silent> <M-Q> :bd<cr>
