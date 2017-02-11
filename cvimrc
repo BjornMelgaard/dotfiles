@@ -4,6 +4,9 @@ imap <A-h> backwardChar
 imap <A-l> forwardChar
 imap <A-j> forwardLine
 imap <A-k> backwardLine
-
 imap <C-h> deleteChar
 imap <C-d> deleteForwardChar
+imap <A-w> deleteWord
+
+let blacklists = ["http://rubygarage.github.io/*"]
+let searchengine github = "https://github.com/search?utf8=✓&q=%s"

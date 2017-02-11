@@ -51,9 +51,9 @@ nnoremap <C-M-d> :call Preserve("normal! yyp")<CR>
 vnoremap <C-M-d> :copy '><CR>
 
 " window killer
-nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
-nnoremap <silent> <M-q> <C-w>c
-nnoremap <silent> <M-Q> :bd<cr>
+" nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
+" nnoremap <silent> <M-q> <C-w>c
+" nnoremap <silent> <M-Q> :bd<cr>
 
 " nnoremap <silent> Q :bd<cr>
 " nnoremap <silent> <M-q> <C-w>c

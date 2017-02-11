@@ -345,6 +345,7 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   let NERDTreeShowBookmarks=1
   let NERDTreeIgnore=['\.git','\.hg']
   let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
+  let g:NERDTreeMapQuit='Q'
   nnoremap <F2> :NERDTreeToggle<CR>
   nnoremap <F3> :NERDTreeFind<CR>
 "}}}
@@ -375,7 +376,6 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
 call dein#add('bramblex/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
   let g:ranger_path='SHELL=/home/bjorn/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
 " }}}
-
 call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
   nnoremap <silent> <F9> :TagbarToggle<CR>
 "}}}
@@ -383,11 +383,20 @@ call dein#add('kshenoy/vim-signature')
 call dein#add('myusuf3/numbers.vim') " {{{
   nnoremap <silent> <F7> :NumbersToggle<cr>
 " }}}
-
 call dein#add('rhysd/clever-f.vim')
 " call dein#add('dahu/vim-fanfingtastic')
 " call dein#add('svermeulen/vim-extended-ft')
 " call dein#add('deris/vim-shot-f')
+call dein#add('mhinz/vim-sayonara') " {{{
+  let g:sayonara_confirm_quit = 1
+
+  nnoremap Q :Sayonara!<cr>
+  nnoremap <M-q> :Sayonara<cr>
+
+  " nnoremap <silent> <M-q> <C-w>c
+  " nnoremap <silent> <M-Q> :bd<cr>
+" }}}
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
