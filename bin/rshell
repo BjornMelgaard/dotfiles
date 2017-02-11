@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export ZSH_TMUX_AUTOSTART=false
+
 # EXPL: simplify when r.shell -c $SHELL
 if [[ $# == 2 && $1 == -c && ($2 == $SHELL || $2 == '$SHELL') ]]
 then shift 2; fi

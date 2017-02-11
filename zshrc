@@ -29,8 +29,8 @@ plugins=(
   zsh-completions
 )
 
-ZSH_TMUX_AUTOSTART=true
-# ZSH_TMUX_AUTOCONNECT=false
+# [[ -n "$ZSH_TMUX_AUTOSTART" ]] || ZSH_TMUX_AUTOSTART=true
+# [[ -n "$ZSH_TMUX_AUTOCONNECT" ]] || ZSH_TMUX_AUTOCONNECT=false
 
 source $ZSH/oh-my-zsh.sh
 
@@ -42,7 +42,7 @@ alias vimdiff="nvim -d"
 alias n="nvim"
 alias r="SHELL=/home/bjorn/.config/ranger/rshell ranger"
 alias top="htop"
-alias tka="tmux ls | awk '{print substr(\$1, 0, length(\$1)-1)}' | xargs -n1 tmux kill-session -t"
+alias tkda="tmux ls | grep -v attached | awk '{print substr(\$1, 0, length(\$1)-1)}' | xargs -n1 tmux kill-session -t"
 
 alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"

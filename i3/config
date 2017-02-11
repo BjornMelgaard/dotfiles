@@ -61,7 +61,7 @@ bindsym $mod+Shift+0 move workspace $WS9
 set $terminal termite
 set $browser  google-chrome-stable
 
-exec --no-startup-id python /home/bjorn/.i3/randomize_background.py
+exec --no-startup-id python /home/bjorn/.bin/randomize_background.py
 exec --no-startup-id $terminal -e "/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
 exec --no-startup-id $browser
 
@@ -69,17 +69,15 @@ exec --no-startup-id $browser
 # Shortcuts
 # -------------------------------------
 bindsym $mod+Return  exec $terminal
-bindsym $mod+e exec $terminal
+bindsym $mod+Shift+q exec $terminal
+bindsym $mod+e       exec $terminal -e "zsh -c tmuxx"
+# bindsym $mod+e       exec $terminal -e "zsh -c 'tmux attach || tmux new'"
+# bindsym $mod+e       exec $terminal -e "zsh -c 'tmux attach || tmux new nvim'"
+bindsym $mod+Shift+e exec $terminal -e "zsh -c 'tmux new'"
 
-# bindsym $mod+e       exec $terminal -e nvim
-# bindsym $mod+e       exec $terminal -e "zsh -ci nvim"
-# bindsym $mod+e       exec $terminal -e "RUN=nvim zsh -i"
-# bindsym $mod+e       exec $terminal -e "zsh -is eval 'nvim'"
-# bindsym $mod+Shift+e exec zsh -c nvim-qt
-bindsym $mod+Shift+e exec $terminal -e nvim
 bindsym $mod+w       exec $browser
 bindsym $mod+Shift+w exec qutebrowser
-bindsym $mod+s       exec $terminal -e "zsh -c 'SHELL=/home/bjorn/.config/ranger/rshell ranger'"
+bindsym $mod+s       exec $terminal -e "zsh -c 'SHELL=rshell ranger'"
 bindsym $mod+Shift+s exec pcmanfm
 bindsym $mod+p       exec copyq menu
 bindsym $mod+n       exec smplayer
@@ -110,7 +108,7 @@ bindsym XF86AudioLowerVolume  exec "amixer -D pulse sset Master '3%-'"
 bindsym XF86AudioMute         exec "amixer -D pulse sset Master toggle"
 bindsym XF86MonBrightnessDown exec "xbacklight -10"
 bindsym XF86MonBrightnessUp   exec "xbacklight +10"
-bindsym XF86TouchpadToggle    exec "/home/bjorn/.i3/bin/switch_touchpad.sh"
+bindsym XF86TouchpadToggle    exec "/home/bjorn/.bin/switch_touchpad.sh"
 bindsym Print                 exec "scrot /home/bjorn/Pictures/%d.png"
 # bindsym XF86Display         exec "arandr"
 # bindsym $mod+e              exec $terminal -e "alsamixer"
@@ -221,7 +219,7 @@ bindsym $mod+Caps_Lock mode "$mode_system"
 bar {
   strip_workspace_numbers yes
   position top
-  status_command /home/bjorn/.i3/bin/conky-wrapper
+  status_command /home/bjorn/.bin/conky-wrapper
   colors {
     statusline #AAAAAA
     background #333333

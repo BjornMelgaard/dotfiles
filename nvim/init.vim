@@ -141,6 +141,7 @@ call dein#add('neomake/neomake') " {{{
 ""}}}
 call dein#add('tpope/vim-dispatch') " {{{
   " call dein#add('radenling/vim-dispatch-neovim')
+  nnoremap <leader>rd :Dispatch<space>
 " }}}
 call dein#add('jszakmeister/vim-togglecursor')
 
@@ -428,6 +429,7 @@ call dein#add('lucapette/vim-textobj-underscore')
 call dein#add('beloglazov/vim-textobj-quotes')
 call dein#add('kana/vim-textobj-line')
 call dein#add('jasonlong/vim-textobj-css')
+call dein#add('b4winckler/vim-angry')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
@@ -609,6 +611,9 @@ nnoremap gb :ls<cr>:e #
 nnoremap <leader>l :set list! list?<cr>
 nnoremap <BS> :noh<cr>
 " nnoremap <M-v> vg_
+
+nnoremap <C-s> <C-a>
+nnoremap <leader>R :so $MYVIMRC<CR>
 
 " in nvim terminal emulator
 tnoremap <C-\><C-\> <C-\><C-n>

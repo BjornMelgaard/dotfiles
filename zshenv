@@ -1,8 +1,9 @@
 export EDITOR='/usr/bin/nvim'
 export PROJECT_PATHS=(~/projects)
+export PATH="$HOME/.bin:$PATH"
 
 # nodejs
-PATH="$HOME/.node_modules/bin:$PATH"
+export PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
 
 # heroku
