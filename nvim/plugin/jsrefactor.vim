@@ -66,8 +66,8 @@ function! s:objectArgs()
     let &hlsearch = temp2
 endfunction
 
-autocmd FileType javascript nnoremap <leader>rdr :call <SID>defineToRequire()<cr>
-autocmd FileType javascript nnoremap <leader>ro :call <SID>objectArgs()<cr>
+" autocmd FileType javascript nnoremap <leader>rdr :call <SID>defineToRequire()<cr>
+" autocmd FileType javascript nnoremap <leader>ro :call <SID>objectArgs()<cr>
 
 " put cursor on _f_unction, and it will _.bind it 'this'
-autocmd FileType javascript nnoremap <leader>rb i_.bind(f{%a, this)
+" autocmd FileType javascript nnoremap <leader>rb i_.bind(f{%a, this)

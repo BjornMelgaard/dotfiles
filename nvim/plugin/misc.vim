@@ -38,15 +38,15 @@ function! CloseWindowOrKillBuffer() "{{{
 endfunction "}}}
 
 " formatting shortcuts
-nnoremap <leader>ref :call Preserve("normal gg=G")<CR>
-nnoremap <leader>rt :call StripTrailingWhitespace()<CR>
-nnoremap <leader>rr :retab<CR>
+" nnoremap <leader>ref :call Preserve("normal gg=G")<CR>
+nnoremap <leader>rs :call StripTrailingWhitespace()<CR>
+nnoremap <leader>rt :retab<CR>
 
 " eval vimscript by line or visual selection
 nnoremap <silent> <leader>e :call Source(line('.'), line('.'))<CR>
 vnoremap <silent> <leader>e :call Source(line('v'), line('.'))<CR>
 
-" dublicate
+" dublicate line
 nnoremap <C-M-d> :call Preserve("normal! yyp")<CR>
 vnoremap <C-M-d> :copy '><CR>
 

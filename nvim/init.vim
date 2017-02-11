@@ -142,6 +142,10 @@ call dein#add('neomake/neomake') " {{{
 call dein#add('tpope/vim-dispatch') " {{{
   " call dein#add('radenling/vim-dispatch-neovim')
   nnoremap <leader>rd :Dispatch<space>
+  nnoremap <leader>rD :Copen<CR>
+
+  " open file under cursor in window above (pretty cozy together with Copen)
+  nmap <leader>gf yif<C-k>:e <M-p><CR>
 " }}}
 call dein#add('jszakmeister/vim-togglecursor')
 
@@ -185,6 +189,14 @@ call dein#add('tpope/vim-bundler')
 call dein#add('nelstrom/vim-textobj-rubyblock') " {{{
   let g:textobj_ruby_more_mappings = 1
 " }}}
+call dein#add('thoughtbot/vim-rspec') " {{{
+  let g:rspec_command = "Dispatch rspec {spec}"
+  nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
+  nnoremap <Leader>rn :call RunNearestSpec()<CR>
+  nnoremap <Leader>rl :call RunLastSpec()<CR>
+  " nnoremap <Leader>a :call RunAllSpecs()<CR>
+" }}}
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
@@ -431,6 +443,14 @@ call dein#add('kana/vim-textobj-line')
 call dein#add('jasonlong/vim-textobj-css')
 call dein#add('b4winckler/vim-angry')
 
+" file text object
+call textobj#user#plugin('file', {
+  \ 'file': {
+  \ 'pattern': '\f\+', 'select': ['af', 'if']
+  \ }
+  \ })
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -475,6 +495,12 @@ nnoremap <left> :bprev<CR>
 nnoremap <right> :bnext<CR>
 nnoremap <up> :tabnext<CR>
 nnoremap <down> :tabprev<CR>
+
+" quick resizing
+nnoremap <M-h> <C-w>3<
+nnoremap <M-l> <C-w>3>
+nnoremap <M-j> <C-w>3-
+nnoremap <M-k> <C-w>3+
 
 " change cursor position in insert and command mode
 " inoremap <M-u> <C-left>
