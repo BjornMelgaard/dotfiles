@@ -247,20 +247,10 @@ if $TMUX != ''
   call dein#add('wellle/tmux-complete.vim')
   call dein#add('tmux-plugins/vim-tmux')
   call dein#add('christoomey/vim-tmux-navigator')
-  " call dein#add('benmills/vimux')
-  call dein#add('christoomey/vim-tmux-runner') " {{{
-    nnoremap <leader>ro :VtrOpenRunner<CR>
-  " }}}
-
-  " call dein#add('janko-m/vim-test') " {{{
-  "   let test#strategy = 'vtr'
-  "   nnoremap <leader>rr :TestNearest<CR>
-  "   nnoremap <leader>rl :TestLast<CR>
-  "   nnoremap <leader>rs :TestSuite<CR>
-  " " }}}
+  call dein#add('christoomey/vim-tmux-runner')
 
   call dein#add('thoughtbot/vim-rspec') " {{{
-    " let g:rspec_command = 'Dispatch rspec {spec}'
+    " XXX vonna run spec? open pane (runner, as it call vtr) with C-a C-s
     let g:rspec_command = 'VtrSendCommandToRunner rspec {spec}'
     nnoremap <Leader>rr :call RunCurrentSpecFile()<CR>
     nnoremap <Leader>rn :call RunNearestSpec()<CR>
