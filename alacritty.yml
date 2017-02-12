@@ -12,7 +12,7 @@ dpi:
   y: 120.0
 
 # Display tabs using this many cells (changes require restart)
-tabspaces: 8
+tabspaces: 2
 
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
@@ -35,12 +35,12 @@ font:
     # style: Oblique
 
   # Point size of the font
-  size: 14.0
+  size: 7.0
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
-    x: 2.0
-    y: -7.0
+    x: 3.5
+    y: -1.5
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
@@ -52,7 +52,7 @@ render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: false
+custom_cursor_colors: true
 
 colors:
   primary:
@@ -61,8 +61,8 @@ colors:
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    background: '0x2b2b2b'
-    foreground: '0xe6e1dc'
+    background: '0xe6e1dc'
+    foreground: '0x2b2b2b'
 
   # Normal colors
   normal:
@@ -85,6 +85,9 @@ colors:
     magenta: '0xb6b3eb'
     cyan:    '0x519f50'
     white:   '0xf9f7f3'
+
+# Background opacity
+# background_opacity: 1.0
 
 # Visual Bell
 #

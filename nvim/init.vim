@@ -106,10 +106,6 @@ call dein#add('vim-airline/vim-airline') "{{{
   nmap <leader>8 <Plug>AirlineSelectTab8
   nmap <leader>9 <Plug>AirlineSelectTab9
 "}}}
-" call dein#add('edkolev/tmuxline.vim') " {{{
-"   let g:tmuxline_theme = 'jellybeans'
-"   let g:tmuxline_preset = 'minimal'
-" " }}}
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-unimpaired') "{{{
@@ -139,14 +135,6 @@ call dein#add('neomake/neomake') " {{{
 "  let g:goldenview__enable_default_mapping=0
 "  nmap <F4> <Plug>ToggleGoldenViewAutoResize
 ""}}}
-call dein#add('tpope/vim-dispatch') " {{{
-  " call dein#add('radenling/vim-dispatch-neovim')
-  nnoremap <leader>rd :Dispatch<space>
-  nnoremap <leader>rD :Copen<CR>
-
-  " open file under cursor in window above (pretty cozy together with Copen)
-  nmap <leader>gf yif<C-k>:e <M-p><CR>
-" }}}
 call dein#add('jszakmeister/vim-togglecursor')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -189,14 +177,6 @@ call dein#add('tpope/vim-bundler')
 call dein#add('nelstrom/vim-textobj-rubyblock') " {{{
   let g:textobj_ruby_more_mappings = 1
 " }}}
-call dein#add('thoughtbot/vim-rspec') " {{{
-  let g:rspec_command = "Dispatch rspec {spec}"
-  nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
-  nnoremap <Leader>rn :call RunNearestSpec()<CR>
-  nnoremap <Leader>rl :call RunLastSpec()<CR>
-  " nnoremap <Leader>a :call RunAllSpecs()<CR>
-" }}}
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
@@ -250,6 +230,75 @@ call dein#add('Shougo/deoplete.nvim') " {{{
   call dein#add('fishbullet/deoplete-ruby')
   let g:deoplete#enable_at_startup = 1
 " }}}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Tmux
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call dein#add('tpope/vim-dispatch') " {{{
+  " call dein#add('radenling/vim-dispatch-neovim')
+  nnoremap <leader>rd :Dispatch<space>
+  nnoremap <leader>rD :Copen<CR>
+
+  " open file under cursor in window above (pretty cozy together with Copen)
+  nmap <leader>gf yif<C-k>:e <M-p><CR>
+" }}}
+
+if $TMUX != ''
+  call dein#add('wellle/tmux-complete.vim')
+  call dein#add('tmux-plugins/vim-tmux')
+  call dein#add('christoomey/vim-tmux-navigator')
+  " call dein#add('benmills/vimux')
+  call dein#add('christoomey/vim-tmux-runner') " {{{
+    nnoremap <leader>ro :VtrOpenRunner<CR>
+  " }}}
+
+  " call dein#add('janko-m/vim-test') " {{{
+  "   let test#strategy = 'vtr'
+  "   nnoremap <leader>rr :TestNearest<CR>
+  "   nnoremap <leader>rl :TestLast<CR>
+  "   nnoremap <leader>rs :TestSuite<CR>
+  " " }}}
+
+  call dein#add('thoughtbot/vim-rspec') " {{{
+    " let g:rspec_command = 'Dispatch rspec {spec}'
+    let g:rspec_command = 'VtrSendCommandToRunner rspec {spec}'
+    nnoremap <Leader>rr :call RunCurrentSpecFile()<CR>
+    nnoremap <Leader>rn :call RunNearestSpec()<CR>
+    nnoremap <Leader>rl :call RunLastSpec()<CR>
+    nnoremap <Leader>ra :call RunAllSpecs()<CR>
+  " }}}
+
+  " tmux status line
+  autocmd VimEnter * silent! !tmux source ~/.config/dotfiles/tmux/themes/jellybeans_tmuxline
+  autocmd VimLeave * silent! !tmux source ~/.config/dotfiles/tmux/themes/iceberg_tmuxline
+
+  " call dein#add('edkolev/tmuxline.vim') " {{{
+  "   let g:tmuxline_theme = 'jellybeans'
+  "   let g:tmuxline_preset = 'minimal'
+  " " }}}
+
+  " function! OpenRanger(dir)
+  "   let currentPath = expand(a:dir)
+  "   let tmp_file_path = tempname()
+  "   let rangerCallback = { 'name': 'ranger' , 'tmp_file_path': tmp_file_path}
+  "   function! rangerCallback.on_exit(id, code)
+  "     call system('notify-send callback')
+  "     " bdelete!
+  "     if filereadable(self.tmp_file_path)
+  "       for f in readfile(self.tmp_file_path)
+  "         exec 'edit '. f
+  "       endfor
+  "       call delete(self.tmp_file_path)
+  "     endif
+  "   endfunction
+  "   tabnew
+  "   call termopen('tmux splitw ranger --choosefiles=' . shellescape(tmp_file_path) . ' ' . currentPath, rangerCallback)
+  "   startinsert
+  " endfunction
+
+  " nnoremap <leader>f :call OpenRanger('%:p:h')<CR>
+  " nnoremap <leader>F :call OpenRanger('')<CR>
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing
@@ -313,7 +362,6 @@ call dein#add('vim-scripts/eraseSubword') " {{{
 " }}}
 call dein#add('jeetsukumaran/vim-indentwise')
 call dein#add('AndrewRadev/splitjoin.vim')
-call dein#add('christoomey/vim-tmux-navigator')
 call dein#add('vim-utils/vim-husk') " {{{
   cnoremap <expr> <M-u> husk#left()
   cnoremap <expr> <M-o> husk#right()
@@ -350,28 +398,6 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   nnoremap <F3> :NERDTreeFind<CR>
 "}}}
 
-" function! OpenRanger(dir)
-"   let currentPath = expand(a:dir)
-"   let tmp_file_path = tempname()
-"   let rangerCallback = { 'name': 'ranger' , 'tmp_file_path': tmp_file_path}
-"   function! rangerCallback.on_exit(id, code)
-"     call system('notify-send callback')
-"     " bdelete!
-"     if filereadable(self.tmp_file_path)
-"       for f in readfile(self.tmp_file_path)
-"         exec 'edit '. f
-"       endfor
-"       call delete(self.tmp_file_path)
-"     endif
-"   endfunction
-"   tabnew
-"   call termopen('tmux splitw ranger --choosefiles=' . shellescape(tmp_file_path) . ' ' . currentPath, rangerCallback)
-"   startinsert
-" endfunction
-
-" nnoremap <leader>f :call OpenRanger('%:p:h')<CR>
-" nnoremap <leader>F :call OpenRanger('')<CR>
-
 call dein#add('bramblex/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
   let g:ranger_path='SHELL=/home/bjorn/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
 " }}}
@@ -383,19 +409,13 @@ call dein#add('myusuf3/numbers.vim') " {{{
   nnoremap <silent> <F7> :NumbersToggle<cr>
 " }}}
 call dein#add('rhysd/clever-f.vim')
-" call dein#add('dahu/vim-fanfingtastic')
-" call dein#add('svermeulen/vim-extended-ft')
-" call dein#add('deris/vim-shot-f')
 call dein#add('mhinz/vim-sayonara') " {{{
   let g:sayonara_confirm_quit = 1
-
   nnoremap Q :Sayonara<cr>
   nnoremap <M-q> :Sayonara!<cr>
-
   " nnoremap <silent> <M-q> <C-w>c
   " nnoremap <silent> <M-Q> :bd<cr>
 " }}}
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
@@ -469,7 +489,6 @@ if executable('instant-markdown-d')
   call dein#add('suan/vim-instant-markdown', {'on_ft':['markdown']})
 endif
 call dein#add('PotatoesMaster/i3-vim-syntax')
-call dein#add('tmux-plugins/vim-tmux')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Finish
@@ -668,10 +687,6 @@ autocmd BufReadPost *
 " autosave
 autocmd FocusLost * silent! wall
 set autowriteall
-
-" tmux status line
-autocmd VimEnter * silent! !tmux source ~/.config/dotfiles/tmux/themes/jellybeans_tmuxline
-autocmd VimLeave * silent! !tmux source ~/.config/dotfiles/tmux/themes/iceberg_tmuxline
 
 " autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
 " autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>

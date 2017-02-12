@@ -21,25 +21,8 @@ function! StripTrailingWhitespace() "{{{
   call Preserve("%s/\\s\\+$//e")
 endfunction "}}}
 
-function! CloseWindowOrKillBuffer() "{{{
-  " write
-  let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
-  " never bdelete a nerd tree
-  if matchstr(expand("%"), 'NERD') == 'NERD'
-    wincmd c
-    return
-  endif
-  if number_of_windows_to_this_buffer > 1
-    wincmd c
-  else
-    " bdelete
-    execute "normal \<Plug>BufKillBd"
-  endif
-endfunction "}}}
-
 " formatting shortcuts
-" nnoremap <leader>ref :call Preserve("normal gg=G")<CR>
-nnoremap <leader>rs :call StripTrailingWhitespace()<CR>
+nnoremap <leader>rw :call StripTrailingWhitespace()<CR>
 nnoremap <leader>rt :retab<CR>
 
 " eval vimscript by line or visual selection
@@ -49,13 +32,5 @@ vnoremap <silent> <leader>e :call Source(line('v'), line('.'))<CR>
 " dublicate line
 nnoremap <C-M-d> :call Preserve("normal! yyp")<CR>
 vnoremap <C-M-d> :copy '><CR>
-
-" window killer
-" nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
-" nnoremap <silent> <M-q> <C-w>c
-" nnoremap <silent> <M-Q> :bd<cr>
-
-" nnoremap <silent> Q :bd<cr>
-" nnoremap <silent> <M-q> <C-w>c
 
 autocmd BufWritePre * :call StripTrailingWhitespace()
