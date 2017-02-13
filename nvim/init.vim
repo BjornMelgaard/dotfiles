@@ -177,6 +177,8 @@ call dein#add('tpope/vim-bundler')
 call dein#add('nelstrom/vim-textobj-rubyblock') " {{{
   let g:textobj_ruby_more_mappings = 1
 " }}}
+autocmd FileType ruby let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|': '|'}
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
