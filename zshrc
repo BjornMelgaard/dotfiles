@@ -32,6 +32,8 @@ plugins=(
 # [[ -n "$ZSH_TMUX_AUTOSTART" ]] || ZSH_TMUX_AUTOSTART=true
 # [[ -n "$ZSH_TMUX_AUTOCONNECT" ]] || ZSH_TMUX_AUTOCONNECT=false
 
+[[ $TMUX != "" ]] && rvm use default > /dev/null 2>&1
+
 source $ZSH/oh-my-zsh.sh
 
 alias pjdot="cd $HOME/.config/dotfiles"
@@ -40,7 +42,7 @@ alias pjodot="$EDITOR $HOME/.config/dotfiles"
 alias vim="nvim"
 alias vimdiff="nvim -d"
 alias n="nvim"
-alias r="SHELL=/home/bjorn/.config/ranger/rshell ranger"
+alias r="SHELL=rshell ranger"
 alias top="htop"
 alias tkda="tmux ls | grep -v attached | awk '{print substr(\$1, 0, length(\$1)-1)}' | xargs -n1 tmux kill-session -t"
 

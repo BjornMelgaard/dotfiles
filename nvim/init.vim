@@ -131,10 +131,10 @@ call dein#add('neomake/neomake') " {{{
   " nnoremap <leader>mc :<C-u>NeomakeCancelJob<space>
   " nnoremap <silent> <leader>ml :<C-u>NeomakeListJobs<CR>
 " }}}
-"call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
-"  let g:goldenview__enable_default_mapping=0
-"  nmap <F4> <Plug>ToggleGoldenViewAutoResize
-""}}}
+call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
+  let g:goldenview__enable_default_mapping=0
+  " nmap <F4> <Plug>ToggleGoldenViewAutoResize
+"}}}
 call dein#add('jszakmeister/vim-togglecursor')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -178,6 +178,10 @@ call dein#add('nelstrom/vim-textobj-rubyblock') " {{{
   let g:textobj_ruby_more_mappings = 1
 " }}}
 autocmd FileType ruby let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|': '|'}
+
+let neosimpp_path = '~/.config/nvim/bundle/repos/github.com/Shougo/neosnippet-snippets/neosnippets/'
+exec "au BufNewFile,BufRead Gemfile NeoSnippetSource ".neosimpp_path."Gemfile.snip"
+exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -241,19 +245,19 @@ call dein#add('tpope/vim-dispatch') " {{{
   nnoremap <leader>rd :Dispatch<space>
   nnoremap <leader>rD :Copen<CR>
 
-  " open file under cursor in window above (pretty cozy together with Copen)
+  " open file under cursor in window above
   nmap <leader>gf yif<C-k>:e <M-p><CR>
 " }}}
 
+call dein#add('tmux-plugins/vim-tmux')
+
 if $TMUX != ''
   call dein#add('wellle/tmux-complete.vim')
-  call dein#add('tmux-plugins/vim-tmux')
   call dein#add('christoomey/vim-tmux-navigator')
-  call dein#add('christoomey/vim-tmux-runner')
+  call dein#add('benmills/vimux')
 
   call dein#add('thoughtbot/vim-rspec') " {{{
-    " XXX vonna run spec? open pane (runner, as it call vtr) with C-a C-s
-    let g:rspec_command = 'VtrSendCommandToRunner rspec {spec}'
+    let g:rspec_command = 'call VimuxRunCommand("clear; rspec {spec}")'
     nnoremap <Leader>rr :call RunCurrentSpecFile()<CR>
     nnoremap <Leader>rn :call RunNearestSpec()<CR>
     nnoremap <Leader>rl :call RunLastSpec()<CR>
@@ -290,6 +294,11 @@ if $TMUX != ''
 
   " nnoremap <leader>f :call OpenRanger('%:p:h')<CR>
   " nnoremap <leader>F :call OpenRanger('')<CR>
+else
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -329,8 +338,8 @@ call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library
   nnoremap yM :%PrintMatches:<c-r>=<SID>digestLastSearch()<cr>:<left>
   vnoremap yM :PrintMatches:<c-r>=<SID>digestLastSearch()<cr>:<left>
 
-  nnoremap dm :%s:::
-  vnoremap dm :s:::
+  nnoremap dm :%s:::g<left><left><left>
+  vnoremap dm :s:::g<left><left><left>
 " }}}
 call dein#add('bkad/CamelCaseMotion') " {{{
   map <silent> w <Plug>CamelCaseMotion_w
@@ -354,11 +363,16 @@ call dein#add('vim-scripts/eraseSubword') " {{{
 " }}}
 call dein#add('jeetsukumaran/vim-indentwise')
 call dein#add('AndrewRadev/splitjoin.vim')
-call dein#add('vim-utils/vim-husk') " {{{
-  cnoremap <expr> <M-u> husk#left()
-  cnoremap <expr> <M-o> husk#right()
-" }}}
 
+" nelstrom's Visual line repeat {{{
+  xnoremap . :normal .<CR>
+  xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+  function! ExecuteMacroOverVisualRange()
+    echo "@".getcmdline()
+    execute ":'<,'>normal @".nr2char(getchar())
+  endfunction
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
@@ -407,6 +421,37 @@ call dein#add('mhinz/vim-sayonara') " {{{
   nnoremap <M-q> :Sayonara!<cr>
   " nnoremap <silent> <M-q> <C-w>c
   " nnoremap <silent> <M-Q> :bd<cr>
+" }}}
+
+" word movements from vim-husk with _ delim perception {{{
+  function! s:word_left()
+    let line = getcmdline()
+    let pos = getcmdpos()
+    let next = 1
+    let nextnext = 1
+    let i = 2
+    while nextnext < pos
+      let next = nextnext
+      let nextnext = match(line, '\<\S\|\>\S\|_\|\s\zs\S\|^\|$', 0, i) + 1
+      let i += 1
+    endwhile
+    return repeat("\<Left>", pos - next)
+  endfunction
+
+  function! s:word_right()
+    let line = getcmdline()
+    let pos = getcmdpos()
+    let next = 1
+    let i = 2
+    while next <= pos && next > 0
+      let next = match(line, '\<\S\|_\|\>\S\|\s\zs\S\|^\|$', 0, i) + 1
+      let i += 1
+    endwhile
+    return repeat("\<Right>", next - pos)
+  endfunction
+
+  cnoremap <expr> <M-u> <SID>word_left()
+  cnoremap <expr> <M-o> <SID>word_right()
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

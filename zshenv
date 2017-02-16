@@ -13,10 +13,10 @@ export PATH=/usr/local/heroku/bin:$PATH
 export PATH=~/.cabal/bin:$PATH
 
 # rvm
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# gem # XXX dont use, if you use rvm
+# gem # XXX dont use this, if you use rvm
 # GEM_HOME=$(ls -t -U | ruby -e 'puts Gem.user_dir')
 # GEM_PATH=$GEM_HOME
 # export PATH=$GEM_HOME/bin:$PATH
