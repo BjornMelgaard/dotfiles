@@ -14,7 +14,20 @@ abbr        do |var| ... end
   end
 
 snippet pry
-  require 'pry'; binding.pry;
+  require 'pry'; ::Kernel.binding.pry;
 
 snippet screenshot
   save_and_open_screenshot
+
+snippet concern
+  extend ActiveSupport::Concern
+
+  included do
+    ${0:TARGET}
+  end
+
+snippet module
+  module ${1:`substitute(expand('%:p:h:t'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
+    ${0:TARGET}
+  end
+

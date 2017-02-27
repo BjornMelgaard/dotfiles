@@ -14,3 +14,5 @@
   kill = "!f(){ git branch -D \"$1\";  git push origin --delete \"$1\"; };f"
 [github]
   user = BjornMelgaard
+[init]
+	templatedir = ~/.git_template

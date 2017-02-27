@@ -1,6 +1,6 @@
 export EDITOR='/usr/bin/nvim'
 export PROJECT_PATHS=(~/projects)
-export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.bin:$HOME/projects/umsf/bin:$PATH"
 
 # nodejs
 export PATH="$HOME/.node_modules/bin:$PATH"
@@ -11,10 +11,6 @@ export PATH=/usr/local/heroku/bin:$PATH
 
 # haskell
 export PATH=~/.cabal/bin:$PATH
-
-# rvm
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # gem # XXX dont use this, if you use rvm
 # GEM_HOME=$(ls -t -U | ruby -e 'puts Gem.user_dir')

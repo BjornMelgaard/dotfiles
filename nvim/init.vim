@@ -26,7 +26,7 @@ endfunction "}}}
 
 " swap files
 let &directory = s:get_cache_dir('swap')
-" set noswapfile
+set noswapfile
 
 call EnsureExists(s:cache_dir)
 call EnsureExists(&directory)
@@ -214,6 +214,7 @@ call dein#add('tpope/vim-fugitive') "{{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call dein#add('rafi/vim-tagabana')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/neosnippet') " {{{
   set conceallevel=2 concealcursor=niv
@@ -257,9 +258,9 @@ if $TMUX != ''
   call dein#add('benmills/vimux')
 
   call dein#add('thoughtbot/vim-rspec') " {{{
-    let g:rspec_command = 'call VimuxRunCommand("clear; rspec {spec}")'
+    let g:rspec_command = 'call VimuxRunCommand("clear; zeus rspec {spec}")'
     nnoremap <Leader>rr :call RunCurrentSpecFile()<CR>
-    nnoremap <Leader>rn :call RunNearestSpec()<CR>
+    nnoremap <Leader>rs :call RunNearestSpec()<CR>
     nnoremap <Leader>rl :call RunLastSpec()<CR>
     nnoremap <Leader>ra :call RunAllSpecs()<CR>
   " }}}
@@ -294,11 +295,6 @@ if $TMUX != ''
 
   " nnoremap <leader>f :call OpenRanger('%:p:h')<CR>
   " nnoremap <leader>F :call OpenRanger('')<CR>
-else
-  nnoremap <C-h> <C-w>h
-  nnoremap <C-j> <C-w>j
-  nnoremap <C-k> <C-w>k
-  nnoremap <C-l> <C-w>l
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -454,6 +450,11 @@ call dein#add('mhinz/vim-sayonara') " {{{
   cnoremap <expr> <M-o> <SID>word_right()
 " }}}
 
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -559,6 +560,10 @@ nnoremap <left> :bprev<CR>
 nnoremap <right> :bnext<CR>
 nnoremap <up> :tabnext<CR>
 nnoremap <down> :tabprev<CR>
+
+" unimpaired tabs
+nnoremap ]w :tabnext<CR>
+nnoremap [w :tabprev<CR>
 
 " quick resizing
 nnoremap <M-h> <C-w>3<
