@@ -214,7 +214,7 @@ call dein#add('tpope/vim-fugitive') "{{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('rafi/vim-tagabana')
+" call dein#add('rafi/vim-tagabana')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/neosnippet') " {{{
   set conceallevel=2 concealcursor=niv
@@ -234,7 +234,7 @@ call dein#add('Shougo/neosnippet') " {{{
 " }}}
 
 call dein#add('Shougo/deoplete.nvim') " {{{
-  call dein#add('fishbullet/deoplete-ruby')
+  " call dein#add('fishbullet/deoplete-ruby')
   let g:deoplete#enable_at_startup = 1
 " }}}
 
@@ -255,10 +255,13 @@ call dein#add('tmux-plugins/vim-tmux')
 if $TMUX != ''
   call dein#add('wellle/tmux-complete.vim')
   call dein#add('christoomey/vim-tmux-navigator')
-  call dein#add('benmills/vimux')
+  call dein#add('benmills/vimux') " {{{
+    nnoremap <leader>vt :VimuxTogglePane<CR>
+  " }}}
 
   call dein#add('thoughtbot/vim-rspec') " {{{
     let g:rspec_command = 'call VimuxRunCommand("clear; zeus rspec {spec}")'
+    " let g:rspec_command = 'call VimuxRunCommand("clear; rspec {spec}")'
     nnoremap <Leader>rr :call RunCurrentSpecFile()<CR>
     nnoremap <Leader>rs :call RunNearestSpec()<CR>
     nnoremap <Leader>rl :call RunLastSpec()<CR>
@@ -529,23 +532,6 @@ endif
 call dein#add('PotatoesMaster/i3-vim-syntax')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Finish
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('nanotech/jellybeans.vim')
-
-call dein#end()
-
-if dein#check_install()
-  call dein#install()
-endif
-
-autocmd VimEnter * call dein#call_hook('post_source')
-
-filetype plugin indent on
-syntax enable
-colorscheme jellybeans
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vnoremap <leader>s :sort<cr>
@@ -716,6 +702,23 @@ tnoremap <left> <C-\><C-n>:bprev<CR>
 tnoremap <right> <C-\><C-n>:bnext<CR>
 tnoremap <up> <C-\><C-n>:tabnext<CR>
 tnoremap <down> <C-\><C-n>:tabprev<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Finish
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call dein#add('nanotech/jellybeans.vim')
+
+call dein#end()
+
+if dein#check_install()
+  call dein#install()
+endif
+
+autocmd VimEnter * call dein#call_hook('post_source')
+
+filetype plugin indent on
+syntax enable
+colorscheme jellybeans
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocommands

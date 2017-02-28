@@ -63,6 +63,9 @@ alias rails-recreate-db="rails db:drop && rails db:create && rails db:migrate"
 
 alias reinstall-postgre="sudo systemctl stop postgresql && sudo pacman -Rcns postgresql && cd /var/lib/postgres/ && sudo rm -rfd data && sudo pacman -S postgresql && cd ~ && sudo su - postgres -c \"initdb --locale $LANG -E UTF8 -D '/var/lib/postgres/data'\" && sudo systemctl start postgresql && sudo su - postgres -c 'createuser -d bookstore && createdb -O bookstore bookstore_development && createdb -O bookstore bookstore_test'"
 
+alias wifi="sudo wifi-menu"
+alias nstop="sudo netctl stop-all"
+
 autoload -U zmv
 
 # better deletion
