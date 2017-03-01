@@ -179,11 +179,6 @@ call dein#add('nelstrom/vim-textobj-rubyblock') " {{{
 " }}}
 autocmd FileType ruby let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|': '|'}
 
-let neosimpp_path = '~/.config/nvim/bundle/repos/github.com/Shougo/neosnippet-snippets/neosnippets/'
-exec "au BufNewFile,BufRead Gemfile NeoSnippetSource ".neosimpp_path."Gemfile.snip"
-exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -224,11 +219,11 @@ call dein#add('Shougo/neosnippet') " {{{
   smap <C-k> <Plug>(neosnippet_expand_or_jump)
   xmap <C-k> <Plug>(neosnippet_expand_target)
 
-  imap <expr><TAB>
+  inoremap <expr><TAB>
     \ pumvisible() ? "\<C-n>" :
     \ neosnippet#expandable_or_jumpable() ?
     \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  snoremap <expr><TAB> neosnippet#expandable_or_jumpable() ?
     \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " }}}
@@ -236,6 +231,7 @@ call dein#add('Shougo/neosnippet') " {{{
 call dein#add('Shougo/deoplete.nvim') " {{{
   " call dein#add('fishbullet/deoplete-ruby')
   let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_delay = 50
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -250,9 +246,8 @@ call dein#add('tpope/vim-dispatch') " {{{
   nmap <leader>gf yif<C-k>:e <M-p><CR>
 " }}}
 
-call dein#add('tmux-plugins/vim-tmux')
-
 if $TMUX != ''
+  call dein#add('tmux-plugins/vim-tmux')
   call dein#add('wellle/tmux-complete.vim')
   call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('benmills/vimux') " {{{
@@ -530,6 +525,9 @@ if executable('instant-markdown-d')
   call dein#add('suan/vim-instant-markdown', {'on_ft':['markdown']})
 endif
 call dein#add('PotatoesMaster/i3-vim-syntax')
+call dein#add('takac/vim-hardtime') " {{{
+  " let g:hardtime_default_on = 1
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
@@ -732,6 +730,10 @@ autocmd BufReadPost *
 " autosave
 autocmd FocusLost * silent! wall
 set autowriteall
+
+let neosimpp_path = '~/.config/nvim/bundle/repos/github.com/Shougo/neosnippet-snippets/neosnippets/'
+exec "au BufNewFile,BufRead Gemfile NeoSnippetSource ".neosimpp_path."Gemfile.snip"
+exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 
 " autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
 " autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>
