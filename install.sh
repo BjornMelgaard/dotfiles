@@ -19,6 +19,7 @@ ln -sfT $DOTFILES_DIR/yaourtrc             $HOME/.yaourtrc
 ln -sfT $DOTFILES_DIR/xkb                  $HOME/.config/xkb
 ln -sfT $DOTFILES_DIR/Xresources           $HOME/.Xresources
 ln -sfT $DOTFILES_DIR/compton.conf         $HOME/.config/compton.conf
+ln -sfT $DOTFILES_DIR/ctags                $HOME/.ctags
 
 ln -sfT $DOTFILES_DIR/termite              $HOME/.config/termite
 ln -sfT $DOTFILES_DIR/alacritty.yml        $HOME/.alacritty.yml

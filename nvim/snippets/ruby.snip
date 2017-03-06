@@ -26,8 +26,20 @@ snippet concern
     ${0:TARGET}
   end
 
+snippet class
+  class ${1:`substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
+    ${0:TARGET}
+  end
+
 snippet module
   module ${1:`substitute(expand('%:p:h:t'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
     ${0:TARGET}
   end
 
+snippet mc
+abbr        module & class
+  module ${1:`substitute(expand('%:p:h:t'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
+    class ${2:`substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}${3:#: < }
+      ${0:TARGET}
+    end
+  end

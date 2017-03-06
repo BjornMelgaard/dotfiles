@@ -174,8 +174,8 @@ call dein#add('othree/javascript-libraries-syntax.vim', {'on_ft':['javascript','
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-bundler')
-call dein#add('nelstrom/vim-textobj-rubyblock') " {{{
-  let g:textobj_ruby_more_mappings = 1
+call dein#add('rhysd/vim-textobj-ruby') " {{{
+  " let g:textobj_ruby_more_mappings = 1
 " }}}
 autocmd FileType ruby let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|': '|'}
 
@@ -229,9 +229,9 @@ call dein#add('Shougo/neosnippet') " {{{
 " }}}
 
 call dein#add('Shougo/deoplete.nvim') " {{{
-  " call dein#add('fishbullet/deoplete-ruby')
+  call dein#add('fishbullet/deoplete-ruby')
   let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 50
+  let g:deoplete#auto_complete_delay = 150
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -251,12 +251,51 @@ if $TMUX != ''
   call dein#add('wellle/tmux-complete.vim')
   call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('benmills/vimux') " {{{
+    let g:VimuxRunnerType = "window"
+
     nnoremap <leader>vt :VimuxTogglePane<CR>
   " }}}
 
+  let g:rspec_selenium = 1
+  let g:rspec_zeus = 0
+
+  function! ReloadRspecCommand() abort
+    let g:rspec_command = 'call VimuxRunCommand("clear; '
+    if g:rspec_selenium == 1
+      let g:rspec_command .= 'RSPEC_SELENIUM=true '
+    end
+    if g:rspec_zeus == 1
+      let g:rspec_command .= 'zeus '
+    end
+    let g:rspec_command .= 'rspec {spec}")'
+  endfunction
+
+  call ReloadRspecCommand()
+
+  function! SeleniumToggle() abort
+    if g:rspec_selenium
+        let g:rspec_selenium = 0
+    else
+        let g:rspec_selenium = 1
+    endif
+    call ReloadRspecCommand()
+    echo g:rspec_command
+  endfunction
+
+  function! ZeusToggle() abort
+    if g:rspec_zeus
+        let g:rspec_zeus = 0
+    else
+        let g:rspec_zeus = 1
+    endif
+    call ReloadRspecCommand()
+    echo g:rspec_command
+  endfunction
+
   call dein#add('thoughtbot/vim-rspec') " {{{
-    let g:rspec_command = 'call VimuxRunCommand("clear; zeus rspec {spec}")'
-    " let g:rspec_command = 'call VimuxRunCommand("clear; rspec {spec}")'
+    nnoremap <Leader>rtz :call ZeusToggle()<CR>
+    nnoremap <Leader>rts :call SeleniumToggle()<CR>
+
     nnoremap <Leader>rr :call RunCurrentSpecFile()<CR>
     nnoremap <Leader>rs :call RunNearestSpec()<CR>
     nnoremap <Leader>rl :call RunLastSpec()<CR>
@@ -535,6 +574,7 @@ call dein#add('takac/vim-hardtime') " {{{
 vnoremap <leader>s :sort<cr>
 
 nnoremap <leader>w :w<cr>
+nnoremap <leader>tag :!ctags -R .<cr>
 
 " toggle paste
 nnoremap <F6> :set invpaste<CR>:set paste?<CR>
@@ -680,7 +720,7 @@ nnoremap <leader>vsa :vert sba<cr>
 " nnoremap <C-l> <C-w>l
 
 " tab shortcuts
-nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>tn :tab spl<CR>
 nnoremap <leader>tc :tabclose<CR>
 
 " quick buffer open
