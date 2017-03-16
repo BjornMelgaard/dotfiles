@@ -148,8 +148,8 @@ call dein#add('digitaltoad/vim-jade', {'on_ft':['jade']})
 call dein#add('mustache/vim-mustache-handlebars', {'on_ft':['mustache','handlebars']})
 call dein#add('gregsexton/MatchTag', {'on_ft':['html','xml']})
 call dein#add('mattn/emmet-vim', {'on_ft':['html','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars']}) "{{{
-  autocmd FileType xml,xsl,xslt,xsd,css,sass,scss,less,mustache imap <buffer><c-y><c-y> <c-y>,
-  autocmd FileType xml,xsl,xslt,xsd,css,sass,scss,less,mustache vmap <buffer><c-y><c-y> <c-y>,
+  autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,less,mustache imap <buffer><c-y><c-y> <c-y>,
+  autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,less,mustache vmap <buffer><c-y><c-y> <c-y>,
 "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -256,46 +256,7 @@ if $TMUX != ''
     nnoremap <leader>vt :VimuxTogglePane<CR>
   " }}}
 
-  let g:rspec_selenium = 1
-  let g:rspec_zeus = 0
-
-  function! ReloadRspecCommand() abort
-    let g:rspec_command = 'call VimuxRunCommand("clear; '
-    if g:rspec_selenium == 1
-      let g:rspec_command .= 'RSPEC_SELENIUM=true '
-    end
-    if g:rspec_zeus == 1
-      let g:rspec_command .= 'zeus '
-    end
-    let g:rspec_command .= 'rspec {spec}")'
-  endfunction
-
-  call ReloadRspecCommand()
-
-  function! SeleniumToggle() abort
-    if g:rspec_selenium
-        let g:rspec_selenium = 0
-    else
-        let g:rspec_selenium = 1
-    endif
-    call ReloadRspecCommand()
-    echo g:rspec_command
-  endfunction
-
-  function! ZeusToggle() abort
-    if g:rspec_zeus
-        let g:rspec_zeus = 0
-    else
-        let g:rspec_zeus = 1
-    endif
-    call ReloadRspecCommand()
-    echo g:rspec_command
-  endfunction
-
   call dein#add('thoughtbot/vim-rspec') " {{{
-    nnoremap <Leader>rtz :call ZeusToggle()<CR>
-    nnoremap <Leader>rts :call SeleniumToggle()<CR>
-
     nnoremap <Leader>rr :call RunCurrentSpecFile()<CR>
     nnoremap <Leader>rs :call RunNearestSpec()<CR>
     nnoremap <Leader>rl :call RunLastSpec()<CR>
@@ -383,13 +344,6 @@ call dein#add('bkad/CamelCaseMotion') " {{{
   sunmap b
   sunmap e
   sunmap ge
-
-  " omap <silent> iw <Plug>CamelCaseMotion_iw
-  " xmap <silent> iw <Plug>CamelCaseMotion_iw
-  " omap <silent> ib <Plug>CamelCaseMotion_ib
-  " xmap <silent> ib <Plug>CamelCaseMotion_ib
-  " omap <silent> ie <Plug>CamelCaseMotion_ie
-  " xmap <silent> ie <Plug>CamelCaseMotion_ie
 " }}}
 call dein#add('vim-scripts/eraseSubword') " {{{
   let g:EraseSubword_insertMap = "<C-w>"
@@ -455,42 +409,6 @@ call dein#add('mhinz/vim-sayonara') " {{{
   " nnoremap <silent> <M-q> <C-w>c
   " nnoremap <silent> <M-Q> :bd<cr>
 " }}}
-
-" word movements from vim-husk with _ delim perception {{{
-  function! s:word_left()
-    let line = getcmdline()
-    let pos = getcmdpos()
-    let next = 1
-    let nextnext = 1
-    let i = 2
-    while nextnext < pos
-      let next = nextnext
-      let nextnext = match(line, '\<\S\|\>\S\|_\|\s\zs\S\|^\|$', 0, i) + 1
-      let i += 1
-    endwhile
-    return repeat("\<Left>", pos - next)
-  endfunction
-
-  function! s:word_right()
-    let line = getcmdline()
-    let pos = getcmdpos()
-    let next = 1
-    let i = 2
-    while next <= pos && next > 0
-      let next = match(line, '\<\S\|_\|\>\S\|\s\zs\S\|^\|$', 0, i) + 1
-      let i += 1
-    endwhile
-    return repeat("\<Right>", next - pos)
-  endfunction
-
-  cnoremap <expr> <M-u> <SID>word_left()
-  cnoremap <expr> <M-o> <SID>word_right()
-" }}}
-
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
@@ -567,6 +485,7 @@ call dein#add('PotatoesMaster/i3-vim-syntax')
 call dein#add('takac/vim-hardtime') " {{{
   " let g:hardtime_default_on = 1
 " }}}
+call dein#add('itchyny/vim-cursorword')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
@@ -595,20 +514,17 @@ nnoremap <M-l> <C-w>3>
 nnoremap <M-j> <C-w>3-
 nnoremap <M-k> <C-w>3+
 
-" change cursor position in insert and command mode
-" inoremap <M-u> <C-left>
-" inoremap <M-o> <C-right>
-" inoremap <M-h> <left>
-" inoremap <M-l> <right>
-" inoremap <M-j> <down>
-" inoremap <M-k> <up>
-
-" cnoremap <M-u> <C-left>
-" cnoremap <M-o> <C-right>
+" change cursor position in command mode
 cnoremap <M-h> <left>
 cnoremap <M-l> <right>
 cnoremap <M-j> <down>
 cnoremap <M-k> <up>
+
+" will be rewritten if tmux run
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " line movement like in kakoune
 nnoremap gh ^
@@ -774,6 +690,8 @@ set autowriteall
 let neosimpp_path = '~/.config/nvim/bundle/repos/github.com/Shougo/neosnippet-snippets/neosnippets/'
 exec "au BufNewFile,BufRead Gemfile NeoSnippetSource ".neosimpp_path."Gemfile.snip"
 exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
+
+autocmd BufRead,BufNewFile *.conf setf dosini
 
 " autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
 " autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>

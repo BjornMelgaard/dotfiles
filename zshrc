@@ -48,7 +48,7 @@ alias r="SHELL=/home/bjorn/.bin/rshell ranger"
 alias top="htop"
 alias tkda="tmux ls | grep -v attached | awk '{print substr(\$1, 0, length(\$1)-1)}' | xargs -n1 tmux kill-session -t"
 
-alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt"
+alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt -m /home/bjorn/.local/share/Anki2/User\ 1/collection.media"
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
 alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
 alias update-angular-cli="npm uninstall -g angular-cli && npm cache clean && npm install -g angular-cli@latest"
@@ -96,6 +96,14 @@ bindkey -M viins '^Q' push-line-or-edit
 bindkey -M vicmd '^Q' push-line-or-edit
 
 bindkey -M viins '^H' backward-delete-char
+
+backward-kill-bigword() {
+  local WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+  zle backward-kill-word
+}
+
+zle -N backward-kill-bigword
+bindkey -M viins '^[w' backward-kill-bigword
 
 # quoted text objects
 autoload -U select-quoted

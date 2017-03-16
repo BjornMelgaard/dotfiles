@@ -1,0 +1,73 @@
+colorscheme jellybeans
+
+# Basic options ├───────────────────────────────────────────────────────────────
+set global makecmd 'make --jobs=8'
+set global grepcmd 'ag --filename --column'
+
+# Bindings ────────────────────────────────────────────────────────────────────
+
+# user
+map global user P '!copyq clipboard<ret>'
+map global user p '<a-!>copyq clipboard<ret>'
+map global user y '<a-|>xclip -sel clip<ret>'
+
+map global user c ':comment-line<ret>'
+map global user h ':bp<ret>'
+map global user l ':bn<ret>'
+
+# Hooks ├───────────────────────────────────────────────────────────────────────
+
+# relative numbers
+hook global WinCreate .* %{
+  addhl number_lines -relative
+}
+
+# auto-mkdir when saving buffer to file
+hook global BufWritePre .* %{ nop %sh{ dir=$(dirname $kak_buffile)
+  [ -d $dir ] || mkdir --parents $dir
+}}
+
+# on save
+def cleanup %{
+  clean_whitespaces
+  echo cleaned!
+}
+
+def clean_whitespaces %{
+  eval -draft -itersel %{
+    try %{ exec -draft -itersel s <ret>d          } catch %{ echo '' }
+    try %{ exec -draft -itersel s^\h+|\h+$<ret>d  } catch %{ echo '' }
+    try %{ exec -draft -itersel s\h+<ret>c<space> } catch %{ echo '' }
+  }
+}
+
+# Ide ├───────────────────────────────────────────────────────────────────
+def ide %{
+    rename-client main
+    set global jumpclient main
+
+    new rename-client tools
+    set global toolsclient tools
+
+    new rename-client docs
+    set global docsclient docs
+}
+
+# File type ├───────────────────────────────────────────────────────────────────
+
+# Shell ────────────────────────────────────────────────────────────────────────
+
+# hook global WinSetOption filetype=sh %{
+#   set buffer tabstop     2
+#   set buffer indentwidth 2
+# }
+
+# Ruby ─────────────────────────────────────────────────────────────────────────
+
+# def rb %{ set buffer filetype ruby }
+
+# hook global WinSetOption filetype=ruby %{
+#   set buffer tabstop     2
+#   set buffer indentwidth 2
+# }
+

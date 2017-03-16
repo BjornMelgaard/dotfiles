@@ -87,7 +87,7 @@ colors:
     white:   '0xf9f7f3'
 
 # Background opacity
-# background_opacity: 1.0
+background_opacity: 0.8
 
 # Visual Bell
 #
