@@ -49,6 +49,7 @@ alias vim="nvim"
 alias vimdiff="nvim -d"
 alias n="nvim"
 alias r="SHELL=/home/bjorn/.bin/rshell ranger"
+alias o="openssl"
 alias top="htop"
 alias tkda="tmux ls | grep -v attached | awk '{print substr(\$1, 0, length(\$1)-1)}' | xargs -n1 tmux kill-session -t"
 

@@ -360,6 +360,7 @@ call dein#add('AndrewRadev/splitjoin.vim')
     execute ":'<,'>normal @".nr2char(getchar())
   endfunction
 " }}}
+call dein#add('sbdchd/neoformat')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
