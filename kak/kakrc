@@ -1,26 +1,58 @@
-colorscheme jellybeans
+colorscheme tomorrow-night
+face PrimarySelection white,blue
+face SecondarySelection black,blue
+face Whitespace rgb:4a4a4a,default
+face CurWord default,rgb:4a4a4a
 
 # Basic options ├───────────────────────────────────────────────────────────────
 set global makecmd 'make --jobs=8'
 set global grepcmd 'ag --filename --column'
+set global incsearch true
+set global aligntab true
+set global ui_options ncurses_assistant=cat
+set global tabstop     2
+set global indentwidth 2
+
 
 # Bindings ────────────────────────────────────────────────────────────────────
+map global normal '#' ':comment-line<ret>'
+map global normal '<backspace>' ':reg "/" ""<ret>'
 
-# user
 map global user P '!copyq clipboard<ret>'
 map global user p '<a-!>copyq clipboard<ret>'
+map global user R '|copyq clipboard<ret>'
 map global user y '<a-|>xclip -sel clip<ret>'
 
-map global user c ':comment-line<ret>'
+map global user s '<esc>:tmux-new-vertical<ret>'
+map global user v '<esc>:tmux-new-horizontal<ret>'
+
 map global user h ':bp<ret>'
 map global user l ':bn<ret>'
 
+map global user q ':wq<ret>'
+map global user z ':q!<ret>'
+map global user w ':w<ret>'
+
 # Hooks ├───────────────────────────────────────────────────────────────────────
 
-# relative numbers
-hook global WinCreate .* %{
-  addhl number_lines -relative
+decl -hidden regex curword
+
+hook -group DefaultHighlights global WinCreate .* %{
+  addhl number_lines -relative -hlcursor -separator '  '
+  addhl show_whitespaces
+  addhl show_matching
+  addhl dynregex '%reg{/}' 0:+u
+
+  # Highlight the word under the cursor
+  addhl dynregex '%opt{curword}' 0:CurWord
 }
+
+# soft tabs
+hook -group TabExpander global InsertChar \t %{ exec -draft h@ }
+
+# auto wrap at 80 chars
+set global autowrap_column 80
+hook global WinCreate .* %{ autowrap-enable }
 
 # auto-mkdir when saving buffer to file
 hook global BufWritePre .* %{ nop %sh{ dir=$(dirname $kak_buffile)
@@ -41,17 +73,41 @@ def clean_whitespaces %{
   }
 }
 
-# Ide ├───────────────────────────────────────────────────────────────────
-def ide %{
-    rename-client main
-    set global jumpclient main
+# map tmux split and window commands in vim style
+def -file-completion -params 1 tabe %{ tmux-new-window edit %arg{1} }
+def -file-completion -params 1 vsplit %{ tmux-new-vertical edit %arg{1} }
+#map global insert ctrl-n '<esc>:new<ret>'
+#map global normal ctrl-n ':new<ret>'
 
-    new rename-client tools
-    set global toolsclient tools
+#def fedit -params 1 -shell-candidates %{ git ls-files } %{ edit %arg{1} }
+#alias global fe fedit
 
-    new rename-client docs
-    set global docsclient docs
-}
+def -docstring 'invoke fzf to open a file' \
+  fzf-file %{ %sh{
+    if [ -z "$TMUX" ]; then
+      echo echo only works inside tmux
+    else
+      FILE=`fzf-tmux -d 15`
+      if [ -n "$FILE" ]; then
+        echo "eval -client '$kak_client' 'edit ${FILE}'" | kak -p ${kak_session}
+      fi
+    fi
+}}
+
+def -docstring 'invoke fzf to select a buffer' \
+  fzf-buffer %{ %sh{
+    if [ -z "$TMUX" ]; then
+      echo echo only works inside tmux
+    else
+      BUFFER=`echo ${kak_buflist} | tr : '\n' | fzf-tmux -d 15`
+      if [ -n "$BUFFER" ]; then
+        echo "eval -client '$kak_client' 'buffer ${BUFFER}'" | kak -p ${kak_session}
+      fi
+    fi
+}}
+
+alias global ffe fzf-file
+alias global ffb fzf-buffer
 
 # File type ├───────────────────────────────────────────────────────────────────
 

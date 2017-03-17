@@ -29,6 +29,11 @@ plugins=(
   zsh-completions
 )
 
+source $ZSH/oh-my-zsh.sh
+
+autoload -U compinit && compinit # zsh-completions
+autoload -U zmv
+
 # [[ -n "$ZSH_TMUX_AUTOSTART" ]] || ZSH_TMUX_AUTOSTART=true
 # [[ -n "$ZSH_TMUX_AUTOCONNECT" ]] || ZSH_TMUX_AUTOCONNECT=false
 
@@ -36,8 +41,7 @@ plugins=(
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-source $ZSH/oh-my-zsh.sh
-
+# aliases
 alias pjdot="cd $HOME/.config/dotfiles"
 alias pjodot="$EDITOR $HOME/.config/dotfiles"
 
@@ -52,7 +56,7 @@ alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjo
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
 alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
 alias update-angular-cli="npm uninstall -g angular-cli && npm cache clean && npm install -g angular-cli@latest"
-alias update-all="yaourt --aur  -Syu --noconfirm && sudo gem update --system && gem update && npm cache clean && npm update -g"
+alias update-all="yaourt --aur  -Syu --noconfirm --devel && sudo gem update --system && gem update && npm cache clean && npm update -g"
 
 alias rvmnew="rvm use --create --ruby-version"
 
@@ -65,8 +69,6 @@ alias reinstall-postgre="sudo systemctl stop postgresql && sudo pacman -Rcns pos
 
 alias wifi="sudo wifi-menu"
 alias nstop="sudo netctl stop-all"
-
-autoload -U zmv
 
 # better deletion
 bindkey -M viins '^?'      backward-delete-char # backspase
@@ -97,11 +99,8 @@ bindkey -M vicmd '^Q' push-line-or-edit
 
 bindkey -M viins '^H' backward-delete-char
 
-backward-kill-bigword() {
-  local WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-  zle backward-kill-word
-}
-
+# erase WORD backward
+backward-kill-bigword() { local WORDCHARS='*?_-.[]~=&;!#$%^(){}<>/'; zle backward-kill-word; }
 zle -N backward-kill-bigword
 bindkey -M viins '^[w' backward-kill-bigword
 
