@@ -1,23 +1,20 @@
 %sh{
-    # foreground="rgb:c5c8c6"
-    background="rgb:151515"
-    selection="rgb:373b41"
+    foreground="rgb:c5c8c6"
+    background="rgb:272727"
     window="rgb:383838"
-    text="rgb:e8e8d3"
+    text="rgb:D8D8D8"
     text_light="rgb:4E4E4E"
     line="rgb:282a2e"
     comment="rgb:969896"
-
-    cyan="rgb:c6b6fe"
+    red="rgb:cc6666"
+    orange="rgb:d88860"
+    yellow="rgb:f0c674"
+    green="rgb:b5bd68"
+    green_dark="rgb:a1b56c"
+    blue="rgb:81a2be"
+    aqua="rgb:87afaf"
+    magenta="rgb:ab4642"
     purple="rgb:b294bb"
-    green="rgb:99ad6a"
-    green_dark="rgb:556633"
-    red="rgb:de5577"
-    orange="rgb:eeeeee"
-    orange_light="rgb:f0c674"
-    yellow="rgb:fad07a"
-    magenta="rgb:a40063"
-    magenta_dark="rgb:dd0093"
 
     ## code
     echo "
@@ -25,10 +22,10 @@
         face type ${yellow}
         face variable ${magenta}
         face module ${green}
-        face function ${text}
+        face function ${aqua}
         face string ${green_dark}
         face keyword ${purple}
-        face operator ${text}
+        face operator ${aqua}
         face attribute ${purple}
         face comment ${comment}
         face meta ${purple}
@@ -50,11 +47,12 @@
 
     ## builtin
     echo "
+        face Whitespace rgb:4a4a4a,default
         face Default ${text},${background}
-        face PrimarySelection default,${selection}
-        face SecondarySelection black,${selection}
+        face PrimarySelection default,rgb:5E6266
+        face SecondarySelection default,rgb:4b4e51
         face PrimaryCursor black,${aqua}
-        face SecondaryCursor black,${aqua}
+        face SecondaryCursor black,rgb:6C8C8C
         face LineNumbers ${text_light},${background}
         face LineNumberCursor ${yellow},rgb:282828+b
         face MenuForeground ${text_light},blue
@@ -70,6 +68,5 @@
         face Prompt ${background},${aqua}
         face MatchingChar ${yellow},${background}+b
         face BufferPadding ${aqua},${background}
-        face Whitespace rgb:4a4a4a,default
     "
 }

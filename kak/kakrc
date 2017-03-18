@@ -1,58 +1,69 @@
 colorscheme tomorrow-night
-face PrimarySelection white,blue
-face SecondarySelection black,blue
-face Whitespace rgb:4a4a4a,default
-face CurWord default,rgb:4a4a4a
 
 # Basic options ├───────────────────────────────────────────────────────────────
 set global makecmd 'make --jobs=8'
 set global grepcmd 'ag --filename --column'
 set global incsearch true
-set global aligntab true
+set global aligntab false
 set global ui_options ncurses_assistant=cat
+set global autoreload yes
 set global tabstop     2
 set global indentwidth 2
 
-
 # Bindings ────────────────────────────────────────────────────────────────────
+map global normal ':' ';'
+map global normal ';' ':'
+
 map global normal '#' ':comment-line<ret>'
-map global normal '<backspace>' ':reg "/" ""<ret>'
 
-map global user P '!copyq clipboard<ret>'
-map global user p '<a-!>copyq clipboard<ret>'
-map global user R '|copyq clipboard<ret>'
-map global user y '<a-|>xclip -sel clip<ret>'
+map global user P '!copyq clipboard<ret>'     -docstring 'clipboard paste before'
+map global user p '<a-!>copyq clipboard<ret>' -docstring 'clipboard paste after'
+map global user R '|copyq clipboard<ret>'     -docstring 'clipboard replace current selection'
+map global user y '<a-|>xclip -sel clip<ret>' -docstring 'clipboard yank'
+map global user d '<a-|>xclip -sel clip<ret>d' -docstring 'clipboard cut'
 
-map global user s '<esc>:tmux-new-vertical<ret>'
-map global user v '<esc>:tmux-new-horizontal<ret>'
+map global user s '<esc>:tmux-new-vertical<ret>'   -docstring 'tmux vertical'
+map global user v '<esc>:tmux-new-horizontal<ret>' -docstring 'tmux horizontal'
 
-map global user h ':bp<ret>'
-map global user l ':bn<ret>'
+map global user h ':bp<ret>' -docstring 'buffer previous'
+map global user l ':bn<ret>' -docstring 'buffer next'
 
-map global user q ':wq<ret>'
-map global user z ':q!<ret>'
-map global user w ':w<ret>'
+map global user q ':wq<ret>' -docstring 'save and close file'
+map global user z ':q!<ret>' -docstring 'close without save'
+map global user w ':w<ret>'  -docstring 'save file'
+
+map global user e ':eval %reg{.}<ret>' -docstring 'execute selection'
 
 # Hooks ├───────────────────────────────────────────────────────────────────────
-
-decl -hidden regex curword
-
-hook -group DefaultHighlights global WinCreate .* %{
+hook global WinCreate .* %{
   addhl number_lines -relative -hlcursor -separator '  '
   addhl show_whitespaces
   addhl show_matching
-  addhl dynregex '%reg{/}' 0:+u
-
-  # Highlight the word under the cursor
-  addhl dynregex '%opt{curword}' 0:CurWord
 }
 
-# soft tabs
+# current word highliting
+decl -hidden regex curword
+hook global WinCreate .* %{ addhl dynregex '%opt{curword}' 0:+u }
+hook global NormalIdle .* %{
+  eval -draft %{ try %{
+    exec <space><a-i>w <a-k>\`\w+\'<ret>
+    set buffer curword "\b\Q%val{selection}E\b"
+  } catch %{
+    set buffer curword ''
+  } }
+}
+
+# current search highliting
+face CurSearch rgb:f0a0c0,default+u
+hook global NormalKey [/?*nN]|<a-[/?*nN]> %{ try %{ addhl dynregex '%reg{/}' 0:CurSearch} }
+hook global NormalKey <backspace> %{ try %{ rmhl dynregex_%reg{<slash>} } }
+
+# insert spaces instead tabs
 hook -group TabExpander global InsertChar \t %{ exec -draft h@ }
 
 # auto wrap at 80 chars
-set global autowrap_column 80
-hook global WinCreate .* %{ autowrap-enable }
+#set global autowrap_column 80
+#hook global WinCreate .* %{ autowrap-enable }
 
 # auto-mkdir when saving buffer to file
 hook global BufWritePre .* %{ nop %sh{ dir=$(dirname $kak_buffile)
@@ -73,6 +84,28 @@ def clean_whitespaces %{
   }
 }
 
+def odebug %{ edit *debug* }
+
+# Require other dirs ├─────────────────────────────────────────────────────────
+%sh{
+  autoload() {
+    dir=$1
+    for rcfile in ${dir}/*.kak; do
+      if [ -f "$rcfile" ]; then
+        echo "try %{ source '${rcfile}' } catch %{ echo -debug Autoload: could not load '${rcfile}' }";
+      fi
+    done
+    for subdir in ${dir}/*; do
+      if [ -d "$subdir" ]; then
+        autoload $subdir
+      fi
+    done
+  }
+  localconfdir=${XDG_CONFIG_HOME:-${HOME}/.config}/kak
+  autoload ${localconfdir}/tools
+  autoload ${localconfdir}/langs
+}
+
 # map tmux split and window commands in vim style
 def -file-completion -params 1 tabe %{ tmux-new-window edit %arg{1} }
 def -file-completion -params 1 vsplit %{ tmux-new-vertical edit %arg{1} }
@@ -81,49 +114,3 @@ def -file-completion -params 1 vsplit %{ tmux-new-vertical edit %arg{1} }
 
 #def fedit -params 1 -shell-candidates %{ git ls-files } %{ edit %arg{1} }
 #alias global fe fedit
-
-def -docstring 'invoke fzf to open a file' \
-  fzf-file %{ %sh{
-    if [ -z "$TMUX" ]; then
-      echo echo only works inside tmux
-    else
-      FILE=`fzf-tmux -d 15`
-      if [ -n "$FILE" ]; then
-        echo "eval -client '$kak_client' 'edit ${FILE}'" | kak -p ${kak_session}
-      fi
-    fi
-}}
-
-def -docstring 'invoke fzf to select a buffer' \
-  fzf-buffer %{ %sh{
-    if [ -z "$TMUX" ]; then
-      echo echo only works inside tmux
-    else
-      BUFFER=`echo ${kak_buflist} | tr : '\n' | fzf-tmux -d 15`
-      if [ -n "$BUFFER" ]; then
-        echo "eval -client '$kak_client' 'buffer ${BUFFER}'" | kak -p ${kak_session}
-      fi
-    fi
-}}
-
-alias global ffe fzf-file
-alias global ffb fzf-buffer
-
-# File type ├───────────────────────────────────────────────────────────────────
-
-# Shell ────────────────────────────────────────────────────────────────────────
-
-# hook global WinSetOption filetype=sh %{
-#   set buffer tabstop     2
-#   set buffer indentwidth 2
-# }
-
-# Ruby ─────────────────────────────────────────────────────────────────────────
-
-# def rb %{ set buffer filetype ruby }
-
-# hook global WinSetOption filetype=ruby %{
-#   set buffer tabstop     2
-#   set buffer indentwidth 2
-# }
-
