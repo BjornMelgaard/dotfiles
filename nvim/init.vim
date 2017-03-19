@@ -114,12 +114,26 @@ call dein#add('tpope/vim-unimpaired') "{{{
   vmap <c-up> [egv
   vmap <c-down> ]egv
 "}}}
-call dein#add('qpkorr/vim-bufkill')
+" call dein#add('qpkorr/vim-bufkill')
 call dein#add('mhinz/vim-startify') "{{{
   let g:startify_session_dir = s:get_cache_dir('sessions')
   let g:startify_change_to_vcs_root = 1
   let g:startify_show_sessions = 1
+  let g:startify_session_before_save = [
+      \ 'tabdo NERDTreeClose'
+      \ ]
+  " let g:startify_session_autoload = 1
+  " let g:startify_session_persistence = 1
+  let g:startify_disable_at_vimenter = 1
+
+  autocmd VimEnter * nested
+    \   if !argc()
+    \ |   silent! execute ":SLoad " . fnamemodify(getcwd(), ':t')
+    \ |   redraw!
+    \ | endif
+
   nnoremap <F1> :Startify<cr>
+  nnoremap <leader>S :SSave <C-R>=fnamemodify(getcwd(), ':t')<cr><cr>
 "}}}
 call dein#add('neomake/neomake') " {{{
   autocmd! BufWritePost * Neomake
@@ -177,7 +191,12 @@ call dein#add('tpope/vim-bundler')
 call dein#add('rhysd/vim-textobj-ruby') " {{{
   " let g:textobj_ruby_more_mappings = 1
 " }}}
-autocmd FileType ruby let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|': '|'}
+" {{{
+  " rubocop autocorrect
+  autocmd FileType ruby nnoremap <leader>ru :w<cr>:!rubocop -a <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
+  autocmd FileType ruby nnoremap <silent> <leader>b O<C-r>=neosnippet#expand('pry')<CR><esc>=l
+  autocmd FileType ruby let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|': '|'}
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
@@ -407,8 +426,12 @@ call dein#add('mhinz/vim-sayonara') " {{{
   let g:sayonara_confirm_quit = 1
   nnoremap Q :Sayonara<cr>
   nnoremap <M-q> :Sayonara!<cr>
+
   " nnoremap <silent> <M-q> <C-w>c
   " nnoremap <silent> <M-Q> :bd<cr>
+
+  nnoremap <leader>q :xa<cr>
+  " nnoremap <leader>z :qa!<cr>
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -699,3 +722,9 @@ autocmd BufRead,BufNewFile *.conf setf dosini
 " autocmd FileType markdown setlocal nolist
 " autocmd FileType vim setlocal fdm=indent keywordprg=:help
 " autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
+
+" vim-commentary
+xmap #  <Plug>Commentary
+" nmap #  <Plug>Commentary
+omap #  <Plug>Commentary
+nmap # <Plug>CommentaryLine

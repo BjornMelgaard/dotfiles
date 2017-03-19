@@ -58,18 +58,31 @@ alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
 alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
 alias update-angular-cli="npm uninstall -g angular-cli && npm cache clean && npm install -g angular-cli@latest"
 alias update-all="yaourt --aur  -Syu --noconfirm --devel && sudo gem update --system && gem update && npm cache clean && npm update -g"
-
 alias rvmnew="rvm use --create --ruby-version"
+
+alias wifi="sudo wifi-menu"
+alias nstop="sudo netctl stop-all"
 
 # sqlite
 # alias rails-recreate-db="rails db:migrate VERSION=0 && rails db:drop && rails db:migrate"
 # postgre
 alias rails-recreate-db="rails db:drop && rails db:create && rails db:migrate"
 
-alias reinstall-postgre="sudo systemctl stop postgresql && sudo pacman -Rcns postgresql && cd /var/lib/postgres/ && sudo rm -rfd data && sudo pacman -S postgresql && cd ~ && sudo su - postgres -c \"initdb --locale $LANG -E UTF8 -D '/var/lib/postgres/data'\" && sudo systemctl start postgresql && sudo su - postgres -c 'createuser -d bookstore && createdb -O bookstore bookstore_development && createdb -O bookstore bookstore_test'"
+# postgresql helpers
+postgresql-reinstall () {
+  sudo systemctl stop postgresql
+  sudo pacman -Rcns --noconfirm postgresql
+  sudo rm -rfd /var/lib/postgres/data
+  sudo pacman -S --noconfirm postgresql
+  sudo su - postgres -c "initdb --locale $LANG -E UTF8 -D '/var/lib/postgres/data'"
+  sudo systemctl start postgresql
+}
 
-alias wifi="sudo wifi-menu"
-alias nstop="sudo netctl stop-all"
+postgresql-new-project () {
+  sudo su - postgres -c "createuser -d $1 "\
+    "&& createdb -O $1 $1_development "\
+    "&& createdb -O $1 $1_test"
+}
 
 # better deletion
 bindkey -M viins '^?'      backward-delete-char # backspase
