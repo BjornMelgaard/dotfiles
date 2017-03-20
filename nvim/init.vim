@@ -406,8 +406,13 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   let NERDTreeShowLineNumbers=1
   let NERDTreeChDirMode=0
   let NERDTreeShowBookmarks=1
-  let NERDTreeIgnore=['\.git','\.hg']
+  let NERDTreeIgnore=['\.git$','\.hg$']
   let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
+
+  " disable f and F in privilege of find commands
+  let g:NERDTreeMapToggleFiles=''
+  let g:NERDTreeMapToggleFilters=''
+
   let g:NERDTreeMapQuit='Q'
   nnoremap <F2> :NERDTreeToggle<CR>
   nnoremap <F3> :NERDTreeFind<CR>
@@ -426,6 +431,7 @@ call dein#add('myusuf3/numbers.vim') " {{{
 call dein#add('rhysd/clever-f.vim')
 call dein#add('mhinz/vim-sayonara') " {{{
   let g:sayonara_confirm_quit = 1
+
   nnoremap Q :Sayonara<cr>
   nnoremap <M-q> :Sayonara!<cr>
 
@@ -451,7 +457,6 @@ call dein#add('Shougo/denite.nvim') " {{{
 " }}}
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neoyank.vim')
-call dein#add('Shougo/deol.nvim')
 call dein#add('Shougo/junkfile.vim') " {{{
   let g:junkfile#directory=s:get_cache_dir('junk')
   command! -nargs=0 JunkfileTodo call junkfile#open_immediately('todo.md')
@@ -460,16 +465,11 @@ call dein#add('Shougo/junkfile.vim') " {{{
 nmap <space> [denite]
 nnoremap [denite] <nop>
 
-" nnoremap [ctrlp]t :CtrlPBufTag<cr>
-" nnoremap [ctrlp]T :CtrlPTag<cr>
 nnoremap <silent> [denite]l :<C-u>Denite line<cr>
-" nnoremap [ctrlp]o :CtrlPFunky<cr> " functions TODO
-nnoremap <silent> [denite]f :<C-u>Denite file_mru <cr>
+nnoremap <silent> [denite]u :<C-u>Denite file_mru <cr>
 nnoremap <silent> [denite]b :<C-u>Denite buffer<cr>
 nnoremap <silent> [denite]j :<C-u>JunkfileTodo<cr>
 nnoremap <silent> [denite]y :<C-u>Denite neoyank<cr>
-nnoremap <silent> [denite]t :<C-u>Deol<cr>
-nnoremap <silent> [denite]T :<C-u>terminal<cr>
 
 " git project nav {{{
   call denite#custom#alias('source', 'file_rec/git', 'file_rec')
