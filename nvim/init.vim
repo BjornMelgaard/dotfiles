@@ -194,7 +194,9 @@ call dein#add('rhysd/vim-textobj-ruby') " {{{
 " {{{
   " rubocop autocorrect
   autocmd FileType ruby nnoremap <leader>ru :w<cr>:!rubocop -a <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
+  " breakpoint
   autocmd FileType ruby nnoremap <silent> <leader>b O<C-r>=neosnippet#expand('pry')<CR><esc>=l
+  " autoclose |
   autocmd FileType ruby let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|': '|'}
 " }}}
 
