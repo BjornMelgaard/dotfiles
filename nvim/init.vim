@@ -278,10 +278,10 @@ if $TMUX != ''
   " }}}
 
   call dein#add('thoughtbot/vim-rspec') " {{{
-    nnoremap <Leader>rr :call RunCurrentSpecFile()<CR>
-    nnoremap <Leader>rs :call RunNearestSpec()<CR>
-    nnoremap <Leader>rl :call RunLastSpec()<CR>
-    nnoremap <Leader>ra :call RunAllSpecs()<CR>
+    nnoremap \r :call RunCurrentSpecFile()<CR>
+    nnoremap \s :call RunNearestSpec()<CR>
+    nnoremap \l :call RunLastSpec()<CR>
+    nnoremap \a :call RunAllSpecs()<CR>
   " }}}
 
   " tmux status line
@@ -477,6 +477,20 @@ nnoremap <silent> [denite]T :<C-u>terminal<cr>
     \ ['git', 'ls-files', '-co', '--exclude-standard'])
   nnoremap <silent> [denite]p :<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
 " }}}
+
+function! FzyCommand(choice_command, vim_command)
+try
+  let output = system(a:choice_command . " | fzy ")
+catch /Vim:Interrupt/
+  " Swallow errors from ^C, allow redraw! below
+endtry
+redraw!
+if v:shell_error == 0 && !empty(output)
+  exec a:vim_command . ' ' . output
+endif
+endfunction
+
+nnoremap [denite]<space> :call FzyCommand("ag . -l -g ''", ":e")<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Textobj
