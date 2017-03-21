@@ -475,22 +475,8 @@ nnoremap <silent> [denite]y :<C-u>Denite neoyank<cr>
   call denite#custom#alias('source', 'file_rec/git', 'file_rec')
   call denite#custom#var('file_rec/git', 'command',
     \ ['git', 'ls-files', '-co', '--exclude-standard'])
-  nnoremap <silent> [denite]p :<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+  nnoremap <silent> [denite]<space> :<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
 " }}}
-
-function! FzyCommand(choice_command, vim_command)
-try
-  let output = system(a:choice_command . " | fzy ")
-catch /Vim:Interrupt/
-  " Swallow errors from ^C, allow redraw! below
-endtry
-redraw!
-if v:shell_error == 0 && !empty(output)
-  exec a:vim_command . ' ' . output
-endif
-endfunction
-
-nnoremap [denite]<space> :call FzyCommand("ag . -l -g ''", ":e")<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Textobj
@@ -529,7 +515,16 @@ call dein#add('itchyny/vim-cursorword')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-vnoremap <leader>s :sort<cr>
+
+function! s:SelectAndEnterNorm(...)
+  silent exe "normal! '[V']"
+  call feedkeys(":norm ")
+endfunction
+
+vnoremap <leader>. :norm<space>
+nmap <silent> <leader>. :set opfunc=<SID>SelectAndEnterNorm<CR>g@
+
+nnoremap <M-8> #
 
 nnoremap <leader>w :w<cr>
 nnoremap <leader>tag :!ctags -R .<cr>
