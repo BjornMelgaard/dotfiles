@@ -280,7 +280,7 @@ if $TMUX != ''
   call dein#add('thoughtbot/vim-rspec') " {{{
     nnoremap \r :call RunCurrentSpecFile()<CR>
     nnoremap \s :call RunNearestSpec()<CR>
-    nnoremap \l :call RunLastSpec()<CR>
+    nnoremap \\ :call RunLastSpec()<CR>
     nnoremap \a :call RunAllSpecs()<CR>
   " }}}
 
@@ -428,7 +428,10 @@ call dein#add('kshenoy/vim-signature')
 call dein#add('myusuf3/numbers.vim') " {{{
   nnoremap <silent> <F7> :NumbersToggle<cr>
 " }}}
+
 call dein#add('rhysd/clever-f.vim')
+let g:clever_f_timeout_ms = 1 " make clever_f unclever
+
 call dein#add('mhinz/vim-sayonara') " {{{
   let g:sayonara_confirm_quit = 1
 
@@ -739,3 +742,11 @@ xmap #  <Plug>Commentary
 " nmap #  <Plug>Commentary
 omap #  <Plug>Commentary
 nmap # <Plug>CommentaryLine
+
+" kakoune like find
+nmap <M-.> <Plug>(clever-f-repeat-forward)
+xmap <M-.> <Plug>(clever-f-repeat-forward)
+omap <M-.> <Plug>(clever-f-repeat-forward)
+nmap <M->> <Plug>(clever-f-repeat-back)
+xmap <M->> <Plug>(clever-f-repeat-back)
+omap <M->> <Plug>(clever-f-repeat-back)
