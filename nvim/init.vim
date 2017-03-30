@@ -442,7 +442,7 @@ call dein#add('mhinz/vim-sayonara') " {{{
   " nnoremap <silent> <M-Q> :bd<cr>
 
   nnoremap <leader>q :xa<cr>
-  " nnoremap <leader>z :qa!<cr>
+  nnoremap <leader>z :qa!<cr>
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

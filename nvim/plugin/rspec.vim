@@ -1,4 +1,4 @@
-let g:rspec_selenium = 1
+let g:rspec_selenium = 0
 let g:rspec_zeus = 0
 
 function! ReloadRspecCommand() abort
