@@ -32,5 +32,5 @@ def surround %!on-key %@exec -no-hooks %sh&
   echo "i$open<esc>a$close<esc>$epilogue"
 &@!
 
-map global user s ":surround<ret>"
+map global user s ":surround<ret>" -docstring 'surround selection'
 

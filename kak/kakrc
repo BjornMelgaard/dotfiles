@@ -1,15 +1,5 @@
 # Preamble |────────────────────────────────────────────────────────────────────
-def ed %{ edit *debug* }
 def import -params 1 %{ try %{ source %sh{echo ${XDG_CONFIG_HOME:-${HOME}/.config}/kak/$1.kak} } }
-def plug -params 1 %{ %sh{
-  localconf=${XDG_CONFIG_HOME:-${HOME}/.config}
-  if [[ ! -d ${localconf}/build/$1 ]]; then
-    (cd ${localconf}/build; git clone https://github.com/$1)
-  fi
-  for file in $(echo ${localconf}/build/$(basename $1)/*.kak); do
-    echo source "$file"
-  done
-} }
 
 # Basic options ├───────────────────────────────────────────────────────────────
 colorscheme tomorrow-night
@@ -39,6 +29,11 @@ hook global BufWritePre .* %{ nop %sh{ dir=$(dirname $kak_buffile)
   [ -d $dir ] || mkdir --parents $dir
 }}
 
+hook -group cleanup global BufWritePre .* %{
+  #exec %
+  #cleanup
+}
+
 # on save
 def cleanup %{
   clean_whitespaces
@@ -54,15 +49,15 @@ def clean_whitespaces %{
 }
 
 # Plugins ├─────────────────────────────────────────────────────────
-import plugins/auto-pairs
-import plugins/fzf
-import plugins/surround
-import plugins/extend-line-x
-import plugins/camelcase
+import tools/auto-pairs
+import tools/fzf
+import tools/surround
+import tools/extend-line-x
+import tools/camelcase
 
 # enable plugins
 hook global WinCreate .* %{
-  auto-pairs-enable;
+  auto-pairs-enable
 }
 
 # map tmux split and window commands in vim style
