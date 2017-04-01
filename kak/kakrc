@@ -44,6 +44,9 @@ hook global WinCreate .* %{ auto-pairs-enable }
 # insert spaces instead tabs
 hook -group TabExpander global InsertChar \t %{ exec -draft h@ }
 
+# auto indent
+hook -group copyindent global InsertChar \n %{ exec -draft -itersel K<a-&> }
+
 # auto wrap at 80 chars
 #set global autowrap_column 80
 #hook global WinCreate .* %{ autowrap-enable }
@@ -53,6 +56,7 @@ hook global BufWritePre .* %{ nop %sh{ dir=$(dirname $kak_buffile)
   [ -d $dir ] || mkdir --parents $dir
 }}
 
+# Other ├──────────────────────────────────────────────────────────────────────
 
 # map tmux split and window commands in vim style
 def -file-completion -params 1 tabe %{ tmux-new-window edit %arg{1} }
