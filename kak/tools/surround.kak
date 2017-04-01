@@ -32,5 +32,9 @@ def surround %!on-key %@exec -no-hooks %sh&
   echo "i$open<esc>a$close<esc>$epilogue"
 &@!
 
+def delete-surround %!on-key %@exec %sh&
+  echo "<a-a>${kak_key}s${kak_key}<ret>d"
+&@!
+
 map global user s ":surround<ret>" -docstring 'surround selection'
 

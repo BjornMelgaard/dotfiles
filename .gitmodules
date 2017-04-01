@@ -19,3 +19,6 @@
 [submodule "kak/plugins/mawww/kak-ycmd"]
 	path = kak/plugins/mawww/kak-ycmd
 	url = https://github.com/mawww/kak-ycmd.git
+[submodule "kak/plugins/lenormf/kakoune-extra"]
+	path = kak/plugins/lenormf/kakoune-extra
+	url = https://github.com/lenormf/kakoune-extra

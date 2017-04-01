@@ -1,5 +1,11 @@
 # Preamble |────────────────────────────────────────────────────────────────────
-def import -params 1 %{ try %{ source %sh{echo ${XDG_CONFIG_HOME:-${HOME}/.config}/kak/$1.kak} } }
+def ed %{ edit *debug* }
+def import -params 1 %{ %sh{ echo "try %{ source '${XDG_CONFIG_HOME:-${HOME}/.config}/kak/$1.kak' } catch %{ echo -debug Import: could not load $1 }"; }}
+def plug -params 1 %{ %sh{
+  dir="${XDG_CONFIG_HOME:-${HOME}/.config}/kak/plugins/$1"
+  if [[ ! -d $dir ]]; then echo echo -debug Plug: could not find dir $dir; fi
+  for file in $dir/*.kak; do echo source "$file"; done
+} }
 
 # Basic options ├───────────────────────────────────────────────────────────────
 colorscheme tomorrow-night
@@ -8,6 +14,7 @@ set global grepcmd 'ag --filename --column'
 set global incsearch true
 set global aligntab false
 set global ui_options ncurses_assistant=cat
+set global ui_options ncurses_status_on_top=true
 set global autoreload yes
 set global tabstop     2
 set global indentwidth 2
@@ -15,6 +22,22 @@ set global indentwidth 2
 import bindings
 import ui
 import filetypes
+
+# Plugins ├───────────────────────────────────────────────────────
+plug mawww/kak-ycmd
+import plugins/lenormf/kakoune-extra/utils
+import plugins/lenormf/kakoune-extra/comnotes
+import plugins/lenormf/kakoune-extra/syntastic
+
+# Tools ├─────────────────────────────────────────────────────────
+import tools/fzf
+import tools/auto-pairs
+import tools/surround
+import tools/extend-line-x
+import tools/cleanup-on-save
+import tools/reload-kakrc
+import tools/selectsave
+hook global WinCreate .* %{ auto-pairs-enable }
 
 # Hooks ├───────────────────────────────────────────────────────────────────────
 
@@ -30,45 +53,8 @@ hook global BufWritePre .* %{ nop %sh{ dir=$(dirname $kak_buffile)
   [ -d $dir ] || mkdir --parents $dir
 }}
 
-hook -group cleanup global BufWritePre .* %{
-  #exec %
-  #cleanup
-}
-
-# on save
-def cleanup %{
-  clean_whitespaces
-  echo cleaned!
-}
-
-def clean_whitespaces %{
-  eval -draft -itersel %{
-    try %{ exec -draft -itersel s <ret>d          } catch %{ echo '' }
-    try %{ exec -draft -itersel s^\h+|\h+$<ret>d  } catch %{ echo '' }
-    try %{ exec -draft -itersel s\h+<ret>c<space> } catch %{ echo '' }
-  }
-}
-
-# Plugins ├─────────────────────────────────────────────────────────
-import tools/auto-pairs
-import tools/fzf
-import tools/surround
-import tools/extend-line-x
-import tools/camelcase
-
-import plugins/kak-ycmd/ycmd
-
-# enable plugins
-hook global WinCreate .* %{
-  auto-pairs-enable
-}
 
 # map tmux split and window commands in vim style
 def -file-completion -params 1 tabe %{ tmux-new-window edit %arg{1} }
 def -file-completion -params 1 vsplit %{ tmux-new-vertical edit %arg{1} }
 def find -params 1 -shell-candidates %{ find . -type f } %{ edit %arg{1} }
-#map global insert ctrl-n '<esc>:new<ret>'
-#map global normal ctrl-n ':new<ret>'
-
-#def fedit -params 1 -shell-candidates %{ git ls-files } %{ edit %arg{1} }
-#alias global fe fedit

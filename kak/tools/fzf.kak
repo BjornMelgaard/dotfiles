@@ -6,9 +6,10 @@ def fzf-project %{ %sh{
   if [ -z "$TMUX" ]; then
     echo echo -color Error only works inside tmux
   else
-    BUFFER=`(cd $(git rev-parse --show-toplevel) && ag --ignore .git --ignore .cache --ignore .old --hidden -g "") | fzf-tmux -d 15`
+    cd $(git rev-parse --show-toplevel)
+    BUFFER=`ag --ignore .git --ignore .cache --ignore .old --hidden -g "" | fzf-tmux -d 15`
     if [ -n "$BUFFER" ]; then
-      echo "eval -client '$kak_client' 'edit ${BUFFER}'" | kak -p ${kak_session}
+      echo "eval -client '$kak_client' 'edit `pwd`/${BUFFER}'" | kak -p ${kak_session}
     fi
   fi
 } }

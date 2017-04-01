@@ -7,4 +7,4 @@ __pycache__/
 nvim/.netrwhist
 nvim/bundle
 !nvim/bundle/repos/github.com/Shougo/dein.vim
-nvim/.cache
+.cache

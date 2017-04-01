@@ -1,5 +1,4 @@
 # UI |────────────────────────────────────────────────────────────────────
-
 hook global WinCreate .* %{
   addhl number_lines -relative -hlcursor -separator '  '
   addhl show_whitespaces
