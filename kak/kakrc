@@ -14,6 +14,7 @@ set global indentwidth 2
 
 import bindings
 import ui
+import filetypes
 
 # Hooks ├───────────────────────────────────────────────────────────────────────
 
@@ -55,6 +56,8 @@ import tools/surround
 import tools/extend-line-x
 import tools/camelcase
 
+import plugins/kak-ycmd/ycmd
+
 # enable plugins
 hook global WinCreate .* %{
   auto-pairs-enable
@@ -63,6 +66,7 @@ hook global WinCreate .* %{
 # map tmux split and window commands in vim style
 def -file-completion -params 1 tabe %{ tmux-new-window edit %arg{1} }
 def -file-completion -params 1 vsplit %{ tmux-new-vertical edit %arg{1} }
+def find -params 1 -shell-candidates %{ find . -type f } %{ edit %arg{1} }
 #map global insert ctrl-n '<esc>:new<ret>'
 #map global normal ctrl-n ':new<ret>'
 

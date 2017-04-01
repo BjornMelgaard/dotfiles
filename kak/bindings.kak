@@ -5,6 +5,8 @@ map global insert <c-d> <del>
 map global normal ':' ';'
 map global normal ';' ':'
 map global normal '#' ':comment-line<ret>'
+map global normal <c-u> <c-u>gc
+map global normal <c-d> <c-d>gc
 
 # moving by paragraphs
 map global normal <a-p> ']p'
@@ -14,7 +16,7 @@ map global normal <a-P> '[p'
 map global object | :|,|<ret>
 map global object / :/,/<ret>
 
-# Some upper-case variants:
+# some upper-case variants:
 map global object P p
 map global object I i
 
@@ -26,8 +28,8 @@ map global user R '|copyq clipboard<ret>'     -docstring 'clipboard replace curr
 map global user y '<a-|>xclip -sel clip<ret>' -docstring 'clipboard yank'
 map global user d '<a-|>xclip -sel clip<ret>d' -docstring 'clipboard cut'
 
-map global user s '<esc>:tmux-new-vertical<ret>'   -docstring 'tmux vertical'
-map global user v '<esc>:tmux-new-horizontal<ret>' -docstring 'tmux horizontal'
+map global user _ '<esc>:tmux-new-vertical<ret>'   -docstring 'tmux vertical'
+map global user | '<esc>:tmux-new-horizontal<ret>' -docstring 'tmux horizontal'
 
 map global user q ':wq<ret>' -docstring 'save and close file'
 map global user z ':q!<ret>' -docstring 'close without save'
@@ -43,4 +45,4 @@ map global user l 'gi<a-l>'
 map global goto p '<esc>:bp<ret>' -docstring 'buffer previous'
 map global goto n '<esc>:bn<ret>' -docstring 'buffer next'
 
-map global goto <backspace> ':e *debug*<ret>'
+map global goto <backspace> '<esc>:e *debug*<ret>' -docstring 'open *debug*'
