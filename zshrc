@@ -21,7 +21,7 @@ plugins=(
 
   # miscellaneous
   bundler ruby rails gem rvm
-  docker docker-compose docker-aliases
+  docker docker-compose docker-alias
   systemd sudo git archlinux
 
   # custom plugins

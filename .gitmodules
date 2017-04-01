@@ -1,21 +1,21 @@
+[submodule "oh-my-zsh/custom/plugins/docker-alias"]
+	path = oh-my-zsh/custom/plugins/docker-alias
+	url = https://github.com/tcnksm/docker-alias
 [submodule "oh-my-zsh/custom/plugins/zsh-completions"]
-  path = oh-my-zsh/custom/plugins/zsh-completions
-  url = https://github.com/zsh-users/zsh-completions
+	path = oh-my-zsh/custom/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions
 [submodule "oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-  path = oh-my-zsh/custom/plugins/zsh-autosuggestions
-  url = https://github.com/zsh-users/zsh-autosuggestions
+	path = oh-my-zsh/custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule "oh-my-zsh/custom/plugins/rake-fast"]
-  path = oh-my-zsh/custom/plugins/rake-fast
-  url = https://github.com/KevinBongart/rake-fast
-
+	path = oh-my-zsh/custom/plugins/rake-fast
+	url = https://github.com/KevinBongart/rake-fast
 [submodule "nvim/bundle/repos/github.com/Shougo/dein.vim"]
-  path = nvim/bundle/repos/github.com/Shougo/dein.vim
-  url = https://github.com/Shougo/dein.vim
-
+	path = nvim/bundle/repos/github.com/Shougo/dein.vim
+	url = https://github.com/Shougo/dein.vim
 [submodule "tmux/plugins/tpm"]
-  path = tmux/plugins/tpm
-  url = https://github.com/tmux-plugins/tpm
-
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
 [submodule "kak/plugins/mawww/kak-ycmd"]
 	path = kak/plugins/mawww/kak-ycmd
-	url = https://github.com/mawww/kak-ycmd
+	url = https://github.com/mawww/kak-ycmd.git

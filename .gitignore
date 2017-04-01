@@ -1,7 +1,10 @@
 ranger/history
 ranger/bookmarks
 ranger/tagged
-nvim/.netrwhist
 tmux/plugins/*
 !tmux/plugins/tpm
 __pycache__/
+nvim/.netrwhist
+nvim/bundle
+!nvim/bundle/repos/github.com/Shougo/dein.vim
+nvim/.cache
