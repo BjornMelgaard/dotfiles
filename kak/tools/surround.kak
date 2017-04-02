@@ -28,13 +28,37 @@ def surround %!on-key %@exec -no-hooks %sh&
 
   open=${open/ /<space>}
   close=${close/ /<space>}
-  
+
   echo "i$open<esc>a$close<esc>$epilogue"
 &@!
 
-def delete-surround %!on-key %@exec %sh&
-  echo "<a-a>${kak_key}s${kak_key}<ret>d"
-&@!
+# remove both ends of selection inclusive
+def -hidden delete-surround %{
+  exec -no-hooks '<a-:>a<backspace><esc><a-;>i<del><esc>'
+}
 
-map global user s ":surround<ret>" -docstring 'surround selection'
+# change
+def -hidden change-surround %{on-key %{exec -no-hooks %sh{
+  echo "<a-:>a<backspace>${kak_key}<esc><a-;>i<del>${kak_key}<esc>"
+}}}
+
+def -hidden surround-mode %{
+  info -title 'Surround mode' %{
+    s: surround
+    d: delete surround
+    c: change surround
+  }
+
+  on-key %{ %sh{
+  cmd="$(
+      case $kak_key in
+        s) printf 'surround' ;;
+        d) printf 'delete-surround' ;;
+        c) printf 'change-surround' ;;
+      esac
+  )"
+  printf "eval '%s'" "$cmd"
+}}}
+
+map global user s ":surround-mode<ret>" -docstring 'surround mode'
 

@@ -6,9 +6,11 @@ map global normal y ':copy_merged_selections<ret>y'
 
 map global normal d \"_d
 map global normal c \"_c
-map global user   d ':copy_merged_selections<ret>d'
-map global user   c ':copy_merged_selections<ret>c'
+map global user   d ':copy_merged_selections<ret>d' -docstring 'yank and delete'
+map global user   c ':copy_merged_selections<ret>c' -docstring 'yank and delete and enter insert mode'
 
 map global user p '<a-!>copyq clipboard<ret>' -docstring 'clipboard paste after'
 map global user P '!copyq clipboard<ret>'     -docstring 'clipboard paste before'
 map global user R '|copyq clipboard<ret>'     -docstring 'clipboard replace current selection'
+
+map global insert <a-p> '<a-;>!copyq clipboard<ret>'

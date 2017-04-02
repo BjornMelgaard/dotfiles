@@ -24,12 +24,6 @@ import ui
 import clipboard
 import filetypes
 
-# Plugins ├───────────────────────────────────────────────────────
-plug mawww/kak-ycmd
-import plugins/lenormf/kakoune-extra/utils
-import plugins/lenormf/kakoune-extra/comnotes
-import plugins/lenormf/kakoune-extra/syntastic
-
 # Tools ├─────────────────────────────────────────────────────────
 import tools/fzf
 import tools/auto-pairs
@@ -39,6 +33,15 @@ import tools/cleanup-on-save
 import tools/reload-kakrc
 import tools/selectsave
 hook global WinCreate .* %{ auto-pairs-enable }
+
+# Plugins ├───────────────────────────────────────────────────────
+plug mawww/kak-ycmd
+import plugins/lenormf/kakoune-extra/comnotes
+import plugins/lenormf/kakoune-extra/syntastic
+
+#syntastic-declare-filetype "ruby" \
+    #"rubocop --format emacs %s | sed 's/\(.*:.*:.*:\ \)[CRW]/\1error/'" \
+    #'rubocop -a'
 
 # Hooks ├───────────────────────────────────────────────────────────────────────
 
@@ -56,6 +59,16 @@ hook -group copyindent global InsertChar \n %{ exec -draft -itersel K<a-&> }
 hook global BufWritePre .* %{ nop %sh{ dir=$(dirname $kak_buffile)
   [ -d $dir ] || mkdir --parents $dir
 }}
+
+hook global BufCreate [*]grep[*] %{
+  map global normal - ':grep-prev<ret>'
+  map global normal + ':grep-next<ret>'
+}
+
+hook global BufCreate [*]make[*] %{
+  map global normal - ':make-prev<ret>'
+  map global normal + ':make-next<ret>'
+}
 
 # Other ├──────────────────────────────────────────────────────────────────────
 

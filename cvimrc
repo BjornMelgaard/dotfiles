@@ -15,6 +15,7 @@ map N :execute ^Nzz<CR>
 
 let mapleader = ","
 map <Leader>t :tabnew https://translate.google.com<CR>
+map <Leader>T :tabnew http://context.reverso.net<CR>
 map <Leader>r :tabnew http://api.rubyonrails.org<CR>
 map <Leader>g :tabnew http://github.com<CR>
 

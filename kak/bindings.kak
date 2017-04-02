@@ -4,14 +4,14 @@ map global prompt <c-f> <del>
 map global insert <c-d> <backspace>
 map global prompt <c-d> <backspace>
 
-map global insert <backspace> <esc><lt>i
+map global insert <a-backspace> '<a-;><lt>'
 
-# delete to start (already mapped in command mode)
+# delete to start
 map global insert <c-u> <esc><a-h>di
 
 # delete previous word
 map global insert <c-w> '<a-;>:exec -draft bd<ret>'
-#map global prompt <c-w> <a-w> # TODO: make feature req
+#map global prompt <c-w> <>
 
 # move by chars
 map global insert <a-h> <left>
@@ -37,7 +37,9 @@ map global prompt <a-f> <end>
 # Normal ────────────────────────────────────────────────────────────────────
 map global normal ';' ':'
 map global normal ':' ';'
-map global normal <c-u> <c-u>gc
+
+# vimlike half page movements
+map global normal <c-u> gtvc
 map global normal <c-d> <c-d>gc
 
 map global normal '#' :comment-line<ret>
@@ -67,8 +69,6 @@ map global user z ':q!<ret>' -docstring 'close without save'
 map global user w ':w<ret>'  -docstring 'save file'
 
 map global user e ':eval %reg{.}<ret>' -docstring 'execute selection'
-#map global user f '|fmt --width 80<ret>:echo -color Information formated selections<ret>'
-
 map global user l 'gi<a-l>' -docstring 'inner line'
 
 # Goto ───────────────────────────────────────────────────────────────────────
