@@ -22,3 +22,6 @@
 [submodule "kak/plugins/lenormf/kakoune-extra"]
 	path = kak/plugins/lenormf/kakoune-extra
 	url = https://github.com/lenormf/kakoune-extra
+[submodule "kak/plugins/Valloric/YouCompleteMe"]
+	path = kak/plugins/Valloric/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe

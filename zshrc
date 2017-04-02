@@ -53,6 +53,7 @@ alias r="SHELL=/home/bjorn/.bin/rshell ranger"
 alias o="openssl"
 alias k="kak"
 alias top="htop"
+alias sctl="systemctl"
 alias tkda="tmux ls | grep -v attached | awk '{print substr(\$1, 0, length(\$1)-1)}' | xargs -n1 tmux kill-session -t"
 
 alias llserver="/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt -m /home/bjorn/.local/share/Anki2/User\ 1/collection.media"

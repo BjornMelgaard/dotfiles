@@ -1,30 +1,38 @@
 # Insert  Command line ────────────────────────────────────────────────────────────────────
-map global insert <a-d> <del>
-map global insert <a-x> <backspace>
+map global insert <c-f> <del>
+map global prompt <c-f> <del>
+map global insert <c-d> <backspace>
+map global prompt <c-d> <backspace>
 
-# delete to start
+map global insert <backspace> <esc><lt>i
+
+# delete to start (already mapped in command mode)
 map global insert <c-u> <esc><a-h>di
 
 # delete previous word
-map global insert <a-w> '<a-;>:exec -draft bd<ret>'
+map global insert <c-w> '<a-;>:exec -draft bd<ret>'
+#map global prompt <c-w> <a-w> # TODO: make feature req
 
 # move by chars
 map global insert <a-h> <left>
 map global insert <a-l> <right>
 
 # move by words
-map global insert <c-w> <esc>w\;i
-map global insert <c-b> <esc>b\;i
-map global insert <c-e> <esc>el\;i
-#map global insert <c-a-w> <esc><a-w>\;i
-#map global insert <c-a-b> <esc><a-b>\;i
-#map global insert <c-a-e> <esc><a-e>l\;i
+map global insert <a-o> <esc>el\;i
+map global insert <a-u> <esc>b\;i
+map global prompt <a-o> <c-e>
+map global prompt <a-u> <c-b>
+
+map global insert <a-O> <esc><a-e>l\;i
+map global insert <a-U> <esc><a-b>\;i
+#map global prompt <a-O> <c-a-e>
+#map global prompt <a-U> <c-a-b>
 
 # move by lines
-map global insert <a-u> <home>
-map global insert <a-o> <end>
-map global prompt <a-u> <home>
-map global prompt <a-o> <end>
+map global insert <a-d> <home>
+map global insert <a-f> <end>
+map global prompt <a-d> <home>
+map global prompt <a-f> <end>
 
 # Normal ────────────────────────────────────────────────────────────────────
 map global normal ';' ':'
@@ -50,14 +58,7 @@ map global object / :/,/<ret>
 map global object P p
 map global object I i
 
-
 # User ───────────────────────────────────────────────────────────────────────
-map global user P '!copyq clipboard<ret>'     -docstring 'clipboard paste before'
-map global user p '<a-!>copyq clipboard<ret>' -docstring 'clipboard paste after'
-map global user R '|copyq clipboard<ret>'     -docstring 'clipboard replace current selection'
-map global user y '<a-|>xclip -sel clip<ret>' -docstring 'clipboard yank'
-map global user d '<a-|>xclip -sel clip<ret>d' -docstring 'clipboard cut'
-
 map global user _ '<esc>:tmux-new-vertical<ret>'   -docstring 'tmux vertical'
 map global user | '<esc>:tmux-new-horizontal<ret>' -docstring 'tmux horizontal'
 

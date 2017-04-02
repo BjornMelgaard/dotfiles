@@ -21,6 +21,7 @@ set global indentwidth 2
 
 import bindings
 import ui
+import clipboard
 import filetypes
 
 # Plugins ├───────────────────────────────────────────────────────
