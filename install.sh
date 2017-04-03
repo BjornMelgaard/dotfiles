@@ -1,9 +1,11 @@
+#!/usr/bin/env bash
 DOTFILES_DIR=$(dirname `readlink -f $0`) # full path
 
 ln -sfT $DOTFILES_DIR/i3                   $HOME/.i3
 ln -sfT $DOTFILES_DIR/oh-my-zsh            $HOME/.oh-my-zsh
 ln -sfT $DOTFILES_DIR/nvim                 $HOME/.config/nvim
 ln -sfT $DOTFILES_DIR/kak                  $HOME/.config/kak
+ln -sfT $DOTFILES_DIR/vis                  $HOME/.config/vis
 ln -sfT $DOTFILES_DIR/ranger               $HOME/.config/ranger
 ln -sfT $DOTFILES_DIR/bin                  $HOME/.bin
 

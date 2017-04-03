@@ -1,5 +1,6 @@
-export EDITOR='/usr/bin/nvim'
-#export EDITOR='/usr/bin/kak'
+# export EDITOR='/usr/bin/nvim'
+# export EDITOR='/usr/bin/kak'
+export EDITOR='/usr/bin/vis'
 export PROJECT_PATHS=(~/projects)
 export PATH="$HOME/.bin:$HOME/projects/umsf/bin:$PATH"
 export PAGER=$HOME/.bin/kakpager
