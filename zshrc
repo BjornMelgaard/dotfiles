@@ -84,7 +84,8 @@ postgresql-reinstall () {
 postgresql-new-project () {
   sudo su - postgres -c "createuser -d $1 "\
     "&& createdb -O $1 $1_development "\
-    "&& createdb -O $1 $1_test"
+    "&& createdb -O $1 $1_test" \
+    "&& createdb -O $1 $1_production"
 }
 
 # better deletion

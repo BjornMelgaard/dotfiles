@@ -8,6 +8,9 @@ imap <C-h> deleteChar
 imap <C-d> deleteForwardChar
 imap <A-w> deleteWord
 
+map gj G
+map gk gg
+
 map ^n nextSearchResult
 map ^N previousSearchResult
 map n :execute ^nzz<CR>

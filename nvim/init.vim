@@ -138,7 +138,7 @@ call dein#add('mhinz/vim-startify') "{{{
 call dein#add('neomake/neomake') " {{{
   autocmd! BufWritePost * Neomake
   let g:neomake_ruby_enabled_makers = ['rubocop']
-  " let g:neomake_open_list = 1
+  let g:neomake_open_list = 0
   " let g:neomake_verbose = 3
 
   " nnoremap <leader>ms :<C-u>NeomakeSh<space>
@@ -203,12 +203,12 @@ call dein#add('rhysd/vim-textobj-ruby') " {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('klen/python-mode', {'on_ft':['python']}) "{{{
-  let g:pymode_rope=0
-"}}}
-call dein#add('davidhalter/jedi-vim', {'on_ft':['python']}) "{{{
-  let g:jedi#popup_on_dot=0
-"}}}
+"call dein#add('klen/python-mode', {'on_ft':['python']}) "{{{
+"  let g:pymode_rope=0
+""}}}
+"call dein#add('davidhalter/jedi-vim', {'on_ft':['python']}) "{{{
+"  let g:jedi#popup_on_dot=0
+""}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git
@@ -563,13 +563,13 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" line movement like in kakoune
-nnoremap gh ^
-nnoremap gl g_
-vnoremap gh ^
-vnoremap gl g_
-onoremap gh ^
-onoremap gl g_
+" kakoune like movements
+noremap gh 0
+noremap gi ^
+noremap gl g_
+
+nnoremap gj G
+nnoremap gk gg
 
 " clipboard actions
 function! s:get_visual_selection()
