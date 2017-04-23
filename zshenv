@@ -2,8 +2,8 @@ export EDITOR='/usr/bin/nvim'
 #export EDITOR='/usr/bin/kak'
 export PROJECT_PATHS=(~/projects)
 export PATH="$HOME/.bin:$HOME/projects/umsf/bin:$PATH"
-export PAGER=$HOME/.bin/kakpager
-export MANPAGER=$HOME/.bin/kakmanpager
+# export PAGER=$HOME/.bin/kakpager
+# export MANPAGER=$HOME/.bin/kakmanpager
 
 # nodejs
 export PATH="$HOME/.node_modules/bin:$PATH"

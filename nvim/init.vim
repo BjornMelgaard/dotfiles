@@ -492,6 +492,7 @@ call dein#add('beloglazov/vim-textobj-quotes')
 call dein#add('kana/vim-textobj-line')
 call dein#add('jasonlong/vim-textobj-css')
 call dein#add('b4winckler/vim-angry')
+call dein#add('saihoooooooo/vim-textobj-space')
 
 " file text object
 call textobj#user#plugin('file', {
