@@ -14,6 +14,7 @@ let s:settings = {}
 let s:settings.default_indent = 2
 let s:settings.max_column = 120
 
+" helper functions
 function! s:get_cache_dir(suffix) "{{{
   return resolve(expand(s:cache_dir . '/' . a:suffix))
 endfunction "}}}
@@ -122,8 +123,6 @@ call dein#add('mhinz/vim-startify') "{{{
   let g:startify_session_before_save = [
       \ 'tabdo NERDTreeClose'
       \ ]
-  " let g:startify_session_autoload = 1
-  " let g:startify_session_persistence = 1
   let g:startify_disable_at_vimenter = 1
 
   autocmd VimEnter * nested
@@ -139,15 +138,9 @@ call dein#add('neomake/neomake') " {{{
   autocmd! BufWritePost * Neomake
   let g:neomake_ruby_enabled_makers = ['rubocop']
   let g:neomake_open_list = 0
-  " let g:neomake_verbose = 3
-
-  " nnoremap <leader>ms :<C-u>NeomakeSh<space>
-  " nnoremap <leader>mc :<C-u>NeomakeCancelJob<space>
-  " nnoremap <silent> <leader>ml :<C-u>NeomakeListJobs<CR>
 " }}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
   let g:goldenview__enable_default_mapping=0
-  " nmap <F4> <Plug>ToggleGoldenViewAutoResize
 "}}}
 call dein#add('jszakmeister/vim-togglecursor')
 
@@ -161,10 +154,9 @@ call dein#add('othree/html5.vim', {'on_ft':['html']})
 call dein#add('digitaltoad/vim-jade', {'on_ft':['jade']})
 call dein#add('mustache/vim-mustache-handlebars', {'on_ft':['mustache','handlebars']})
 call dein#add('gregsexton/MatchTag', {'on_ft':['html','xml']})
-call dein#add('mattn/emmet-vim', {'on_ft':['html','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars']}) "{{{
-  autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,less,mustache imap <buffer><c-y><c-y> <c-y>,
-  autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,less,mustache vmap <buffer><c-y><c-y> <c-y>,
-"}}}
+call dein#add('mattn/emmet-vim', {'on_ft':['html','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars']})
+autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,less,mustache imap <buffer><c-y><c-y> <c-y>,
+autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,less,mustache vmap <buffer><c-y><c-y> <c-y>,
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Javascript
@@ -188,27 +180,28 @@ call dein#add('othree/javascript-libraries-syntax.vim', {'on_ft':['javascript','
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-bundler')
-call dein#add('rhysd/vim-textobj-ruby') " {{{
-  " let g:textobj_ruby_more_mappings = 1
-" }}}
-" {{{
-  " rubocop autocorrect
-  autocmd FileType ruby nnoremap <leader>ru :w<cr>:!rubocop -a <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
-  " breakpoint
-  autocmd FileType ruby nnoremap <silent> <leader>b O<C-r>=neosnippet#expand('pry')<CR><esc>=l
-  " autoclose |
-  autocmd FileType ruby let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|': '|'}
-" }}}
+call dein#add('rhysd/vim-textobj-ruby')
+call dein#add('fishbullet/deoplete-ruby')
+
+" rubocop autocorrect
+autocmd FileType ruby nnoremap <leader>ru :w<cr>:!rubocop -a <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
+
+" breakpoint
+autocmd FileType ruby nnoremap <silent> <leader>b O<C-r>=neosnippet#expand('pry')<CR><esc>=l
+
+" autoclose |
+autocmd FileType ruby let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|': '|'}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Python
+" => C#
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"call dein#add('klen/python-mode', {'on_ft':['python']}) "{{{
-"  let g:pymode_rope=0
-""}}}
-"call dein#add('davidhalter/jedi-vim', {'on_ft':['python']}) "{{{
-"  let g:jedi#popup_on_dot=0
-""}}}
+" call dein#add('Robzz/deoplete-omnisharp')
+" call dein#add('OmniSharp/omnisharp-vim')
+" let g:deoplete#omni#functions = {}
+" let g:deoplete#omni#functions.cs = 'OmniSharp#Complete'
+
+autocmd FileType cs setlocal commentstring=//\ %s
+autocmd FileType cs setlocal noexpandtab
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git
@@ -250,7 +243,6 @@ call dein#add('Shougo/neosnippet') " {{{
 " }}}
 
 call dein#add('Shougo/deoplete.nvim') " {{{
-  call dein#add('fishbullet/deoplete-ruby')
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_complete_delay = 150
 " }}}
@@ -292,28 +284,6 @@ if $TMUX != ''
   "   let g:tmuxline_theme = 'jellybeans'
   "   let g:tmuxline_preset = 'minimal'
   " " }}}
-
-  " function! OpenRanger(dir)
-  "   let currentPath = expand(a:dir)
-  "   let tmp_file_path = tempname()
-  "   let rangerCallback = { 'name': 'ranger' , 'tmp_file_path': tmp_file_path}
-  "   function! rangerCallback.on_exit(id, code)
-  "     call system('notify-send callback')
-  "     " bdelete!
-  "     if filereadable(self.tmp_file_path)
-  "       for f in readfile(self.tmp_file_path)
-  "         exec 'edit '. f
-  "       endfor
-  "       call delete(self.tmp_file_path)
-  "     endif
-  "   endfunction
-  "   tabnew
-  "   call termopen('tmux splitw ranger --choosefiles=' . shellescape(tmp_file_path) . ' ' . currentPath, rangerCallback)
-  "   startinsert
-  " endfunction
-
-  " nnoremap <leader>f :call OpenRanger('%:p:h')<CR>
-  " nnoremap <leader>F :call OpenRanger('')<CR>
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -668,10 +638,6 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s
 nnoremap <leader>vsa :vert sba<cr>
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
 
 " tab shortcuts
 nnoremap <leader>tn :tab spl<CR>
@@ -682,8 +648,8 @@ nnoremap gb :ls<cr>:e #
 
 " general
 nnoremap <leader>l :set list! list?<cr>
-nnoremap <BS> :noh<cr>
-" nnoremap <M-v> vg_
+nnoremap <bs> :noh<cr>
+nnoremap <M-v> vg_
 
 nnoremap <C-s> <C-a>
 nnoremap <leader>R :so $MYVIMRC<CR>
@@ -731,16 +697,14 @@ exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 
 autocmd BufRead,BufNewFile *.conf setf dosini
 
-" autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
-" autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>
-" autocmd FileType python setlocal foldmethod=indent
-" autocmd FileType markdown setlocal nolist
-" autocmd FileType vim setlocal fdm=indent keywordprg=:help
-" autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
+autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
+autocmd FileType python setlocal foldmethod=indent
+autocmd FileType markdown setlocal nolist
+autocmd FileType vim setlocal fdm=indent keywordprg=:help
+autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
 
 " vim-commentary
 xmap #  <Plug>Commentary
-" nmap #  <Plug>Commentary
 omap #  <Plug>Commentary
 nmap # <Plug>CommentaryLine
 
