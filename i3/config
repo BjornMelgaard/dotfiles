@@ -64,6 +64,8 @@ set $browser  google-chrome-stable
 exec --no-startup-id python /home/bjorn/.bin/randomize_background.py
 exec --no-startup-id $terminal -e "/home/bjorn/.bin/llserver"
 exec --no-startup-id $browser
+exec --no-startup-id redshift-gtk
+exec --no-startup-id safeeyes
 
 # -------------------------------------
 # Shortcuts
