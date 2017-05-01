@@ -20,6 +20,9 @@ start-pulseaudio-x11
 
 dunst -config ~/.i3/dunstrc &
 
+mopidy &
+redshift-gtk &
+safeeyes &
 copyq &
 pasystray &
 

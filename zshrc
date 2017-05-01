@@ -60,7 +60,6 @@ alias tkda="tmux ls | grep -v attached | awk '{print substr(\$1, 0, length(\$1)-
 
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
 alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
-alias update-angular-cli="npm uninstall -g angular-cli && npm cache clean && npm install -g angular-cli@latest"
 alias update-all="yaourt --aur  -Syu --noconfirm && sudo gem update --system && gem update && npm cache clean && npm update -g"
 
 alias wifi="sudo wifi-menu"

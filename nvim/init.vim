@@ -80,6 +80,7 @@ set noshowmode
 set foldmethod=syntax                               "fold via syntax of files
 set foldlevelstart=99                               "open all folds by default
 let g:xml_syntax_folding=1                          "enable xml folding
+set completeopt-=preview
 
 set cursorline
 autocmd WinLeave * setlocal nocursorline
@@ -136,8 +137,8 @@ call dein#add('mhinz/vim-startify') "{{{
 "}}}
 call dein#add('neomake/neomake') " {{{
   autocmd! BufWritePost * Neomake
-  let g:neomake_ruby_enabled_makers = ['rubocop']
   let g:neomake_open_list = 0
+  " let g:neomake_verbose = 3
 " }}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
   let g:goldenview__enable_default_mapping=0
@@ -169,7 +170,6 @@ call dein#add('pangloss/vim-javascript', {'on_ft':['javascript']})
 call dein#add('maksimr/vim-jsbeautify', {'on_ft':['javascript']}) "{{{
   nnoremap <leader>rjs :call JsBeautify()<cr>
 "}}}
-call dein#add('leafgarland/typescript-vim', {'on_ft':['typescript']})
 call dein#add('kchmck/vim-coffee-script', {'on_ft':['coffee']})
 call dein#add('mmalecki/vim-node.js', {'on_ft':['javascript']})
 call dein#add('leshill/vim-json', {'on_ft':['javascript','json']})
@@ -182,6 +182,8 @@ call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-bundler')
 call dein#add('rhysd/vim-textobj-ruby')
 call dein#add('fishbullet/deoplete-ruby')
+
+let g:neomake_ruby_enabled_makers = ['rubocop']
 
 " rubocop autocorrect
 autocmd FileType ruby nnoremap <leader>ru :w<cr>:!rubocop -a <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
@@ -221,6 +223,12 @@ call dein#add('tpope/vim-fugitive') "{{{
 "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Typescript
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call dein#add('mhartington/nvim-typescript')
+call dein#add('leafgarland/typescript-vim')
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " call dein#add('rafi/vim-tagabana')
@@ -245,6 +253,10 @@ call dein#add('Shougo/neosnippet') " {{{
 call dein#add('Shougo/deoplete.nvim') " {{{
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_complete_delay = 150
+" }}}
+call dein#add('Shougo/echodoc.vim') " {{{
+  set cmdheight=2
+  let g:echodoc_enable_at_startup = 1
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -439,7 +451,7 @@ nmap <space> [denite]
 nnoremap [denite] <nop>
 
 nnoremap <silent> [denite]l :<C-u>Denite line<cr>
-nnoremap <silent> [denite]u :<C-u>Denite file_mru <cr>
+nnoremap <silent> [denite]m :<C-u>Denite file_mru <cr>
 nnoremap <silent> [denite]b :<C-u>Denite buffer<cr>
 nnoremap <silent> [denite]j :<C-u>JunkfileTodo<cr>
 nnoremap <silent> [denite]y :<C-u>Denite neoyank<cr>
