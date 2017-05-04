@@ -36,12 +36,12 @@ source $HOME/.oh-my-zsh/custom/plugins/docker-alias/zshrc
 # autoload -U compinit && compinit # zsh-completions
 autoload -U zmv
 
-# [[ -n "$ZSH_TMUX_AUTOSTART" ]] || ZSH_TMUX_AUTOSTART=true
-# [[ -n "$ZSH_TMUX_AUTOCONNECT" ]] || ZSH_TMUX_AUTOCONNECT=false
-
 # rvm
 export PATH="$HOME/.rvm/bin:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# [[ -n "$ZSH_TMUX_AUTOSTART" ]] || ZSH_TMUX_AUTOSTART=true
+# [[ -n "$ZSH_TMUX_AUTOCONNECT" ]] || ZSH_TMUX_AUTOCONNECT=false
 
 # aliases
 alias pjdot="cd $HOME/.config/dotfiles"
@@ -103,6 +103,8 @@ bindkey -M viins '^[l' vi-forward-char
 bindkey -M viins '^[h' vi-backward-char
 bindkey -M viins '^[k' up-line-or-history
 bindkey -M viins '^[j' down-line-or-history
+bindkey -M viins '^[u' backward-word
+bindkey -M viins '^[o' forward-word
 
 # history
 bindkey -M viins '^[[A' up-line-or-history            # up

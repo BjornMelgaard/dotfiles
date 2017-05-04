@@ -151,11 +151,11 @@ call dein#add('jszakmeister/vim-togglecursor')
 call dein#add('groenewege/vim-less', {'on_ft':['less']})
 call dein#add('cakebaker/scss-syntax.vim', {'on_ft':['scss','sass']})
 call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss','sass']})
-call dein#add('othree/html5.vim', {'on_ft':['html']})
+call dein#add('othree/html5.vim', {'on_ft':['html','typescript']})
 call dein#add('digitaltoad/vim-jade', {'on_ft':['jade']})
 call dein#add('mustache/vim-mustache-handlebars', {'on_ft':['mustache','handlebars']})
-call dein#add('gregsexton/MatchTag', {'on_ft':['html','xml']})
-call dein#add('mattn/emmet-vim', {'on_ft':['html','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars']})
+call dein#add('Valloric/MatchTagAlways')
+call dein#add('mattn/emmet-vim', {'on_ft':['html','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars','ts']})
 autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,less,mustache imap <buffer><c-y><c-y> <c-y>,
 autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,less,mustache vmap <buffer><c-y><c-y> <c-y>,
 
@@ -380,6 +380,7 @@ call dein#add('dkprice/vim-easygrep') "{{{
   let g:EasyGrepRecursive=1
   let g:EasyGrepAllOptionsInExplorer=1
   let g:EasyGrepCommand=1
+  let g:EasyGrepFilesToExclude=".svn,.git,node_modules"
   nnoremap <leader>vo :GrepOptions<cr>
 "}}}
 call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']}) "{{{
@@ -388,7 +389,7 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   let NERDTreeShowLineNumbers=1
   let NERDTreeChDirMode=0
   let NERDTreeShowBookmarks=1
-  let NERDTreeIgnore=['\.git$','\.hg$']
+  let NERDTreeIgnore=['\.git$','\.hg$','\node_modules$']
   let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
 
   " disable f and F in privilege of find commands

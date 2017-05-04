@@ -1,13 +1,16 @@
+# nvim editor config
 export EDITOR='/usr/bin/nvim'
-#export EDITOR='/usr/bin/kak'
-export PROJECT_PATHS=(~/projects)
-export PATH="$HOME/.bin:$HOME/projects/umsf/bin:$PATH"
+
+# kakoune editor config
+# export EDITOR='/usr/bin/kak'
 # export PAGER=$HOME/.bin/kakpager
 # export MANPAGER=$HOME/.bin/kakmanpager
 
-# nodejs
-export PATH="$HOME/.node_modules/bin:$PATH"
-export npm_config_prefix=~/.node_modules
+# user paths
+export PATH="$HOME/.bin:$HOME/projects/umsf/bin:$PATH"
+
+# project jump config
+export PROJECT_PATHS=(~/projects)
 
 # heroku
 export PATH=/usr/local/heroku/bin:$PATH

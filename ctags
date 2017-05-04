@@ -24,3 +24,28 @@
 --langmap=js:+.jsx
 --regex-js=/[ \t.]([A-Z][A-Z0-9._$]+)[ \t]*[=:][ \t]*([0-9"'\[\{]|null)/\1/n,constant/
 
+--langdef=css
+--langmap=css:.css
+--langmap=css:+.scss
+--langmap=css:+.sass
+--langmap=css:+.styl
+--langmap=css:+.less
+--regex-css=/^[ \t]*(([A-Za-z0-9_-]+[ \t\n,]+)+)\{/\1/t,tag,tags/
+--regex-css=/^[ \t]*#([A-Za-z0-9_-]+)/#\1/i,id,ids/
+--regex-css=/^[ \t]*\.([A-Za-z0-9_-]+)/\1/c,class,classes/
+
+--langdef=typescript
+--langmap=typescript:.ts
+--langmap=typescript:+.es6
+--langmap=typescript:+.js
+--regex-typescript=/^[ \t]*(export|declare)?.*class[ \t]+([a-zA-Z0-9_]+)/\2/c,classes/
+--regex-typescript=/^[ \t]*(export)?[ \t]*module[ \t]+([a-zA-Z0-9_]+)/\2/n,modules/
+--regex-typescript=/^[ \t]*(export|declare)?.*function[ \t]+([a-zA-Z0-9_]+)[ \t]*\(/\2/f,functions/
+--regex-typescript=/^[ \t]*(export|declare).*[ \t]+var[ \t]+([a-zA-Z0-9_]+)/\2/v,variables/
+--regex-typescript=/^[ \t]*(export|declare).*[ \t]+const[ \t]+([a-zA-Z0-9_]+)/\2/v,variables/
+--regex-typescript=/^[ \t]*var[ \t]+([a-zA-Z0-9_]+)[ \t]*=[ \t]*function[ \t]*\(\)/\1/v,varlambdas/
+--regex-typescript=/^[ \t]*(export)?[ \t]*(public|private)[ \t]+(static)?[ \t]*([a-zA-Z0-9_]+)/\4/m,members/
+--regex-typescript=/^[ \t]*(static|abstract)?[ \t]*([a-zA-Z0-9_]+)[ \t]*\(/\2/m,members/
+--regex-typescript=/^[ \t]*(static|abstract)?[ \t]*([gs]et)[ \t]+([a-zA-Z0-9_]+)/\3/m,members/
+--regex-typescript=/^[ \t]*(export|declare)?.*interface[ \t]+([a-zA-Z0-9_]+)/\2/i,interfaces/
+--regex-typescript=/^[ \t]*(export|declare)?.*enum[ \t]+([a-zA-Z0-9_]+)/\2/e,enums/
