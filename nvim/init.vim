@@ -677,6 +677,7 @@ tnoremap <down> <C-\><C-n>:tabprev<CR>
 " => Finish
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('nanotech/jellybeans.vim')
+call dein#add('ryanoasis/vim-devicons')
 
 call dein#end()
 
