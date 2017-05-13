@@ -1,9 +1,9 @@
 #!/bin/bash
 
-TOUCHPAD_ID=17
+TOUCHPAD_ID=16
 xinputcmd=$(xinput list-props $TOUCHPAD_ID | awk '/Device Enabled/ {print $4}')
 echo "$xinputcmd"
-if [ $xinputcmd -eq 1 ] ; then
+if [ "$xinputcmd" -eq 1 ] ; then
 	xinput --disable $TOUCHPAD_ID
 	echo "disable"
 else

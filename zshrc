@@ -36,6 +36,10 @@ source $HOME/.oh-my-zsh/custom/plugins/docker-alias/zshrc
 # autoload -U compinit && compinit # zsh-completions
 autoload -U zmv
 
+# nodejs
+export PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
+
 # rvm
 export PATH="$HOME/.rvm/bin:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -61,6 +65,7 @@ alias tkda="tmux ls | grep -v attached | awk '{print substr(\$1, 0, length(\$1)-
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
 alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
 alias update-all="yaourt --aur  -Syu --noconfirm && sudo gem update --system && gem update && npm cache clean && npm update -g"
+alias greenbadger-test-and-dev="(ng serve --environment=test --port 5000 2>/dev/null; echo test client finished) & (ng serve 2>/dev/null; echo dev client finished) &"
 
 alias wifi="sudo wifi-menu"
 alias nstop="sudo netctl stop-all"
@@ -85,8 +90,7 @@ postgresql-reinstall () {
 postgresql-new-project () {
   sudo su - postgres -c "createuser -d $1 "\
     "&& createdb -O $1 $1_development "\
-    "&& createdb -O $1 $1_test" \
-    "&& createdb -O $1 $1_production"
+    "&& createdb -O $1 $1_test"
 }
 
 # better deletion

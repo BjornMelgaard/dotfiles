@@ -188,9 +188,6 @@ let g:neomake_ruby_enabled_makers = ['rubocop']
 " rubocop autocorrect
 autocmd FileType ruby nnoremap <leader>ru :w<cr>:!rubocop -a <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
 
-" breakpoint
-autocmd FileType ruby nnoremap <silent> <leader>b O<C-r>=neosnippet#expand('pry')<CR><esc>=l
-
 " autoclose |
 autocmd FileType ruby let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|': '|'}
 
@@ -277,8 +274,10 @@ if $TMUX != ''
   call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('benmills/vimux') " {{{
     let g:VimuxRunnerType = "window"
+    let g:VimuxUseNearest = 0
 
-    nnoremap <leader>vt :VimuxTogglePane<CR>
+    nnoremap <leader>tt :VimuxTogglePane<CR>
+    nnoremap <leader>to :call VimuxOpenRunner()<CR>
   " }}}
 
   call dein#add('thoughtbot/vim-rspec') " {{{
