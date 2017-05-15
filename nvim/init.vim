@@ -493,10 +493,20 @@ if executable('instant-markdown-d')
   call dein#add('suan/vim-instant-markdown', {'on_ft':['markdown']})
 endif
 call dein#add('PotatoesMaster/i3-vim-syntax')
-call dein#add('takac/vim-hardtime') " {{{
+" call dein#add('takac/vim-hardtime') " {{{
   " let g:hardtime_default_on = 1
 " }}}
 call dein#add('itchyny/vim-cursorword')
+call dein#add('AndrewRadev/switch.vim')
+call dein#add('romgrk/replace.vim') " {{{
+  let g:replace_register = '_'
+  nmap R "+<Plug>ReplaceOperator
+  vmap R "+<Plug>ReplaceOperator
+
+  nmap X "+<Plug>ExchangeOperator
+  nmap RR ^R$
+" }}}
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
@@ -678,6 +688,7 @@ tnoremap <down> <C-\><C-n>:tabprev<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('nanotech/jellybeans.vim')
 call dein#add('ryanoasis/vim-devicons')
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 
 call dein#end()
 
