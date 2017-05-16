@@ -347,8 +347,8 @@ call dein#add('bkad/CamelCaseMotion') " {{{
   sunmap e
   sunmap ge
 " }}}
-call dein#add('vim-scripts/eraseSubword') " {{{
-  let g:EraseSubword_insertMap = "<C-w>"
+" call dein#add('vim-scripts/eraseSubword') " {{{
+"   let g:EraseSubword_insertMap = "<C-w>"
 " }}}
 call dein#add('jeetsukumaran/vim-indentwise')
 call dein#add('AndrewRadev/splitjoin.vim')
@@ -556,7 +556,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" kakoune like movements
+" kakoune like ovements
 noremap gh 0
 noremap gi ^
 noremap gl g_

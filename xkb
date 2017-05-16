@@ -5,7 +5,7 @@ xkb_keymap {
   xkb_compat        { include "complete" };
 
   xkb_symbols {
-    include "pc+us+ru:2+inet(evdev)"
+    include "pc+us+ru:2+ua:3+inet(evdev)"
     include "group(rctrl_rshift_toggle)"
     include "capslock(swapescape)"
 
