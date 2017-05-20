@@ -347,9 +347,6 @@ call dein#add('bkad/CamelCaseMotion') " {{{
   sunmap e
   sunmap ge
 " }}}
-" call dein#add('vim-scripts/eraseSubword') " {{{
-"   let g:EraseSubword_insertMap = "<C-w>"
-" }}}
 call dein#add('jeetsukumaran/vim-indentwise')
 call dein#add('AndrewRadev/splitjoin.vim')
 
