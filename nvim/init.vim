@@ -139,6 +139,15 @@ call dein#add('neomake/neomake') " {{{
   autocmd! BufWritePost * Neomake
   let g:neomake_open_list = 0
   " let g:neomake_verbose = 3
+
+  let g:neomake_ruby_enabled_makers = ['rubocop']
+  " let g:neomake_typescript_tslint_args = [
+  "   \ '--format verbose',
+  "   \ '--project', neomake#utils#FindGlobFile('tsconfig.json'),
+  "   \ '-c', neomake#utils#FindGlobFile('tslint.json'),
+  "   \ '--type-check'
+  "   \ ]
+
 " }}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
   let g:goldenview__enable_default_mapping=0
@@ -183,8 +192,6 @@ call dein#add('tpope/vim-bundler')
 call dein#add('rhysd/vim-textobj-ruby')
 call dein#add('fishbullet/deoplete-ruby')
 
-let g:neomake_ruby_enabled_makers = ['rubocop']
-
 " rubocop autocorrect
 autocmd FileType ruby nnoremap <leader>ru :w<cr>:!rubocop -a <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
 
@@ -205,7 +212,10 @@ autocmd FileType cs setlocal noexpandtab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('airblade/vim-gitgutter')
+call dein#add('airblade/vim-gitgutter') " {{{
+  nmap ]h <Plug>GitGutterNextHunk
+  nmap [h <Plug>GitGutterPrevHunk
+" }}}
 call dein#add('tpope/vim-fugitive') "{{{
   nnoremap <silent> <leader>ga :Git add --all<CR>
   nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -438,7 +448,7 @@ call dein#add('Shougo/denite.nvim') " {{{
   call denite#custom#map('normal', 'Q', '<denite:quit>', 'noremap')
 " }}}
 call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/neoyank.vim')
+" call dein#add('Shougo/neoyank.vim')
 call dein#add('Shougo/junkfile.vim') " {{{
   let g:junkfile#directory=s:get_cache_dir('junk')
   command! -nargs=0 JunkfileTodo call junkfile#open_immediately('todo.md')
@@ -451,7 +461,7 @@ nnoremap <silent> [denite]l :<C-u>Denite line<cr>
 nnoremap <silent> [denite]m :<C-u>Denite file_mru <cr>
 nnoremap <silent> [denite]b :<C-u>Denite buffer<cr>
 nnoremap <silent> [denite]j :<C-u>JunkfileTodo<cr>
-nnoremap <silent> [denite]y :<C-u>Denite neoyank<cr>
+" nnoremap <silent> [denite]y :<C-u>Denite neoyank<cr>
 
 " git project nav {{{
   call denite#custom#alias('source', 'file_rec/git', 'file_rec')
@@ -506,9 +516,17 @@ call dein#add('romgrk/replace.vim') " {{{
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Documets editing
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" call dein#add('maksimr/vim-translator')
+" call dein#add('suan/vim-instant-markdown')
+
+" autocmd InsertEnter * silent! !xkbcomp $HOME/.config/layouts/ua $DISPLAY  > /dev/null 2&>1
+" autocmd InsertLeave * silent! !xkbcomp $HOME/.config/layouts/en_ru $DISPLAY > /dev/null 2&>1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 function! s:SelectAndEnterNorm(...)
   silent exe "normal! '[V']"
   call feedkeys(":norm ")
