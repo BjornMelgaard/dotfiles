@@ -370,6 +370,9 @@ call dein#add('AndrewRadev/splitjoin.vim')
   endfunction
 " }}}
 call dein#add('sbdchd/neoformat')
+call dein#add('tpope/vim-abolish') " {{{
+  nnoremap <leader>a :%Subvert:::g<left><left><left>
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
@@ -496,12 +499,9 @@ call textobj#user#plugin('file', {
 call dein#add('kana/vim-vspec') " Testing framework
 call dein#add('tpope/vim-scriptease', {'on_ft':['vim']})
 call dein#add('tpope/vim-markdown',{'on_ft':['markdown']})
-if executable('instant-markdown-d')
-  call dein#add('suan/vim-instant-markdown', {'on_ft':['markdown']})
-endif
 call dein#add('PotatoesMaster/i3-vim-syntax')
 " call dein#add('takac/vim-hardtime') " {{{
-  " let g:hardtime_default_on = 1
+"   let g:hardtime_default_on = 1
 " }}}
 call dein#add('itchyny/vim-cursorword')
 call dein#add('AndrewRadev/switch.vim')
