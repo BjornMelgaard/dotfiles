@@ -27,7 +27,6 @@ import filetypes
 # Tools ├─────────────────────────────────────────────────────────
 import tools/fzf
 import tools/auto-pairs
-import tools/surround
 import tools/extend-line-x
 import tools/cleanup-on-save
 import tools/reload-kakrc
@@ -39,9 +38,9 @@ plug mawww/kak-ycmd
 import plugins/lenormf/kakoune-extra/comnotes
 import plugins/lenormf/kakoune-extra/syntastic
 
-#syntastic-declare-filetype "ruby" \
-    #"rubocop --format emacs %s | sed 's/\(.*:.*:.*:\ \)[CRW]/\1error/'" \
-    #'rubocop -a'
+syntastic-declare-filetype "ruby" \
+  'rubocop-wrapper.sh' \
+  'rubocop -a'
 
 # Hooks ├───────────────────────────────────────────────────────────────────────
 

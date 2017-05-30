@@ -11,7 +11,7 @@ map global insert <c-u> <esc><a-h>di
 
 # delete previous word
 map global insert <c-w> '<a-;>:exec -draft bd<ret>'
-#map global prompt <c-w> <>
+#map global prompt <c-w> <> # #TODO: wait https://github.com/mawww/kakoune/pull/800
 
 # move by chars
 map global insert <a-h> <left>
@@ -20,13 +20,13 @@ map global insert <a-l> <right>
 # move by words
 map global insert <a-o> <esc>el\;i
 map global insert <a-u> <esc>b\;i
-map global prompt <a-o> <c-e>
+map global prompt <a-o> <c-e><right>
 map global prompt <a-u> <c-b>
 
 map global insert <a-O> <esc><a-e>l\;i
 map global insert <a-U> <esc><a-b>\;i
-#map global prompt <a-O> <c-a-e>
-#map global prompt <a-U> <c-a-b>
+map global prompt <a-O> <c-a-e><right>
+map global prompt <a-U> <c-a-b>
 
 # move by lines
 map global insert <a-d> <home>
@@ -35,8 +35,13 @@ map global prompt <a-d> <home>
 map global prompt <a-f> <end>
 
 # Normal ────────────────────────────────────────────────────────────────────
+# swap : and ;
 map global normal ';' ':'
 map global normal ':' ';'
+
+# swap , and <space>
+map global normal <space> ','
+map global normal ',' <space>
 
 # vimlike half page movements
 map global normal <c-u> gtvc
@@ -70,6 +75,7 @@ map global user w ':w<ret>'  -docstring 'save file'
 
 map global user e ':eval %reg{.}<ret>' -docstring 'execute selection'
 map global user l 'gi<a-l>' -docstring 'inner line'
+map global user s :auto-pairs-surround<ret>
 
 # Goto ───────────────────────────────────────────────────────────────────────
 map global goto p '<esc>:bp<ret>' -docstring 'buffer previous'

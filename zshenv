@@ -1,10 +1,10 @@
 # nvim editor config
-export EDITOR='/usr/bin/nvim'
+# export EDITOR='/usr/bin/nvim'
 
 # kakoune editor config
-# export EDITOR='/usr/bin/kak'
-# export PAGER=$HOME/.bin/kakpager
-# export MANPAGER=$HOME/.bin/kakmanpager
+export EDITOR='/usr/bin/kak'
+export PAGER=$HOME/.bin/kakpager
+export MANPAGER=$HOME/.bin/kakmanpager
 
 # user paths
 export PATH="$HOME/.bin:$HOME/projects/umsf/bin:$PATH"
