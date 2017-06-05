@@ -18,6 +18,7 @@ plugins=(
   command-not-found
   pj
   zsh-navigation-tools
+  yarn elm
 
   # miscellaneous
   bundler ruby rails gem rvm

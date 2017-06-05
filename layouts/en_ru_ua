@@ -16,7 +16,8 @@ xkb_keymap {
     modifier_map Mod4 { <COMP> };
 
     replace key <AC10> { [ colon, semicolon ],
-                        [ Cyrillic_zhe, Cyrillic_ZHE ] };
+                         [ Cyrillic_zhe, Cyrillic_ZHE ],
+                         [ Cyrillic_zhe, Cyrillic_ZHE ] };
 
     // helpers //
     // xinput list

@@ -192,11 +192,26 @@ call dein#add('tpope/vim-bundler')
 call dein#add('rhysd/vim-textobj-ruby')
 call dein#add('fishbullet/deoplete-ruby')
 
-" rubocop autocorrect
-autocmd FileType ruby nnoremap <leader>ru :w<cr>:!rubocop -a <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
+let neosimpp_path = '~/.config/nvim/bundle/repos/github.com/Shougo/neosnippet-snippets/neosnippets/'
+exec "au BufNewFile,BufRead Gemfile NeoSnippetSource ".neosimpp_path."Gemfile.snip"
+exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 
-" autoclose |
-autocmd FileType ruby let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|': '|'}
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Elm
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call dein#add('ElmCast/elm-vim') " {{{
+  let g:elm_format_autosave = 1
+  let g:elm_setup_keybindings = 0 " use bindings from ftplugin/elm.vim
+
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:elm_syntastic_show_warnings = 1
+
+  " let g:deoplete#omni#functions.elm = ['elm#Complete']
+  " let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
+  " let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
+" }}}
+call dein#add('pbogut/deoplete-elm')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C#
@@ -205,9 +220,6 @@ autocmd FileType ruby let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'
 " call dein#add('OmniSharp/omnisharp-vim')
 " let g:deoplete#omni#functions = {}
 " let g:deoplete#omni#functions.cs = 'OmniSharp#Complete'
-
-autocmd FileType cs setlocal commentstring=//\ %s
-autocmd FileType cs setlocal noexpandtab
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git
@@ -729,10 +741,6 @@ autocmd BufReadPost *
 " autosave
 autocmd FocusLost * silent! wall
 set autowriteall
-
-let neosimpp_path = '~/.config/nvim/bundle/repos/github.com/Shougo/neosnippet-snippets/neosnippets/'
-exec "au BufNewFile,BufRead Gemfile NeoSnippetSource ".neosimpp_path."Gemfile.snip"
-exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 
 autocmd BufRead,BufNewFile *.conf setf dosini
 

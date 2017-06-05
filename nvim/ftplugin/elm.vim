@@ -1,0 +1,7 @@
+nmap <buffer> <leader>em <Plug>(elm-make)
+nmap <buffer> <leader>eb <Plug>(elm-make-main)
+nmap <buffer> <leader>et <Plug>(elm-test)
+nmap <buffer> <leader>er <Plug>(elm-repl)
+nmap <buffer> <leader>ee <Plug>(elm-error-detail)
+nmap <buffer> <leader>ed <Plug>(elm-show-docs)
+nmap <buffer> <leader>ew <Plug>(elm-browse-docs)

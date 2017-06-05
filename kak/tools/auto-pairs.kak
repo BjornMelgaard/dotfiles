@@ -55,10 +55,12 @@ def auto-pairs-enable -docstring 'Enable automatic closing of pairs' %{
     for pair in $(echo "$kak_opt_auto_pairs" | tr : '\n'); do
       opener=$(echo $pair | cut -d , -f 1)
       closer=$(echo $pair | cut -d , -f 2)
-      echo "hook window InsertChar \Q$closer -group auto-pairs-insert %(auto-pairs-insert-closer %-$opener- %-$closer-)"
       echo "hook window InsertChar \Q$opener -group auto-pairs-insert %(auto-pairs-insert-opener %-$opener- %-$closer-)"
       echo "hook window InsertDelete \Q$opener -group auto-pairs-delete %(auto-pairs-delete-opener %-$opener- %-$closer-)"
-      echo "hook window InsertDelete \Q$closer -group auto-pairs-delete %(auto-pairs-delete-closer %-$opener- %-$closer-)"
+      if [ $opener != $closer ]; then
+        echo "hook window InsertChar \Q$closer -group auto-pairs-insert %(auto-pairs-insert-closer %-$opener- %-$closer-)"
+        echo "hook window InsertDelete \Q$closer -group auto-pairs-delete %(auto-pairs-delete-closer %-$opener- %-$closer-)"
+      fi
     done
   }
   hook window InsertChar \n -group auto-pairs-insert auto-pairs-insert-new-line
@@ -89,11 +91,11 @@ def auto-pairs-surround -docstring 'Enable automatic closing of pairs on selecti
       echo "hook window InsertDelete \Q$opener -group auto-pairs-surround-delete %(auto-pairs-surround-delete-opener %-$opener- %-$closer-)"
     done
   }
-  hook window InsertEnd .* %{
+  hook window InsertEnd .* -group auto-pairs-surround-insert-end %{
+    auto-pairs-enable
     remove-hooks window auto-pairs-surround-insert
     remove-hooks window auto-pairs-surround-delete
-    auto-pairs-disable
-    auto-pairs-enable
+    remove-hooks window auto-pairs-surround-insert-end
   }
   auto-pairs-disable
   exec i
