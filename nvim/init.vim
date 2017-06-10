@@ -214,6 +214,11 @@ call dein#add('ElmCast/elm-vim') " {{{
 call dein#add('pbogut/deoplete-elm')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Idris
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call dein#add('idris-hackers/idris-vim')
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C#
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " call dein#add('Robzz/deoplete-omnisharp')
@@ -326,7 +331,14 @@ call dein#add('editorconfig/editorconfig-vim', {'on_i':1})
 call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-speeddating')
 call dein#add('thinca/vim-visualstar')
-call dein#add('tpope/vim-commentary')
+
+function s:on_commentary_source()
+  xmap #  <Plug>Commentary
+  omap #  <Plug>Commentary
+  nmap # <Plug>CommentaryLine
+endfunction
+call dein#add('tpope/vim-commentary', {'hook_post_source': function('s:on_commentary_source')})
+
 call dein#add('terryma/vim-expand-region')
 call dein#add('chrisbra/NrrwRgn')
 call dein#add('jiangmiao/auto-pairs') "{{{
@@ -341,24 +353,10 @@ call dein#add('junegunn/vim-easy-align') " {{{
   xmap ga <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 " }}}
-call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library','vim-scripts/PatternsOnText']}) " {{{
-  call dein#add('vim-scripts/ingo-library')
-  call dein#add('vim-scripts/PatternsOnText')
-
-  function! s:digestLastSearch() "{{{
-    let temp = substitute(@/, '\\zs', '(', '')
-    return substitute(temp, '\\ze', ')', '')
-  endfunction "}}}
-
-  nnoremap ym :%YankMatches:<c-r>=<SID>digestLastSearch()<cr>::+<left><left>
-  vnoremap ym :YankMatches:<c-r>=<SID>digestLastSearch()<cr>::+<left><left>
-
-  nnoremap yM :%PrintMatches:<c-r>=<SID>digestLastSearch()<cr>:<left>
-  vnoremap yM :PrintMatches:<c-r>=<SID>digestLastSearch()<cr>:<left>
-
-  nnoremap dm :%s:::g<left><left><left>
-  vnoremap dm :s:::g<left><left><left>
-" }}}
+" call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library','vim-scripts/PatternsOnText']}) " {{{
+"   call dein#add('vim-scripts/ingo-library')
+"   call dein#add('vim-scripts/PatternsOnText')
+" " }}}
 call dein#add('bkad/CamelCaseMotion') " {{{
   map <silent> w <Plug>CamelCaseMotion_w
   map <silent> b <Plug>CamelCaseMotion_b
@@ -371,16 +369,6 @@ call dein#add('bkad/CamelCaseMotion') " {{{
 " }}}
 call dein#add('jeetsukumaran/vim-indentwise')
 call dein#add('AndrewRadev/splitjoin.vim')
-
-" nelstrom's Visual line repeat {{{
-  xnoremap . :normal .<CR>
-  xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
-  function! ExecuteMacroOverVisualRange()
-    echo "@".getcmdline()
-    execute ":'<,'>normal @".nr2char(getchar())
-  endfunction
-" }}}
 call dein#add('sbdchd/neoformat')
 call dein#add('tpope/vim-abolish') " {{{
   nnoremap <leader>a :%Subvert:::g<left><left><left>
@@ -422,9 +410,9 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   nnoremap <F3> :NERDTreeFind<CR>
 "}}}
 
-call dein#add('bramblex/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
-  let g:ranger_path='SHELL=/home/bjorn/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
-" }}}
+" call dein#add('bramblex/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
+"   let g:ranger_path='SHELL=/home/bjorn/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
+" " }}}
 call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
   nnoremap <silent> <F9> :TagbarToggle<CR>
 "}}}
@@ -433,7 +421,16 @@ call dein#add('myusuf3/numbers.vim') " {{{
   nnoremap <silent> <F7> :NumbersToggle<cr>
 " }}}
 
-call dein#add('rhysd/clever-f.vim')
+function s:on_cleverf_source()
+  " kakoune like find
+  nmap <M-.> <Plug>(clever-f-repeat-forward)
+  xmap <M-.> <Plug>(clever-f-repeat-forward)
+  omap <M-.> <Plug>(clever-f-repeat-forward)
+  nmap <M->> <Plug>(clever-f-repeat-back)
+  xmap <M->> <Plug>(clever-f-repeat-back)
+  omap <M->> <Plug>(clever-f-repeat-back)
+endfunction
+call dein#add('rhysd/clever-f.vim', {'hook_post_source': function('s:on_cleverf_source')})
 let g:clever_f_timeout_ms = 1 " make clever_f unclever
 
 call dein#add('mhinz/vim-sayonara') " {{{
@@ -539,14 +536,6 @@ call dein#add('romgrk/replace.vim') " {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! s:SelectAndEnterNorm(...)
-  silent exe "normal! '[V']"
-  call feedkeys(":norm ")
-endfunction
-
-vnoremap <leader>. :norm<space>
-nmap <silent> <leader>. :set opfunc=<SID>SelectAndEnterNorm<CR>g@
-
 nnoremap <M-8> #
 
 nnoremap <leader>w :w<cr>
@@ -591,26 +580,6 @@ noremap gl g_
 nnoremap gj G
 nnoremap gk gg
 
-" clipboard actions
-function! s:get_visual_selection()
-  " Why is this not a built-in Vim script function?!
-  let [lnum1, col1] = getpos("'<")[1:2]
-  let [lnum2, col2] = getpos("'>")[1:2]
-  let lines = getline(lnum1, lnum2)
-  let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
-  let lines[0] = lines[0][col1 - 1:]
-  return join(lines, "\n")
-endfunction
-
-" TODO: bug on multilibe selection
-function! s:append_to_clipboard() abort
-  let sel = s:get_visual_selection()
-  " let sel = shellescape(sel)
-  let cmd = 'copyq eval "copyq: change(0, \"text/plain\", str(read(0)) + \"'.sel.'\")\n"'
-  " let cmd = shellescape(cmd)
-  call system(cmd)
-endfunction
-
 inoremap <C-r> <C-r><C-p>
 inoremap <M-p> <C-r><C-p>+
 cnoremap <M-p> <C-r>+
@@ -631,7 +600,6 @@ nnoremap <M-y> y
 vnoremap <M-y> y
 
 nnoremap Y "+y$
-vnoremap Y :<C-u>call <SID>append_to_clipboard()<CR>
 nnoremap <M-Y> y$
 vnoremap <M-Y> y$
 
@@ -749,16 +717,3 @@ autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal nolist
 autocmd FileType vim setlocal fdm=indent keywordprg=:help
 autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
-
-" vim-commentary
-xmap #  <Plug>Commentary
-omap #  <Plug>Commentary
-nmap # <Plug>CommentaryLine
-
-" kakoune like find
-nmap <M-.> <Plug>(clever-f-repeat-forward)
-xmap <M-.> <Plug>(clever-f-repeat-forward)
-omap <M-.> <Plug>(clever-f-repeat-forward)
-nmap <M->> <Plug>(clever-f-repeat-back)
-xmap <M->> <Plug>(clever-f-repeat-back)
-omap <M->> <Plug>(clever-f-repeat-back)
