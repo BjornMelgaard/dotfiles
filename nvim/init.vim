@@ -70,6 +70,7 @@ set grepformat=%f:%l:%c:%m
 
 let mapleader = ","
 let g:mapleader = ","
+let maplocalleader = "\\"
 
 " ui configuration
 set showmatch                                       "automatically highlight matching braces/brackets/etc.
@@ -191,6 +192,7 @@ call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-bundler')
 call dein#add('rhysd/vim-textobj-ruby')
 call dein#add('fishbullet/deoplete-ruby')
+call dein#add('thoughtbot/vim-rspec')
 
 let neosimpp_path = '~/.config/nvim/bundle/repos/github.com/Shougo/neosnippet-snippets/neosnippets/'
 exec "au BufNewFile,BufRead Gemfile NeoSnippetSource ".neosimpp_path."Gemfile.snip"
@@ -286,15 +288,6 @@ call dein#add('Shougo/echodoc.vim') " {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tmux
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('tpope/vim-dispatch') " {{{
-  " call dein#add('radenling/vim-dispatch-neovim')
-  nnoremap <leader>rd :Dispatch<space>
-  nnoremap <leader>rD :Copen<CR>
-
-  " open file under cursor in window above
-  nmap <leader>gf yif<C-k>:e <M-p><CR>
-" }}}
-
 if $TMUX != ''
   call dein#add('tmux-plugins/vim-tmux')
   call dein#add('wellle/tmux-complete.vim')
@@ -305,13 +298,6 @@ if $TMUX != ''
 
     nnoremap <leader>tt :VimuxTogglePane<CR>
     nnoremap <leader>to :call VimuxOpenRunner()<CR>
-  " }}}
-
-  call dein#add('thoughtbot/vim-rspec') " {{{
-    nnoremap \r :call RunCurrentSpecFile()<CR>
-    nnoremap \s :call RunNearestSpec()<CR>
-    nnoremap \\ :call RunLastSpec()<CR>
-    nnoremap \a :call RunAllSpecs()<CR>
   " }}}
 
   " tmux status line
@@ -410,9 +396,6 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   nnoremap <F3> :NERDTreeFind<CR>
 "}}}
 
-" call dein#add('bramblex/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
-"   let g:ranger_path='SHELL=/home/bjorn/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
-" " }}}
 call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
   nnoremap <silent> <F9> :TagbarToggle<CR>
 "}}}
@@ -534,6 +517,21 @@ call dein#add('romgrk/replace.vim') " {{{
 " autocmd InsertLeave * silent! !xkbcomp $HOME/.config/layouts/en_ru $DISPLAY > /dev/null 2&>1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => GUI
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" call dein#add('tpope/vim-dispatch') " {{{
+"   " call dein#add('radenling/vim-dispatch-neovim')
+"   nnoremap <leader>rd :Dispatch<space>
+"   nnoremap <leader>rD :Copen<CR>
+
+"   " open file under cursor in window above
+"   nmap <leader>gf yif<C-k>:e <M-p><CR>
+" }}}
+" call dein#add('bramblex/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
+"   let g:ranger_path='SHELL=/home/bjorn/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
+" " }}}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <M-8> #
@@ -618,6 +616,10 @@ vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 " nnoremap :s/ :s/\v
+
+" quick substitute
+nnoremap dm :%s:::g<left><left><left>
+vnoremap dm :s:::g<left><left><left>
 
 " command-line window
 nnoremap q: q:i
@@ -717,3 +719,4 @@ autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal nolist
 autocmd FileType vim setlocal fdm=indent keywordprg=:help
 autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
+autocmd FileType elm setlocal tabstop=4 shiftwidth=4

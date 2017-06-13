@@ -15,7 +15,7 @@ ln -sfT $DOTFILES_DIR/gtk-3.0-settings.ini $HOME/.config/gtk-3.0/settings.ini
 
 ln -sfT $DOTFILES_DIR/zshrc                $HOME/.zshrc
 ln -sfT $DOTFILES_DIR/zshenv               $HOME/.zshenv
-ln -sfT $DOTFILES_DIR/zprofile             $HOME/.zprofile
+
 ln -sfT $DOTFILES_DIR/xinitrc              $HOME/.xinitrc
 ln -sfT $DOTFILES_DIR/yaourtrc             $HOME/.yaourtrc
 ln -sfT $DOTFILES_DIR/layouts              $HOME/.config/layouts
