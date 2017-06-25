@@ -1,10 +1,10 @@
 # nvim editor config
-# export EDITOR='/usr/bin/nvim'
+export EDITOR='/usr/bin/nvim'
 
 # kakoune editor config
-export EDITOR='/usr/bin/kak'
-export PAGER=$HOME/.bin/kakpager
-export MANPAGER=$HOME/.bin/kakmanpager
+# export EDITOR='/usr/bin/kak'
+# export PAGER=$HOME/.bin/kakpager
+# export MANPAGER=$HOME/.bin/kakmanpager
 
 # user paths
 export PATH="$HOME/.bin:$HOME/projects/umsf/bin:$PATH"
@@ -16,7 +16,8 @@ export PROJECT_PATHS=(~/projects)
 export PATH=/usr/local/heroku/bin:$PATH
 
 # haskell
-export PATH=~/.cabal/bin:$PATH
+# export PATH=~/.cabal/bin:$PATH     # cabal
+export PATH="$HOME/.local/bin:$PATH" # stack
 
 # gem # XXX dont use this, if you use rvm
 # GEM_HOME=$(ls -t -U | ruby -e 'puts Gem.user_dir')

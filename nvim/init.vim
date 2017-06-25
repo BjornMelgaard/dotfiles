@@ -221,6 +221,15 @@ call dein#add('pbogut/deoplete-elm')
 call dein#add('idris-hackers/idris-vim')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Haskell
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call dein#add('neovimhaskell/haskell-vim')
+call dein#add('eagletmt/neco-ghc')
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+" call dein#add('jaspervdj/stylish-haskell')
+" call dein#add('nbouscal/vim-stylish-haskell')
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C#
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " call dein#add('Robzz/deoplete-omnisharp')
@@ -355,10 +364,15 @@ call dein#add('bkad/CamelCaseMotion') " {{{
 " }}}
 call dein#add('jeetsukumaran/vim-indentwise')
 call dein#add('AndrewRadev/splitjoin.vim')
-call dein#add('sbdchd/neoformat')
 call dein#add('tpope/vim-abolish') " {{{
   nnoremap <leader>a :%Subvert:::g<left><left><left>
 " }}}
+
+call dein#add('sbdchd/neoformat')
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation

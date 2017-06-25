@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'pathname'
+require 'json'
+require 'net/http'
+require 'uri'
+require 'openssl'
+
+curdir = File.basename Dir.pwd
+login  = ENV['BITBUCKET_LOGIN']
+pass   = ENV['BITBUCKET_PASS']
+url    = 'https://api.bitbucket.org/1.0/repositories/'
+request_data = {
+  'name'        => curdir,
+  'scm'         => 'git',
+  'is_private'  => 'false',
+  'fork_policy' => 'no_public_forks'
+}
+
+if login.to_s.empty? || pass.to_s.empty?
+  puts 'Please set BITBUCKET_LOGIN and BITBUCKET_PASS:'
+  puts 'export BITBUCKET_LOGIN='
+  puts 'export BITBUCKET_PASS='
+end
+
+uri = URI(url)
+request = Net::HTTP::Post.new(uri)
+request.basic_auth(login, pass)
+request['Content-Type'] = 'application/x-www-form-urlencoded'
+request['Accept'] = '*/*'
+request.set_form_data(request_data)
+
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+response = http.request(request)
+
+unless response.code == '200'
+  puts response.body
+  return
+end
+
+begin
+  json  = JSON.parse(response.body)
+  owner = json['owner']
+  name  = json['name']
+  `git remote rm origin`
+  `git remote add origin ssh://git@bitbucket.org/#{owner}/#{name}.git`
+  `git push -u origin --all`
+  `git push -u origin --tags`
+rescue JSON::ParserError
+  return
+end
