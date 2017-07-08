@@ -19,3 +19,8 @@ bitbucket-delete-repository () {
   repository=${1:-$curdir}
   curl -X DELETE --user "${BITBUCKET_LOGIN}":"${BITBUCKET_PASS}" https://api.bitbucket.org/2.0/repositories/melgaardbjorn/$repository
 }
+
+# https://hackage.haskell.org/package/steeloverseer
+hspec-watch () {
+  sos $1 -c "stack runhaskell $1"
+}

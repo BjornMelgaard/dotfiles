@@ -7,5 +7,5 @@ fun! s:repair()
   normal! :%s:\S\zs}: }:g
 endf
 
-nnoremap <leader>rh :call <SID>repair()<cr>
-" vnoremap <leader>rh :call <SID>repair()<cr>
+nnoremap <localleader>rh :call <SID>repair()<cr>
+" vnoremap <localleader>rh :call <SID>repair()<cr>

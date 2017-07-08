@@ -1,5 +1,8 @@
 # System ├────────────────────────────────────────────────────────────────────
 
+alias netctl="sudo netctl"
+alias pacman="sudo pacman"
+
 alias pjdot="cd $HOME/.config/dotfiles"
 alias pjodot="$EDITOR $HOME/.config/dotfiles"
 
@@ -25,14 +28,18 @@ alias wifi="sudo wifi-menu"
 alias nstop="sudo netctl stop-all"
 
 # Haskell ├────────────────────────────────────────────────────────────────────
-# using https://wiki.archlinux.org/index.php/ArchHaskell and haskell-stack-tool
 
-# alias haskell-reinstall="rm -rf ~/.cabal ~/.ghc && sudo pacman -S ghc cabal-install happy alex && cabal update && cabal install bimap stylish-haskell ghc-mod hspec" # using cabal as pm
+# using https://wiki.archlinux.org/index.php/ArchHaskell and cabal as package manager
+# alias haskell-reinstall="rm -rf ~/.cabal ~/.ghc && sudo pacman -S ghc cabal-install happy alex && cabal update && cabal install bimap stylish-haskell ghc-mod hspec"
+
+# using https://wiki.archlinux.org/index.php/ArchHaskell and stack as package manager
+alias haskell-install="sudo pacman -S haskell-stack-tool && stack install stylish-haskell ghc-mod hspec"
 
 # Stack aliases
 alias st="stack"
 alias stb="stack build"
 alias ghci="stack ghci"
+
 
 # Ruby ├────────────────────────────────────────────────────────────────────
 

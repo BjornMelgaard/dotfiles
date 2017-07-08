@@ -1,4 +1,5 @@
 " vim: fdm=marker ts=2 sts=2 sw=2 fdl=0
+" original from https://github.com/bling/dotvim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Initialize defaults
@@ -226,8 +227,9 @@ call dein#add('idris-hackers/idris-vim')
 call dein#add('neovimhaskell/haskell-vim')
 call dein#add('eagletmt/neco-ghc')
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-" call dein#add('jaspervdj/stylish-haskell')
-" call dein#add('nbouscal/vim-stylish-haskell')
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+call dein#add('eagletmt/ghcmod-vim')
+let g:ghcmod_use_basedir="/home/bjorn/.config/dotfiles/bin"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C#

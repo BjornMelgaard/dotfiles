@@ -6,6 +6,7 @@ ln -sfT $DOTFILES_DIR/zsh                  $HOME/.zsh
 ln -sfT $DOTFILES_DIR/nvim                 $HOME/.config/nvim
 ln -sfT $DOTFILES_DIR/kak                  $HOME/.config/kak
 ln -sfT $DOTFILES_DIR/ranger               $HOME/.config/ranger
+ln -sfT $DOTFILES_DIR/stack-global.yaml    $HOME/.stack/config.yaml
 ln -sfT $DOTFILES_DIR/bin                  $HOME/.bin
 
 ln -sfT $DOTFILES_DIR/gitconfig            $HOME/.gitconfig

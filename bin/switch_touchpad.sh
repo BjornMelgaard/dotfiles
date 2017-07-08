@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TOUCHPAD_ID=16
+TOUCHPAD_ID=15
 xinputcmd=$(xinput list-props $TOUCHPAD_ID | awk '/Device Enabled/ {print $4}')
 echo "$xinputcmd"
 if [ "$xinputcmd" -eq 1 ] ; then
