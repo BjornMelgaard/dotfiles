@@ -38,6 +38,7 @@ http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 response = http.request(request)
 
 unless response.code == '200'
+  puts 'There was an error'
   puts response.body
   return
 end

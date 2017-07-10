@@ -23,3 +23,12 @@ export PATH="$HOME/.bin:$HOME/projects/umsf/bin:$PATH"
 # GEM_HOME=$(ls -t -U | ruby -e 'puts Gem.user_dir')
 # GEM_PATH=$GEM_HOME
 # export PATH=$GEM_HOME/bin:$PATH
+
+# nodejs
+export PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
+
+# rvm
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
