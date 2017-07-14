@@ -40,3 +40,12 @@ source $HOME/.zshenv
 
 # autoload -U compinit && compinit # for zsh-completions
 autoload -U zmv
+
+# nodejs
+export PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
+
+# rvm
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+

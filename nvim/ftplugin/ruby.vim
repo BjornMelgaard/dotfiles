@@ -39,7 +39,7 @@ nnoremap <buffer><leader>rtz :call ZeusToggle()<CR>
 nnoremap <buffer><leader>rts :call SeleniumToggle()<CR>
 
 " rubocop autocorrect
-nnoremap <buffer><leader>ru :w<cr>:!rubocop -a <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
+nnoremap <buffer><silent> <leader>ru :w<cr>:!rubocop -a <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
 
 " add |
 let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|': '|'}
@@ -49,4 +49,10 @@ nnoremap <buffer><localleader>r :call RunCurrentSpecFile()<CR>
 nnoremap <buffer><localleader>s :call RunNearestSpec()<CR>
 nnoremap <buffer><localleader>\ :call RunLastSpec()<CR>
 nnoremap <buffer><localleader>a :call RunAllSpecs()<CR>
+
+" convert assingment to let macros
+nmap <buffer><leader>ca Ilet(<del>:<Esc>Ea)<Esc>lldWysgl{
+
+" convert -> to lambda
+nmap <buffer><leader>cl cf>lambda<esc>ww,dibbC{<del><space><Bar><C-R>+<Bar><esc>
 

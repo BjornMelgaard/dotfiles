@@ -128,6 +128,7 @@ call dein#add('mhinz/vim-startify') "{{{
       \ ]
   let g:startify_disable_at_vimenter = 1
 
+  " enter last opened file if session was saved
   autocmd VimEnter * nested
     \   if !argc()
     \ |   silent! execute ":SLoad " . fnamemodify(getcwd(), ':t')
@@ -149,7 +150,6 @@ call dein#add('neomake/neomake') " {{{
   "   \ '-c', neomake#utils#FindGlobFile('tslint.json'),
   "   \ '--type-check'
   "   \ ]
-
 " }}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
   let g:goldenview__enable_default_mapping=0
@@ -189,11 +189,11 @@ call dein#add('othree/javascript-libraries-syntax.vim', {'on_ft':['javascript','
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ruby
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('tpope/vim-rails')
-call dein#add('tpope/vim-bundler')
-call dein#add('rhysd/vim-textobj-ruby')
-call dein#add('fishbullet/deoplete-ruby')
-call dein#add('thoughtbot/vim-rspec')
+call dein#add('tpope/vim-rails', {'on_ft':['ruby']})
+call dein#add('tpope/vim-bundler', {'on_ft':['ruby']})
+call dein#add('rhysd/vim-textobj-ruby', {'on_ft':['ruby']})
+call dein#add('fishbullet/deoplete-ruby', {'on_ft':['ruby']})
+call dein#add('thoughtbot/vim-rspec', {'on_ft':['ruby']})
 
 let neosimpp_path = '~/.config/nvim/bundle/repos/github.com/Shougo/neosnippet-snippets/neosnippets/'
 exec "au BufNewFile,BufRead Gemfile NeoSnippetSource ".neosimpp_path."Gemfile.snip"
@@ -202,34 +202,34 @@ exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Elm
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('ElmCast/elm-vim') " {{{
-  let g:elm_format_autosave = 1
-  let g:elm_setup_keybindings = 0 " use bindings from ftplugin/elm.vim
+" call dein#add('ElmCast/elm-vim') " {{{
+"   let g:elm_format_autosave = 1
+"   let g:elm_setup_keybindings = 0 " use bindings from ftplugin/elm.vim
 
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:elm_syntastic_show_warnings = 1
+"   let g:syntastic_always_populate_loc_list = 1
+"   let g:syntastic_auto_loc_list = 1
+"   let g:elm_syntastic_show_warnings = 1
 
-  " let g:deoplete#omni#functions.elm = ['elm#Complete']
-  " let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
-  " let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
-" }}}
-call dein#add('pbogut/deoplete-elm')
+"   " let g:deoplete#omni#functions.elm = ['elm#Complete']
+"   " let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
+"   " let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
+" " }}}
+" call dein#add('pbogut/deoplete-elm')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Idris
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('idris-hackers/idris-vim')
+" call dein#add('idris-hackers/idris-vim')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Haskell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('neovimhaskell/haskell-vim')
-call dein#add('eagletmt/neco-ghc')
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('eagletmt/ghcmod-vim')
-let g:ghcmod_use_basedir="/home/bjorn/.config/dotfiles/bin"
+" call dein#add('neovimhaskell/haskell-vim')
+" call dein#add('eagletmt/neco-ghc')
+" autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+" call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+" call dein#add('eagletmt/ghcmod-vim')
+" let g:ghcmod_use_basedir="/home/bjorn/.config/dotfiles/bin"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C#
@@ -262,13 +262,12 @@ call dein#add('tpope/vim-fugitive') "{{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Typescript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('mhartington/nvim-typescript')
-call dein#add('leafgarland/typescript-vim')
+call dein#add('mhartington/nvim-typescript', {'on_ft':['typescript']})
+call dein#add('leafgarland/typescript-vim', {'on_ft':['typescript']})
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" call dein#add('rafi/vim-tagabana')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/neosnippet') " {{{
   set conceallevel=2 concealcursor=niv
@@ -330,14 +329,14 @@ call dein#add('tpope/vim-speeddating')
 call dein#add('thinca/vim-visualstar')
 
 function s:on_commentary_source()
-  xmap #  <Plug>Commentary
-  omap #  <Plug>Commentary
+  xmap # <Plug>Commentary
+  omap # <Plug>Commentary
   nmap # <Plug>CommentaryLine
 endfunction
 call dein#add('tpope/vim-commentary', {'hook_post_source': function('s:on_commentary_source')})
 
-call dein#add('terryma/vim-expand-region')
-call dein#add('chrisbra/NrrwRgn')
+call dein#add('terryma/vim-expand-region') " mapping - + and _
+call dein#add('chrisbra/NrrwRgn') " mapping - ,nr
 call dein#add('jiangmiao/auto-pairs') "{{{
   let g:AutoPairsShortcutToggle = ''
   let g:AutoPairsMapCh = 0
@@ -350,10 +349,6 @@ call dein#add('junegunn/vim-easy-align') " {{{
   xmap ga <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 " }}}
-" call dein#add('vim-scripts/ExtractMatches',{'depends':['vim-scripts/ingo-library','vim-scripts/PatternsOnText']}) " {{{
-"   call dein#add('vim-scripts/ingo-library')
-"   call dein#add('vim-scripts/PatternsOnText')
-" " }}}
 call dein#add('bkad/CamelCaseMotion') " {{{
   map <silent> w <Plug>CamelCaseMotion_w
   map <silent> b <Plug>CamelCaseMotion_b
@@ -365,34 +360,43 @@ call dein#add('bkad/CamelCaseMotion') " {{{
   sunmap ge
 " }}}
 call dein#add('jeetsukumaran/vim-indentwise')
-call dein#add('AndrewRadev/splitjoin.vim')
+call dein#add('AndrewRadev/splitjoin.vim') " mapping - gJ, gS
 call dein#add('tpope/vim-abolish') " {{{
   nnoremap <leader>a :%Subvert:::g<left><left><left>
+  vmap     <leader>a :Subvert:::g<left><left><left>
 " }}}
 
-call dein#add('sbdchd/neoformat')
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
+call dein#add('itchyny/vim-cursorword') " underscore word under cursor
+call dein#add('AndrewRadev/switch.vim') " mapping - gs
+call dein#add('romgrk/replace.vim') " {{{
+  let g:replace_register = '_'
+  nmap R "+<Plug>ReplaceOperator
+  vmap R "+<Plug>ReplaceOperator
+
+  nmap X "+<Plug>ExchangeOperator
+  nmap RR ^R$
+" }}}
+
+call dein#add('sbdchd/neoformat', {'on_ft':['haskell']})
+call dein#add('AndrewRadev/deleft.vim') " mapping - dh
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('mileszs/ack.vim') "{{{
-  let g:ackprg = "ag --nogroup --column --smart-case --follow"
-"}}}
-call dein#add('mbbill/undotree', {'on_cmd':'UndotreeToggle'}) "{{{
-  let g:undotree_SplitLocation='botright'
-  let g:undotree_SetFocusWhenToggle=1
-  nnoremap <silent> <F5> :UndotreeToggle<CR>
-"}}}
+"call dein#add('mileszs/ack.vim') "{{{
+"  let g:ackprg = "ag --nogroup --column --smart-case --follow"
+""}}}
 call dein#add('dkprice/vim-easygrep') "{{{
   let g:EasyGrepRecursive=1
   let g:EasyGrepAllOptionsInExplorer=1
   let g:EasyGrepCommand=1
   let g:EasyGrepFilesToExclude=".svn,.git,node_modules"
   nnoremap <leader>vo :GrepOptions<cr>
+"}}}
+call dein#add('mbbill/undotree', {'on_cmd':'UndotreeToggle'}) "{{{
+  let g:undotree_SplitLocation='botright'
+  let g:undotree_SetFocusWhenToggle=1
+  nnoremap <silent> <F5> :UndotreeToggle<CR>
 "}}}
 call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']}) "{{{
   let NERDTreeShowHidden=1
@@ -438,9 +442,6 @@ call dein#add('mhinz/vim-sayonara') " {{{
   nnoremap Q :Sayonara<cr>
   nnoremap <M-q> :Sayonara!<cr>
 
-  " nnoremap <silent> <M-q> <C-w>c
-  " nnoremap <silent> <M-Q> :bd<cr>
-
   nnoremap <leader>q :xa<cr>
   nnoremap <leader>z :qa!<cr>
 " }}}
@@ -459,11 +460,6 @@ call dein#add('Shougo/denite.nvim') " {{{
   call denite#custom#map('normal', 'Q', '<denite:quit>', 'noremap')
 " }}}
 call dein#add('Shougo/neomru.vim')
-" call dein#add('Shougo/neoyank.vim')
-call dein#add('Shougo/junkfile.vim') " {{{
-  let g:junkfile#directory=s:get_cache_dir('junk')
-  command! -nargs=0 JunkfileTodo call junkfile#open_immediately('todo.md')
-" }}}
 
 nmap <space> [denite]
 nnoremap [denite] <nop>
@@ -505,23 +501,13 @@ call textobj#user#plugin('file', {
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('kana/vim-vspec') " Testing framework
+call dein#add('jparise/vim-graphql', {'on_ft':['graphql']})
 call dein#add('tpope/vim-scriptease', {'on_ft':['vim']})
 call dein#add('tpope/vim-markdown',{'on_ft':['markdown']})
-call dein#add('PotatoesMaster/i3-vim-syntax')
+call dein#add('PotatoesMaster/i3-vim-syntax',{'on_ft':['i3']})
 " call dein#add('takac/vim-hardtime') " {{{
 "   let g:hardtime_default_on = 1
 " }}}
-call dein#add('itchyny/vim-cursorword')
-call dein#add('AndrewRadev/switch.vim')
-call dein#add('romgrk/replace.vim') " {{{
-  let g:replace_register = '_'
-  nmap R "+<Plug>ReplaceOperator
-  vmap R "+<Plug>ReplaceOperator
-
-  nmap X "+<Plug>ExchangeOperator
-  nmap RR ^R$
-" }}}
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Documets editing

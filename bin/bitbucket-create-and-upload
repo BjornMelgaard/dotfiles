@@ -22,6 +22,7 @@ if login.to_s.empty? || pass.to_s.empty?
   puts 'Please set BITBUCKET_LOGIN and BITBUCKET_PASS:'
   puts 'export BITBUCKET_LOGIN='
   puts 'export BITBUCKET_PASS='
+  exit false
 end
 
 uri = URI(url)
@@ -40,7 +41,7 @@ response = http.request(request)
 unless response.code == '200'
   puts 'There was an error'
   puts response.body
-  return
+  exit false
 end
 
 begin

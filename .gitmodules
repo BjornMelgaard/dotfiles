@@ -7,9 +7,6 @@
 [submodule "oh-my-zsh/custom/plugins/zsh-autosuggestions"]
 	path = oh-my-zsh/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "oh-my-zsh/custom/plugins/rake-fast"]
-	path = oh-my-zsh/custom/plugins/rake-fast
-	url = https://github.com/KevinBongart/rake-fast
 [submodule "nvim/bundle/repos/github.com/Shougo/dein.vim"]
 	path = nvim/bundle/repos/github.com/Shougo/dein.vim
 	url = https://github.com/Shougo/dein.vim

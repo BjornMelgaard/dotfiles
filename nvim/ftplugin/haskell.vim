@@ -6,3 +6,8 @@ nmap <buffer><silent> <localleader>q :GhcModTypeClear<CR>
 nmap <buffer><silent> <localleader>g :GhcModSigCodegen<CR>
 nmap <buffer><silent> <localleader>c :GhcModCheck<CR>
 
+augroup fmt-haskell
+  autocmd!
+  autocmd BufWritePre *.hs Neoformat
+augroup END
+
