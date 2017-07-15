@@ -262,8 +262,8 @@ call dein#add('tpope/vim-fugitive') "{{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Typescript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('mhartington/nvim-typescript', {'on_ft':['typescript']})
-call dein#add('leafgarland/typescript-vim', {'on_ft':['typescript']})
+call dein#add('mhartington/nvim-typescript')
+call dein#add('leafgarland/typescript-vim')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocomplete
