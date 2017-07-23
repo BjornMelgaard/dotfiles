@@ -163,7 +163,7 @@ call dein#add('groenewege/vim-less', {'on_ft':['less']})
 call dein#add('cakebaker/scss-syntax.vim', {'on_ft':['scss','sass']})
 call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss','sass']})
 call dein#add('othree/html5.vim', {'on_ft':['html','typescript']})
-call dein#add('digitaltoad/vim-jade', {'on_ft':['jade']})
+call dein#add('digitaltoad/vim-pug', {'on_ft':['pug']})
 call dein#add('mustache/vim-mustache-handlebars', {'on_ft':['mustache','handlebars']})
 call dein#add('Valloric/MatchTagAlways')
 call dein#add('mattn/emmet-vim', {'on_ft':['html','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars','ts']})
@@ -185,6 +185,16 @@ call dein#add('kchmck/vim-coffee-script', {'on_ft':['coffee']})
 call dein#add('mmalecki/vim-node.js', {'on_ft':['javascript']})
 call dein#add('leshill/vim-json', {'on_ft':['javascript','json']})
 call dein#add('othree/javascript-libraries-syntax.vim', {'on_ft':['javascript','coffee','ls','typescript']})
+
+" typescript
+call dein#add('mhartington/nvim-typescript')
+call dein#add('leafgarland/typescript-vim')
+
+" flow
+" call dein#add('flowtype/vim-flow')
+
+" vue
+call dein#add('posva/vim-vue')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ruby
@@ -260,12 +270,6 @@ call dein#add('tpope/vim-fugitive') "{{{
 "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Typescript
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('mhartington/nvim-typescript')
-call dein#add('leafgarland/typescript-vim')
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('Shougo/neosnippet-snippets')
@@ -328,12 +332,12 @@ call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-speeddating')
 call dein#add('thinca/vim-visualstar')
 
-function s:on_commentary_source()
-  xmap # <Plug>Commentary
-  omap # <Plug>Commentary
-  nmap # <Plug>CommentaryLine
+function s:on_tcomment_source()
+  xmap # gc
+  omap # gc
+  nmap # gcc
 endfunction
-call dein#add('tpope/vim-commentary', {'hook_post_source': function('s:on_commentary_source')})
+call dein#add('tomtom/tcomment_vim', {'hook_post_source': function('s:on_tcomment_source')})
 
 call dein#add('terryma/vim-expand-region') " mapping - + and _
 call dein#add('chrisbra/NrrwRgn') " mapping - ,nr
@@ -719,6 +723,4 @@ autocmd BufRead,BufNewFile *.conf setf dosini
 autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal nolist
-autocmd FileType vim setlocal fdm=indent keywordprg=:help
 autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
-autocmd FileType elm setlocal tabstop=4 shiftwidth=4

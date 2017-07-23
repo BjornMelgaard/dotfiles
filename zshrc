@@ -9,7 +9,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 ZSH_USER=$HOME/.zsh
 
 plugins=(
-  tmux
+  tmux tmuxinator
   vi-mode
   history-substring-search
   common-aliases
@@ -48,4 +48,3 @@ export npm_config_prefix=~/.node_modules
 # rvm
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-

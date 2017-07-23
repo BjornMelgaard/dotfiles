@@ -1,0 +1,12 @@
+snippet query
+  query ${1:`substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`} {
+    ${2:TARGET}
+  }
+
+snippet mutation
+  mutation ${1:`substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`} (
+    ${2}
+  ) {
+    ${3}
+  }
+

@@ -1,3 +1,5 @@
+setlocal tabstop=4 shiftwidth=4
+
 nmap <buffer> <localleader>m <Plug>(elm-make)
 nmap <buffer> <localleader>b <Plug>(elm-make-main)
 nmap <buffer> <localleader>t <Plug>(elm-test)
