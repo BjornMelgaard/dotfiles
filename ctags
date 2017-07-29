@@ -22,6 +22,7 @@
 --langdef=js
 --langmap=js:.js
 --langmap=js:+.jsx
+--langmap=js:+.vue
 --regex-js=/[ \t.]([A-Z][A-Z0-9._$]+)[ \t]*[=:][ \t]*([0-9"'\[\{]|null)/\1/n,constant/
 
 --langmap=css:.css
@@ -42,7 +43,7 @@
 --regex-typescript=/^[ \t]*(export|declare)?.*function[ \t]+([a-zA-Z0-9_]+)[ \t]*\(/\2/f,functions/
 --regex-typescript=/^[ \t]*(export|declare).*[ \t]+var[ \t]+([a-zA-Z0-9_]+)/\2/v,variables/
 --regex-typescript=/^[ \t]*(export|declare).*[ \t]+const[ \t]+([a-zA-Z0-9_]+)/\2/v,variables/
---regex-typescript=/^[ \t]*var[ \t]+([a-zA-Z0-9_]+)[ \t]*=[ \t]*function[ \t]*\(\)/\1/v,varlambdas/
+--regex-typescript=/^[ \t]*var[ \t]+([a-zA-Z0-9_]+)[ \t]*=[ \t]*function[ \t]*\(\)/\1/vl,varlambdas/
 --regex-typescript=/^[ \t]*(export)?[ \t]*(public|private)[ \t]+(static)?[ \t]*([a-zA-Z0-9_]+)/\4/m,members/
 --regex-typescript=/^[ \t]*(static|abstract)?[ \t]*([a-zA-Z0-9_]+)[ \t]*\(/\2/m,members/
 --regex-typescript=/^[ \t]*(static|abstract)?[ \t]*([gs]et)[ \t]+([a-zA-Z0-9_]+)/\3/m,members/

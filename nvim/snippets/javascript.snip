@@ -5,3 +5,17 @@ snippet f
 
 snippet us
   'use strict';
+
+snippet console-log
+alias cl
+options head
+  console.log(${0:TARGET})
+
+snippet functions
+  function functions(obj, withInherited = true) {
+    let methods = [];
+    for (let m in obj) {
+      if (typeof obj[m] == "function") methods.push(m)
+    }
+    return withInherited ?  methods : methods.filter(m => obj.hasOwnProperty(m))
+  }

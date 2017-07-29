@@ -144,12 +144,16 @@ call dein#add('neomake/neomake') " {{{
   " let g:neomake_verbose = 3
 
   let g:neomake_ruby_enabled_makers = ['rubocop']
+  " let g:neomake_javascript_enabled_makers = []
   " let g:neomake_typescript_tslint_args = [
   "   \ '--format verbose',
   "   \ '--project', neomake#utils#FindGlobFile('tsconfig.json'),
   "   \ '-c', neomake#utils#FindGlobFile('tslint.json'),
   "   \ '--type-check'
   "   \ ]
+
+  " flow fix
+  " call dein#add('benjie/neomake-local-eslint.vim')
 " }}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
   let g:goldenview__enable_default_mapping=0
@@ -163,12 +167,15 @@ call dein#add('groenewege/vim-less', {'on_ft':['less']})
 call dein#add('cakebaker/scss-syntax.vim', {'on_ft':['scss','sass']})
 call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss','sass']})
 call dein#add('othree/html5.vim', {'on_ft':['html','typescript']})
-call dein#add('digitaltoad/vim-pug', {'on_ft':['pug']})
+call dein#add('digitaltoad/vim-pug', {'on_ft':['pug', 'vue']})
 call dein#add('mustache/vim-mustache-handlebars', {'on_ft':['mustache','handlebars']})
 call dein#add('Valloric/MatchTagAlways')
-call dein#add('mattn/emmet-vim', {'on_ft':['html','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars','ts']})
-autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,less,mustache imap <buffer><c-y><c-y> <c-y>,
-autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,less,mustache vmap <buffer><c-y><c-y> <c-y>,
+call dein#add('mattn/emmet-vim', {'on_ft':['html','vue','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars','ts']})
+autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache imap <buffer><c-y><c-y> <c-y>,
+autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache vmap <buffer><c-y><c-y> <c-y>,
+
+" Attribut deletion
+autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache nm dA lF d2f"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Javascript

@@ -19,7 +19,8 @@ plugins=(
   command-not-found
   pj
   zsh-navigation-tools
-  yarn elm
+  yarn
+  elm
 
   # miscellaneous
   bundler ruby rails gem rvm
@@ -41,9 +42,12 @@ source $HOME/.zshenv
 # autoload -U compinit && compinit # for zsh-completions
 autoload -U zmv
 
-# nodejs
-export PATH="$HOME/.node_modules/bin:$PATH"
-export npm_config_prefix=~/.node_modules
+# npm
+# export PATH="$HOME/.node_modules/bin:$PATH"
+# export npm_config_prefix=~/.node_modules
+
+# yarn
+export PATH="$PATH:$(yarn global bin)"
 
 # rvm
 export PATH="$PATH:$HOME/.rvm/bin"

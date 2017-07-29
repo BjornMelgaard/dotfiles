@@ -25,11 +25,11 @@ alias tkda="tmux ls | grep -v attached | awk '{print substr(\$1, 0, length(\$1)-
 alias mux="tmuxinator"
 alias mux-new="tmuxinator new ${PWD##*/}"
 
-alias tl="tmuxp load tmuxp.dev.yaml"
+alias tl="tmuxp load"
 
 # Misc ├────────────────────────────────────────────────────────────────────
 alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
-alias update-all="yaourt --aur  -Syu --noconfirm && sudo gem update --system && gem update && npm cache clean && npm update -g"
+alias update-all="yaourt --aur  -Syu --noconfirm && sudo gem update --system && gem update && yarn global upgrade"
 alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
 
 # Haskell ├────────────────────────────────────────────────────────────────────
@@ -51,6 +51,16 @@ alias rails-recreate-db="rails db:drop && rails db:create && rails db:migrate"
 
 alias rvm-new-project="rvm use --create --ruby-version"
 alias gem-install-defaults="gem install bundler neovim rubocop"
+
+# JS ├────────────────────────────────────────────────────────────────────
+alias y="yarn"
+alias yr="yarn run"
+alias yrd="yarn run dev"
+alias yrdd="yarn run dev:debug"
+alias yrl="yarn run lint"
+alias yrlf="yarn run lint:fix"
+alias ya="yarn add"
+alias yu="yarn upgrade"
 
 # Work ├────────────────────────────────────────────────────────────────────
 alias greenbadger-test-and-dev="(ng serve --environment=test --port 5000 2>/dev/null; echo test client finished) & (ng serve 2>/dev/null; echo dev client finished) &"
