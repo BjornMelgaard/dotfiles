@@ -20,6 +20,16 @@ bitbucket-delete-repository () {
   curl -X DELETE --user "${BITBUCKET_LOGIN}":"${BITBUCKET_PASS}" https://api.bitbucket.org/2.0/repositories/melgaardbjorn/$repository
 }
 
+github-add-ssh-remote () {
+  remote_name=${1:-upstream}
+  curdir=${PWD##*/}
+  repo_name=${2:-$curdir}
+  username='BjornMelgaard'
+  git remote add $remote_name git@github.com:$username/$repo_name.git
+  current_branch=$(git rev-parse --abbrev-ref HEAD)
+  git push --set-upstream $remote_name $current_branch
+}
+
 github-create-and-upload () {
   curdir=${PWD##*/}
   repo_name=${1:-$curdir}

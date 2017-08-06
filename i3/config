@@ -59,7 +59,7 @@ bindsym $mod+Shift+0 move workspace $WS9
 # Autostart
 # -------------------------------------
 set $terminal termite
-set $browser  google-chrome-stable
+set $browser  google-chrome-stable --remote-debugging-port=4444
 
 exec --no-startup-id python /home/bjorn/.bin/randomize_background.py
 exec --no-startup-id $terminal -e "/home/bjorn/.bin/llserver"

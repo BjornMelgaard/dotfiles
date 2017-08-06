@@ -144,7 +144,13 @@ call dein#add('neomake/neomake') " {{{
   " let g:neomake_verbose = 3
 
   let g:neomake_ruby_enabled_makers = ['rubocop']
-  " let g:neomake_javascript_enabled_makers = []
+  " let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
+  " let g:neomake_typscript_tslint_exe = './node_modules/.bin/tslint'
+  " let g:neomake_typscript_tsc_exe = './node_modules/.bin/tsc'
+  " let g:neomake_typescript_tslint_args = ['--fix']
+
+  " let g:neomake_typescript_enabled_makers = []
+  " let g:neomake_typescript_tslint_args = ['--type-check', '--project', './tsconfig.json']
   " let g:neomake_typescript_tslint_args = [
   "   \ '--format verbose',
   "   \ '--project', neomake#utils#FindGlobFile('tsconfig.json'),
@@ -343,6 +349,8 @@ function s:on_tcomment_source()
   xmap # gc
   omap # gc
   nmap # gcc
+  " make act more like tpope's commentary
+  nmap gcap gcip
 endfunction
 call dein#add('tomtom/tcomment_vim', {'hook_post_source': function('s:on_tcomment_source')})
 

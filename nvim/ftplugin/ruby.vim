@@ -3,7 +3,7 @@ let g:rspec_selenium = 0
 let g:rspec_zeus = 0
 
 function! ReloadRspecCommand() abort
-  let g:rspec_command = 'call VimuxRunCommand("clear; '
+  let g:rspec_command = 'call VimuxRunCommand("clear; CLIENT_PORT=$CLIENT_PORT_DEV '
   if g:rspec_selenium == 1
     let g:rspec_command .= 'RSPEC_SELENIUM=true '
   end

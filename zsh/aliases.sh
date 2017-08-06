@@ -52,6 +52,9 @@ alias rails-recreate-db="rails db:drop && rails db:create && rails db:migrate"
 alias rvm-new-project="rvm use --create --ruby-version"
 alias gem-install-defaults="gem install bundler neovim rubocop"
 
+# Git ├────────────────────────────────────────────────────────────────────
+alias gpa="git push --all"
+
 # JS ├────────────────────────────────────────────────────────────────────
 alias y="yarn"
 alias yr="yarn run"
@@ -60,7 +63,11 @@ alias yrdd="yarn run dev:debug"
 alias yrl="yarn run lint"
 alias yrlf="yarn run lint:fix"
 alias ya="yarn add"
+alias yad="yarn add -D"
+alias yga="yarn global add"
 alias yu="yarn upgrade"
+alias yua="yarn-upgrade-all"
+alias ygu="yarn global upgrade"
 
 # Work ├────────────────────────────────────────────────────────────────────
 alias greenbadger-test-and-dev="(ng serve --environment=test --port 5000 2>/dev/null; echo test client finished) & (ng serve 2>/dev/null; echo dev client finished) &"
