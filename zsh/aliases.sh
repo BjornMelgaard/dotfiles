@@ -54,20 +54,28 @@ alias gem-install-defaults="gem install bundler neovim rubocop"
 
 # Git ├────────────────────────────────────────────────────────────────────
 alias gpa="git push --all"
+alias gdiff="git diff"
 
 # JS ├────────────────────────────────────────────────────────────────────
 alias y="yarn"
+alias yrm="yarn remove"
+
 alias yr="yarn run"
 alias yrd="yarn run dev"
 alias yrdd="yarn run dev:debug"
 alias yrl="yarn run lint"
 alias yrlf="yarn run lint:fix"
+alias yrlw="yarn run lint:watch"
+alias yrt="yarn run test"
+alias yrtd="yarn run test:debug"
+
 alias ya="yarn add"
 alias yad="yarn add -D"
 alias yga="yarn global add"
+
 alias yu="yarn upgrade"
+alias yui="yarn upgrade-interactive"
 alias yua="yarn-upgrade-all"
 alias ygu="yarn global upgrade"
 
 # Work ├────────────────────────────────────────────────────────────────────
-alias greenbadger-test-and-dev="(ng serve --environment=test --port 5000 2>/dev/null; echo test client finished) & (ng serve 2>/dev/null; echo dev client finished) &"

@@ -176,9 +176,9 @@ call dein#add('othree/html5.vim', {'on_ft':['html','typescript']})
 call dein#add('digitaltoad/vim-pug', {'on_ft':['pug', 'vue']})
 call dein#add('mustache/vim-mustache-handlebars', {'on_ft':['mustache','handlebars']})
 call dein#add('Valloric/MatchTagAlways')
-call dein#add('mattn/emmet-vim', {'on_ft':['html','vue','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars','ts']})
-autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache imap <buffer><c-y><c-y> <c-y>,
-autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache vmap <buffer><c-y><c-y> <c-y>,
+call dein#add('mattn/emmet-vim', {'on_ft':['html','vue','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars','ts', 'javascript', 'jsx', 'tsx']})
+autocmd FileType html,javascript,jsx,tsx,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache imap <buffer><c-y><c-y> <c-y>,
+autocmd FileType html,javascript,jsx,tsx,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache vmap <buffer><c-y><c-y> <c-y>,
 
 " Attribut deletion
 autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache nm dA lF d2f"
@@ -381,7 +381,9 @@ call dein#add('bkad/CamelCaseMotion') " {{{
 call dein#add('jeetsukumaran/vim-indentwise')
 call dein#add('AndrewRadev/splitjoin.vim') " mapping - gJ, gS
 call dein#add('tpope/vim-abolish') " {{{
-  nnoremap <leader>a :%Subvert:::g<left><left><left>
+  " abolish current highlightment
+  nnoremap <leader>a "+y//e<CR>:%Subvert:::g<left><left><left><C-r>+<right>
+  nnoremap <leader>A :%Subvert:::g<left><left><left>
   vmap     <leader>a :Subvert:::g<left><left><left>
 " }}}
 
