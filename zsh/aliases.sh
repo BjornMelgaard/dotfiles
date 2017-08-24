@@ -68,6 +68,9 @@ alias yrlf="yarn run lint:fix"
 alias yrlw="yarn run lint:watch"
 alias yrt="yarn run test"
 alias yrtd="yarn run test:debug"
+alias yrtu="yarn run test:update"
+alias yrtw="yarn run test:watch"
+alias yrf="yarn run format"
 
 alias ya="yarn add"
 alias yad="yarn add -D"
@@ -78,4 +81,3 @@ alias yui="yarn upgrade-interactive"
 alias yua="yarn-upgrade-all"
 alias ygu="yarn global upgrade"
 
-# Work ├────────────────────────────────────────────────────────────────────

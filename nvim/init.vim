@@ -180,7 +180,7 @@ call dein#add('mattn/emmet-vim', {'on_ft':['html','vue','xml','xsl','xslt','xsd'
 autocmd FileType html,javascript,jsx,tsx,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache imap <buffer><c-y><c-y> <c-y>,
 autocmd FileType html,javascript,jsx,tsx,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache vmap <buffer><c-y><c-y> <c-y>,
 
-" Attribut deletion
+" Attribute deletion
 autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache nm dA lF d2f"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -200,7 +200,7 @@ call dein#add('leshill/vim-json', {'on_ft':['javascript','json']})
 call dein#add('othree/javascript-libraries-syntax.vim', {'on_ft':['javascript','coffee','ls','typescript']})
 
 " typescript
-call dein#add('mhartington/nvim-typescript')
+" call dein#add('mhartington/nvim-typescript')
 call dein#add('leafgarland/typescript-vim')
 
 " flow
@@ -395,7 +395,7 @@ call dein#add('romgrk/replace.vim') " {{{
   vmap R "+<Plug>ReplaceOperator
 
   nmap X "+<Plug>ExchangeOperator
-  nmap RR ^R$
+  nmap RR cc<C-R>+<esc>
 " }}}
 
 call dein#add('sbdchd/neoformat', {'on_ft':['haskell']})
@@ -593,13 +593,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" kakoune like ovements
+" kakoune like movements
 noremap gh 0
 noremap gi ^
 noremap gl g_
-
-nnoremap gj G
-nnoremap gk gg
+noremap gj G
+noremap gk gg
 
 inoremap <C-r> <C-r><C-p>
 inoremap <M-p> <C-r><C-p>+
@@ -741,3 +740,4 @@ autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal nolist
 autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
+" autocmd FileType javascript setlocal tabstop=2 expandtab

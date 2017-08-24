@@ -76,3 +76,14 @@ EOF
 hspec-watch () {
   sos $1 -c "stack runhaskell $1"
 }
+
+# Work ├────────────────────────────────────────────────────────────────────
+whiteribbon-dev () {
+  $(cd /home/bjorn/projects/airzaar/util/whiteribbon && python2 whiteribbon.py develops-local)
+}
+
+whiteribbon-precommit () {
+  $(cd /home/bjorn/projects/airzaar/util/whiteribbon && python2 whiteribbon.py deploy)
+}
+
+
