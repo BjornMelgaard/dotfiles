@@ -71,6 +71,7 @@ alias yrtd="yarn run test:debug"
 alias yrtu="yarn run test:update"
 alias yrtw="yarn run test:watch"
 alias yrf="yarn run format"
+alias yrs="yarn run start"
 
 alias ya="yarn add"
 alias yad="yarn add -D"

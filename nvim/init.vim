@@ -176,9 +176,9 @@ call dein#add('othree/html5.vim', {'on_ft':['html','typescript']})
 call dein#add('digitaltoad/vim-pug', {'on_ft':['pug', 'vue']})
 call dein#add('mustache/vim-mustache-handlebars', {'on_ft':['mustache','handlebars']})
 call dein#add('Valloric/MatchTagAlways')
-call dein#add('mattn/emmet-vim', {'on_ft':['html','vue','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars','ts', 'javascript', 'jsx', 'tsx']})
-autocmd FileType html,javascript,jsx,tsx,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache imap <buffer><c-y><c-y> <c-y>,
-autocmd FileType html,javascript,jsx,tsx,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache vmap <buffer><c-y><c-y> <c-y>,
+call dein#add('mattn/emmet-vim', {'on_ft':['html','vue','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars','ts', 'javascript', 'jsx', 'typescript']})
+autocmd FileType html,javascript,jsx,typescript,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache imap <buffer><c-y><c-y> <c-y>,
+autocmd FileType html,javascript,jsx,typescript,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache vmap <buffer><c-y><c-y> <c-y>,
 
 " Attribute deletion
 autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache nm dA lF d2f"
@@ -345,14 +345,12 @@ call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-speeddating')
 call dein#add('thinca/vim-visualstar')
 
-function s:on_tcomment_source()
+function s:on_commentary_source()
   xmap # gc
   omap # gc
   nmap # gcc
-  " make act more like tpope's commentary
-  nmap gcap gcip
 endfunction
-call dein#add('tomtom/tcomment_vim', {'hook_post_source': function('s:on_tcomment_source')})
+call dein#add('tpope/vim-commentary', {'hook_post_source': function('s:on_commentary_source')})
 
 call dein#add('terryma/vim-expand-region') " mapping - + and _
 call dein#add('chrisbra/NrrwRgn') " mapping - ,nr
@@ -489,6 +487,7 @@ nnoremap <silent> [denite]l :<C-u>Denite line<cr>
 nnoremap <silent> [denite]m :<C-u>Denite file_mru <cr>
 nnoremap <silent> [denite]b :<C-u>Denite buffer<cr>
 nnoremap <silent> [denite]j :<C-u>JunkfileTodo<cr>
+nnoremap [denite]g :<C-u>Grep<space>
 " nnoremap <silent> [denite]y :<C-u>Denite neoyank<cr>
 
 " git project nav {{{
