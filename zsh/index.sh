@@ -1,5 +1,13 @@
 SCRIPT_DIR=`dirname ${BASH_SOURCE[0]-$0}`
-source ${SCRIPT_DIR}/aliases.sh
-source ${SCRIPT_DIR}/helpers.sh
-source ${SCRIPT_DIR}/movements.sh
+
 source ${SCRIPT_DIR}/npm_chpwd_hook.sh
+source ${SCRIPT_DIR}/movements.sh
+
+source ${SCRIPT_DIR}/haskell.sh
+source ${SCRIPT_DIR}/ruby.sh
+
+source ${SCRIPT_DIR}/db.sh
+source ${SCRIPT_DIR}/git.sh
+source ${SCRIPT_DIR}/system.sh
+source ${SCRIPT_DIR}/work.sh
+source ${SCRIPT_DIR}/yarn.sh
