@@ -200,7 +200,7 @@ call dein#add('leshill/vim-json', {'on_ft':['javascript','json']})
 call dein#add('othree/javascript-libraries-syntax.vim', {'on_ft':['javascript','coffee','ls','typescript']})
 
 " typescript
-" call dein#add('mhartington/nvim-typescript')
+call dein#add('mhartington/nvim-typescript')
 call dein#add('leafgarland/typescript-vim')
 
 " flow
@@ -739,4 +739,5 @@ autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal nolist
 autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
-" autocmd FileType javascript setlocal tabstop=2 expandtab
+autocmd FileType javascript setlocal tabstop=2 expandtab
+autocmd FileType typescript setlocal tabstop=2 expandtab

@@ -26,6 +26,6 @@ alias ygu="yarn global upgrade"
 yat () {
   for var in "$@"
   do
-    yarn add $var
+    yarn add $var @types/$var
   done
 }

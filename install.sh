@@ -24,6 +24,7 @@ ln -sfT $DOTFILES_DIR/layouts              $HOME/.config/layouts
 ln -sfT $DOTFILES_DIR/Xresources           $HOME/.Xresources
 ln -sfT $DOTFILES_DIR/compton.conf         $HOME/.config/compton.conf
 ln -sfT $DOTFILES_DIR/ctags                $HOME/.ctags
+ln -sfT $DOTFILES_DIR/ncmpcpp_bindings     $HOME/.ncmpcpp/bindings
 
 ln -sfT $DOTFILES_DIR/termite              $HOME/.config/termite
 ln -sfT $DOTFILES_DIR/alacritty.yml        $HOME/.alacritty.yml
