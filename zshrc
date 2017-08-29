@@ -50,5 +50,5 @@ autoload -U zmv
 export PATH="$PATH:$(yarn global bin)"
 
 # rvm
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$HOME/.rvm/bin:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

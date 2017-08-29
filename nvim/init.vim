@@ -739,5 +739,7 @@ autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal nolist
 autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
-autocmd FileType javascript setlocal tabstop=2 expandtab
-autocmd FileType typescript setlocal tabstop=2 expandtab
+" autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 expandtab
+
+" autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
+" autocmd FileType html,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=0 copyindent preserveindent noexpandtab
