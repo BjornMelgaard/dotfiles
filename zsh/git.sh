@@ -1,5 +1,5 @@
 alias gpa="git push --all"
-alias gdiff="git diff"
+alias gd="git diff"
 
 bitbucket-delete-repository () {
   curdir=${PWD##*/}

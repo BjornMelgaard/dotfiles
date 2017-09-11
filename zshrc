@@ -7,6 +7,7 @@ ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
 ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 ZSH_USER=$HOME/.zsh
+DISABLE_UPDATE_PROMPT=true
 
 plugins=(
   tmux tmuxinator
@@ -26,7 +27,7 @@ plugins=(
   bundler ruby rails gem rvm
   stack
   docker docker-compose
-  systemd sudo git archlinux
+  systemd sudo archlinux git
 
   # custom plugins
   rake-fast
@@ -37,7 +38,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/docker-alias/zshrc
 source $ZSH_USER/index.sh
-source $HOME/.zshenv
+# source $HOME/.zshenv
 
 # autoload -U compinit && compinit # for zsh-completions
 autoload -U zmv
@@ -50,5 +51,5 @@ autoload -U zmv
 export PATH="$PATH:$(yarn global bin)"
 
 # rvm
-export PATH="$HOME/.rvm/bin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

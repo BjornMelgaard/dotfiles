@@ -23,9 +23,17 @@ alias yui="yarn upgrade-interactive"
 alias yua="yarn-upgrade-all"
 alias ygu="yarn global upgrade"
 
+yadt () {
+  for var in "$@"
+  do
+    yarn add -D $var @types/$var
+  done
+}
+
 yat () {
   for var in "$@"
   do
-    yarn add $var @types/$var
+    yarn add $var
+    yarn add -D @types/$var
   done
 }

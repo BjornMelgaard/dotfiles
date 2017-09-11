@@ -2,3 +2,8 @@ snippet     index
 abbr        export * from './`expand('%:p:h:t')`.component';
 options     head
   export * from './`expand('%:p:h:t')`.component';
+
+snippet console-log
+alias cl
+options head
+  console.log(${0:TARGET})

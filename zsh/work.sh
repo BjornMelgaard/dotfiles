@@ -8,12 +8,6 @@ airzaar-commit () {
   gca -m $1
 }
 
-airzaar-be-sync-and-back () {
-  whiteribbon develops
-  airzaar-be sync
-  whiteribbon develops-local
-}
-
 airzaar-be () {
   if [[  "$1" == "exec" ]]
   then
@@ -34,7 +28,9 @@ airzaar-be () {
     ssh airzaar -t "TERM=screen screen -S develops-be"
   elif [[  "$1" == "sync" ]]
   then
+    whiteribbon develops
     rsync -arhvz --progress /home/bjorn/projects/airzaar/be/ dmitriy@airzaar:/home/dmitriy/airzaar-dev/be/
+    whiteribbon develops-local
   else
     command_list="exec, irb, bash, screen, screen-new, sync"
     echo "Command $1 was not found!"
@@ -48,13 +44,24 @@ airzaar-fe () {
     ssh airzaar -t "cd /home/dmitriy/airzaar-dev/fe/; bash"
   elif [[  "$1" == "screen" ]]
   then
-    ssh airzaar -t "screen -x develops-fe"
+    ssh airzaar -t "TERM=screen screen -x develops-fe"
   elif [[  "$1" == "sync" ]]
   then
+    whiteribbon develops
     rsync -arhvz --progress /home/bjorn/projects/airzaar/fe/ dmitriy@airzaar:/home/dmitriy/airzaar-dev/fe/ --exclude='node_modules' --exclude='bower_components' --exclude='build'
+  elif [[  "$1" == "start" ]]
+  then
+    whiteribbon develops-local
+    yarn run start
   else
     command_list="bash, screen, sync"
     echo "Command $1 was not found!"
     echo "Available commands: $command_list"
   fi
+}
+
+portping() { python <<<"import socket; socket.setdefaulttimeout(1); socket.socket().connect(('$1', $2))" 2> /dev/null && echo OPEN || echo CLOSET; }
+
+pm2-start () {
+  pm2 start --no-daemon ./pm2/$1.json
 }

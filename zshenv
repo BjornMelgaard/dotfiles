@@ -10,14 +10,14 @@ export EDITOR='/usr/bin/nvim'
 export PROJECT_PATHS=(~/projects)
 
 # heroku
-export PATH=/usr/local/heroku/bin:$PATH
+export PATH="$PATH:/usr/local/heroku/bin"
 
 # haskell
 # export PATH=~/.cabal/bin:$PATH     # cabal
-export PATH="$HOME/.local/bin:$PATH" # stack
+export PATH="$PATH:$HOME/.local/bin" # stack
 
 # user paths
-export PATH="$HOME/.bin:$HOME/projects/umsf/bin:$PATH"
+export PATH="$PATH:$HOME/.bin:$HOME/projects/umsf/bin"
 
 # gem # XXX dont use this, if you use rvm
 # GEM_HOME=$(ls -t -U | ruby -e 'puts Gem.user_dir')
