@@ -9,5 +9,8 @@ source ${SCRIPT_DIR}/ruby.sh
 source ${SCRIPT_DIR}/db.sh
 source ${SCRIPT_DIR}/git.sh
 source ${SCRIPT_DIR}/system.sh
-source ${SCRIPT_DIR}/work.sh
 source ${SCRIPT_DIR}/yarn.sh
+
+source ${SCRIPT_DIR}/work/airzaar.sh
+source ${SCRIPT_DIR}/work/rgs.sh
+

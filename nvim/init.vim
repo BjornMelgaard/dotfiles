@@ -427,6 +427,7 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
 
   " disable f and F in privilege of find commands
+  let g:NERDTreeMapOpenVSplit='V'
   let g:NERDTreeMapToggleFiles=''
   let g:NERDTreeMapToggleFilters=''
 
@@ -525,8 +526,17 @@ call dein#add('jparise/vim-graphql', {'on_ft':['graphql']})
 call dein#add('tpope/vim-scriptease', {'on_ft':['vim']})
 call dein#add('tpope/vim-markdown',{'on_ft':['markdown']})
 call dein#add('PotatoesMaster/i3-vim-syntax',{'on_ft':['i3']})
-" call dein#add('takac/vim-hardtime') " {{{
-"   let g:hardtime_default_on = 1
+call dein#add('takac/vim-hardtime') " {{{
+  let g:hardtime_default_on = 1
+  let g:hardtime_allow_different_key = 1
+  let g:hardtime_maxcount = 2
+
+  " doesnt work with wb actually
+  let s:hardtime_abandoned_keys = ["h", "j", "k", "l", "-", "+", "W", "B"]
+  let g:list_of_normal_keys = s:hardtime_abandoned_keys
+  let g:list_of_visual_keys = s:hardtime_abandoned_keys
+
+  " let g:hardtime_ignore_buffer_patterns = [".*fugitive.*", "[unite].*"]
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -701,6 +711,10 @@ tnoremap <right> <C-\><C-n>:bnext<CR>
 tnoremap <up> <C-\><C-n>:tabnext<CR>
 tnoremap <down> <C-\><C-n>:tabprev<CR>
 
+" fix matchit.vim overriding jeetsukumaran/vim-indentwise
+autocmd VimEnter * map [% <Plug>(IndentWiseBlockScopeBoundaryBegin)
+autocmd VimEnter * map ]% <Plug>(IndentWiseBlockScopeBoundaryEnd)
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Finish
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -730,8 +744,8 @@ autocmd BufReadPost *
   \ endif
 
 " autosave
-autocmd FocusLost * silent! wall
-set autowriteall
+" autocmd FocusLost * silent! wall
+" set autowriteall
 
 autocmd BufRead,BufNewFile *.conf setf dosini
 

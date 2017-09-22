@@ -59,9 +59,3 @@ airzaar-fe () {
     echo "Available commands: $command_list"
   fi
 }
-
-portping() { python <<<"import socket; socket.setdefaulttimeout(1); socket.socket().connect(('$1', $2))" 2> /dev/null && echo OPEN || echo CLOSET; }
-
-pm2-start () {
-  pm2 start --no-daemon ./pm2/$1.json
-}

@@ -17,7 +17,9 @@ alias vim="nvim"
 alias vimdiff="nvim -d"
 alias n="nvim"
 alias k="kak"
-alias r="SHELL=/home/bjorn/.bin/rshell ranger"
+alias r="ranger"
+alias rs="SHELL=/home/bjorn/.bin/rshell ranger"
+alias z="zsh"
 
 # Tmux ├────────────────────────────────────────────────────────────────────
 alias tkda="tmux ls | grep -v attached | awk '{print substr(\$1, 0, length(\$1)-1)}' | xargs -n1 tmux kill-session -t"

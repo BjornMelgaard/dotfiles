@@ -1,5 +1,11 @@
 alias gpa="git push --all"
 alias gd="git diff"
+alias gg="git graph"
+alias glo="git log"
+alias gmt="git mergetool --tool=meld"
+
+alias grbc="git rebase --continue"
+alias grba="git rebase --abort"
 
 bitbucket-delete-repository () {
   curdir=${PWD##*/}
