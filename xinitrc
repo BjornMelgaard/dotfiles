@@ -22,7 +22,7 @@ dunst -config ~/.i3/dunstrc &
 
 mopidy &
 redshift-gtk &
-safeeyes &
+# safeeyes &
 copyq &
 pasystray &
 

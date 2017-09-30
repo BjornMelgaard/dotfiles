@@ -3,9 +3,13 @@ alias gd="git diff"
 alias gg="git graph"
 alias glo="git log"
 alias gmt="git mergetool --tool=meld"
+alias gcob="git checkout -b"
 
 alias grbc="git rebase --continue"
 alias grba="git rebase --abort"
+
+alias bgc="beautiful-git-commit"
+alias bgc!="beautiful-git-commit --amend"
 
 bitbucket-delete-repository () {
   curdir=${PWD##*/}

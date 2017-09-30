@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+# usage:
+#
+# in branch with name `feature/trace`
+# > beautiful-git-commit "added something"
+# result in commit message
+# feature (trace): added something
+
+options = ARGV.first(ARGV.length - 1)
+message = ARGV.last
+
+unless message
+  puts 'Message is required'
+  exit false
+end
+
+branch_name = `git rev-parse --abbrev-ref HEAD`.chomp
+
+if branch_name.include? '/'
+  feature, feature_name = branch_name.split('/')
+
+  feature_name = feature_name.gsub(/[-_]/, ' ')
+  header = "#{feature} (#{feature_name})"
+
+  message = "#{header}: #{message}"
+end
+
+`git commit #{options.join(' ')} -m \"#{message}\"`

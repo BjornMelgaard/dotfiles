@@ -10,8 +10,8 @@ ZSH_USER=$HOME/.zsh
 DISABLE_UPDATE_PROMPT=true
 
 plugins=(
-  tmux tmuxinator
   vi-mode
+  tmux
   history-substring-search
   common-aliases
   dircycle dirpersist
@@ -20,14 +20,12 @@ plugins=(
   command-not-found
   pj
   zsh-navigation-tools
-  yarn
-  elm
 
-  # miscellaneous
   bundler ruby rails gem rvm
   stack
   docker docker-compose
   systemd sudo archlinux git
+  yarn
 
   # custom plugins
   rake-fast
@@ -38,7 +36,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/docker-alias/zshrc
 source $ZSH_USER/index.sh
-# source $HOME/.zshenv
+source $HOME/.zshenv
 
 # autoload -U compinit && compinit # for zsh-completions
 autoload -U zmv

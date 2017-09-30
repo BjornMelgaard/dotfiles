@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 #-- Script to automate https://help.github.com/articles/why-is-git-always-asking-for-my-password
 
 REPO_URL=`git remote -v | grep -m1 '^origin' | sed -Ene's#.*(https://[^[:space:]]*).*#\1#p'`

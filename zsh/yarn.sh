@@ -1,5 +1,6 @@
 alias y="yarn"
 alias yrm="yarn remove"
+alias yl="yarn link"
 
 alias yr="yarn run"
 alias yrd="yarn run dev"
@@ -11,6 +12,7 @@ alias yrt="yarn run test"
 alias yrtd="yarn run test:debug"
 alias yrtu="yarn run test:update"
 alias yrtw="yarn run test:watch"
+alias yrb="yarn run build"
 alias yrf="yarn run format"
 alias yrs="yarn run start"
 

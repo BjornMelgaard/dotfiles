@@ -247,12 +247,12 @@ exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Haskell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" call dein#add('neovimhaskell/haskell-vim')
-" call dein#add('eagletmt/neco-ghc')
-" autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-" call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-" call dein#add('eagletmt/ghcmod-vim')
-" let g:ghcmod_use_basedir="/home/bjorn/.config/dotfiles/bin"
+call dein#add('neovimhaskell/haskell-vim')
+call dein#add('eagletmt/neco-ghc')
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+call dein#add('eagletmt/ghcmod-vim')
+let g:ghcmod_use_basedir="/home/bjorn/.config/dotfiles/bin"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C#
@@ -430,6 +430,7 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   let g:NERDTreeMapOpenVSplit='V'
   let g:NERDTreeMapToggleFiles=''
   let g:NERDTreeMapToggleFilters=''
+  let g:NERDTreeMapHelp='<M-?>'
 
   let g:NERDTreeMapQuit='Q'
   nnoremap <F2> :NERDTreeToggle<CR>
