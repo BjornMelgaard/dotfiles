@@ -3,7 +3,7 @@
 # usage:
 #
 # in branch with name `feature/trace`
-# > beautiful-git-commit "added something"
+# > beautiful-git-commit -m "added something"
 # result in commit message
 # feature (trace): added something
 
@@ -26,4 +26,4 @@ if branch_name.include? '/'
   message = "#{header}: #{message}"
 end
 
-`git commit #{options.join(' ')} -m \"#{message}\"`
+`git commit #{options.join(' ')} \"#{message}\"`

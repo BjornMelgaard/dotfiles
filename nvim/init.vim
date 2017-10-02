@@ -325,6 +325,8 @@ if $TMUX != ''
 
     nnoremap <leader>tt :VimuxTogglePane<CR>
     nnoremap <leader>to :call VimuxOpenRunner()<CR>
+    nnoremap <Leader>tl :VimuxRunLastCommand<CR>
+    nnoremap <Leader>tr ::call VimuxRunCommand("yr run && cat output/pipePFn.d.ts")<CR>
   " }}}
 
   " tmux status line

@@ -8,8 +8,8 @@ alias gcob="git checkout -b"
 alias grbc="git rebase --continue"
 alias grba="git rebase --abort"
 
-alias bgc="beautiful-git-commit"
-alias bgc!="beautiful-git-commit --amend"
+alias bc="beautiful-git-commit"
+alias bc!="beautiful-git-commit --amend"
 
 bitbucket-delete-repository () {
   curdir=${PWD##*/}
