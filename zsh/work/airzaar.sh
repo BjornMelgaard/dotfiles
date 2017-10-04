@@ -5,7 +5,7 @@ whiteribbon () {
 airzaar-commit () {
   whiteribbon deploy
   gaa
-  gca -m $1
+  bc -m $1
 }
 
 airzaar-be () {

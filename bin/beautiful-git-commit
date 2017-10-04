@@ -7,13 +7,16 @@
 # result in commit message
 # feature (trace): added something
 
-options = ARGV.first(ARGV.length - 1)
-message = ARGV.last
+options = ARGV
+message_pointer_index = options.index('-m')
 
-unless message
+unless message_pointer_index
   puts 'Message is required'
   exit false
 end
+
+message = options.delete_at(message_pointer_index + 1)
+options.delete_at(message_pointer_index)
 
 branch_name = `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -26,4 +29,4 @@ if branch_name.include? '/'
   message = "#{header}: #{message}"
 end
 
-`git commit #{options.join(' ')} \"#{message}\"`
+`git commit #{options.join(' ')} -m \"#{message}\"`

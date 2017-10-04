@@ -71,6 +71,7 @@ bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
 bindsym $mod+e       exec $terminal -e "zsh -c tmuxx"
 bindsym $mod+Shift+e exec $terminal -e "zsh -c 'tmux new'"
+bindsym $mod+Ctrl+e  exec atom
 
 bindsym $mod+w       exec $browser
 bindsym $mod+Shift+w exec qutebrowser

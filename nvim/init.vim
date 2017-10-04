@@ -747,8 +747,8 @@ autocmd BufReadPost *
   \ endif
 
 " autosave
-" autocmd FocusLost * silent! wall
-" set autowriteall
+autocmd FocusLost * silent! wall
+set autowriteall
 
 autocmd BufRead,BufNewFile *.conf setf dosini
 

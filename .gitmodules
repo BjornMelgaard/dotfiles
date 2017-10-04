@@ -1,6 +1,3 @@
-[submodule "oh-my-zsh/custom/plugins/docker-alias"]
-	path = oh-my-zsh/custom/plugins/docker-alias
-	url = https://github.com/tcnksm/docker-alias
 [submodule "oh-my-zsh/custom/plugins/zsh-completions"]
 	path = oh-my-zsh/custom/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
