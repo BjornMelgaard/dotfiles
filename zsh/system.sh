@@ -54,3 +54,8 @@ windows:
 EOF
   nvim $fullname
 }
+
+mkdcd () {
+  mkdir $1
+  cd $1
+}
