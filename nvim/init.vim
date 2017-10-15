@@ -309,7 +309,6 @@ call dein#add('romgrk/replace.vim') " {{{
   nmap RR cc<C-R>+<esc>
 " }}}
 
-call dein#add('sbdchd/neoformat', {'on_ft':['haskell']})
 call dein#add('AndrewRadev/deleft.vim') " mapping - dh
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -514,13 +513,17 @@ exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 " => Haskell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('neovimhaskell/haskell-vim', { 'on_ft':['haskell'] })
-" call dein#add('eagletmt/neco-ghc', { 'on_ft':['haskell'] })
+
+call dein#add('eagletmt/neco-ghc', { 'on_ft':['haskell'] })
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+call dein#add('sbdchd/neoformat', {'on_ft':['haskell']})
+let g:neoformat_enabled_haskell = ['stackstylishhaskell']
+
 call dein#add('Shougo/vimproc.vim', {'build' : 'make', 'on_ft':['haskell'] })
 call dein#add('eagletmt/ghcmod-vim', { 'on_ft':['haskell'] })
 " let g:ghcmod_use_basedir="/home/bjorn/.config/dotfiles/nvim/ghcmod-fix"
 
-" TODO: try
 " let g:deoplete#omni#input_patterns.haskell = '[^. *\t]'
 " let g:deoplete#omni#input_patterns.haskell = '[.\w]+'
 
