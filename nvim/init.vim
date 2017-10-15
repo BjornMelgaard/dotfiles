@@ -517,8 +517,12 @@ call dein#add('neovimhaskell/haskell-vim', { 'on_ft':['haskell'] })
 call dein#add('eagletmt/neco-ghc', { 'on_ft':['haskell'] })
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-call dein#add('sbdchd/neoformat', {'on_ft':['haskell']})
-let g:neoformat_enabled_haskell = ['stackstylishhaskell']
+" TODO: wait https://github.com/danstiner/hfmt/issues/17
+" call dein#add('sbdchd/neoformat', {'on_ft':['haskell']})
+" let g:neoformat_enabled_haskell = ['hindent']
+" let g:neoformat_enabled_haskell = ['stylishhaskell']
+" let g:neoformat_enabled_haskell = ['hfmt']
+" let g:neoformat_enabled_haskell = ['brittany']
 
 call dein#add('Shougo/vimproc.vim', {'build' : 'make', 'on_ft':['haskell'] })
 call dein#add('eagletmt/ghcmod-vim', { 'on_ft':['haskell'] })
@@ -526,6 +530,19 @@ call dein#add('eagletmt/ghcmod-vim', { 'on_ft':['haskell'] })
 
 " let g:deoplete#omni#input_patterns.haskell = '[^. *\t]'
 " let g:deoplete#omni#input_patterns.haskell = '[.\w]+'
+
+function! Hfmt() abort
+  let path = expand('%:p')
+  let format = 'hfmt -w '
+  call system(format . path)
+  edit!
+endfunction
+
+augroup fmt-haskell
+  autocmd!
+  " autocmd BufWritePre *.hs Neoformat
+  autocmd BufWritePost *.hs call Hfmt()
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C#

@@ -29,11 +29,6 @@ alias mux-new="tmuxinator new ${PWD##*/}"
 
 alias tl="tmuxp load"
 
-# Misc ├────────────────────────────────────────────────────────────────────
-alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
-alias update-all="yaourt --aur  -Syu --noconfirm && sudo gem update --system && gem update && yarn global upgrade"
-alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
-
 tmuxp-new () {
   arg_or_dev=${1:-dev}
   fullname="tmuxp.$arg_or_dev.yaml"
@@ -54,6 +49,11 @@ windows:
 EOF
   nvim $fullname
 }
+
+# Misc ├────────────────────────────────────────────────────────────────────
+alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
+alias update-all="yaourt --aur -Syu --noconfirm && sudo gem update --system && gem update && yarn global upgrade"
+alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~/Music/.Trash-1000 ~/Pictures/.Trash-1000 ~/Videos/.Trash-1000"
 
 mkdcd () {
   mkdir $1

@@ -12,11 +12,6 @@ nmap <buffer><silent> <localleader>e :GhcModExpand<CR>
 nmap <buffer><silent> <localleader>g :GhcModSigCodegen<CR>
 nmap <buffer><silent> <localleader>c :GhcModCheck<CR>
 
-augroup fmt-haskell
-  autocmd!
-  autocmd BufWritePre *.hs Neoformat
-augroup END
-
 " if executable('hasktags') == 1
 "   nnoremap <buffer> <leader>tag :!hasktags -c .<CR><CR>
 " endif
