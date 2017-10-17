@@ -536,6 +536,7 @@ function! Hfmt() abort
   let format = 'hfmt -w '
   call system(format . path)
   edit!
+  Neomake
 endfunction
 
 augroup fmt-haskell
@@ -556,6 +557,7 @@ augroup END
 " => Purescript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('purescript-contrib/purescript-vim', { 'on_ft':['purescript'] })
+" call dein#add('/home/bjorn/projects/psc-ide-vim', { 'on_ft':['purescript'] })
 call dein#add('FrigoEU/psc-ide-vim', { 'on_ft':['purescript'] })
 " checking in file
 " let g:deoplete#omni#input_patterns.purescript = '[^. *\t]'

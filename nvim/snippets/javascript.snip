@@ -3,6 +3,11 @@ alias cl
 options head
   console.log(${0:TARGET})
 
+snippet trace
+alias tr
+options head
+  trace('${0:TARGET}', $0)
+
 snippet functions
   function functions(obj, withInherited = true) {
     let methods = [];

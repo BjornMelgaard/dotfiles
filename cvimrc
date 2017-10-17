@@ -15,12 +15,12 @@ map ^n nextSearchResult
 map ^N previousSearchResult
 map n :execute ^nzz<CR>
 map N :execute ^Nzz<CR>
+map <Leader>du :duplicate<CR>
 
 let mapleader = ","
 map <Leader>t :tabnew https://translate.google.com<CR>
 map <Leader>T :tabnew http://context.reverso.net<CR>
 map <Leader>r :tabnew http://api.rubyonrails.org<CR>
 map <Leader>g :tabnew http://github.com<CR>
-
-let blacklists = ["http://rubygarage.github.io/*","http://localhost/*","https://docs.google.com/*","http://www.kreitmayer.com/*", "https://github.com/* s gn gc gi gp gw y w i b"]
+let blacklists = ["http://rubygarage.github.io/*","http://localhost/*","https://docs.google.com/*","http://www.kreitmayer.com/*","http://www.github.com/*"]
 let searchengine github = "https://github.com/search?utf8=✓&q=%s"

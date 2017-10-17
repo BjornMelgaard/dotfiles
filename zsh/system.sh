@@ -12,6 +12,8 @@ alias d="docker"
 alias pjdot="cd $HOME/.config/dotfiles"
 alias pjodot="$EDITOR $HOME/.config/dotfiles"
 
+alias nh="n-history"
+
 # Editors ├────────────────────────────────────────────────────────────────────
 alias vim="nvim"
 alias vimdiff="nvim -d"
@@ -58,4 +60,19 @@ alias empty-hdd-trash="rm -fdR ~/Documents/.Trash-1000 ~/Downloads/.Trash-1000 ~
 mkdcd () {
   mkdir $1
   cd $1
+}
+
+# Vim ├────────────────────────────────────────────────────────────────────
+link-vim-plugin () {
+  source="/home/bjorn/projects/psc-ide-vim"
+  target="/home/bjorn/.config/dotfiles/nvim/bundle/repos/github.com/FrigoEU/psc-ide-vim"
+  mv $target $target.old
+  ln -sT $source $target
+}
+
+unlink-vim-plugin () {
+  source="/home/bjorn/projects/psc-ide-vim"
+  target="/home/bjorn/.config/dotfiles/nvim/bundle/repos/github.com/FrigoEU/psc-ide-vim"
+  rm -f $target
+  mv $target.old $target
 }

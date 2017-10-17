@@ -20,9 +20,8 @@ alias ya="yarn add"
 alias yad="yarn add -D"
 alias yga="yarn global add"
 
-alias yu="yarn upgrade"
+alias yu="yarn upgrade --latest"
 alias yui="yarn upgrade-interactive"
-alias yua="yarn-upgrade-all"
 alias ygu="yarn global upgrade"
 
 yadt () {

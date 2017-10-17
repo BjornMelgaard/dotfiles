@@ -16,9 +16,16 @@ slots-restart () {
   rgs-start
 }
 
-delete-rounds () {
-  mysql --user=rgs --password=rgs --host=127.0.0.1 --port=3306 rgs <<EOF
+rgs-delete-rounds () {
+  mysql --user=root --password=rgs --host=127.0.0.1 --port=3306 rgs <<EOF
 TRUNCATE \`rgs\`.\`transactions\`;
 DELETE FROM \`rgs\`.\`rounds\`;
+EOF
+}
+
+# SELECT @@global.sql_mode
+rgs-set-global () {
+  mysql --user=root --password=rgs --host=127.0.0.1 --port=3306 rgs <<EOF
+SET global sql_mode = 'NO_ENGINE_SUBSTITUTION';
 EOF
 }
