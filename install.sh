@@ -31,3 +31,5 @@ ln -sfT $DOTFILES_DIR/alacritty.yml        $HOME/.alacritty.yml
 
 ln -sfT $DOTFILES_DIR/tmux                 $HOME/.tmux
 ln -sfT $DOTFILES_DIR/tmux.conf            $HOME/.tmux.conf
+
+ln -sfT $DOTFILES_DIR/commitlintrc.yml     $HOME/.commitlintrc.yml
