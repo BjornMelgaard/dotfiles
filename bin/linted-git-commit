@@ -5,10 +5,10 @@
 # lint commit message using commitlint, commit if valid
 # usage:
 # - in bash
-#   alias lc="linted-git-commit -m"
-#   alias lc!="linted-git-commit --amend -m"
+#   alias lc="linted-git-commit"
+#   alias lc!="linted-git-commit --amend"
 # - in console
-#   gaa && lc "feat: added linted-git-commit"
+#   gaa && lc -m "feat: added linted-git-commit"
 
 # options
 dir_with_commitlint_config = '/home/bjorn/.config/dotfiles/commitlint/'
