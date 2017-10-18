@@ -8,3 +8,4 @@ nvim/.netrwhist
 nvim/bundle
 !nvim/bundle/repos/github.com/Shougo/dein.vim
 .cache
+commitlint/node_modules

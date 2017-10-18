@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@commitlint/config-angular": "^4.2.0"
+  }
+}

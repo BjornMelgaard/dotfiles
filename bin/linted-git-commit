@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+#
+
+options = ARGV
+message_pointer_index = options.index('-m')
+
+unless message_pointer_index
+  puts 'Message is required'
+  exit false
+end
+
+message = options.delete_at(message_pointer_index + 1)
+options.delete_at(message_pointer_index)
+
+
+
+# `git commit #{options.join(' ')} -m \"#{message}\"`

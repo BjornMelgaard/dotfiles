@@ -559,6 +559,7 @@ augroup END
 call dein#add('purescript-contrib/purescript-vim', { 'on_ft':['purescript'] })
 " call dein#add('/home/bjorn/projects/psc-ide-vim', { 'on_ft':['purescript'] })
 call dein#add('FrigoEU/psc-ide-vim', { 'on_ft':['purescript'] })
+let g:psc_ide_log_level=4
 " checking in file
 " let g:deoplete#omni#input_patterns.purescript = '[^. *\t]'
 " let g:deoplete#omni#input_patterns.purescript = '[.\w]+'
@@ -791,8 +792,8 @@ autocmd BufReadPost *
   \ endif
 
 " autosave
-autocmd FocusLost * silent! wall
-set autowriteall
+" autocmd FocusLost * silent! wall
+" set autowriteall
 
 autocmd BufRead,BufNewFile *.conf setf dosini
 

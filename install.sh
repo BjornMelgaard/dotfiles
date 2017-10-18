@@ -8,6 +8,7 @@ ln -sfT $DOTFILES_DIR/kak                  $HOME/.config/kak
 ln -sfT $DOTFILES_DIR/ranger               $HOME/.config/ranger
 ln -sfT $DOTFILES_DIR/stack-global.yaml    $HOME/.stack/config.yaml
 ln -sfT $DOTFILES_DIR/bin                  $HOME/.bin
+ln -sfT $DOTFILES_DIR/czrc                 $HOME/.czrc
 
 ln -sfT $DOTFILES_DIR/gitconfig            $HOME/.gitconfig
 ln -sfT $DOTFILES_DIR/gitignore_global     $HOME/.gitignore_global

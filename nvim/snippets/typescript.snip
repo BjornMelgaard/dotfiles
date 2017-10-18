@@ -5,5 +5,8 @@ options     head
 
 snippet console-log
 alias cl
-options head
   console.log(${0:TARGET})
+
+snippet trace
+alias tr
+  trace('${0:TARGET}', $0)
