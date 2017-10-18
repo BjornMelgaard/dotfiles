@@ -1,7 +1,19 @@
 #!/usr/bin/env ruby
+# Author - Sergey Homa <melgaardbjorn@gmail.com>
+# License - none
 
-#
+# lint commit message using commitlint, commit if valid
+# usage:
+# - in bash
+#   alias lc="linted-git-commit -m"
+#   alias lc!="linted-git-commit --amend -m"
+# - in console
+#   gaa && lc "feat: added linted-git-commit"
 
+# options
+dir_with_commitlint_config = '/home/bjorn/.config/dotfiles/commitlint/'
+
+# run
 options = ARGV
 message_pointer_index = options.index('-m')
 
@@ -13,6 +25,9 @@ end
 message = options.delete_at(message_pointer_index + 1)
 options.delete_at(message_pointer_index)
 
+lint = "commitlint --cwd #{dir_with_commitlint_config}"
+cmd = "echo \"#{message}\" | #{lint}"
 
+return unless system(cmd)
 
-# `git commit #{options.join(' ')} -m \"#{message}\"`
+`git commit #{options.join(' ')} -m \"#{message}\"`

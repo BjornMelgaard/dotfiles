@@ -8,8 +8,9 @@ alias gcob="git checkout -b"
 alias grbc="git rebase --continue"
 alias grba="git rebase --abort"
 
-alias gcz="git cz"
-alias gcz!="git reset HEAD~ && git add --all && git cz"
+alias lc="linted-git-commit -m"
+alias lc!="linted-git-commit --amend -m"
+
 alias gco.="git checkout -- ."
 alias grh="git reset HEAD"
 
