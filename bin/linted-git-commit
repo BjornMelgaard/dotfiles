@@ -2,16 +2,19 @@
 # Author - Sergey Homa <melgaardbjorn@gmail.com>
 # License - none
 
-# lint commit message using commitlint, commit if valid
+# lint commit message using commitlint,
+# commit if message is valid,
+#
+# note:
+#   - commitlint searches config file (.commitlintrc.yml)
+#     upwards of directory tree, so you can store config
+#     file in your $HOME
 # usage:
 # - in bash
 #   alias lc="linted-git-commit"
 #   alias lc!="linted-git-commit --amend"
 # - in console
 #   gaa && lc -m "feat: added linted-git-commit"
-
-# options
-dir_with_commitlint_config = '/home/bjorn/.config/dotfiles/commitlint/'
 
 # run
 options = ARGV
@@ -25,7 +28,7 @@ end
 message = options.delete_at(message_pointer_index + 1)
 options.delete_at(message_pointer_index)
 
-lint = "commitlint --cwd #{dir_with_commitlint_config}"
+lint = 'commitlint'
 cmd = "echo \"#{message}\" | #{lint}"
 
 return unless system(cmd)
