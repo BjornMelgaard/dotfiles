@@ -13,6 +13,7 @@ alias lc!="linted-git-commit --amend"
 
 alias gco.="git checkout -- ."
 alias grh="git reset HEAD"
+alias gpo="git po"
 
 bitbucket-delete-repository () {
   curdir=${PWD##*/}

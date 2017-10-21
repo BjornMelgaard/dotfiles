@@ -24,3 +24,5 @@ if executable('hothasktags') == 1
   nnoremap <buffer> <leader>tag :!hothasktags `find . -iname "*.hs"` > tags<CR><CR>
 endif
 
+" yank selected text inside :{\n<text>\n:}, ready to paste to ghci
+vmap <buffer><silent> <localleader>y ,nr0<C-v>wh100jdO:{<esc>gjo<c-u>:}<esc>gg"*yG:<C-u>q!<CR>

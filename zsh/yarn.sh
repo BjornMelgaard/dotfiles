@@ -20,9 +20,12 @@ alias ya="yarn add"
 alias yad="yarn add -D"
 alias yga="yarn global add"
 
-alias yu="yarn upgrade --latest"
+alias yu="yarn upgrade"
+alias yul="yarn upgrade --latest"
 alias yui="yarn upgrade-interactive"
 alias ygu="yarn global upgrade"
+
+alias yarn-add-npm-ramda="yarn add --dev https://github.com/types/npm-ramda\#dist"
 
 yadt () {
   for var in "$@"

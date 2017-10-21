@@ -25,7 +25,7 @@ rules:
   - always
   - - present-imperative
   header-max-length:
-  - 2
+  - 1
   - always
   - 72
   header-min-length:

@@ -26,13 +26,17 @@ airzaar-be () {
   elif [[  "$1" == "screen-new" ]]
   then
     ssh airzaar -t "TERM=screen screen -S develops-be"
-  elif [[  "$1" == "sync" ]]
+  elif [[ "$1" == "push" ]]
   then
     whiteribbon develops
-    rsync -arhvz --progress /home/bjorn/projects/airzaar/be/ dmitriy@airzaar:/home/dmitriy/airzaar-dev/be/
+    rsync -arhvz —progress —delete —exclude='vendor' ~/sergey_projects/airzaar/be/ dmitriy@airzaar:/home/dmitriy/airzaar-dev/be/
     whiteribbon develops-local
+  elif [[ "$1" == "pull" ]]
+  then
+    rsync -arhvz —progress —exclude='vendor' dmitriy@airzaar:/home/dmitriy/airzaar-dev/be/ ~/sergey_projects/airzaar/be/
+    whiteribbon deploy
   else
-    command_list="exec, irb, bash, screen, screen-new, sync"
+    command_list="exec, irb, bash, screen, screen-new, push, pull"
     echo "Command $1 was not found!"
     echo "Available commands: $command_list"
   fi
@@ -45,7 +49,7 @@ airzaar-fe () {
   elif [[  "$1" == "screen" ]]
   then
     ssh airzaar -t "TERM=screen screen -x develops-fe"
-  elif [[  "$1" == "sync" ]]
+  elif [[  "$1" == "push" ]]
   then
     whiteribbon develops
     rsync -arhvz --progress /home/bjorn/projects/airzaar/fe/ dmitriy@airzaar:/home/dmitriy/airzaar-dev/fe/ --exclude='node_modules' --exclude='bower_components' --exclude='build'
@@ -54,7 +58,7 @@ airzaar-fe () {
     whiteribbon develops-local
     yarn run start
   else
-    command_list="bash, screen, sync"
+    command_list="bash, screen, push"
     echo "Command $1 was not found!"
     echo "Available commands: $command_list"
   fi

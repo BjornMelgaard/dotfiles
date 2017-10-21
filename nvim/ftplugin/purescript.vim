@@ -1,11 +1,11 @@
 " Generate function template from a function signature on the current line
-nmap <buffer><silent> <localleader>ac :<C-U>PaddClause<CR>
+nmap <buffer><silent> <localleader>g :<C-U>PaddClause<CR>
 " type annotation
 nmap <buffer><silent> <localleader>at :<C-U>PaddType<CR>
 " suggestion
 nmap <buffer><silent> <localleader>ap :<C-U>Papply<CR>
 " split case
-nmap <buffer><silent> <localleader>c :<C-U>Pcase<CR>
+nmap <buffer><silent> <localleader>s :<C-U>Pcase<CR>
 
 " ?
 nmap <buffer><silent> <localleader>ai :<C-U>PaddImportQualifications<CR>
