@@ -545,6 +545,8 @@ augroup fmt-haskell
   autocmd BufWritePost *.hs call Hfmt()
 augroup END
 
+call dein#add('Twinside/vim-hoogle', { 'on_ft':['haskell'] })
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C#
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -792,8 +794,8 @@ autocmd BufReadPost *
   \ endif
 
 " autosave
-" autocmd FocusLost * silent! wall
-" set autowriteall
+autocmd FocusLost * silent! wall
+set autowriteall
 
 autocmd BufRead,BufNewFile *.conf setf dosini
 
