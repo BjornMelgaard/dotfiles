@@ -14,6 +14,9 @@ alias pjodot="$EDITOR $HOME/.config/dotfiles"
 
 alias nh="n-history"
 
+# usage ln-s whatfile wherefile
+alias ln-s="ln -sfT"
+
 # Editors ├────────────────────────────────────────────────────────────────────
 alias vim="nvim"
 alias vimdiff="nvim -d"
