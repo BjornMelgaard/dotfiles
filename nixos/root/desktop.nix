@@ -3,7 +3,7 @@
 with lib;
 
 let
-  dotfilesDir="/home/bjorn/.config/dotfiles";
+  dotfilesDir=/home/bjorn/.config/dotfiles;
 in {
   services = {
     openssh.enable = true;

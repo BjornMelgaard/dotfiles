@@ -16,8 +16,8 @@ alias wifi-spot="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
 alias wifi="nmtui"
 alias sctl="systemctl"
 
-alias pjdot="cd $HOME/.config/dotfiles"
-alias pjodot="cd $HOME/.config/dotfiles && $EDITOR"
+alias pjdot="cd $DOTFILES"
+alias pjodot="cd $DOTFILES && $EDITOR"
 
 alias nh="n-history"
 
@@ -38,6 +38,14 @@ empty-hdd-trash () {
   do
     rm -fdR ~/$dir/.Trash-1000
   done
+}
+
+chmodf() {
+  find $2 -type f -exec chmod $1 {} \;
+}
+
+chmodd() {
+  find $2 -type d -exec chmod $1 {} \;
 }
 
 # update-all () {

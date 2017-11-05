@@ -3,12 +3,10 @@
 # import it in your `/etc/nixos/configuration.nix` like this:
 # ```
 # let
-#   dotfilesDir="/home/bjorn/.config/dotfiles";
+#   dotfilesDir=/home/bjorn/.config/dotfiles;
 # in
 #   import "${dotfilesDir}/root/home/default.nix"
 # ```
-
-# TODO: take out path to dotfiles in (maybe in root conf)
 
 { config, pkgs, xorg, ... }:
 
