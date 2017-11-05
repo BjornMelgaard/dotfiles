@@ -1,0 +1,5 @@
+#! /bin/sh
+
+echo "{\"version\":1}"
+echo "[[],"
+conky -q -c /home/bjorn/.config/dotfiles/i3/conkyrc

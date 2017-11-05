@@ -1,25 +1,39 @@
+LOCAL_PATH="/home/bjorn/projects/airzaar"
+REMOTE_PATH="/home/dmitriy/airzaar-dev"
+
+RSYNC_CRED="dmitriy@airzaar:$REMOTE_PATH"
+
+GITLAB_STATE="deploy"
+
+BE_LOCAL_STATE="develops-local"
+BE_REMOTE_STATE="develops"
+
+FE_LOCAL_STATE="develops-local"
+FE_REMOTE_STATE="develops"
+
 whiteribbon () {
-  $(cd /home/bjorn/projects/airzaar/util/whiteribbon && python2 whiteribbon.py $1)
+  (cd $LOCAL_PATH/util/whiteribbon && python whiteribbon.py $1)
 }
 
 airzaar-commit () {
-  whiteribbon deploy
+  whiteribbon $GITLAB_STATE
   gaa
-  lc -m $1
+  #lc -m $1
+  gca -m $1
 }
 
 airzaar-be () {
   if [[  "$1" == "exec" ]]
   then
     # example: airzaar-be exec 'User.find_by(email: "melgaardbjorn@gmail.com").destroy'
-    ssh airzaar -t "cd /home/dmitriy/airzaar-dev/be/; echo '$2' | rails c"
+    ssh airzaar -t "cd $REMOTE_PATH/be/; echo '$2' | rails c"
   elif [[  "$1" == "irb" ]]
   then
     # helper: me = User.find_by(email: 'melgaardbjorn@gmail.com')
-    ssh airzaar -t "cd /home/dmitriy/airzaar-dev/be/; rails c"
+    ssh airzaar -t "cd $REMOTE_PATH/be/; rails c"
   elif [[  "$1" == "bash" ]]
   then
-    ssh airzaar -t "cd /home/dmitriy/airzaar-dev/be/; bash"
+    ssh airzaar -t "cd $REMOTE_PATH/be/; bash"
   elif [[  "$1" == "screen" ]]
   then
     ssh airzaar -t "TERM=screen screen -x develops-be"
@@ -28,13 +42,13 @@ airzaar-be () {
     ssh airzaar -t "TERM=screen screen -S develops-be"
   elif [[ "$1" == "push" ]]
   then
-    whiteribbon develops
-    rsync -arhvz —progress —delete —exclude='vendor' ~/sergey_projects/airzaar/be/ dmitriy@airzaar:/home/dmitriy/airzaar-dev/be/
-    whiteribbon develops-local
+    whiteribbon $BE_REMOTE_STATE
+    rsync -arhvz --progress --delete --exclude='vendor' $LOCAL_PATH/be/ $RSYNC_CRED/be/
+    whiteribbon $BE_LOCAL_STATE
   elif [[ "$1" == "pull" ]]
   then
-    rsync -arhvz —progress —exclude='vendor' dmitriy@airzaar:/home/dmitriy/airzaar-dev/be/ ~/sergey_projects/airzaar/be/
-    whiteribbon deploy
+    rsync -arhvz --progress --exclude='vendor' $RSYNC_CRED/be/ $LOCAL_PATH/be/
+    whiteribbon $GITLAB_STATE
   else
     command_list="exec, irb, bash, screen, screen-new, push, pull"
     echo "Command $1 was not found!"
@@ -45,17 +59,17 @@ airzaar-be () {
 airzaar-fe () {
   if [[  "$1" == "bash" ]]
   then
-    ssh airzaar -t "cd /home/dmitriy/airzaar-dev/fe/; bash"
+    ssh airzaar -t "cd $REMOTE_PATH/fe/; bash"
   elif [[  "$1" == "screen" ]]
   then
     ssh airzaar -t "TERM=screen screen -x develops-fe"
   elif [[  "$1" == "push" ]]
   then
-    whiteribbon develops
-    rsync -arhvz --progress /home/bjorn/projects/airzaar/fe/ dmitriy@airzaar:/home/dmitriy/airzaar-dev/fe/ --exclude='node_modules' --exclude='bower_components' --exclude='build'
+    whiteribbon $FE_REMOTE_STATE
+    rsync -arhvz --progress $LOCAL_PATH/fe/ $RSYNC_CRED/fe/ --exclude='node_modules' --exclude='bower_components' --exclude='./build'
   elif [[  "$1" == "start" ]]
   then
-    whiteribbon develops-local
+    whiteribbon $FE_LOCAL_STATE
     yarn run start
   else
     command_list="bash, screen, push"

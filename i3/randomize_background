@@ -1,3 +1,8 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i python3 -p python3
+
+# TODO make pkg
+
 #  Calls Feh, puts a randomized image on the background, and changes
 # the image every 5 minutes.
 
@@ -7,7 +12,7 @@ import subprocess
 import time
 import random
 
-images = glob.glob('/home/bjorn/.i3/wallpallers/*')
+images = glob.glob('/home/bjorn/.config/dotfiles/i3/wallpallers/*')
 
 first = images[0]
 

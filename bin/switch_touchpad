@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/sh
 
 TOUCHPAD_NAME="Elantech Touchpad"
 TOUCHPAD_ID=$(xinput list | sed -n "s/.*${TOUCHPAD_NAME}.*id=\([0-9]\+\).*$/\1/p")

@@ -8,6 +8,7 @@ ln -sfT $DOTFILES_DIR/kak                  $HOME/.config/kak
 ln -sfT $DOTFILES_DIR/ranger               $HOME/.config/ranger
 ln -sfT $DOTFILES_DIR/stack-global.yaml    $HOME/.stack/config.yaml
 ln -sfT $DOTFILES_DIR/bin                  $HOME/.bin
+ln -sfT $DOTFILES_DIR/dunstrc              $HOME/.config/dunst/dunstrc
 
 ln -sfT $DOTFILES_DIR/gitconfig            $HOME/.gitconfig
 ln -sfT $DOTFILES_DIR/gitignore_global     $HOME/.gitignore_global
@@ -18,11 +19,7 @@ ln -sfT $DOTFILES_DIR/gtk-3.0-settings.ini $HOME/.config/gtk-3.0/settings.ini
 ln -sfT $DOTFILES_DIR/zshrc                $HOME/.zshrc
 ln -sfT $DOTFILES_DIR/zshenv               $HOME/.zshenv
 
-ln -sfT $DOTFILES_DIR/xinitrc              $HOME/.xinitrc
-ln -sfT $DOTFILES_DIR/yaourtrc             $HOME/.yaourtrc
 ln -sfT $DOTFILES_DIR/layouts              $HOME/.config/layouts
-ln -sfT $DOTFILES_DIR/Xresources           $HOME/.Xresources
-ln -sfT $DOTFILES_DIR/compton.conf         $HOME/.config/compton.conf
 ln -sfT $DOTFILES_DIR/ctags                $HOME/.ctags
 ln -sfT $DOTFILES_DIR/ncmpcpp_bindings     $HOME/.ncmpcpp/bindings
 

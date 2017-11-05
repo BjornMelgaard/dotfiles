@@ -1,3 +1,4 @@
-#!/bin/sh
+#! /run/current-system/sw/bin/env nix-shell
+#! nix-shell -i bash
 
 $(dirname $0)/kakpager 'set buffer filetype man'

@@ -1,4 +1,5 @@
-#!/bin/bash
+#! /run/current-system/sw/bin/env nix-shell
+#! nix-shell -i bash
 
 # export ZSH_TMUX_AUTOSTART=false
 

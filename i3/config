@@ -61,22 +61,22 @@ bindsym $mod+Shift+0 move workspace $WS9
 set $terminal termite
 set $browser  google-chrome-stable --remote-debugging-port=4444
 
-exec --no-startup-id python /home/bjorn/.bin/randomize_background.py
-exec --no-startup-id $terminal -e "/home/bjorn/.bin/llserver"
+exec --no-startup-id /home/bjorn/.config/dotfiles/i3/randomize_background
+# exec --no-startup-id $terminal -e "/home/bjorn/.bin/llserver"
 exec --no-startup-id $browser
 # -------------------------------------
 # Shortcuts
 # -------------------------------------
 bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
-bindsym $mod+e       exec $terminal -e "zsh -c tmuxx"
-bindsym $mod+Shift+e exec $terminal -e "zsh -c 'tmux new'"
-bindsym $mod+Ctrl+e  exec atom
+bindsym $mod+e       exec $terminal -e "/home/bjorn/.config/dotfiles/bin/tmuxx"
+bindsym $mod+Shift+e exec $terminal -e "tmux new"
+bindsym $mod+Ctrl+e  exec code
 
 bindsym $mod+w       exec $browser
 bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+s       exec $terminal -e "zsh -c 'SHELL=rshell ranger'"
-bindsym $mod+Shift+s exec pcmanfm
+bindsym $mod+Shift+s exec nautilus
 bindsym $mod+p       exec --no-startup-id "copyq show"
 bindsym $mod+n       exec smplayer
 bindsym $mod+m       exec anki
@@ -101,12 +101,12 @@ bindsym $mod+Shift+space focus mode_toggle
 bindsym $mod+space       floating toggle
 
 # multimedia keys
-bindsym XF86AudioRaiseVolume  exec "amixer -D pulse sset Master '3%+'"
-bindsym XF86AudioLowerVolume  exec "amixer -D pulse sset Master '3%-'"
-bindsym XF86AudioMute         exec "amixer -D pulse sset Master toggle"
+# bindsym XF86AudioRaiseVolume  exec "amixer sset Master '3%+'"
+# bindsym XF86AudioLowerVolume  exec "amixer sset Master '3%-'"
+# bindsym XF86AudioMute         exec "amixer sset Master toggle"
 bindsym XF86MonBrightnessDown exec "xbacklight -10"
 bindsym XF86MonBrightnessUp   exec "xbacklight +10"
-bindsym XF86TouchpadToggle    exec "/home/bjorn/.bin/switch_touchpad.sh"
+bindsym XF86TouchpadToggle    exec "/home/bjorn/.bin/switch_touchpad"
 bindsym Print                 exec "scrot /home/bjorn/Pictures/%Y-%m-%d-%T-screenshot.png"
 # bindsym XF86Display         exec "arandr"
 # bindsym $mod+e              exec $terminal -e "alsamixer"
@@ -215,7 +215,7 @@ bindsym $mod+Caps_Lock mode "$mode_system"
 bar {
   strip_workspace_numbers yes
   position top
-  status_command /home/bjorn/.bin/conky-wrapper
+  status_command /home/bjorn/.config/dotfiles/i3/conky-wrapper
   colors {
     statusline #AAAAAA
     background #333333
@@ -234,6 +234,6 @@ for_window [window_role="pop-up"]      floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"]      floating enable
 for_window [title="Edit Current$"]     floating enable
-for_window [class="(?i)pcmanfm"]       floating enable
+for_window [class="(?i)nautilus"]       floating enable
 for_window [class="copyq"]             floating enable
 

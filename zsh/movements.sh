@@ -31,10 +31,16 @@ zle -N backward-kill-bigword
 bindkey -M viins '^[w' backward-kill-bigword
 
 # quoted text objects
+autoload -U select-bracketed
 autoload -U select-quoted
 zle -N select-quoted
-for m in visual viopp; do
-  for c in {a,i}{\',\",\`}; do
-    bindkey -M $m $c select-quoted
+zle -N select-bracketed
+for km in visual viopp; do
+  bindkey -M $km -- '-' vi-up-line-or-history
+  for c in {a,i}${(s..)^:-\'\"\`\|,./:;-=+@}; do
+    bindkey -M $km $c select-quoted
+  done
+  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+    bindkey -M $km $c select-bracketed
   done
 done

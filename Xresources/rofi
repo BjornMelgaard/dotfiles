@@ -1,6 +1,7 @@
 rofi.location: 2
 rofi.width: 100
-rofi.font: Hermit 10
+! Hurmit = Hermit in nerdfonts
+rofi.font: Hurmit Nerd Font 10
 
 rofi.color-enabled: true
 rofi.color-window: #3a4c54,#2a373e, #c3c6c8

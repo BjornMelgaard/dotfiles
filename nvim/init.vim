@@ -39,7 +39,7 @@ endif
 
 " base configuration
 set showfulltag
-set shell=/bin/zsh
+set shell=/bin/sh
 set noshelltemp                                     "use pipes
 set clipboard=unnamed
 set inccommand=nosplit
@@ -166,6 +166,22 @@ call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoRe
 "}}}
 call dein#add('jszakmeister/vim-togglecursor')
 
+" search with autocenter and autohide {{{
+  call dein#add('haya14busa/is.vim')
+  let g:is#do_default_mappings = 1
+
+  call dein#add('haya14busa/vim-asterisk')
+  let g:asterisk#keeppos = 1
+
+  map n <Plug>(is-n)zz
+  map N <Plug>(is-N)zz
+  map *  <Plug>(asterisk-z*)zz<Plug>(is-nohl-1)
+  map g* <Plug>(asterisk-gz*)zz<Plug>(is-nohl-1)
+  " using comment on this
+  " map #  <Plug>(asterisk-z#)zz<Plug>(is-nohl-1)
+  " map g# <Plug>(asterisk-gz#)zz<Plug>(is-nohl-1)
+" }}}
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -226,10 +242,11 @@ call dein#add('Shougo/deoplete.nvim') " {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tmux
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call dein#add('christoomey/vim-tmux-navigator')
+
 if $TMUX != ''
   call dein#add('tmux-plugins/vim-tmux')
   call dein#add('wellle/tmux-complete.vim')
-  call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('benmills/vimux') " {{{
     let g:VimuxRunnerType = "window"
     let g:VimuxUseNearest = 0
@@ -451,10 +468,6 @@ autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache nm dA lF 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Javascript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('marijnh/tern_for_vim', {
-      \ 'on_ft': 'javascript',
-      \ 'build': 'npm install'
-      \ })
 call dein#add('pangloss/vim-javascript', {'on_ft':['javascript']})
 call dein#add('maksimr/vim-jsbeautify', {'on_ft':['javascript']}) "{{{
   nnoremap <leader>rjs :call JsBeautify()<cr>
@@ -567,6 +580,11 @@ let g:psc_ide_log_level=4
 " let g:deoplete#omni#input_patterns.purescript = '[.\w]+'
 " checking wia `pulp -w build` (faster)
 " let g:psc_ide_syntastic_mode = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Nix
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call dein#add('LnL7/vim-nix')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
@@ -714,16 +732,10 @@ nnoremap zR zR:echo &foldlevel<cr>
 nnoremap zM zM:echo &foldlevel<cr>
 
 " screen line scroll
-nnoremap <silent> j gj
-nnoremap <silent> k gk
+nnoremap <expr> j v:count > 1 ? "j" : "gj"
+nnoremap <expr> k v:count > 1 ? "k" : "gk"
 
 " auto center
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-nnoremap <silent> g# g#zz
 nnoremap <silent> <C-o> <C-o>zz
 nnoremap <silent> <C-i> <C-i>zz
 

@@ -2,25 +2,44 @@ alias gpa="git push --all"
 alias gd="git diff"
 alias gg="git graph"
 alias glo="git log"
-alias gmt="git mergetool --tool=meld"
 alias gcob="git checkout -b"
+alias gpo="git po"
 
+alias gm="git merge"
+alias gms="git merge --squash"
+alias gmt="git mergetool --tool=meld"
+alias gmc="git merge --continue"
+alias gma="git merge --abort"
+
+alias grb="git rebase"
 alias grbc="git rebase --continue"
 alias grba="git rebase --abort"
+
+alias gcp="git cherry-pick"
+alias gcpc="git cherry-pick --continue"
+alias gcpa="git cherry-pick --abort"
+
+alias gs="git status"
+
+alias gst="git stash"
+alias gsta="git stash apply"
+alias gsts="git stash show"
 
 alias lc="linted-git-commit"
 alias lc!="linted-git-commit --amend"
 
-alias gco.="git checkout -- ."
-alias grh="git reset HEAD"
-alias gpo="git po"
+# !!! DANGER ZONE !!!
+alias gco-all="git checkout -- ."
+alias grH="git reset HEAD"
+alias grH~="git reset HEAD~"
+alias grh="git reset --hard"
+alias gcln="git clean -fd"
 
 bitbucket-delete-repository () {
   curdir=${PWD##*/}
   repo_name=${1:-$curdir}
   curl -X DELETE --user "${BITBUCKET_LOGIN}":"${BITBUCKET_PASS}" https://api.bitbucket.org/2.0/repositories/melgaardbjorn/$repository
 }
-
 
 github-force-add-ssh-remote () {
   remote_name=${1:-origin}

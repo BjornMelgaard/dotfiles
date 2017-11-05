@@ -1,1 +1,0 @@
-import ./root/configuration.nix
