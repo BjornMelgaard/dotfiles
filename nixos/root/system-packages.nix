@@ -14,7 +14,8 @@
     # i3
     pavucontrol
     conky
-    dunst
+
+    # dunst
     copyq
     rofi
     pasystray
@@ -22,6 +23,8 @@
     anki
     xarchiver
 
+    # set themes with gconf
+    numix-gtk-theme
     numix-sx-gtk-theme
     numix-icon-theme-circle
     vanilla-dmz
@@ -57,5 +60,7 @@
 
     stack
     haskellPackages.ghc
+
+    ruby
   ];
 }

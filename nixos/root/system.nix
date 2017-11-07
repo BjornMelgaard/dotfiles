@@ -2,7 +2,7 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  nix.trustedUsers = [ "root" "@wheel" ];
+  # nix.trustedUsers = [ "root" "@wheel" ];
 
   users = {
     mutableUsers = false;

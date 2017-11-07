@@ -1,7 +1,5 @@
-LOCAL_PATH="/home/bjorn/projects/airzaar"
-REMOTE_PATH="/home/dmitriy/airzaar-dev"
-
-RSYNC_CRED="dmitriy@airzaar:$REMOTE_PATH"
+SSH_USER="dmitriy"
+SSH_HOST="strayos"
 
 GITLAB_STATE="deploy"
 
@@ -10,6 +8,11 @@ BE_REMOTE_STATE="develops"
 
 FE_LOCAL_STATE="develops-local"
 FE_REMOTE_STATE="develops"
+
+LOCAL_PATH="/home/bjorn/projects/airzaar"
+REMOTE_PATH="/home/$SSH_USER/strayos"
+
+RSYNC_CRED="$SSH_USER@$SSH_HOST:$REMOTE_PATH"
 
 whiteribbon () {
   (cd $LOCAL_PATH/util/whiteribbon && python whiteribbon.py $1)
@@ -22,24 +25,26 @@ airzaar-commit () {
   gca -m $1
 }
 
+# useful aliases:
+# alias rake="bundle exec rake"
 airzaar-be () {
   if [[  "$1" == "exec" ]]
   then
     # example: airzaar-be exec 'User.find_by(email: "melgaardbjorn@gmail.com").destroy'
-    ssh airzaar -t "cd $REMOTE_PATH/be/; echo '$2' | rails c"
+    ssh $SSH_HOST -t "cd $REMOTE_PATH/be/; echo '$2' | rails c"
   elif [[  "$1" == "irb" ]]
   then
     # helper: me = User.find_by(email: 'melgaardbjorn@gmail.com')
-    ssh airzaar -t "cd $REMOTE_PATH/be/; rails c"
+    ssh $SSH_HOST -t "cd $REMOTE_PATH/be/; rails c"
   elif [[  "$1" == "bash" ]]
   then
-    ssh airzaar -t "cd $REMOTE_PATH/be/; bash"
+    ssh $SSH_HOST -t "cd $REMOTE_PATH/be/; bash"
   elif [[  "$1" == "screen" ]]
   then
-    ssh airzaar -t "TERM=screen screen -x develops-be"
+    ssh $SSH_HOST -t "TERM=screen screen -x develops-be"
   elif [[  "$1" == "screen-new" ]]
   then
-    ssh airzaar -t "TERM=screen screen -S develops-be"
+    ssh $SSH_HOST -t "TERM=screen screen -S develops-be"
   elif [[ "$1" == "push" ]]
   then
     whiteribbon $BE_REMOTE_STATE
@@ -59,10 +64,13 @@ airzaar-be () {
 airzaar-fe () {
   if [[  "$1" == "bash" ]]
   then
-    ssh airzaar -t "cd $REMOTE_PATH/fe/; bash"
+    ssh $SSH_HOST -t "cd $REMOTE_PATH/fe/; bash"
   elif [[  "$1" == "screen" ]]
   then
-    ssh airzaar -t "TERM=screen screen -x develops-fe"
+    ssh $SSH_HOST -t "TERM=screen screen -x develops-fe"
+  elif [[  "$1" == "screen-new" ]]
+  then
+    ssh $SSH_HOST -t "TERM=screen screen -S develops-fe"
   elif [[  "$1" == "push" ]]
   then
     whiteribbon $FE_REMOTE_STATE
@@ -72,7 +80,7 @@ airzaar-fe () {
     whiteribbon $FE_LOCAL_STATE
     yarn run start
   else
-    command_list="bash, screen, push"
+    command_list="bash, screen, screen-new, push"
     echo "Command $1 was not found!"
     echo "Available commands: $command_list"
   fi

@@ -19,7 +19,8 @@ let
 in {
   programs.home-manager = {
     enable = true;
-    path = "https://github.com/rycee/home-manager/archive/release-17.09.tar.gz";
+    path = "$HOME/projects/home-manager";
+    # path = "https://github.com/rycee/home-manager/archive/release-17.09.tar.gz";
   };
 
   home.file.".zshenv".text = ''
@@ -31,25 +32,43 @@ in {
     ${builtins.readFile "${dotfilesDir}/Xresources/rofi"}
   '';
 
-  home.file.".zshrc".source     = "${dotfilesDir}/zshrc";
+  # home.file.".zshrc".source     = "${dotfilesDir}/zshrc";
+  # home.file.".config/nvim".source = "${dotfilesDir}/nvim";
+
   home.file.".tmux.conf".source = "${dotfilesDir}/tmux.conf";
   home.file.".i3/config".source = "${dotfilesDir}/i3/config";
-
-  home.file.".config/nvim".source = "${dotfilesDir}/nvim";
 
   home.file.".config/ranger/commands.py".source   = "${dotfilesDir}/ranger/commands.py";
   home.file.".config/ranger/history".source       = "${dotfilesDir}/ranger/history";
   home.file.".config/ranger/rc.conf".source       = "${dotfilesDir}/ranger/rc.conf";
   home.file.".config/ranger/scope.sh".source      = "${dotfilesDir}/ranger/scope.sh";
 
+  home.file.".gtkrc-2.0".source                   = "${dotfilesDir}/themes/gtkrc-2.0";
+  home.file.".config/gtk-3.0/settings.ini".source = "${dotfilesDir}/themes/gtk-3.0-settings.ini";
+
   home.file.".stack/config.yaml".source           = "${dotfilesDir}/stack-global.yaml";
   home.file.".config/dunst/dunstrc".source        = "${dotfilesDir}/dunstrc";
   home.file.".gitconfig".source                   = "${dotfilesDir}/gitconfig";
   home.file.".gitignore_global".source            = "${dotfilesDir}/gitignore_global";
-  home.file.".gtkrc-2.0".source                   = "${dotfilesDir}/gtkrc-2.0";
-  home.file.".config/gtk-3.0/settings.ini".source = "${dotfilesDir}/gtk-3.0-settings.ini";
   home.file.".ctags".source                       = "${dotfilesDir}/ctags";
   home.file.".ncmpcpp/bindings".source            = "${dotfilesDir}/ncmpcpp_bindings";
   home.file.".config/termite".source              = "${dotfilesDir}/termite";
   home.file.".commitlintrc.yml".source            = "${dotfilesDir}/commitlintrc.yml";
+
+#   services.dunst = {
+#     enable = true;
+#     settings = {
+#       global = {
+#         geometry = "300x5-30+50";
+#         transparency = 10;
+#         frame_color = "#eceff1";
+#         font = "Droid Sans 9";
+#       };
+#       urgency_normal = {
+#         background = "#37474f";
+#         foreground = "#eceff1";
+#         timeout = 10;
+#       };
+#     };
+#   };
 }

@@ -27,4 +27,10 @@ with lib;
 
   swapDevices = singleton
     { device = "/dev/disk/by-label/swap"; };
+
+  fileSystems."/mnt/hdd" =
+    { device = "/dev/disk/by-uuid/22528F11528EE93D";
+      fsType = "ntfs";
+      options = [ "nofail" ];
+    };
 }
