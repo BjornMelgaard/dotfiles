@@ -101,12 +101,12 @@ bindsym $mod+Shift+space focus mode_toggle
 bindsym $mod+space       floating toggle
 
 # multimedia keys
-# bindsym XF86AudioRaiseVolume  exec "amixer sset Master '3%+'"
-# bindsym XF86AudioLowerVolume  exec "amixer sset Master '3%-'"
-# bindsym XF86AudioMute         exec "amixer sset Master toggle"
-# bindsym XF86MonBrightnessDown exec "xbacklight -10"
-# bindsym XF86MonBrightnessUp   exec "xbacklight +10"
-bindsym XF86TouchpadToggle    exec "/home/bjorn/.bin/switch_touchpad"
+bindsym XF86AudioRaiseVolume  exec "dunsted-volume up"
+bindsym XF86AudioLowerVolume  exec "dunsted-volume down"
+bindsym XF86AudioMute         exec "dunsted-volume mute"
+bindsym XF86MonBrightnessDown exec "xbacklight -10"
+bindsym XF86MonBrightnessUp   exec "xbacklight +10"
+bindsym XF86TouchpadToggle    exec "/home/bjorn/.config/dotfiles/bin/switch_touchpad"
 bindsym Print                 exec "scrot /home/bjorn/Pictures/%Y-%m-%d-%T-screenshot.png"
 # bindsym XF86Display         exec "arandr"
 # bindsym $mod+e              exec $terminal -e "alsamixer"

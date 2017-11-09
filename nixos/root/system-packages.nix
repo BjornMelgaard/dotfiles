@@ -63,5 +63,7 @@
 
     ruby
     dunsted-volume
+    netcat-openbsd # nc -U /var/run/acpid.socket
+    xorg.xbacklight
   ];
 }

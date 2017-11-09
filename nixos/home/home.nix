@@ -11,16 +11,12 @@
 
 { pkgs, ... }:
 
-# TODO: take out path to dotfiles (maybe in root conf)
-# TODO: link only some files in nvim to exlude all rubbish
-
 let
   dotfilesDir=/home/bjorn/.config/dotfiles;
 in {
   programs.home-manager = {
     enable = true;
     # path = "$HOME/projects/home-manager";
-    # path = "https://github.com/rycee/home-manager/archive/release-17.09.tar.gz";
     path = "https://github.com/rycee/home-manager/archive/master.tar.gz";
   };
 
@@ -32,29 +28,6 @@ in {
     ${builtins.readFile "${dotfilesDir}/Xresources/colorscheme"}
     ${builtins.readFile "${dotfilesDir}/Xresources/rofi"}
   '';
-
-  # home.file.".zshrc".source     = "${dotfilesDir}/zshrc";
-  # home.file.".config/nvim".source = "${dotfilesDir}/nvim";
-
-  home.file.".tmux.conf".source = "${dotfilesDir}/tmux.conf";
-  home.file.".i3/config".source = "${dotfilesDir}/i3/config";
-
-  home.file.".config/ranger/commands.py".source   = "${dotfilesDir}/ranger/commands.py";
-  home.file.".config/ranger/history".source       = "${dotfilesDir}/ranger/history";
-  home.file.".config/ranger/rc.conf".source       = "${dotfilesDir}/ranger/rc.conf";
-  home.file.".config/ranger/scope.sh".source      = "${dotfilesDir}/ranger/scope.sh";
-
-  home.file.".gtkrc-2.0".source                   = "${dotfilesDir}/themes/gtkrc-2.0";
-  home.file.".config/gtk-3.0/settings.ini".source = "${dotfilesDir}/themes/gtk-3.0-settings.ini";
-
-  home.file.".stack/config.yaml".source           = "${dotfilesDir}/stack-global.yaml";
-  # home.file.".config/dunst/dunstrc".source        = "${dotfilesDir}/dunstrc";
-  home.file.".gitconfig".source                   = "${dotfilesDir}/gitconfig";
-  home.file.".gitignore_global".source            = "${dotfilesDir}/gitignore_global";
-  home.file.".ctags".source                       = "${dotfilesDir}/ctags";
-  home.file.".ncmpcpp/bindings".source            = "${dotfilesDir}/ncmpcpp_bindings";
-  home.file.".config/termite".source              = "${dotfilesDir}/termite";
-  home.file.".commitlintrc.yml".source            = "${dotfilesDir}/commitlintrc.yml";
 
   services.dunst = {
     enable = true;
