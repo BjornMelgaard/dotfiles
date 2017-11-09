@@ -25,23 +25,31 @@ in {
     acpid = {
       enable = true;
       handlers = {
-        volumeDown = {
-          event = "button/volumedown";
-          action = "${pkgs.alsaUtils}/bin/amixer -c0 set Master 3%-";
-        };
         volumeUp = {
           event = "button/volumeup";
-          action = "${pkgs.alsaUtils}/bin/amixer -c0 set Master 3%+";
+          action = "${pkgs.dunsted-volume}/bin/dunsted-volume up";
+        };
+        volumeDown = {
+          event = "button/volumedown";
+          action = "${pkgs.dunsted-volume}/bin/dunsted-volume down";
         };
         mute = {
           event = "button/mute";
-          action = "${pkgs.alsaUtils}/bin/amixer -c0 set Master toggle";
+          action = "${pkgs.dunsted-volume}/bin/dunsted-volume mute";
         };
       };
     };
 
     xserver = {
       enable = true;
+      # defaultApps =[
+      #   {mimetypes = ["image/png" "image/jpeg" "image/gif" "image/x-apple-ios-png"]; exec = "${pkgs.gpicview}/bin/gpicview";}
+      #   {mimetypes = ["text/plain" "text/css"]; exec = "${pkgs.e19.ecrire}/bin/ecrire";}
+      #   {mimetypes = ["text/html"]; exec = "${pkgs.firefox}/bin/firefox";}
+      #   {mimetypes = ["inode/directory"]; exec = "/run/current-system/sw/bin/spacefm";}
+      #   {mimetypes = ["x-scheme-handler/http" "x-scheme-handler/https"]; exec = "/run/current-system/sw/bin/firefox";}
+      #   {mimetypes = ["application/x-compressed-tar" "application/zip"]; exec = "/run/current-system/sw/bin/xarchiver";}
+      # ];
 
       layout = "us,ru";
       xkbOptions = "caps:swapescape,grp:rctrl_rshift_toggle";

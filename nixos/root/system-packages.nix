@@ -24,9 +24,9 @@
     xarchiver
 
     # set themes with gconf
-    numix-gtk-theme
     numix-sx-gtk-theme
     numix-icon-theme-circle
+    numix-icon-theme
     vanilla-dmz
 
     ## misc
@@ -62,5 +62,6 @@
     haskellPackages.ghc
 
     ruby
+    dunsted-volume
   ];
 }

@@ -1,5 +1,15 @@
+LOCAL_PATH="/home/bjorn/projects/airzaar"
 SSH_USER="dmitriy"
-SSH_HOST="strayos"
+
+# airzaar
+SSH_HOST="airzaar"
+REMOTE_PATH="/home/$SSH_USER/airzaar-dev"
+
+# strayos
+# SSH_HOST="strayos"
+# REMOTE_PATH="/home/$SSH_USER/strayos"
+
+RSYNC_CRED="$SSH_USER@$SSH_HOST:$REMOTE_PATH"
 
 GITLAB_STATE="deploy"
 
@@ -8,11 +18,6 @@ BE_REMOTE_STATE="develops"
 
 FE_LOCAL_STATE="develops-local"
 FE_REMOTE_STATE="develops"
-
-LOCAL_PATH="/home/bjorn/projects/airzaar"
-REMOTE_PATH="/home/$SSH_USER/strayos"
-
-RSYNC_CRED="$SSH_USER@$SSH_HOST:$REMOTE_PATH"
 
 whiteribbon () {
   (cd $LOCAL_PATH/util/whiteribbon && python whiteribbon.py $1)
@@ -74,7 +79,7 @@ airzaar-fe () {
   elif [[  "$1" == "push" ]]
   then
     whiteribbon $FE_REMOTE_STATE
-    rsync -arhvz --progress $LOCAL_PATH/fe/ $RSYNC_CRED/fe/ --exclude='node_modules' --exclude='bower_components' --exclude='./build'
+    rsync -arhvz --progress $LOCAL_PATH/fe/ $RSYNC_CRED/fe/ --delete --exclude='node_modules' --exclude='bower_components' --exclude='./build'
   elif [[  "$1" == "start" ]]
   then
     whiteribbon $FE_LOCAL_STATE

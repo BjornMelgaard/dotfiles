@@ -66,7 +66,7 @@ PROJECT_PATHS=(~/projects)
 # export npm_config_prefix=~/.node_modules
 
 # yarn
-# export PATH="$PATH:$(yarn global bin)"
+export PATH="$PATH:$(yarn global bin)"
 
 # rvm
 # export PATH="$PATH:$HOME/.rvm/bin"

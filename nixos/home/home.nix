@@ -6,7 +6,7 @@
 # let
 #   dotfilesDir=/home/bjorn/.config/dotfiles;
 # in
-#   import "${dotfilesDir}/nixos/home/default.nix"
+#   import "${dotfilesDir}/nixos/home/home.nix"
 # ```
 
 { pkgs, ... }:
@@ -19,8 +19,9 @@ let
 in {
   programs.home-manager = {
     enable = true;
-    path = "$HOME/projects/home-manager";
+    # path = "$HOME/projects/home-manager";
     # path = "https://github.com/rycee/home-manager/archive/release-17.09.tar.gz";
+    path = "https://github.com/rycee/home-manager/archive/master.tar.gz";
   };
 
   home.file.".zshenv".text = ''
@@ -47,7 +48,7 @@ in {
   home.file.".config/gtk-3.0/settings.ini".source = "${dotfilesDir}/themes/gtk-3.0-settings.ini";
 
   home.file.".stack/config.yaml".source           = "${dotfilesDir}/stack-global.yaml";
-  home.file.".config/dunst/dunstrc".source        = "${dotfilesDir}/dunstrc";
+  # home.file.".config/dunst/dunstrc".source        = "${dotfilesDir}/dunstrc";
   home.file.".gitconfig".source                   = "${dotfilesDir}/gitconfig";
   home.file.".gitignore_global".source            = "${dotfilesDir}/gitignore_global";
   home.file.".ctags".source                       = "${dotfilesDir}/ctags";
@@ -55,20 +56,27 @@ in {
   home.file.".config/termite".source              = "${dotfilesDir}/termite";
   home.file.".commitlintrc.yml".source            = "${dotfilesDir}/commitlintrc.yml";
 
-#   services.dunst = {
-#     enable = true;
-#     settings = {
-#       global = {
-#         geometry = "300x5-30+50";
-#         transparency = 10;
-#         frame_color = "#eceff1";
-#         font = "Droid Sans 9";
-#       };
-#       urgency_normal = {
-#         background = "#37474f";
-#         foreground = "#eceff1";
-#         timeout = 10;
-#       };
-#     };
-#   };
+  services.dunst = {
+    enable = true;
+    iconTheme = {
+      package = pkgs.gnome3.adwaita-icon-theme;
+      name = "Adwaita";
+    };
+    settings = {
+      global = {
+        geometry = "300x5+30+20";
+        transparency = 10;
+        frame_color = "#eceff1";
+        font = "Droid Sans 9";
+        icon_position = "left";
+        padding = 8;
+        horizontal_padding = 8;
+      };
+      urgency_normal = {
+        background = "#37474f";
+        foreground = "#eceff1";
+        timeout = 10;
+      };
+    };
+  };
 }

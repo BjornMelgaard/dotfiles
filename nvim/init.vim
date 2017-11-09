@@ -89,6 +89,8 @@ autocmd WinLeave * setlocal nocursorline
 autocmd WinEnter * setlocal cursorline
 let &colorcolumn=s:settings.max_column
 
+set hidden
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Core
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -144,19 +146,8 @@ call dein#add('neomake/neomake') " {{{
   " let g:neomake_verbose = 3
 
   let g:neomake_ruby_enabled_makers = ['rubocop']
-  " let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
-  " let g:neomake_typscript_tslint_exe = './node_modules/.bin/tslint'
-  " let g:neomake_typscript_tsc_exe = './node_modules/.bin/tsc'
+  let g:neomake_typescript_enabled_makers = ['tslint']
   " let g:neomake_typescript_tslint_args = ['--fix']
-
-  " let g:neomake_typescript_enabled_makers = []
-  " let g:neomake_typescript_tslint_args = ['--type-check', '--project', './tsconfig.json']
-  " let g:neomake_typescript_tslint_args = [
-  "   \ '--format verbose',
-  "   \ '--project', neomake#utils#FindGlobFile('tsconfig.json'),
-  "   \ '-c', neomake#utils#FindGlobFile('tslint.json'),
-  "   \ '--type-check'
-  "   \ ]
 
   " flow fix
   " call dein#add('benjie/neomake-local-eslint.vim')
@@ -233,11 +224,21 @@ call dein#add('Shougo/deoplete.nvim') " {{{
   " set completeopt=longest,menuone,preview
   "Amount of entries in completion popup
 " }}}
-" call dein#add('Shougo/echodoc.vim') " {{{
-"   set cmdheight=2
-"   let g:echodoc_enable_at_startup = 1
-" " }}}
+call dein#add('Shougo/echodoc.vim') " {{{
+  set cmdheight=2
+  let g:echodoc_enable_at_startup = 1
+" }}}
 " " call dein#add('thalesmello/webcomplete.vim')
+
+call dein#add('autozimu/LanguageClient-neovim')
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tmux
@@ -478,7 +479,7 @@ call dein#add('leshill/vim-json', {'on_ft':['javascript','json']})
 call dein#add('othree/javascript-libraries-syntax.vim', {'on_ft':['javascript','coffee','ls','typescript']})
 
 " typescript
-call dein#add('mhartington/nvim-typescript', { 'on_ft':['typescript'] })
+" call dein#add('mhartington/nvim-typescript', { 'on_ft':['typescript'] })
 call dein#add('leafgarland/typescript-vim', { 'on_ft':['typescript'] })
 
 " flow

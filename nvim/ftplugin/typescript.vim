@@ -1,7 +1,9 @@
-nnoremap <buffer><localleader>t :TSDoc<CR>
+nnoremap <buffer><localleader>r :call LanguageClient_textDocument_rename()<CR>
+nnoremap <buffer><localleader>t :call LanguageClient_textDocument_hover()<CR>
+nnoremap <buffer> <C-]> :call LanguageClient_textDocument_definition()<CR>
 
-" remate ctags goto with nvim-typescript goto
-nnoremap <buffer> <C-]> :TSDef<CR>
+" nnoremap <buffer><localleader>t :TSDoc<CR>
+" nnoremap <buffer> <C-]> :TSDef<CR>
 
 " 'yarn run test' in new window
 nnoremap <buffer><localleader>\ :call VimuxRunCommand('clear; yrt')<CR>

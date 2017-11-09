@@ -19,6 +19,7 @@
     ./fonts.nix
     ./desktop.nix
     ./system-packages.nix
+    ../pkgs/all-packages.nix
     ];
 
   environment = {
