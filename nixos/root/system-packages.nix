@@ -63,6 +63,7 @@
 
     ruby
     dunsted-volume
+    # notify-desktop
     netcat-openbsd # nc -U /var/run/acpid.socket
     xorg.xbacklight
   ];

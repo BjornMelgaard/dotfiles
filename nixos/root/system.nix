@@ -31,10 +31,10 @@
   networking = {
     hostName = "machine";
     networkmanager.enable = true;
-
     firewall = {
       enable = true;
       allowPing = false;
+      allowedTCPPorts = [ 35732 ];
     };
   };
 

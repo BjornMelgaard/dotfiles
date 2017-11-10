@@ -1,24 +1,29 @@
 #! /usr/bin/env ruby
 
 inhome_indotfiles = [
-  ['.tmux.conf',                   'tmux.conf'],
-  ['.i3/config',                   'i3/config'],
+  ['.tmux.conf',                              'tmux.conf'],
+  ['.i3/config',                              'i3/config'],
 
-  ['.config/ranger/commands.py',   'ranger/commands.py'],
-  ['.config/ranger/history',       'ranger/history'],
-  ['.config/ranger/rc.conf',       'ranger/rc.conf'],
-  ['.config/ranger/scope.sh',      'ranger/scope.sh'],
+  ['.config/ranger/commands.py',              'ranger/commands.py'],
+  ['.config/ranger/history',                  'ranger/history'],
+  ['.config/ranger/rc.conf',                  'ranger/rc.conf'],
+  ['.config/ranger/scope.sh',                 'ranger/scope.sh'],
 
-  ['.gtkrc-2.0',                   'themes/gtkrc-2.0'],
-  ['.config/gtk-3.0/settings.ini', 'themes/gtk-3.0-settings.ini'],
+  ['.gtkrc-2.0',                              'themes/gtkrc-2.0'],
+  ['.config/gtk-3.0/settings.ini',            'themes/gtk-3.0-settings.ini'],
 
-  ['.stack/config.yaml',           'stack-global.yaml'],
-  ['.gitconfig',                   'gitconfig'],
-  ['.gitignore_global',            'gitignore_global'],
-  ['.ctags',                       'ctags'],
-  ['.ncmpcpp/bindings',            'ncmpcpp_bindings'],
-  ['.config/termite',              'termite'],
-  ['.commitlintrc.yml',            'commitlintrc.yml']
+  ['.stack/config.yaml',                      'stack-global.yaml'],
+  ['.gitconfig',                              'gitconfig'],
+  ['.gitignore_global',                       'gitignore_global'],
+  ['.ctags',                                  'ctags'],
+  ['.ncmpcpp/bindings',                       'ncmpcpp_bindings'],
+  ['.config/termite',                         'termite'],
+  ['.commitlintrc.yml',                       'commitlintrc.yml'],
+
+  ['.local/share/applications/mimeapps.list', 'mimeapps.list'],
+  ['.config/mimeapps.list',                   'mimeapps.list'],
+
+  ['.config/Code/User/settings.json', 'vscode-settings.json']
 ]
 
 dotfiles = Dir.pwd
