@@ -40,8 +40,12 @@ in {
       xkbVariant = "qwerty";
 
       windowManager = {
-        default = "i3";
-        i3.enable = true;
+        default = "xmonad";
+        xmonad = {
+          enable = true;
+          enableContribAndExtras = true;
+          extraPackages = with pkgs.haskellPackages; haskellPackages: [ xmobar ];
+        };
       };
 
       desktopManager = {

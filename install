@@ -23,7 +23,8 @@ inhome_indotfiles = [
   ['.local/share/applications/mimeapps.list', 'mimeapps.list'],
   ['.config/mimeapps.list',                   'mimeapps.list'],
 
-  ['.config/Code/User/settings.json',         'vscode-settings.json']
+  ['.config/Code/User/settings.json',         'vscode-settings.json'],
+  ['.xmonad/xmonad.hs',                       'xmonad/xmonad.hs']
 ]
 
 dotfiles = Dir.pwd

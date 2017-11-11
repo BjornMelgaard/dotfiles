@@ -69,10 +69,11 @@ with pkgs;
     netcat-openbsd # nc -U /var/run/acpid.socket
     xorg.xbacklight
     unar unrar
-    automake autoconf gnumake
+    automake autoconf gnumake gcc
 
-    lingualeo2anki
+    # lingualeo2anki
     dunsted-volume
+    # haskellPackages.hfmt
   ];
 
   nixpkgs.config.packageOverrides = super: {
@@ -82,6 +83,6 @@ with pkgs;
       rev = "44bf00f1e39dfcb77761bca4836282a6f7516dd4";
       sha256 = "19ckjpmm3zki54xgnapg1j4c1wk7iv50zgd39n80yp2srsa2s0ka";
     }) {};
-    lingualeo2anki = callPackage /home/bjorn/projects/lingualeo2anki {};
+    # lingualeo2anki = callPackage /home/bjorn/projects/lingualeo2anki {};
   };
 }

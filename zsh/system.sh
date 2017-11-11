@@ -26,6 +26,9 @@ alias rmf="rm -rfd"
 alias wifi-up="nmcli con up id PsychoB1tches"
 alias wifi-down="nmcli con down id PsychoB1tches"
 
+alias gdw="cd ~/Downloads"
+alias gdo="cd ~/Documents"
+
 cdlast () {
   cd $(ls -tU | head -n 1)
 }

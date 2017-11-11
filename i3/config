@@ -75,7 +75,7 @@ bindsym $mod+Ctrl+e  exec code
 
 bindsym $mod+w       exec $browser
 bindsym $mod+Shift+w exec qutebrowser
-bindsym $mod+s       exec $terminal -e "zsh -c 'ranger'"
+bindsym $mod+s       exec $terminal -e "zsh -c 'SHELL=rshell ranger'"
 bindsym $mod+Shift+s exec nautilus
 bindsym $mod+p       exec --no-startup-id "copyq show"
 bindsym $mod+n       exec smplayer
@@ -193,7 +193,7 @@ mode "resize" {
   bindsym $mod+Right         resize shrink right $small_pace px or $small_pace ppt
   bindsym $mod+Shift+Right   resize grow   right $small_pace px or $small_pace ppt
 
-  # bacl to normal: Enter or Escape or q or ^[
+  # back to normal: Enter or Escape or q or ^[
   bindsym Return      mode "default"
   bindsym q           mode "default"
   bindsym Escape      mode "default"
