@@ -2,12 +2,12 @@ LOCAL_PATH="/home/bjorn/projects/airzaar"
 SSH_USER="dmitriy"
 
 # airzaar
-SSH_HOST="airzaar"
-REMOTE_PATH="/home/$SSH_USER/airzaar-dev"
+# SSH_HOST="airzaar"
+# REMOTE_PATH="/home/$SSH_USER/airzaar-dev"
 
 # strayos
-# SSH_HOST="strayos"
-# REMOTE_PATH="/home/$SSH_USER/strayos"
+SSH_HOST="strayos"
+REMOTE_PATH="/home/$SSH_USER/strayos"
 
 RSYNC_CRED="$SSH_USER@$SSH_HOST:$REMOTE_PATH"
 

@@ -12,7 +12,6 @@ plugins=(
   ## appearence
   colorize
   compleat
-  command-not-found
   common-aliases
   # zsh-autosuggestions
   # zsh-completions
@@ -28,7 +27,12 @@ plugins=(
   zsh-navigation-tools
 
   ## programs
-  tmux
+  # tmux
+  git
+
+  ## nixos
+  systemd
+  sudo
 
   ## ruby
   bundler
@@ -45,12 +49,8 @@ plugins=(
   docker
   docker-compose
 
-  ## nixos
-  systemd
-  sudo
-
+  ## js
   yarn
-  git
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -66,13 +66,15 @@ PROJECT_PATHS=(~/projects)
 # export npm_config_prefix=~/.node_modules
 
 # yarn
-export PATH="$PATH:$(yarn global bin)"
+# export PATH="$PATH:$(yarn global bin)"
+export PATH="$PATH:$HOME/.yarn/bin"
 
 # rvm
 # export PATH="$PATH:$HOME/.rvm/bin"
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # gem
-GEM_HOME=$(ruby -e 'puts Gem.user_dir')
+# GEM_HOME=$(ruby -e 'puts Gem.user_dir')
+GEM_HOME=$HOME/.gem/ruby/2.3.0
 GEM_PATH=$GEM_HOME
 export PATH=$GEM_HOME/bin:$PATH

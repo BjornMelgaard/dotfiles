@@ -19,7 +19,6 @@
     ./fonts.nix
     ./desktop.nix
     ./system-packages.nix
-    ../pkgs/all-packages.nix
     ];
 
   environment = {
@@ -35,6 +34,7 @@
       enableAutosuggestions = true;
       ohMyZsh.enable = true;
     };
+    command-not-found.enable = true;
   };
 
   system.stateVersion = "17.09";

@@ -8,6 +8,25 @@ x-scheme-handler/unknown=google-chrome.desktop
 x-scheme-handler/mailto=thunderbird.desktop
 message/rfc822=thunderbird.desktop
 text/plain=google-chrome.desktop
+application/msword=google-chrome.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=google-chrome.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.template=google-chrome.desktop
+application/vnd.ms-word.template.macroEnabled.12=google-chrome.desktop
+application/vnd.ms-excel=google-chrome.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=google-chrome.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.template=google-chrome.desktop
+application/vnd.ms-excel.sheet.macroEnabled.12=google-chrome.desktop
+application/vnd.ms-excel.template.macroEnabled.12=google-chrome.desktop
+application/vnd.ms-excel.addin.macroEnabled.12=google-chrome.desktop
+application/vnd.ms-excel.sheet.binary.macroEnabled.12=google-chrome.desktop
+application/vnd.ms-powerpoint=google-chrome.desktop
+application/vnd.openxmlformats-officedocument.presentationml.presentation=google-chrome.desktop
+application/vnd.openxmlformats-officedocument.presentationml.template=google-chrome.desktop
+application/vnd.openxmlformats-officedocument.presentationml.slideshow=google-chrome.desktop
+application/vnd.ms-powerpoint.addin.macroEnabled.12=google-chrome.desktop
+application/vnd.ms-powerpoint.presentation.macroEnabled.12=google-chrome.desktop
+application/vnd.ms-powerpoint.template.macroEnabled.12=google-chrome.desktop
+application/vnd.ms-powerpoint.slideshow.macroEnabled.12=google-chrome.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=thunderbird.desktop;

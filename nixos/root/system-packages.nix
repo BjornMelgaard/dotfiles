@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
+with pkgs;
+
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     ## system
     google-chrome
     zip
@@ -62,9 +64,24 @@
     haskellPackages.ghc
 
     ruby
-    dunsted-volume
+
     # notify-desktop
     netcat-openbsd # nc -U /var/run/acpid.socket
     xorg.xbacklight
+    unar unrar
+    automake autoconf gnumake
+
+    lingualeo2anki
+    dunsted-volume
   ];
+
+  nixpkgs.config.packageOverrides = super: {
+    dunsted-volume = callPackage (fetchFromGitHub {
+      owner = "BjornMelgaard";
+      repo = "dunsted-volume";
+      rev = "44bf00f1e39dfcb77761bca4836282a6f7516dd4";
+      sha256 = "19ckjpmm3zki54xgnapg1j4c1wk7iv50zgd39n80yp2srsa2s0ka";
+    }) {};
+    lingualeo2anki = callPackage /home/bjorn/projects/lingualeo2anki {};
+  };
 }
