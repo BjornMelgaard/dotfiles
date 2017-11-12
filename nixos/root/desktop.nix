@@ -32,6 +32,8 @@ in {
       };
     };
 
+    logind.extraConfig = "HandleLidSwitch=ignore";
+
     xserver = {
       enable = true;
 
@@ -40,12 +42,16 @@ in {
       xkbVariant = "qwerty";
 
       windowManager = {
-        default = "xmonad";
-        xmonad = {
+        default = "i3";
+        i3 = {
           enable = true;
-          enableContribAndExtras = true;
-          extraPackages = with pkgs.haskellPackages; haskellPackages: [ xmobar ];
         };
+        # default = "xmonad";
+        # xmonad = {
+        #   enable = true;
+        #   enableContribAndExtras = true;
+        #   extraPackages = with pkgs.haskellPackages; haskellPackages: [ xmobar ];
+        # };
       };
 
       desktopManager = {

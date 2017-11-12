@@ -1,4 +1,0 @@
-#! /run/current-system/sw/bin/env nix-shell
-#! nix-shell -i bash
-
-/home/bjorn/projects/lingualeo2anki/start_server.sh -f /home/bjorn/anki.txt -m /home/bjorn/.local/share/Anki2/User\ 1/collection.media

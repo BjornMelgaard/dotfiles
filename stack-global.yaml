@@ -12,3 +12,6 @@ templates:
    author-email: some@email.com
    # copyright:
    # github-username:%
+
+nix:
+  enable: true

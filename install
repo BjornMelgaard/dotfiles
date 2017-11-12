@@ -1,6 +1,7 @@
 #! /usr/bin/env ruby
 
 inhome_indotfiles = [
+  ['.zshrc',                                  'zshrc'],
   ['.tmux.conf',                              'tmux.conf'],
   ['.i3/config',                              'i3/config'],
 

@@ -21,7 +21,7 @@ in {
   };
 
   home.file.".zshenv".text = ''
-    export PATH="$PATH:${dotfilesDir}/bin"
+    export PATH="$PATH:${dotfilesDir}/scripts"
   '';
 
   home.file.".Xresources".text = ''

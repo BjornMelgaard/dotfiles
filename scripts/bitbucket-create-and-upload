@@ -1,5 +1,4 @@
-#! /run/current-system/sw/bin/env nix-shell
-#! nix-shell -i ruby
+#! /usr/bin/env ruby
 
 require 'rubygems'
 require 'pathname'
@@ -56,3 +55,5 @@ begin
 rescue JSON::ParserError
   return
 end
+
+# vim: set ft=ruby

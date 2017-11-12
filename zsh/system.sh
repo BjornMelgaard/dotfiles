@@ -3,7 +3,6 @@ alias vimdiff="nvim -d"
 alias n="nvim"
 alias k="kak"
 alias r="ranger"
-alias rs="SHELL=/home/bjorn/.bin/rshell ranger"
 alias z="zsh"
 alias top="htop"
 alias o="openssl"
@@ -52,6 +51,10 @@ chmodf() {
 
 chmodd() {
   find $2 -type d -exec chmod $1 {} \;
+}
+
+pathsplit () {
+  tr ':' '\n'
 }
 
 # update-all () {

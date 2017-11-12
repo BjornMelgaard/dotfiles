@@ -1,0 +1,23 @@
+#! /bin/sh
+
+TOUCHPAD_NAME=${1:-"touchpad"}
+
+list=$(xinput list)
+TOUCHPAD_ID=$(echo "$list" | sed -n "s/.*${TOUCHPAD_NAME}.*id=\([0-9]\+\).*$/\1/gIp")
+
+if [ -z "$TOUCHPAD_ID" ]; then
+  echo "-- ERROR:  No device with name \"$TOUCHPAD_NAME\"."
+  echo "Awailable devices:"
+  echo "$list"
+  exit
+fi
+
+xinputcmd=$(xinput list-props $TOUCHPAD_ID | awk '/Device Enabled/ {print $4}')
+echo "$xinputcmd"
+if [ "$xinputcmd" -eq 1 ] ; then
+  xinput --disable $TOUCHPAD_ID
+  echo "disable"
+else
+  xinput --enable $TOUCHPAD_ID
+  echo "enable"
+fi

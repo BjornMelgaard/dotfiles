@@ -71,7 +71,7 @@ with pkgs;
     unar unrar
     automake autoconf gnumake gcc
 
-    # lingualeo2anki
+    lingualeo2anki
     dunsted-volume
     # haskellPackages.hfmt
   ];
@@ -83,6 +83,14 @@ with pkgs;
       rev = "44bf00f1e39dfcb77761bca4836282a6f7516dd4";
       sha256 = "19ckjpmm3zki54xgnapg1j4c1wk7iv50zgd39n80yp2srsa2s0ka";
     }) {};
+
+    lingualeo2anki = callPackage (fetchFromGitHub {
+      owner = "BjornMelgaard";
+      repo = "lingualeo2anki";
+      rev = "81faa0e198fcb167369416c3b4657544ce84c7d4";
+      sha256 = "1pi46zsbjw2zkd29d95cpy2llmc5djpmaa7cmb1v4bf7gxb6ihgb";
+    }) {};
+
     # lingualeo2anki = callPackage /home/bjorn/projects/lingualeo2anki {};
   };
 }
