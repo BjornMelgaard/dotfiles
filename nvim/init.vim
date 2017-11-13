@@ -542,12 +542,21 @@ call dein#add('Shougo/vimproc.vim', {'build' : 'make', 'on_ft':['haskell'] })
 call dein#add('eagletmt/ghcmod-vim', { 'on_ft':['haskell'] })
 " let g:ghcmod_use_basedir="/home/bjorn/.config/dotfiles/nvim/ghcmod-fix"
 
+autocmd BufRead,BufNewFile xmonad/* call s:add_xmonad_path()
+function! s:add_xmonad_path()
+  if !exists('b:ghcmod_ghc_options')
+    let b:ghcmod_ghc_options = []
+  endif
+  echo 'you are in xmonad'
+  call add(b:ghcmod_ghc_options, '-i' . expand('~/.xmonad/lib'))
+endfunction
+
 " let g:deoplete#omni#input_patterns.haskell = '[^. *\t]'
 " let g:deoplete#omni#input_patterns.haskell = '[.\w]+'
 
 function! Hfmt() abort
   let path = expand('%:p')
-  let format = 'hfmt -w '
+  let format = '~/.local/bin/hfmt -w '
   call system(format . path)
   edit!
   Neomake

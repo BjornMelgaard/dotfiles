@@ -59,7 +59,7 @@ source $DOTFILES/zsh/index.sh
 
 autoload -U zmv
 
-PROJECT_PATHS=(~/projects)
+PROJECT_PATHS=(~/projects ~/work)
 
 # npm
 # export PATH="$HOME/.node_modules/bin:$PATH"

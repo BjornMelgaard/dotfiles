@@ -27,7 +27,7 @@ nix-find-haskell-package () {
 #   nix-instantiate --eval -E "with import <nixpkgs> {}; lib.attrNames haskell.compiler"
 # }
 
-nix-my-prefetch () {
+nix-my-prefetch-github () {
   repo_url=$1
 
   owner=`echo $repo_url | sed -Ene's#https://github.com/([^/]*)/(.*)(.git)?#\1#p'`

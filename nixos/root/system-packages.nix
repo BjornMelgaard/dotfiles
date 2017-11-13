@@ -61,9 +61,9 @@ with pkgs;
     python
 
     stack
-    haskellPackages.ghc
-
     ruby
+
+    transmission
 
     # notify-desktop
     netcat-openbsd # nc -U /var/run/acpid.socket
@@ -73,6 +73,11 @@ with pkgs;
 
     lingualeo2anki
     dunsted-volume
+
+    qtox
+
+    haskellPackages.ghc
+    haskellPackages.ghc-mod
     # haskellPackages.hfmt
   ];
 
@@ -87,10 +92,22 @@ with pkgs;
     lingualeo2anki = callPackage (fetchFromGitHub {
       owner = "BjornMelgaard";
       repo = "lingualeo2anki";
-      rev = "81faa0e198fcb167369416c3b4657544ce84c7d4";
-      sha256 = "1pi46zsbjw2zkd29d95cpy2llmc5djpmaa7cmb1v4bf7gxb6ihgb";
+      rev = "3f077f6afdce9578868e2e9b26149cfa10d5458f";
+      sha256 = "187jgfr55qq169aws7jcr4qnfs7hy0vnsl87f6dlxaclk9yixg8d";
     }) {};
 
-    # lingualeo2anki = callPackage /home/bjorn/projects/lingualeo2anki {};
+    # haskellPackages = super.haskellPackages.override {
+    #   overrides = self: super_: {
+    #     "hfmt" = super_."hfmt".overrideDerivation (attrs: rec {
+    #       src = super.fetchFromGitHub {
+    #         owner = "danstiner";
+    #         repo = "hfmt";
+    #         rev = "62fe625e1824f9671a2f462856165dfbf6627ef8";
+    #         sha256 = "0hpfgjiwr7dbd6b30szvs8mdrpswvvgncrp8mb1y1avza8z1jdid";
+    #       };
+    #     });
+    #   };
+    # };
+
   };
 }

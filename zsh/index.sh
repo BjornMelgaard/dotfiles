@@ -13,6 +13,6 @@ source ${SCRIPT_DIR}/yarn.sh
 source ${SCRIPT_DIR}/vim.sh
 source ${SCRIPT_DIR}/nix.sh
 
-source ${SCRIPT_DIR}/work/airzaar.sh
-source ${SCRIPT_DIR}/work/rgs.sh
+# source ${SCRIPT_DIR}/work/airzaar.sh
+# source ${SCRIPT_DIR}/work/rgs.sh
 

@@ -1,0 +1,2 @@
+#!/bin/sh
+stack --verbosity silent exec ghc-mod -- "$@" 2>/dev/null
