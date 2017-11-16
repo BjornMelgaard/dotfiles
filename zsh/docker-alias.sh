@@ -52,3 +52,18 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+
+# ------------------------------------
+# Docker-compose alias and function
+# ------------------------------------
+
+# if Dockerfile was changed
+alias dc-rebuild="docker-compose build"
+
+# docker-compose exposes ports only on up
+alias dcrp="docker-compose run --service-ports"
+
+alias dc="docker-compose"
+alias dcu="docker-compose up"
+
+alias dcr-simple="docker-compose run --service-ports --no-deps --rm"

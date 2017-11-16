@@ -73,8 +73,12 @@ with pkgs;
 
     lingualeo2anki
     dunsted-volume
+    python3Packages.docker_compose
 
     qtox
+    android-studio
+    ctags
+    filezilla
 
     haskellPackages.ghc
     haskellPackages.ghc-mod

@@ -12,8 +12,6 @@
 --exclude=public/assets
 
 --languages=-javascript,sql
---extras=+q
---extras=+f
 --append
 
 --regex-ruby=/(^|[:;])[ \t]*([A-Z][[:alnum:]_]+) *=/\2/c,class,constant/

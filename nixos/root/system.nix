@@ -15,7 +15,7 @@
         };
         bjorn = {
           isNormalUser = true;
-          extraGroups = [ "audio" "disk" "wheel" "networkmanager" ];
+          extraGroups = [ "audio" "disk" "wheel" "networkmanager" "docker" ];
           inherit hashedPassword;
         };
       };
@@ -45,4 +45,8 @@
   };
 
   time.timeZone = "Europe/Kiev";
+  virtualisation.docker = {
+    enable = true;
+    # liveRestore = false;
+  };
 }

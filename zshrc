@@ -54,7 +54,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $ZSH_CUSTOM/plugins/docker-alias/zshrc
 source $DOTFILES/zsh/index.sh
 
 autoload -U zmv
