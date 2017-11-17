@@ -56,3 +56,5 @@ nmap <buffer><leader>ca Ilet(<del>:<Esc>Ea)<Esc>lldWysgl{
 " convert -> to lambda
 nmap <buffer><leader>cl cf>lambda<esc>ww,dibbC{<del><space><Bar><C-R>+<Bar><esc>
 
+" mactos to add `focus: true` to last
+nmap <buffer><leader>fc ?do<CR>hi,focus:<space>true<space><esc>

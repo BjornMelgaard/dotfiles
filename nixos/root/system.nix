@@ -47,6 +47,5 @@
   time.timeZone = "Europe/Kiev";
   virtualisation.docker = {
     enable = true;
-    # liveRestore = false;
   };
 }

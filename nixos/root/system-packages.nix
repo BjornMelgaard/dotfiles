@@ -79,6 +79,9 @@ with pkgs;
     android-studio
     ctags
     filezilla
+    firefox
+    cacert
+    gtk-recordmydesktop
 
     haskellPackages.ghc
     haskellPackages.ghc-mod

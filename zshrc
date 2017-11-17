@@ -5,7 +5,6 @@ DEFAULT_USER="bjorn"
 DISABLE_AUTO_UPDATE="true"
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
-ZSH_CUSTOM=$DOTFILES/oh-my-zsh/custom
 DISABLE_UPDATE_PROMPT=true
 
 plugins=(
