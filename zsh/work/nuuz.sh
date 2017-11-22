@@ -25,7 +25,8 @@ nuuz-be () {
     rsync -arhvz --progress \
       --exclude='vendor' \
       --exclude='log' \
-      -e 'ssh -p 446' \
+      --exclude='.git' \
+      -e "ssh -p $SSH_PORT" \
       $SSH_CRED:$REMOTE_PATH_BE/ \
       $LOCAL_PATH_BE/
   elif [[  "$1" == "bash" ]]
@@ -46,11 +47,12 @@ nuuz-fe () {
   then
     rsync -arhvz --progress --delete \
       --exclude='node_modules' \
+      --exclude='src/config.js' \
       -e "ssh -p $SSH_PORT" \
       $LOCAL_PATH_FE/ \
       $SSH_CRED:$REMOTE_PATH_FE/
     ssh -p $SSH_PORT $SSH_CRED \
-      -t "cd $REMOTE_PATH_FE/; sudo /opt/nginx/sbin/nginx -s reload"
+      -t "cd $REMOTE_PATH_FE/; npm run build; sudo /opt/nginx/sbin/nginx -s reload"
   elif [[ "$1" == "pull" ]]
   then
     rsync -arhvz --progress \
