@@ -15,14 +15,6 @@ nix-install-from-github () {
   cd $olddir
 }
 
-nix-install-haskell-package () {
-  nix-env -f "<nixpkgs>" -iA haskellPackages.$1
-}
-
-nix-find-haskell-package () {
-  nix-env -f "<nixpkgs>" -qaP -A haskellPackages $1
-}
-
 # nix-show () {
 #   nix-instantiate --eval -E "with import <nixpkgs> {}; lib.attrNames haskell.compiler"
 # }
@@ -60,4 +52,19 @@ EOF
 alias nif="nix-find"
 alias nis="nix-shell"
 alias nii="nix-env -i"
-alias nid="nix-env -e"
+alias nir="nix-env -e"
+
+# Haskell
+nix-install-haskell-package () {
+  nix-env -f "<nixpkgs>" -iA haskellPackages.$1
+}
+
+nix-find-haskell-package () {
+  nix-env -f "<nixpkgs>" -qaP -A haskellPackages $1
+}
+
+nix-ghci () {
+  nix-shell --pure \
+            -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ mtl ])" \
+            --run "ghci"
+}

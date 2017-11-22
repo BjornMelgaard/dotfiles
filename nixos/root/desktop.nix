@@ -41,6 +41,11 @@ in {
       xkbOptions = "caps:swapescape,grp:rctrl_rshift_toggle";
       xkbVariant = "qwerty";
 
+      dpi = 96;
+      deviceSection = ''
+        Option   "DPI"            "96 x 96"
+      '';
+
       windowManager = {
         default = "i3";
         i3 = {

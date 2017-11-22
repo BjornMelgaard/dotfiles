@@ -91,6 +91,19 @@ let &colorcolumn=s:settings.max_column
 
 set hidden
 
+" shared helper
+function! Preserve(command) "{{{
+  " preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " do the business:
+  execute a:command
+  " clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction "}}}
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Core
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -492,10 +505,9 @@ call dein#add('leafgarland/typescript-vim', { 'on_ft':['typescript'] })
 " => Ruby
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('tpope/vim-rails', {'on_ft':['ruby']})
-call dein#add('tpope/vim-bundler', {'on_ft':['ruby']})
 call dein#add('rhysd/vim-textobj-ruby', {'on_ft':['ruby']})
 call dein#add('fishbullet/deoplete-ruby', {'on_ft':['ruby']})
-call dein#add('thoughtbot/vim-rspec', {'on_ft':['ruby']})
+" call dein#add('thoughtbot/vim-rspec', {'on_ft':['ruby']})
 
 let neosimpp_path = '~/.config/nvim/bundle/repos/github.com/Shougo/neosnippet-snippets/neosnippets/'
 exec "au BufNewFile,BufRead Gemfile NeoSnippetSource ".neosimpp_path."Gemfile.snip"
@@ -604,18 +616,18 @@ call dein#add('jparise/vim-graphql', {'on_ft':['graphql']})
 call dein#add('tpope/vim-scriptease', {'on_ft':['vim']})
 call dein#add('tpope/vim-markdown',{'on_ft':['markdown']})
 call dein#add('PotatoesMaster/i3-vim-syntax',{'on_ft':['i3']})
-call dein#add('takac/vim-hardtime') " {{{
-  let g:hardtime_default_on = 1
-  let g:hardtime_allow_different_key = 1
-  let g:hardtime_maxcount = 2
+" call dein#add('takac/vim-hardtime') " {{{
+"   let g:hardtime_default_on = 1
+"   let g:hardtime_allow_different_key = 1
+"   let g:hardtime_maxcount = 2
 
-  " doesnt work with wb actually
-  let s:hardtime_abandoned_keys = ["h", "j", "k", "l", "-", "+", "W", "B"]
-  let g:list_of_normal_keys = s:hardtime_abandoned_keys
-  let g:list_of_visual_keys = s:hardtime_abandoned_keys
+"   " doesnt work with wb actually
+"   let s:hardtime_abandoned_keys = ["h", "j", "k", "l", "-", "+", "W", "B"]
+"   let g:list_of_normal_keys = s:hardtime_abandoned_keys
+"   let g:list_of_visual_keys = s:hardtime_abandoned_keys
 
-  " let g:hardtime_ignore_buffer_patterns = [".*fugitive.*", "[unite].*"]
-" }}}
+"   " let g:hardtime_ignore_buffer_patterns = [".*fugitive.*", "[unite].*"]
+" " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Documets editing

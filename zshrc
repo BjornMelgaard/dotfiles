@@ -4,6 +4,7 @@ ZSH_THEME="agnoster"
 DEFAULT_USER="bjorn"
 DISABLE_AUTO_UPDATE="true"
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
+ZSH_CUSTOM=$DOTFILES/oh-my-zsh-custom
 if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
 DISABLE_UPDATE_PROMPT=true
 
@@ -60,12 +61,12 @@ autoload -U zmv
 PROJECT_PATHS=(~/projects ~/work)
 
 # npm
-# export PATH="$HOME/.node_modules/bin:$PATH"
-# export npm_config_prefix=~/.node_modules
+export PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
 
 # yarn
 # export PATH="$PATH:$(yarn global bin)"
-export PATH="$PATH:$HOME/.yarn/bin"
+# export PATH="$PATH:$HOME/.yarn/bin"
 
 # rvm
 # export PATH="$PATH:$HOME/.rvm/bin"
@@ -73,6 +74,8 @@ export PATH="$PATH:$HOME/.yarn/bin"
 
 # gem
 # GEM_HOME=$(ruby -e 'puts Gem.user_dir')
-GEM_HOME=$HOME/.gem/ruby/2.3.0
+GEM_HOME=$HOME/.gem/ruby/2.4.0
 GEM_PATH=$GEM_HOME
 export PATH=$GEM_HOME/bin:$PATH
+
+# eval "$(direnv hook zsh)"

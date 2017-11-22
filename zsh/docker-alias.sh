@@ -39,7 +39,7 @@ dstop() { docker stop $(docker ps -a -q); }
 drmac() { docker rm $(docker ps -a -q); }
 
 # Remove all images
-drmai() { docker rmi $(docker images -q); }
+drmai() { docker rmi -f $(docker images -q); }
 
 # Stop and Remove all containers
 alias drmaci='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'

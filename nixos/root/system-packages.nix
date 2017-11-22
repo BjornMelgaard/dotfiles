@@ -61,12 +61,13 @@ with pkgs;
     python
 
     stack
-    ruby
+    ruby_2_4
 
     transmission
 
     # notify-desktop
     netcat-openbsd # nc -U /var/run/acpid.socket
+    lsof
     xorg.xbacklight
     unar unrar
     automake autoconf gnumake gcc
@@ -82,6 +83,7 @@ with pkgs;
     firefox
     cacert
     gtk-recordmydesktop
+    vlc
 
     haskellPackages.ghc
     haskellPackages.ghc-mod

@@ -30,12 +30,15 @@ alias lc!="linted-git-commit --amend"
 
 # !!! DANGER ZONE !!!
 alias gco-all="git checkout -- ."
-alias grH="git reset HEAD"
-alias grH~="git reset HEAD~"
-alias grh="git reset --hard"
 alias gcln="git clean -fd"
 alias git-reset-to-origin="git reset --hard origin/\$(git rev-parse --abbrev-ref HEAD)"
 alias gpf="git push --force"
+
+alias gr="git reset"
+alias grH="git reset HEAD"
+alias grH~="git reset HEAD~"
+alias grh="git reset --hard"
+# !!! DANGER ZONE !!!
 
 bitbucket-delete-repository () {
   curdir=${PWD##*/}

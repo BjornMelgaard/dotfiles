@@ -56,5 +56,19 @@ nmap <buffer><leader>ca Ilet(<del>:<Esc>Ea)<Esc>lldWysgl{
 " convert -> to lambda
 nmap <buffer><leader>cl cf>lambda<esc>ww,dibbC{<del><space><Bar><C-R>+<Bar><esc>
 
-" mactos to add `focus: true` to last
-nmap <buffer><leader>fc ?do<CR>hi,focus:<space>true<space><esc>
+" macros to add `focus: true`
+" function! s:remove_last_focus() abort
+"   execute "normal! ?\v^\W*it\|scenario\|feature\<CR>"
+"   execute "normal! ?^\W*it\<CR>"
+" endfunction
+
+nnoremap <buffer><leader>f ?^\W*it<CR>$Bhi,<space>focus:<space>true<esc>
+
+" macros to remove `focus: true`
+function! s:remove_last_focus() abort
+  execute "normal! ?,\<space>focus:\<space>true\<CR>d2E"
+endfunction
+nnoremap <buffer><leader>F :call <SID>remove_last_focus()<CR>
+
+" substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')
+" expand('%:t:r:r:r')
