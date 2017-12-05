@@ -373,7 +373,7 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   let g:NERDTreeMapOpenVSplit='V'
   let g:NERDTreeMapToggleFiles=''
   let g:NERDTreeMapToggleFilters=''
-  let g:NERDTreeMapHelp='<M-?>'
+  let g:NERDTreeMapHelp='<M-/>'
 
   let g:NERDTreeMapQuit='Q'
   nnoremap <F2> :NERDTreeToggle<CR>
@@ -472,24 +472,27 @@ call dein#add('othree/html5.vim', {'on_ft':['html','typescript']})
 call dein#add('digitaltoad/vim-pug', {'on_ft':['pug', 'vue']})
 call dein#add('mustache/vim-mustache-handlebars', {'on_ft':['mustache','handlebars']})
 call dein#add('Valloric/MatchTagAlways')
-call dein#add('mattn/emmet-vim', {'on_ft':['html','vue','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars','ts', 'javascript', 'jsx', 'typescript']})
-autocmd FileType html,javascript,jsx,typescript,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache imap <buffer><c-y><c-y> <c-y>,
-autocmd FileType html,javascript,jsx,typescript,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache vmap <buffer><c-y><c-y> <c-y>,
+call dein#add('mattn/emmet-vim', {'on_ft':['html','vue','xml','xsl','xslt','xsd','css','sass','scss','less','mustache','handlebars','ts','javascript','jsx','typescript','eruby']})
+autocmd FileType html,vue,xml,xsl,xslt,xsd,css,sass,scss,less,mustache,handlebars,ts,javascript,jsx,typescript,eruby imap <buffer><c-y><c-y> <c-y>,
+autocmd FileType html,vue,xml,xsl,xslt,xsd,css,sass,scss,less,mustache,handlebars,ts,javascript,jsx,typescript,eruby vmap <buffer><c-y><c-y> <c-y>,
+
+" TextField to <TextField />
+autocmd FileType html,vue,xml,xsl,xslt,xsd,css,sass,scss,less,mustache,handlebars,ts,javascript,jsx,typescript,eruby imap <buffer><c-y>y <esc>ysiw>f>i<space>/<c-o>h
 
 " Attribute deletion
-autocmd FileType html,xml,xsl,xslt,xsd,css,sass,scss,vue,less,mustache nm dA lF d2f"
+autocmd FileType html,vue,xml,xsl,xslt,xsd,css,sass,scss,less,mustache,handlebars,ts,javascript,jsx,typescript,eruby nm dA lF d2f"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Javascript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('pangloss/vim-javascript', {'on_ft':['javascript']})
-call dein#add('maksimr/vim-jsbeautify', {'on_ft':['javascript']}) "{{{
-  nnoremap <leader>rjs :call JsBeautify()<cr>
-"}}}
+call dein#add('othree/yajs.vim')
 call dein#add('kchmck/vim-coffee-script', {'on_ft':['coffee']})
 call dein#add('mmalecki/vim-node.js', {'on_ft':['javascript']})
 call dein#add('leshill/vim-json', {'on_ft':['javascript','json']})
 call dein#add('othree/javascript-libraries-syntax.vim', {'on_ft':['javascript','coffee','ls','typescript']})
+call dein#add('heavenshell/vim-jsdoc', {'on_ft':['javascript','typescript']})
+
+let g:used_javascript_libs = 'underscore,ramda,react'
 
 " typescript
 " call dein#add('mhartington/nvim-typescript', { 'on_ft':['typescript'] })
@@ -795,9 +798,15 @@ tnoremap <right> <C-\><C-n>:bnext<CR>
 tnoremap <up> <C-\><C-n>:tabnext<CR>
 tnoremap <down> <C-\><C-n>:tabprev<CR>
 
-" fix matchit.vim overriding jeetsukumaran/vim-indentwise
-autocmd VimEnter * map [% <Plug>(IndentWiseBlockScopeBoundaryBegin)
-autocmd VimEnter * map ]% <Plug>(IndentWiseBlockScopeBoundaryEnd)
+" J and K like in nerdtree
+map K <Plug>(IndentWiseBlockScopeBoundaryBegin)
+map J <Plug>(IndentWiseBlockScopeBoundaryEnd)
+
+nnoremap <M-i> J
+
+function! UmsfRemoveChars() abort
+  exe "normal! :s:\ \|(\|)\|\.::g"
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Finish

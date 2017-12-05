@@ -19,3 +19,9 @@
 	user = BjornMelgaard
 [rebase]
 	instructionFormat = (%an <%ae>) %s
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[difftool "meld"]
+	cmd = meld "$LOCAL" "$REMOTE"

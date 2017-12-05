@@ -26,7 +26,8 @@ inhome_indotfiles = [
 
   ['.config/Code/User/settings.json',         'vscode-settings.json'],
   ['.xmonad/xmonad.hs',                       'xmonad/xmonad.hs'],
-  ['.direnvrc',                               'direnvrc.sh']
+  ['.direnvrc',                               'direnvrc.sh'],
+  ['.npmrc',                                  'npmrc']
 ]
 
 dotfiles = Dir.pwd

@@ -84,6 +84,8 @@ with pkgs;
     cacert
     gtk-recordmydesktop
     vlc
+    asciinema
+    tree
 
     haskellPackages.ghc
     haskellPackages.ghc-mod

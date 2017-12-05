@@ -7,7 +7,7 @@ alias gpo="git po"
 
 alias gm="git merge"
 alias gms="git merge --squash"
-alias gmt="git mergetool --tool=meld"
+alias gmt="git mergetool"
 alias gmc="git merge --continue"
 alias gma="git merge --abort"
 

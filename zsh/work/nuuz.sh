@@ -1,10 +1,10 @@
 SSH_PORT="446"
 SSH_CRED="deploy@54.190.32.101"
 
-LOCAL_PATH_BE="/home/bjorn/work/nuuz-backend"
+LOCAL_PATH_BE="/home/bjorn/projects/nuuz/nuuz-backend"
 REMOTE_PATH_BE="/data/www/stage/nuuz-backend"
 
-LOCAL_PATH_FE="/home/bjorn/work/nuuz-react"
+LOCAL_PATH_FE="/home/bjorn/projects/nuuz/nuuz-react"
 REMOTE_PATH_FE="/data/www/stage/nuuz-react"
 
 RSYNC_CRED="$SSH_USER@$SSH_HOST:$REMOTE_PATH_BE"
@@ -14,6 +14,8 @@ nuuz-be () {
   then
     rsync -arhvz --progress --delete \
       --exclude='vendor' \
+      --exclude='tmp' \
+      --exclude='log' \
       --exclude='.ruby-gemset' \
       -e "ssh -p $SSH_PORT" \
       $LOCAL_PATH_BE/ \
@@ -75,11 +77,27 @@ nuuz-fe () {
   fi
 }
 
-alias nuuz-db-recreate="dcr be_dev bash -c 'rake db:drop && rake db:create && (rake db:migrate || true) && rake db:seed && rake db:schema:dump'"
-
-nuuz-local-recreate-db () {
+# resetters
+nuuz-local-recreate-dev-db () {
   docker-compose run be_dev bash -c 'rake db:drop && rake db:create && (rake db:migrate || true) && rake db:seed && rake db:schema:dump'
+}
+
+nuuz-local-reset-dev-sessions () {
+  docker-compose run be_dev rake tmp:clear
+}
+
+nuuz-local-recreate-test-db () {
   docker-compose run be_test bash -c 'rake db:drop && rake db:create && rake db:migrate'
+}
+
+nuuz-local-reset-dev () {
+  nuuz-local-recreate-dev-db
+  nuuz-local-reset-dev-sessions
+}
+
+nuuz-local-recreate-db-all () {
+  nuuz-local-recreate-dev-db
+  nuuz-local-recreate-test-db
 }
 
 # helpers

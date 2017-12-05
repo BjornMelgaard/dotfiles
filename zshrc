@@ -60,13 +60,10 @@ autoload -U zmv
 
 PROJECT_PATHS=(~/projects ~/work)
 
-# npm
+# npm/yarn
 export PATH="$HOME/.node_modules/bin:$PATH"
-export npm_config_prefix=~/.node_modules
-
-# yarn
-# export PATH="$PATH:$(yarn global bin)"
-# export PATH="$PATH:$HOME/.yarn/bin"
+# helper
+# npm install -g yarn javascript-typescript-langserver linted-git-commit @commitlint/{config-conventional,cli}
 
 # rvm
 # export PATH="$PATH:$HOME/.rvm/bin"
@@ -74,8 +71,7 @@ export npm_config_prefix=~/.node_modules
 
 # gem
 # GEM_HOME=$(ruby -e 'puts Gem.user_dir')
+# or
 GEM_HOME=$HOME/.gem/ruby/2.4.0
 GEM_PATH=$GEM_HOME
 export PATH=$GEM_HOME/bin:$PATH
-
-# eval "$(direnv hook zsh)"
