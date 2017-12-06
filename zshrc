@@ -62,6 +62,7 @@ PROJECT_PATHS=(~/projects ~/work)
 
 # npm/yarn
 export PATH="$HOME/.node_modules/bin:$PATH"
+export PATH="$HOME/.config/dotfiles/nvim/ghcmod-fix:$PATH"
 # helper
 # npm install -g yarn javascript-typescript-langserver linted-git-commit @commitlint/{config-conventional,cli}
 

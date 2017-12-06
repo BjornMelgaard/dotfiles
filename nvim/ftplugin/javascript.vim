@@ -8,3 +8,6 @@ nnoremap <buffer> <C-]> :call LanguageClient_textDocument_definition()<CR>
 nnoremap <buffer><silent> <leader>ru :w<cr>:!npm run format:base <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
 
 nmap <silent> <localleader><localleader> ?function<cr>:noh<cr><Plug>(jsdoc)
+
+" update index file
+nnoremap <silent> <localleader>ui :w<cr>:!/home/bjorn/.config/dotfiles/scripts/update-index-js.hs <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
