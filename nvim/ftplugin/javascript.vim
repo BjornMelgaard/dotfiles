@@ -11,3 +11,9 @@ nmap <silent> <localleader><localleader> ?function<cr>:noh<cr><Plug>(jsdoc)
 
 " update index file
 nnoremap <silent> <localleader>ui :w<cr>:!/home/bjorn/.config/dotfiles/scripts/update-index-js.hs <c-r>=expand('%n')<cr> > /dev/null 2>&1<cr>:e<cr>
+
+" fix css in js left side
+nmap <silent> <localleader>h 0wyst:'
+
+" fix css in js left side
+nmap <silent> <localleader>l $r,Byst,'

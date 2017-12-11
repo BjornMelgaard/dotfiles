@@ -38,9 +38,9 @@ with pkgs;
     xclip
     atool
     wget
-    gnupg # encryption key management
+    gnupg
     thunderbird
-    psmisc # killall and others
+    psmisc
 
     ranger
     termite
@@ -65,7 +65,6 @@ with pkgs;
 
     transmission
 
-    # notify-desktop
     netcat-openbsd # nc -U /var/run/acpid.socket
     lsof
     xorg.xbacklight
@@ -76,20 +75,15 @@ with pkgs;
     dunsted-volume
     python3Packages.docker_compose
 
-    qtox
     android-studio
     ctags
     filezilla
     firefox
-    cacert
     gtk-recordmydesktop
     vlc
     asciinema
     tree
-
-    haskellPackages.ghc
-    haskellPackages.ghc-mod
-    # haskellPackages.hfmt
+    youtube-dl
   ];
 
   nixpkgs.config.packageOverrides = super: {

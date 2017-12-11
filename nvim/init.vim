@@ -89,7 +89,7 @@ autocmd WinLeave * setlocal nocursorline
 autocmd WinEnter * setlocal cursorline
 let &colorcolumn=s:settings.max_column
 
-set hidden
+" set hidden
 
 " shared helper
 function! Preserve(command) "{{{
