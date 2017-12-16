@@ -20,10 +20,6 @@ in {
     path = "https://github.com/rycee/home-manager/archive/master.tar.gz";
   };
 
-  home.file.".zshenv".text = ''
-    export PATH="$PATH:${dotfilesDir}/scripts"
-  '';
-
   home.file.".Xresources".text = ''
     ${builtins.readFile "${dotfilesDir}/Xresources/colorscheme"}
     ${builtins.readFile "${dotfilesDir}/Xresources/rofi"}

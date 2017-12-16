@@ -53,10 +53,6 @@ chmodd() {
   find $2 -type d -exec chmod $1 {} \;
 }
 
-pathsplit () {
-  tr ':' '\n'
-}
-
 # update-all () {
 #   yaourt --aur -Syu --noconfirm
 #   sudo gem update --system

@@ -76,3 +76,5 @@ export PATH="$HOME/.config/dotfiles/nvim/ghcmod-fix:$PATH"
 GEM_HOME=$HOME/.gem/ruby/2.4.0
 GEM_PATH=$GEM_HOME
 export PATH=$GEM_HOME/bin:$PATH
+
+export PATH="$PATH:$DOTFILES/scripts"

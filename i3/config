@@ -234,6 +234,6 @@ for_window [window_role="pop-up"]      floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"]      floating enable
 for_window [title="Edit Current$"]     floating enable
-for_window [class="(?i)nautilus"]       floating enable
+for_window [class="(?i)nautilus"]      floating enable
 for_window [class="copyq"]             floating enable
 

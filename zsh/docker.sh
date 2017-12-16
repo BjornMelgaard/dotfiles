@@ -63,9 +63,22 @@ alias dc-rebuild="docker-compose build"
 alias dc="docker-compose"
 alias dcu="docker-compose up"
 
-alias dcRUN="docker-compose run --service-ports --rm"
+dcRUN () {
+  docker-compose run --service-ports --rm "$@"
+  dstop
+}
 
 docker-fix-root() {
   sudo chown --from=root:root -R bjorn:users *
 }
 
+docker-ruby () {
+  docker run \
+    -it \
+    --rm \
+    --name ruby23 \
+    -v "$PWD":/usr/src/app \
+    -w /usr/src/app \
+    ruby:2.3 \
+    "$1"
+}
