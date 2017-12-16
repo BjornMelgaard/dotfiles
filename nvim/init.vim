@@ -547,47 +547,14 @@ call dein#add('neovimhaskell/haskell-vim', { 'on_ft':['haskell'] })
 call dein#add('eagletmt/neco-ghc', { 'on_ft':['haskell'] })
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-" TODO: wait https://github.com/danstiner/hfmt/issues/17
-" call dein#add('sbdchd/neoformat', {'on_ft':['haskell']})
-" let g:neoformat_enabled_haskell = ['hindent']
-" let g:neoformat_enabled_haskell = ['stylishhaskell']
-" let g:neoformat_enabled_haskell = ['hfmt']
-" let g:neoformat_enabled_haskell = ['brittany']
-
-call dein#add('Shougo/vimproc.vim', {'build' : 'make', 'on_ft':['haskell'] })
-call dein#add('eagletmt/ghcmod-vim', { 'on_ft':['haskell'] })
-let g:ghcmod_use_basedir="/home/bjorn/.config/dotfiles/nvim/ghcmod-fix"
-" helpers:
-"   ghc-mod type scripts/update-index-js.hs 21 21
-
-" autocmd BufRead,BufNewFile xmonad/* call s:add_xmonad_path()
-" function! s:add_xmonad_path()
-"   if !exists('b:ghcmod_ghc_options')
-"     let b:ghcmod_ghc_options = []
-"   endif
-"   echo 'you are in xmonad'
-"   call add(b:ghcmod_ghc_options, '-i' . expand('~/.xmonad/lib'))
-" endfunction
-
-" let g:deoplete#omni#input_patterns.haskell = '[^. *\t]'
-" let g:deoplete#omni#input_patterns.haskell = '[.\w]+'
-
-function! Hfmt() abort
-  let path = expand('%:p')
-  " installed with stack
-  let format = '~/.local/bin/hfmt -w '
-  call system(format . path)
-  edit!
-  Neomake
-endfunction
-
-augroup fmt-haskell
-  autocmd!
-  autocmd BufWritePre *.hs Neoformat
-  " autocmd BufWritePost *.hs call Hfmt()
-augroup END
-
 call dein#add('Twinside/vim-hoogle', { 'on_ft':['haskell'] })
+
+call dein#add('parsonsmatt/intero-neovim', { 'on_ft':['haskell'] })
+" call dein#add('glittershark/vim-hare', { 'on_ft':['haskell'] })
+
+" Reloading (pick one)
+" Automatically reload on save
+au BufWritePost *.hs InteroReload
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C#
@@ -613,7 +580,7 @@ let g:psc_ide_log_level=4
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nix
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('LnL7/vim-nix')
+call dein#add('LnL7/vim-nix', { 'on_ft':['nix'] })
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc

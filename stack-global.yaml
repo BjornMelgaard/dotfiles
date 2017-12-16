@@ -15,3 +15,8 @@ templates:
 
 nix:
   enable: true
+  packages:
+    - libcxx
+    - icu
+    - gcc
+    - ncurses

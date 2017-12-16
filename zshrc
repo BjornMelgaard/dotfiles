@@ -58,17 +58,13 @@ source $DOTFILES/zsh/index.sh
 
 autoload -U zmv
 
-PROJECT_PATHS=(~/projects ~/work)
+PROJECT_PATHS=(~/projects)
 
 # npm/yarn
 export PATH="$HOME/.node_modules/bin:$PATH"
-export PATH="$HOME/.config/dotfiles/nvim/ghcmod-fix:$PATH"
+
 # helper
 # npm install -g yarn javascript-typescript-langserver linted-git-commit @commitlint/{config-conventional,cli}
-
-# rvm
-# export PATH="$PATH:$HOME/.rvm/bin"
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # gem
 # GEM_HOME=$(ruby -e 'puts Gem.user_dir')
