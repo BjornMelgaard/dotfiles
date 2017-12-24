@@ -77,29 +77,6 @@ nuuz-fe () {
   fi
 }
 
-# resetters
-nuuz-local-recreate-dev-db () {
-  docker-compose run be_dev bash -c 'rake db:drop && rake db:create && (rake db:migrate || true) && rake db:seed && rake db:schema:dump'
-}
-
-nuuz-local-reset-dev-sessions () {
-  docker-compose run be_dev rake tmp:clear
-}
-
-nuuz-local-recreate-test-db () {
-  docker-compose run be_test bash -c 'rake db:drop && rake db:create && rake db:migrate'
-}
-
-nuuz-local-reset-dev () {
-  nuuz-local-recreate-dev-db
-  nuuz-local-reset-dev-sessions
-}
-
-nuuz-local-recreate-db-all () {
-  nuuz-local-recreate-dev-db
-  nuuz-local-recreate-test-db
-}
-
 # helpers
 # cd /data/www/stage/nuuz-backend
 # sudo /opt/nginx/sbin/nginx -s reload

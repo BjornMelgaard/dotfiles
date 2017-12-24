@@ -1,12 +1,22 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i runghc -p 'haskellPackages.ghcWithPackages (pkgs: with pkgs; [protolude turtle shakespeare])'
+#!/usr/bin/env stack
+{- stack
+  script
+  --nix
+  --resolver lts-9.18
+  --package directory
+  --package filepath
+  --package text
+  --package protolude
+  --package turtle
+  --package shakespeare
+  --compile
+-}
+
 {-# LANGUAGE ExtendedDefaultRules #-}
 {-# LANGUAGE NoImplicitPrelude    #-}
 {-# LANGUAGE OverloadedStrings    #-}
 {-# LANGUAGE QuasiQuotes          #-}
 {-# LANGUAGE ScopedTypeVariables  #-}
-
-module Playground where
 
 import           Control.Monad         (fail)
 import           Protolude

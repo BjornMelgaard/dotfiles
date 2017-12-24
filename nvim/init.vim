@@ -380,9 +380,9 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   nnoremap <F3> :NERDTreeFind<CR>
 "}}}
 
-call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
-  nnoremap <silent> <F9> :TagbarToggle<CR>
-"}}}
+"call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
+"  nnoremap <silent> <F9> :TagbarToggle<CR>
+""}}}
 call dein#add('kshenoy/vim-signature')
 call dein#add('myusuf3/numbers.vim') " {{{
   nnoremap <silent> <F7> :NumbersToggle<cr>
@@ -816,8 +816,11 @@ autocmd BufRead,BufNewFile *.conf setf dosini
 autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal nolist
-autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
+autocmd FileType yaml,eruby.yaml setlocal tabstop=2 shiftwidth=2 commentstring=#\ %s
 " autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 expandtab
+
+" force filetype on odd extension
+au BufRead,BufNewFile *.js.erb set filetype=javascript
 
 " autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
 " autocmd FileType html,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=0 copyindent preserveindent noexpandtab

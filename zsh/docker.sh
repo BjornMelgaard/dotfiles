@@ -1,7 +1,3 @@
-# ------------------------------------
-# Docker alias and function
-# ------------------------------------
-
 # Just docker
 alias d="docker"
 
@@ -53,32 +49,6 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
-# ------------------------------------
-# Docker-compose alias and function
-# ------------------------------------
-
-# if Dockerfile was changed
-alias dc-rebuild="docker-compose build"
-
-alias dc="docker-compose"
-alias dcu="docker-compose up"
-
-dcRUN () {
-  docker-compose run --service-ports --rm "$@"
-  dstop
-}
-
 docker-fix-root() {
-  sudo chown --from=root:root -R bjorn:users *
-}
-
-docker-ruby () {
-  docker run \
-    -it \
-    --rm \
-    --name ruby23 \
-    -v "$PWD":/usr/src/app \
-    -w /usr/src/app \
-    ruby:2.3 \
-    "$1"
+  sudo chown --from=root:root -R `whoami`:users *
 }

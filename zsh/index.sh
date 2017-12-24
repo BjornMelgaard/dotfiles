@@ -13,6 +13,8 @@ source ${SCRIPT_DIR}/yarn.sh
 source ${SCRIPT_DIR}/vim.sh
 source ${SCRIPT_DIR}/nix.sh
 source ${SCRIPT_DIR}/docker.sh
+source ${SCRIPT_DIR}/docker-compose.sh
+source ${SCRIPT_DIR}/docker-rails.sh
 
 # source ${SCRIPT_DIR}/work/airzaar.sh
 # source ${SCRIPT_DIR}/work/rgs.sh
