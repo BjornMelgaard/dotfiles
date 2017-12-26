@@ -84,6 +84,8 @@ with pkgs;
     asciinema
     tree
     youtube-dl
+
+    bfg
   ];
 
   nixpkgs.config.packageOverrides = super: {

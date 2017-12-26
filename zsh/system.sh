@@ -53,9 +53,8 @@ chmodd() {
   find $2 -type d -exec chmod $1 {} \;
 }
 
-# update-all () {
-#   yaourt --aur -Syu --noconfirm
-#   sudo gem update --system
-#   gem update
-#   yarn global upgrade
-# }
+unroot-root-files() {
+  sudo chown --from=root:root -R `whoami`:users ./**
+
+  # find . -user root -exec sudo chown `whoami`:users {} \;
+}

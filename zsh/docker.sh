@@ -49,6 +49,3 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
-docker-fix-root() {
-  sudo chown --from=root:root -R `whoami`:users *
-}

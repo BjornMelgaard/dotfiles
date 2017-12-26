@@ -12,7 +12,6 @@ docker-ruby () {
 #
 docker-rails-recreate-db () {
   docker-compose run --rm "$1" bash -c '\
-    rake db:drop \
     && rake db:create \
     && (rake db:migrate || true) \
     && rake db:seed \
