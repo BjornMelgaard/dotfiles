@@ -31,6 +31,7 @@ plugins=(
   git
 
   ## nixos
+  # NOTE: nix-zsh-completions already installed via `programs.zsh.enableCompletion = true`
   systemd
   sudo
 
@@ -55,6 +56,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source $DOTFILES/zsh/index.sh
+source ~/projects/zsh-nordicres/index.sh
 
 autoload -U zmv
 

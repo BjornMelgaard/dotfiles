@@ -1,12 +1,27 @@
+snippet func
+alias f
+  function(${0:TARGET})
+
+##############
+snippet console-error
+alias ce
+  console.error(${0:TARGET})
+
+snippet console-warn
+alias cw
+  console.warn(${0:TARGET})
+
 snippet console-log
 alias cl
   console.log(${0:TARGET})
 
+##############
 snippet trace
 alias tr
   trace('${0:TARGET}', $0)
 
-snippet functions
+##############
+snippet objFunctions
   function functions(obj, withInherited = true) {
     let methods = [];
     for (let m in obj) {
@@ -15,6 +30,7 @@ snippet functions
     return withInherited ?  methods : methods.filter(m => obj.hasOwnProperty(m))
   }
 
+##############
 snippet import-ramda
 alias ir
   import * as R from 'ramda'
@@ -27,6 +43,7 @@ snippet import-recompose
 alias ire
   import * as RE from 'recompose'
 
+##############
 snippet export-default
 alias ed
   export default ${0:TARGET}

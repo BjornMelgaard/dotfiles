@@ -16,9 +16,3 @@ source ${SCRIPT_DIR}/docker.sh
 source ${SCRIPT_DIR}/docker-compose.sh
 source ${SCRIPT_DIR}/docker-rails.sh
 
-# source ${SCRIPT_DIR}/work/airzaar.sh
-# source ${SCRIPT_DIR}/work/rgs.sh
-
-source ${SCRIPT_DIR}/work/nuuz.sh
-source ${SCRIPT_DIR}/work/vdare.sh
-

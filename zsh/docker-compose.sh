@@ -18,9 +18,16 @@ dcrn_f () {
   docker-compose -f "docker-compose.$1.yml" run --rm --no-deps "${@:2}"
 }
 
-dcRUN! () {
+dcrs! () {
   drmaci
   docker-compose run --service-ports --rm "$@"
+  drmaci
+  unroot-root-files
+}
+
+dcrs_f! () {
+  drmaci
+  docker-compose -f "docker-compose.$1.yml" run --rm --service-ports "${@:2}"
   drmaci
   unroot-root-files
 }

@@ -68,12 +68,19 @@ with pkgs;
     netcat-openbsd # nc -U /var/run/acpid.socket
     lsof
     xorg.xbacklight
-    unar unrar
-    automake autoconf gnumake gcc
+
+    unar
+    unrar
+
+    automake
+    autoconf
+    gnumake
+    gcc
 
     lingualeo2anki
     dunsted-volume
     python3Packages.docker_compose
+    mkpasswd
 
     android-studio
     ctags
@@ -85,7 +92,7 @@ with pkgs;
     tree
     youtube-dl
 
-    bfg
+    bfg-repo-cleaner # removes passwords from git repo
   ];
 
   nixpkgs.config.packageOverrides = super: {

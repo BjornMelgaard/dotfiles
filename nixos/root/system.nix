@@ -2,12 +2,12 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  # nix.trustedUsers = [ "root" "@wheel" ];
 
   users = {
     mutableUsers = false;
     defaultUserShell = pkgs.zsh;
     extraUsers =
+      # generated via: mkpasswd -m sha-512
       let hashedPassword = "$6$Xne/w.j0RkrN$lRcThoZiNea2YBhfbeVJ2dgylt6Ov0IZbh1bf3flR6DYNpnv8YTTPJGwhk/8XPGNkgIrlKtXfvBowCZ7nbVt6/";
       in {
         root = {
@@ -15,7 +15,7 @@
         };
         bjorn = {
           isNormalUser = true;
-          extraGroups = [ "audio" "disk" "wheel" "networkmanager" "docker" ];
+          extraGroups = [ "audio" "disk" "wheel" "networkmanager" "docker" "vboxusers" ];
           inherit hashedPassword;
         };
       };
@@ -45,7 +45,6 @@
   };
 
   time.timeZone = "Europe/Kiev";
-  virtualisation.docker = {
-    enable = true;
-  };
+  virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
 }

@@ -54,7 +54,25 @@ chmodd() {
 }
 
 unroot-root-files() {
-  sudo chown --from=root:root -R `whoami`:users ./**
+  # * doesn't include hidden files by default
+  sudo chown --from=root:root -R `whoami`:users ./*
+  # hidden files
+  sudo chown --from=root:root -R `whoami`:users ./.[^.]*
+}
 
-  # find . -user root -exec sudo chown `whoami`:users {} \;
+encrypt-all () {
+  printf "Enter passphrase: "
+  read -s pass
+
+  for file in "$@"
+  do
+    echo "${pass}" | gpg --batch --no-tty --yes --passphrase-fd 0 --symmetric "${file}"
+  done
+}
+
+decrypt-all () {
+  printf "Enter passphrase: "
+  read -s pass
+
+  echo "${pass}" | gpg --batch --no-tty --yes --passphrase-fd 0 --decrypt-files "$@"
 }
