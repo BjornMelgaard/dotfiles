@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# NOTE: stolen https://gist.github.com/bkcsoft/8833077
+
+if [ $# -eq 0 ]; then
+	printf 1 "Usage: $(basename $0) [build-args [-- run-args [-- cmd-args] ] ]"
+	printf 1 "  NOTE!!! the -rm-flag is hardcoded for build!"
+fi
+
+BUILD_ARG=()
+RUN_ARG=()
+CMD_ARG=()
+ARG_SWITCH=0
+
+while [ "${#@}" -ne 0 ]; do
+	if [ "$1" == "--" ]; then
+		let ARG_SWITCH++
+		shift
+	fi
+	case $ARG_SWITCH in
+		0)
+			BUILD_ARG+=("$1")
+			;;
+		1)
+			RUN_ARG+=("$1")
+			;;
+		2)
+			CMD_ARG+=("$1")
+			;;
+	esac
+	shift
+done
+
+NAME="$(basename $PWD)"
+
+echo "Building ${NAME}..."
+
+echo "BUILD_ARG: ${BUILD_ARG[@]}"
+echo "RUN_ARG: ${RUN_ARG[@]}"
+echo "CMD_ARG: ${CMD_ARG[@]}"
+
+if ! docker build --rm "${BUILD_ARG[@]}" -t="${NAME}" . ; then
+	echo "Build failed :("
+	exit 1
+fi
+
+echo "Running ${NAME}..."
+
+docker run "${RUN_ARG[@]}" "${NAME}" "${CMD_ARG[@]}"
