@@ -12,6 +12,7 @@
 { pkgs, ... }:
 
 {
+  allowUnfree = true;
   # packageOverrides = pkgs : with pkgs; {
 
   #   # \curl -L https://get.rvm.io | bash -s stable --rails --auto-dotfiles

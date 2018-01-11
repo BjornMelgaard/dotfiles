@@ -92,6 +92,9 @@ with pkgs;
     tree
     youtube-dl
 
+    vagrant
+    virtualbox
+
     bfg-repo-cleaner # removes passwords from git repo
   ];
 

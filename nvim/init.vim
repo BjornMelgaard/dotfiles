@@ -821,6 +821,7 @@ autocmd FileType yaml,eruby.yaml setlocal tabstop=2 shiftwidth=2 commentstring=#
 
 " force filetype on odd extension
 au BufRead,BufNewFile *.js.erb set filetype=javascript
+au BufRead,BufNewFile Vagrantfile set filetype=ruby
 
 " autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
 " autocmd FileType html,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=0 copyindent preserveindent noexpandtab
