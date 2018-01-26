@@ -27,7 +27,6 @@ inhome_indotfiles = [
   ['.config/Code/User/settings.json',         'vscode-settings.json'],
   ['.xmonad/xmonad.hs',                       'xmonad/xmonad.hs'],
   ['.direnvrc',                               'direnvrc.sh'],
-  ['.npmrc',                                  'npmrc']
 ]
 
 dotfiles = Dir.pwd
@@ -39,5 +38,7 @@ inhome_indotfiles.each do |(inhome, indotfiles)|
   `mkdir -p "$(dirname "#{inhome_}")"`
   `ln -sfT "#{indotfiles_}" "#{inhome_}"`
 end
+
+`cp #{File.join(dotfiles, 'npmrc')} #{File.join(home, '.npmrc')}`
 
 # vim: set ft=ruby
