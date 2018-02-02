@@ -1,0 +1,20 @@
+#! /usr/bin/env ruby
+
+# XXX
+# to update list
+# code --list-extensions
+
+extensions = %w[
+  HookyQR.beautify
+  PeterJausovec.vscode-docker
+  UCL.haskelly
+  eg2.tslint
+  eg2.vscode-npm-script
+  felipecaputo.git-project-manager
+  justusadam.language-haskell
+  karunamurti.haml
+  rebornix.Ruby
+  sianglim.slim
+]
+
+extensions.each { |e| `code --install-extension #{e}` }

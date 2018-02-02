@@ -1,5 +1,7 @@
 #! /usr/bin/env ruby
 
+require_relative './config'
+
 inhome_indotfiles = [
   ['.zshrc',                                  'zshrc'],
   ['.tmux.conf',                              'tmux.conf'],
@@ -24,21 +26,16 @@ inhome_indotfiles = [
   ['.local/share/applications/mimeapps.list', 'mimeapps.list'],
   ['.config/mimeapps.list',                   'mimeapps.list'],
 
-  ['.config/Code/User/settings.json',         'vscode-settings.json'],
-  ['.xmonad/xmonad.hs',                       'xmonad/xmonad.hs'],
-  ['.direnvrc',                               'direnvrc.sh'],
+  ['.config/Code/User/settings.json',         'Code/settings.json'],
+  ['.config/Code/User/extensions.json',       'Code/extensions.json'],
+  ['.config/Code/User/snippets',              'Code/snippets'],
+
+  ['.direnvrc',                               'direnvrc.sh']
 ]
 
-dotfiles = Dir.pwd
-home = ENV['HOME']
-
 inhome_indotfiles.each do |(inhome, indotfiles)|
-  inhome_     = File.join home, inhome
-  indotfiles_ = File.join dotfiles, indotfiles
+  inhome_     = File.join $home, inhome
+  indotfiles_ = File.join $dotfiles, indotfiles
   `mkdir -p "$(dirname "#{inhome_}")"`
   `ln -sfT "#{indotfiles_}" "#{inhome_}"`
 end
-
-`cp #{File.join(dotfiles, 'npmrc')} #{File.join(home, '.npmrc')}`
-
-# vim: set ft=ruby

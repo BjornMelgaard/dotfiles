@@ -1,6 +1,8 @@
 GPG_BACKUP_DIR="$HOME/projects/gpg-backup"
 USER_EMAIL="melgaardbjorn@gmail.com"
 
+# https://gist.github.com/chrisroos/1205934
+
 gpg-backup () {
   mkdir -p $GPG_BACKUP_DIR
 

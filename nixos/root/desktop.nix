@@ -51,6 +51,7 @@ in {
         i3 = {
           enable = true;
         };
+
         # default = "xmonad";
         # xmonad = {
         #   enable = true;
