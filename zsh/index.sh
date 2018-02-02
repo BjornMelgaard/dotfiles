@@ -15,4 +15,5 @@ source ${SCRIPT_DIR}/nix.sh
 source ${SCRIPT_DIR}/docker.sh
 source ${SCRIPT_DIR}/docker-compose.sh
 source ${SCRIPT_DIR}/docker-rails.sh
+source ${SCRIPT_DIR}/gpg-backup.sh
 
