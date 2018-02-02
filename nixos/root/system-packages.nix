@@ -95,6 +95,7 @@ with pkgs;
     vagrant
     virtualbox
 
+    fzf
     bfg-repo-cleaner # removes passwords from git repo
   ];
 

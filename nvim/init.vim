@@ -326,7 +326,7 @@ call dein#add('tpope/vim-abolish') " {{{
   " abolish current highlightment
   nnoremap <leader>a "+y//e<CR>:%Subvert:::g<left><left><left><C-r>+<right>
   nnoremap <leader>A :%Subvert:::g<left><left><left>
-  vmap     <leader>a :Subvert:::g<left><left><left>
+  vmap     <leader>A :Subvert:::g<left><left><left>
 " }}}
 
 call dein#add('itchyny/vim-cursorword') " underscore word under cursor
