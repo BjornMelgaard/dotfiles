@@ -55,5 +55,5 @@ printf "with (import /etc/nixos/metaconfiguration.nix);\nimport \"\${dotfilesDir
 code --user-data-dir=/tmp/code /mnt/home/bjorn/.config/dotfiles /mnt/etc/nixos/
 
 # INSTALL
-nixos-install --root /mnt
+nixos-install
 ```
