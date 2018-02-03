@@ -44,9 +44,10 @@ printf "rec {\n  dotfilesDir=/mnt/home/bjorn/.config/dotfiles;\n}" > /etc/nixos/
 # this configuration is used only during installation, because dotfiles files have `import /etc/nixos/metaconfiguration.nix` hardcoded
 printf "rec {\n  dotfilesDir=/home/bjorn/.config/dotfiles;\n}" > /mnt/etc/nixos/metaconfiguration.nix
 
-# import DOTFILES/nixos/root/default.nix inside   
+# link /etc/nixos/configuration.nix to dotfiles
 printf "with (import /etc/nixos/metaconfiguration.nix);\nimport \"\${dotfilesDir}/nixos/root/default.nix\"" > /mnt/etc/nixos/configuration.nix
 
+# link /home/bjorn/.config/nixpkgs/config.nix to dotfiles
 mkdir -p /mnt/home/bjorn/.config/nixpkgs
 printf "with (import /etc/nixos/metaconfiguration.nix);\nimport \"\${dotfilesDir}/nixos/home/config.nix\"" > /mnt/home/bjorn/.config/nixpkgs/config.nix
 
