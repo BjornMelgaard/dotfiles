@@ -12,7 +12,7 @@ code --user-data-dir=/tmp/code --install-extension bbenoist.Nix
 
 # MAKE PARTITIONS
 gdisk /dev/sdb
-# make 3 partitions: efi (code - ef00, last sector - +5M), swap (code - 8200, last sector - +8G), nixos (code - default, last sector - default)
+# make 3 partitions: efi (code - ef00, last sector - +100M), swap (code - 8200, last sector - +8G), nixos (code - default, last sector - default)
 mkfs.vfat /dev/sdb1
 mkswap -L swap /dev/sdb2
 mkfs.ext4 -L nixos /dev/sdb3
