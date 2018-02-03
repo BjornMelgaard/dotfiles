@@ -1,18 +1,10 @@
-# This is the user configuration file,
-# use it with https://github.com/rycee/home-manager
-#
-# import it in your `$HOME/.config/nixpkgs/config.nix` like this:
-# ```
-# let
-#   dotfilesDir=/home/bjorn/.config/dotfiles;
-# in
-#   import "${dotfilesDir}/nixos/home/config.nix"
-# ```
+with (import /etc/nixos/metaconfiguration.nix);
 
 { pkgs, ... }:
 
 {
   allowUnfree = true;
+
   # packageOverrides = pkgs : with pkgs; {
 
   #   # \curl -L https://get.rvm.io | bash -s stable --rails --auto-dotfiles

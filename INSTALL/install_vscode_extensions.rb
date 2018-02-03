@@ -15,6 +15,7 @@ extensions = %w[
   karunamurti.haml
   rebornix.Ruby
   sianglim.slim
+  bbenoist.Nix
 ]
 
 extensions.each { |e| `code --install-extension #{e}` }

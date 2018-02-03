@@ -1,13 +1,3 @@
-# This is the root configuration file
-#
-# import it in your `/etc/nixos/configuration.nix` like this:
-# ```
-# let
-#   dotfilesDir=/home/bjorn/.config/dotfiles;
-# in
-#   import "${dotfilesDir}/root/home/default.nix"
-# ```
-
 { config, pkgs, xorg, ... }:
 
 {

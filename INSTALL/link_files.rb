@@ -30,7 +30,10 @@ inhome_indotfiles = [
   ['.config/Code/User/extensions.json',       'Code/extensions.json'],
   ['.config/Code/User/snippets',              'Code/snippets'],
 
-  ['.direnvrc',                               'direnvrc.sh']
+  ['.direnvrc',                               'direnvrc.sh'],
+
+  ['.Xresources.d',                           'Xresources.d'],
+  ['.Xresources',                             'Xresources']
 ]
 
 inhome_indotfiles.each do |(inhome, indotfiles)|

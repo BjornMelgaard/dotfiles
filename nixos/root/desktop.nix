@@ -1,10 +1,9 @@
 { config, pkgs, xorg, lib, ... }:
 
 with lib;
+with (import /etc/nixos/metaconfiguration.nix);
 
-let
-  dotfilesDir=/home/bjorn/.config/dotfiles;
-in {
+{
   services = {
     openssh.enable = true;
     xbanish.enable = true;
@@ -40,6 +39,7 @@ in {
       layout = "us,ru";
       xkbOptions = "caps:swapescape,grp:rctrl_rshift_toggle";
       xkbVariant = "qwerty";
+      libinput.enable = true;
 
       dpi = 96;
       deviceSection = ''

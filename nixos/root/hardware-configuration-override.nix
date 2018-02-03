@@ -19,17 +19,16 @@ with lib;
   boot = {
     tmpOnTmpfs = true;
     cleanTmpDir = true;
-    loader = { # Bootloader
+
+    # Bootloader
+    loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
     };
   };
 
-  swapDevices = singleton
-    { device = "/dev/disk/by-label/swap"; };
-
   fileSystems."/mnt/hdd" =
-    { device = "/dev/disk/by-uuid/22528F11528EE93D";
+    { device = "/dev/sda5";
       fsType = "ntfs";
       options = [ "nofail" ];
     };
