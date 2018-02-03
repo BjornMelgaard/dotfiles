@@ -17,8 +17,10 @@ with (import /etc/nixos/metaconfiguration.nix);
 
     redshift = {
       enable = true;
-      latitude = "50";
-      longitude = "30";
+      latitude = "47.517201";
+      longitude = "35.859375";
+      temperature.night = 2500;
+      brightness.night = "0.5";
     };
 
     acpid = {
@@ -48,16 +50,7 @@ with (import /etc/nixos/metaconfiguration.nix);
 
       windowManager = {
         default = "i3";
-        i3 = {
-          enable = true;
-        };
-
-        # default = "xmonad";
-        # xmonad = {
-        #   enable = true;
-        #   enableContribAndExtras = true;
-        #   extraPackages = with pkgs.haskellPackages; haskellPackages: [ xmobar ];
-        # };
+        i3.enable = true;
       };
 
       desktopManager = {

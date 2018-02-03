@@ -28,7 +28,7 @@ with lib;
   };
 
   fileSystems."/mnt/hdd" =
-    { device = "/dev/sda5";
+    { device = "/dev/disk/by-partuuid/650fcfee-3cdd-46d0-acb0-d159eb4f6b07";
       fsType = "ntfs";
       options = [ "nofail" ];
     };

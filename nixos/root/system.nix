@@ -31,6 +31,7 @@
   networking = {
     hostName = "machine";
     networkmanager.enable = true;
+
     # firewall = {
     #   enable = true;
     #   allowPing = false;
@@ -46,5 +47,5 @@
 
   time.timeZone = "Europe/Kiev";
   virtualisation.docker.enable = true;
-  virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enable = true;
 }
