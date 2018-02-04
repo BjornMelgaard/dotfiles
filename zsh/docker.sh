@@ -53,7 +53,3 @@ docker-prune-all () {
   docker system prune -a
   docker volume prune -f
 }
-
-docker-remove-volumes-of-nonrunning-containers () {
-  docker volume rm `docker volume ls -q -f dangling=true`
-}

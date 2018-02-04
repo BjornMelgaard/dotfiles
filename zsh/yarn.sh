@@ -25,8 +25,6 @@ alias yul="yarn upgrade --latest"
 alias yui="yarn upgrade-interactive"
 alias ygu="yarn global upgrade"
 
-alias yarn-add-npm-ramda="yarn add --dev https://github.com/types/npm-ramda\#dist"
-
 yadt () {
   for var in "$@"
   do

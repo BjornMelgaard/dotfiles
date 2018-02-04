@@ -1,2 +1,2 @@
-#include ".Xresources.d/colorscheme"
-#include ".Xresources.d/rofi"
+#include "Xresources.d/colorscheme"
+#include "Xresources.d/rofi"

@@ -243,7 +243,10 @@ call dein#add('Shougo/echodoc.vim') " {{{
 " }}}
 " " call dein#add('thalesmello/webcomplete.vim')
 
-call dein#add('autozimu/LanguageClient-neovim')
+call dein#add('autozimu/LanguageClient-neovim', {
+    \ 'rev': 'next',
+    \ 'build': 'bash install.sh',
+    \ })
 
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],

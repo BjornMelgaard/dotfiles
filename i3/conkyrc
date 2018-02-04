@@ -1,10 +1,10 @@
-background        no
-out_to_console 	  yes
-out_to_x	  no
-update_interval	  2
-total_run_times	  0
-short_units	  yes
-pad_percents	  3
+background      no
+out_to_console  yes
+out_to_x        no
+update_interval 2
+total_run_times 0
+short_units     yes
+pad_percents    3
 
 override_utf8_locale yes
 
@@ -21,7 +21,7 @@ $else
     {"full_text": " ≈ no connection ","color":"\#33CC99"},
   $endif
 $endif
-  {"full_text": " ☇ [${battery_percent BAT1}%] ","color":"\#9933CC"${if_match ${battery_percent BAT1} <= 75}, "urgent": true $endif },
+  {"full_text": " ☇ [${battery_percent BAT0}%] ","color":"\#9933CC"${if_match ${battery_percent BAT0} <= 75}, "urgent": true $endif },
   {"full_text": " ♪ [${exec amixer -c 0 get Master | grep -oe '[[:digit:]]*%'}] ", "color":"\#268BD2"},
   {"full_text": " ${time %a %d %b} ${time %H:%M} "}
 ],

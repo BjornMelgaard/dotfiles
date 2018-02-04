@@ -5,11 +5,7 @@ with lib;
 {
   hardware = {
     pulseaudio.enable = true;
-    bluetooth.enable = false;
-    bumblebee = {
-      enable = true;
-      driver = "nvidia";
-    };
+    # bluetooth.enable = false;
     opengl = {
       driSupport32Bit = true;
       enable = true;

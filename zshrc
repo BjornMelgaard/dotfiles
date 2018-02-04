@@ -55,8 +55,11 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $DOTFILES/zsh/index.sh
-source ~/projects/zsh-nordicres/index.sh
+source $HOME/projects/zsh-nordicres/index.sh
+
+for file in $DOTFILES/zsh/*.sh; do
+  source $file
+done
 
 autoload -U zmv
 
@@ -65,13 +68,8 @@ PROJECT_PATHS=(~/projects)
 # npm/yarn
 export PATH="$HOME/.node_modules/bin:$PATH"
 
-# helper
-# npm install -g yarn javascript-typescript-langserver linted-git-commit @commitlint/{config-conventional,cli}
-
 # gem
-# GEM_HOME=$(ruby -e 'puts Gem.user_dir')
-# or
-GEM_HOME=$HOME/.gem/ruby/2.4.0
+GEM_HOME=$HOME/.gem/ruby/2.4.0 # NOTE: same as `GEM_HOME=$(ruby -e 'puts Gem.user_dir')`, but loads faster
 GEM_PATH=$GEM_HOME
 export PATH=$GEM_HOME/bin:$PATH
 

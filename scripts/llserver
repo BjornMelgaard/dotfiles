@@ -1,3 +1,0 @@
-#! /bin/sh
-
-lingualeo2anki -f /home/bjorn/anki.txt -m /home/bjorn/.local/share/Anki2/User\ 1/collection.media

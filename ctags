@@ -34,8 +34,6 @@
 
 --langdef=typescript
 --langmap=typescript:.ts
---langmap=typescript:+.es6
---langmap=typescript:+.js
 --regex-typescript=/^[ \t]*(export|declare)?.*class[ \t]+([a-zA-Z0-9_]+)/\2/c,classes/
 --regex-typescript=/^[ \t]*(export)?[ \t]*module[ \t]+([a-zA-Z0-9_]+)/\2/n,modules/
 --regex-typescript=/^[ \t]*(export|declare)?.*function[ \t]+([a-zA-Z0-9_]+)[ \t]*\(/\2/f,functions/

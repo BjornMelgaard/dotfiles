@@ -2,4 +2,4 @@
 
 echo "{\"version\":1}"
 echo "[[],"
-conky -q -c /home/bjorn/.config/dotfiles/i3/conkyrc
+conky -q -c $HOME/.config/dotfiles/i3/conkyrc

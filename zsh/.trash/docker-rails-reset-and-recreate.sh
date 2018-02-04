@@ -1,15 +1,3 @@
-docker-ruby () {
-  docker run \
-    -it \
-    --rm \
-    --name ruby23 \
-    -v `pwd`:/usr/src/app \
-    -w /usr/src/app \
-    ruby:2.3 \
-    "$@"
-}
-
-#
 docker-rails-recreate-db () {
   docker-compose run --rm "$1" bash -c '\
     rake db:drop \

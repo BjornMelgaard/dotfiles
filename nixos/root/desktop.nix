@@ -67,7 +67,7 @@ with (import /etc/nixos/metaconfiguration.nix);
           };
         };
         sessionCommands = ''
-          ${pkgs.xorg.xinput}/bin/xinput --disable 'ETPS/2 Elantech Touchpad'
+          ${pkgs.xorg.xinput}/bin/xinput --disable 'ELAN1300:00 04F3:3057 Touchpad'
           ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${dotfilesDir}/layouts/en_ru $DISPLAY
           ${pkgs.copyq}/bin/copyq &
         '';

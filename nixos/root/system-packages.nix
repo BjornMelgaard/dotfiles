@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 with pkgs;
+with (callPackage ./lib {});
 
 {
   environment.systemPackages = [
@@ -54,7 +55,7 @@ with pkgs;
 
     docker
 
-    nodejs
+    nodejs-8_x
     yarn
 
     python
@@ -76,8 +77,6 @@ with pkgs;
     gnumake
     gcc
 
-    lingualeo2anki
-    dunsted-volume
     python3Packages.docker_compose
     mkpasswd
 
@@ -96,35 +95,22 @@ with pkgs;
 
     fzf
     bfg-repo-cleaner # removes passwords from git repo
+
+    nox
+    nix-prefetch-git
+
+    # My remote packages
+    dunsted-volume
+    randomize_background
   ];
 
   nixpkgs.config.packageOverrides = super: {
-    dunsted-volume = callPackage (fetchFromGitHub {
-      owner = "BjornMelgaard";
-      repo = "dunsted-volume";
-      rev = "44bf00f1e39dfcb77761bca4836282a6f7516dd4";
-      sha256 = "19ckjpmm3zki54xgnapg1j4c1wk7iv50zgd39n80yp2srsa2s0ka";
-    }) {};
+    # My remote packages
 
-    lingualeo2anki = callPackage (fetchFromGitHub {
-      owner = "BjornMelgaard";
-      repo = "lingualeo2anki";
-      rev = "3f077f6afdce9578868e2e9b26149cfa10d5458f";
-      sha256 = "187jgfr55qq169aws7jcr4qnfs7hy0vnsl87f6dlxaclk9yixg8d";
-    }) {};
+    # update command example: nix-prefetch-git https://github.com/BjornMelgaard/dunsted-volume > $DOTFILES/nixos/root/nix-prefetch-git-revisions/dunsted-volume.json
+    dunsted-volume = callPackage (fetchFromGitHub (revisionDataFromFile ./nix-prefetch-git-revisions/dunsted-volume.json)) {};
 
-    # haskellPackages = super.haskellPackages.override {
-    #   overrides = self: super_: {
-    #     "hfmt" = super_."hfmt".overrideDerivation (attrs: rec {
-    #       src = super.fetchFromGitHub {
-    #         owner = "danstiner";
-    #         repo = "hfmt";
-    #         rev = "62fe625e1824f9671a2f462856165dfbf6627ef8";
-    #         sha256 = "0hpfgjiwr7dbd6b30szvs8mdrpswvvgncrp8mb1y1avza8z1jdid";
-    #       };
-    #     });
-    #   };
-    # };
-
+    # update command example: nix-prefetch-git https://github.com/BjornMelgaard/randomize_background > $DOTFILES/nixos/root/nix-prefetch-git-revisions/randomize_background.json
+    randomize_background = callPackage (fetchFromGitHub (revisionDataFromFile ./nix-prefetch-git-revisions/randomize_background.json)) {};
   };
 }

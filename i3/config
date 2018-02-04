@@ -61,8 +61,7 @@ bindsym $mod+Shift+0 move workspace $WS9
 set $terminal termite
 set $browser  google-chrome-stable --remote-debugging-port=4444
 
-exec --no-startup-id /home/bjorn/.config/dotfiles/i3/randomize_background
-exec --no-startup-id $terminal -e "/home/bjorn/.config/dotfiles/scripts/llserver"
+exec --no-startup-id randomize_background /home/bjorn/.config/dotfiles/i3/wallpallers/*
 exec --no-startup-id $browser
 # -------------------------------------
 # Shortcuts
