@@ -32,7 +32,7 @@ inhome_indotfiles = [
 
   ['.Xresources',                             'Xresources'],
 
-  ['.config/nvim',                             'nvim']
+  ['.config/nvim',                            'nvim']
 ]
 
 inhome_indotfiles.each do |(inhome, indotfiles)|
