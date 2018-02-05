@@ -51,6 +51,7 @@ with (callPackage ./lib {});
     ## development
     git
     gitAndTools.diff-so-fancy
+    gitAndTools.git-crypt
     meld
 
     docker
@@ -98,10 +99,12 @@ with (callPackage ./lib {});
 
     nox
     nix-prefetch-git
+    gimp
 
     # My remote packages
     dunsted-volume
     randomize_background
+    kb-light
   ];
 
   nixpkgs.config.packageOverrides = super: {
@@ -112,5 +115,8 @@ with (callPackage ./lib {});
 
     # update command example: nix-prefetch-git https://github.com/BjornMelgaard/randomize_background > $DOTFILES/nixos/root/nix-prefetch-git-revisions/randomize_background.json
     randomize_background = callPackage (fetchFromGitHub (revisionDataFromFile ./nix-prefetch-git-revisions/randomize_background.json)) {};
+
+    # update command example: nix-prefetch-git https://github.com/BjornMelgaard/kb-light > $DOTFILES/nixos/root/nix-prefetch-git-revisions/kb-light.json
+    kb-light = callPackage (fetchFromGitHub (revisionDataFromFile ./nix-prefetch-git-revisions/kb-light.json)) {};
   };
 }

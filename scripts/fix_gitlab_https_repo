@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/env python
 
 #-- Script to automate https://help.gitlab.nordicresults.com/articles/why-is-git-always-asking-for-my-password
 

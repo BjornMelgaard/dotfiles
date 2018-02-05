@@ -14,5 +14,6 @@
         "suppressNoRepositoryWarning": false,
         "suppressUpdateNotice": true,
         "suppressWelcomeNotice": false
-    }
+    },
+    "editor.wordWrap": "on"
 }

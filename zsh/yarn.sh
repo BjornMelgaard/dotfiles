@@ -1,4 +1,5 @@
 alias y="yarn"
+alias yi="yarn install"
 alias yrm="yarn remove"
 alias yl="yarn link"
 

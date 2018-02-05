@@ -7,15 +7,15 @@ alias dcrn="docker-compose run --rm --no-deps"
 
 # example: dcrn_f dev be bash
 dcrs_f () {
-  docker-compose -f "docker/$1.yml" run --rm --service-ports "${@:2}"
+  docker-compose -p "$1" -f "docker/$1.yml" run --rm --service-ports "${@:2}"
 }
 
 dcrsn_f () {
-  docker-compose -f "docker/$1.yml" run --rm --no-deps --service-ports "${@:2}"
+  docker-compose -p "$1" -f "docker/$1.yml" run --rm --no-deps --service-ports "${@:2}"
 }
 
 dcrn_f () {
-  docker-compose -f "docker/$1.yml" run --rm --no-deps "${@:2}"
+  docker-compose -p "$1" -f "docker/$1.yml" run --rm --no-deps "${@:2}"
 }
 
 dcrs! () {
@@ -27,7 +27,7 @@ dcrs! () {
 
 dcrs_f! () {
   drmaci
-  docker-compose -f "docker/$1.yml" run --rm --service-ports "${@:2}"
+  dcrs_f "$@"
   drmaci
   unroot-root-files
 }
