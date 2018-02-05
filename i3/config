@@ -102,10 +102,14 @@ bindsym $mod+space       floating toggle
 # multimedia keys
 bindsym XF86KbdBrightnessUp   exec "kb-light + 1"
 bindsym XF86KbdBrightnessDown exec "kb-light - 1"
+
+bindsym XF86AudioRaiseVolume  exec "dunsted-volume up"
 bindsym XF86AudioLowerVolume  exec "dunsted-volume down"
 bindsym XF86AudioMute         exec "dunsted-volume mute"
+
 bindsym XF86MonBrightnessDown exec "xbacklight -10"
 bindsym XF86MonBrightnessUp   exec "xbacklight +10"
+
 bindsym XF86TouchpadToggle    exec "/home/bjorn/.config/dotfiles/scripts/switch_touchpad"
 bindsym Print                 exec "scrot /home/bjorn/Pictures/%Y-%m-%d-%T-screenshot.png"
 # bindsym XF86Display         exec "arandr"
