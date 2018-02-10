@@ -3,6 +3,12 @@
 with pkgs;
 with (callPackage ./lib {});
 
+let
+  # XXX:
+  # sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos-unstable
+  # sudo nix-channel --update
+  unstable = import <nixos-unstable> {};
+in
 {
   environment.systemPackages = [
     # system
@@ -78,7 +84,7 @@ with (callPackage ./lib {});
     gnumake
     gcc
 
-    python3Packages.docker_compose
+    unstable.docker_compose
     mkpasswd
 
     # android-studio
@@ -90,6 +96,7 @@ with (callPackage ./lib {});
     asciinema
     tree
     youtube-dl
+    tigervnc
 
     # vagrant
     # virtualbox

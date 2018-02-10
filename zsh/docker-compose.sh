@@ -6,6 +6,10 @@ alias dcrsn="docker-compose run --rm --no-deps --service-ports"
 alias dcrn="docker-compose run --rm --no-deps"
 
 # example: dcrn_f dev be bash
+dcr_f () {
+  docker-compose -p "$1" -f "docker/$1.yml" run --rm "${@:2}"
+}
+
 dcrs_f () {
   docker-compose -p "$1" -f "docker/$1.yml" run --rm --service-ports "${@:2}"
 }
