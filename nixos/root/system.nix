@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }:
 
+with (import /etc/nixos/metaconfiguration.nix);
+
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -13,7 +15,7 @@
         root = {
           inherit hashedPassword;
         };
-        bjorn = {
+        ${userName} = {
           isNormalUser = true;
           extraGroups = [ "audio" "disk" "wheel" "networkmanager" "docker" "vboxusers" ];
           inherit hashedPassword;

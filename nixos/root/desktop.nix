@@ -63,7 +63,7 @@ with (import /etc/nixos/metaconfiguration.nix);
           enable = true;
           autoLogin = {
             enable = true;
-            user = "bjorn";
+            user = userName;
           };
         };
         sessionCommands = ''
