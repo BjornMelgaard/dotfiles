@@ -38,10 +38,10 @@ mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hardware-configurati
 cp /mnt/etc/nixos/hardware-configuration.nix.old /mnt/home/bjorn/.config/dotfiles/nixos/root/hardware-configuration.nix
 
 # LINK CONFIGS TO CONFIGS IN DOTFILES
-# this configuration system will use after reboot
+# this configuration is used only during installation, because dotfiles have `import /etc/nixos/metaconfiguration.nix` hardcoded
 printf "rec {\n  dotfilesDir=/mnt/home/bjorn/.config/dotfiles;\n}" > /etc/nixos/metaconfiguration.nix
 
-# this configuration is used only during installation, because dotfiles have `import /etc/nixos/metaconfiguration.nix` hardcoded
+# this configuration system will use after reboot
 printf "rec {\n  dotfilesDir=/home/bjorn/.config/dotfiles;\n}" > /mnt/etc/nixos/metaconfiguration.nix
 
 # link /etc/nixos/configuration.nix to dotfiles
