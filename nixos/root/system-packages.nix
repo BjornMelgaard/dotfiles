@@ -7,6 +7,11 @@ let
   # XXX:
   # sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos-unstable
   # sudo nix-channel --update
+  # TODO:
+  # make without commands,
+  # https://github.com/NixOS/nixpkgs/issues/9682#issuecomment-202322780
+  # https://gist.github.com/LnL7/a90b8a2d6219ba144d141a5acacd3390
+  # https://github.com/NixOS/nixpkgs/issues/25264#issuecomment-333361711
   unstable = import <nixos-unstable> {};
 in
 {
@@ -107,6 +112,7 @@ in
     nox
     nix-prefetch-git
     gimp
+    imagemagick
 
     # My remote packages
     dunsted-volume

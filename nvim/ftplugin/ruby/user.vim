@@ -11,10 +11,10 @@ nnoremap <buffer><localleader>\ :call RunLastSpec()<CR>
 nnoremap <buffer><localleader>a :call RunAllSpecs()<CR>
 
 " convert assingment to let macros
-nmap <buffer><leader>ca Ilet(<del>:<Esc>Ea)<Esc>lldWysgl{
+nmap <buffer><leader>clet Ilet(<del>:<Esc>Ea)<Esc>lldWysgl{
 
 " convert -> to lambda
-nmap <buffer><leader>cl cf>lambda<esc>ww,dibbC{<del><space><Bar><C-R>+<Bar><esc>
+nmap <buffer><leader>cla cf>lambda<esc>ww,dibbC{<del><space><Bar><C-R>+<Bar><esc>
 
 nnoremap <buffer><leader>f :RspecAddFocus<CR>
 nnoremap <buffer><leader>F :RspecRemoveFocus<CR>

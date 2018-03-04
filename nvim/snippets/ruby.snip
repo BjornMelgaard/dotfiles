@@ -13,6 +13,12 @@ abbr        do |var| ... end
     ${3:TARGET}
   end
 
+snippet def
+abbr    def
+  def ${2:`expand('%:t:r:r:r')`}
+    ${0:TARGET}
+  end
+
 snippet pry
   require 'pry'; ::Kernel.binding.pry;
 
@@ -26,15 +32,51 @@ snippet concern
     ${0:TARGET}
   end
 
+################
+
+snippet module
+alias m
+  module ${1:`substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
+    ${0:TARGET}
+  end
+
+snippet module-one-level-up
+alias   m1
+abbr    module with name of one level up directory
+  module ${1:`substitute(expand('%:p:h:t'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
+    ${0:TARGET}
+  end
+
+snippet module-two-level-up
+alias   m2
+abbr    module with name of two level up directory
+  module ${1:`substitute(expand('%:p:h:h:t'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
+    ${0:TARGET}
+  end
+
+################
+
 snippet class
+alias   c
   class ${1:`substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
     ${0:TARGET}
   end
 
-snippet module
-  module ${1:`substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
+snippet class-one-level-up
+alias   c1
+abbr    class with name of one level up directory
+  class ${1:`substitute(expand('%:p:h:t'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
     ${0:TARGET}
   end
+
+snippet class-two-level-up
+alias   c2
+abbr    class with name of two level up directory
+  class ${1:`substitute(expand('%:p:h:h:t'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
+    ${0:TARGET}
+  end
+
+################
 
 snippet mc
 abbr        module & class
@@ -43,3 +85,12 @@ abbr        module & class
       ${0:TARGET}
     end
   end
+
+snippet mm
+abbr        module & module
+  module ${1:`substitute(expand('%:p:h:t'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
+    module ${2:`substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
+      ${0:TARGET}
+    end
+  end
+

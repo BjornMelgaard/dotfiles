@@ -11,6 +11,7 @@ extensions = %w[
   eg2.tslint
   eg2.vscode-npm-script
   felipecaputo.git-project-manager
+  eamodio.gitlens
   justusadam.language-haskell
   karunamurti.haml
   rebornix.Ruby
