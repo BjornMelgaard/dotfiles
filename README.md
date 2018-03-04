@@ -1,6 +1,8 @@
 # dotfiles
 features: i3, neovim
 
+![Imgur](https://i.imgur.com/szHs0NB.jpg)
+
 # how to install on new computer
 
 ```sh
