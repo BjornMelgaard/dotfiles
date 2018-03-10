@@ -593,6 +593,7 @@ call dein#add('jparise/vim-graphql', {'on_ft':['graphql']})
 call dein#add('tpope/vim-scriptease', {'on_ft':['vim']})
 call dein#add('tpope/vim-markdown',{'on_ft':['markdown']})
 call dein#add('PotatoesMaster/i3-vim-syntax',{'on_ft':['i3']})
+call dein#add('chr4/nginx.vim')
 " call dein#add('takac/vim-hardtime') " {{{
 "   let g:hardtime_default_on = 1
 "   let g:hardtime_allow_different_key = 1
