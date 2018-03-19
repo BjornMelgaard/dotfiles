@@ -80,6 +80,7 @@ in
     netcat-openbsd # nc -U /var/run/acpid.socket
     lsof
     xorg.xbacklight
+    openssl
 
     unar
     unrar

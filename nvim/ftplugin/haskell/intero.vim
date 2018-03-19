@@ -21,8 +21,11 @@ map <silent> <localleader>T <Plug>InteroType
 nnoremap <silent> <localleader>it :InteroTypeInsert<CR>
 
 " Navigation
-nnoremap <silent> <localleader>jd :InteroGoToDef<CR>
+nnoremap <silent> <C-\> :InteroGoToDef<CR>
 
 " Managing targets
 " Prompts you to enter targets (no silent):
 nnoremap <localleader>ist :InteroSetTargets<SPACE>
+
+nnoremap <localleader>ir :InteroReload<CR>
+nnoremap <localleader>iR :InteroRestart<CR>

@@ -35,3 +35,8 @@ dcrs_f! () {
   drmaci
   unroot-root-files
 }
+
+# example: docker_rebuild_f dev be
+docker_rebuild_f () {
+  docker-compose -p "$1" -f "docker/$1.yml" build "${@:2}"
+}

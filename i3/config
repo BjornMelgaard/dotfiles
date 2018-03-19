@@ -116,7 +116,7 @@ bindsym Print                 exec "scrot /home/bjorn/Pictures/%Y-%m-%d-%T-scree
 # bindsym $mod+e              exec $terminal -e "alsamixer"
 
 bindsym $mod+Tab                 workspace back_and_forth
-bindsym $mod+Shift+R             reload
+bindsym $mod+Shift+R             reload; exec "i3-msg restart"
 
 # cut and paste windows
 bindsym $mod+Shift+minus move scratchpad

@@ -553,6 +553,7 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 call dein#add('Twinside/vim-hoogle', { 'on_ft':['haskell'] })
 
 call dein#add('parsonsmatt/intero-neovim', { 'on_ft':['haskell'] })
+let g:intero_type_on_hover = 1
 " call dein#add('glittershark/vim-hare', { 'on_ft':['haskell'] })
 
 " Reloading (pick one)
