@@ -15,5 +15,6 @@
         "suppressUpdateNotice": true,
         "suppressWelcomeNotice": false
     },
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "extensions.ignoreRecommendations": true
 }

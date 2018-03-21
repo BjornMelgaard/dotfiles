@@ -43,7 +43,7 @@ in
     vanilla-dmz
 
     ## misc
-    transmission
+    unstable.transmission-gtk
     feh
     mpv
     xclip
@@ -89,6 +89,7 @@ in
     autoconf
     gnumake
     gcc
+    inkscape
 
     unstable.docker_compose
     mkpasswd
@@ -97,12 +98,17 @@ in
     ctags
     filezilla
     firefox
-    gtk-recordmydesktop
     vlc
     asciinema
     tree
     youtube-dl
     tigervnc
+
+    # screencast
+    # gtk-recordmydesktop
+    kdenlive
+    simplescreenrecorder
+    # kazam
 
     # vagrant
     # virtualbox
