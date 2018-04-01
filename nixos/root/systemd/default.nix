@@ -7,7 +7,6 @@ with pkgs;
 with (import /etc/nixos/metaconfiguration.nix);
 
 let
-  layout = ../../../layouts/en_ru;
   touchpadId = "ELAN1300:00 04F3:3057 Touchpad";
 in
 
@@ -27,20 +26,21 @@ rec {
     };
   };
 
-  user.services.copyq = {
-    description = "Copyq";
+  # TODO: QtFatal: This application failed to start because it could not find or load the Qt platform
+  # user.services.copyq = {
+  #   description = "Copyq";
 
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
+  #   wantedBy = [ "graphical-session.target" ];
+  #   partOf = [ "graphical-session.target" ];
 
-    serviceConfig = {
-      ExecStart = ''
-        ${copyq}/bin/copyq
-      '';
-      RestartSec = 3;
-      Restart = "always";
-    };
-  };
+  #   serviceConfig = {
+  #     ExecStart = ''
+  #       ${copyq}/bin/copyq
+  #     '';
+  #     RestartSec = 3;
+  #     Restart = "always";
+  #   };
+  # };
 
   user.services.disable-touchpad = {
     description = "Disable touchpad";
@@ -57,23 +57,23 @@ rec {
     };
   };
 
-  services.custom-layout = {
-    description = "Custom layout";
-
-    serviceConfig = {
-      Type = "simple";
-      User = userName;
-      ExecStart = writeScript "custom-layout" ''
-          #! ${bash}/bin/bash
-          set -xe
-          ${xorg.xkbcomp}/bin/xkbcomp -I${layout} - :0.0
-        '';
-      RemainAfterExit = "yes";
-      RestartSec = 3;
-      Restart = "always";
-    };
-    environment = { DISPLAY = ":${toString config.services.xserver.display}"; };
-    wantedBy = [ "display-manager.service" ];
-    after = [ "display-manager.service" ];
-  };
+  # TODO: invalid command, maybe because of -I
+  #services.custom-layout = {
+  #  description = "Custom layout";
+  #  serviceConfig = {
+  #    Type = "simple";
+  #    User = userName;
+  #    ExecStart = writeScript "custom-layout" ''
+  #        #! ${bash}/bin/bash
+  #        set -xe
+  #        ${xorg.xkbcomp}/bin/xkbcomp -I${layout} - :0.0
+  #      '';
+  #    RemainAfterExit = "yes";
+  #    RestartSec = 3;
+  #    Restart = "always";
+  #  };
+  #  environment = { DISPLAY = ":${toString config.services.xserver.display}"; };
+  #  wantedBy = [ "display-manager.service" ];
+  #  after = [ "display-manager.service" ];
+  #};
 }

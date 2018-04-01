@@ -4,6 +4,10 @@ with pkgs;
 with pkgs.lib;
 with (import /etc/nixos/metaconfiguration.nix);
 
+let
+  layout = ../../../layouts/en_ru;
+in
+
 rec {
   openssh.enable = true;
   xbanish.enable = true;
@@ -66,6 +70,10 @@ rec {
           user = userName;
         };
       };
+      sessionCommands = ''
+        ${xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY &
+        ${copyq}/bin/copyq &
+      '';
     };
   };
 }
