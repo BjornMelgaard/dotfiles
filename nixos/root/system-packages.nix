@@ -3,6 +3,10 @@
 with pkgs;
 with (callPackage ./lib {});
 
+let
+  nixpkgs-local = import /home/bjorn/projects/nixpkgs {};
+in
+
 {
   environment.systemPackages = [
     # system
@@ -115,6 +119,9 @@ with (callPackage ./lib {});
     dunsted-volume
     randomize_background
     kb-light
+
+    # packages from local nixpkgs
+    nixpkgs-local.safeeyes
   ];
 
   nixpkgs.config.packageOverrides = super: {
