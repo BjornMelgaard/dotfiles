@@ -3,17 +3,6 @@
 with pkgs;
 with (callPackage ./lib {});
 
-let
-  # XXX:
-  # sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos-unstable
-  # sudo nix-channel --update
-  # TODO:
-  # make without commands,
-  # https://github.com/NixOS/nixpkgs/issues/9682#issuecomment-202322780
-  # https://gist.github.com/LnL7/a90b8a2d6219ba144d141a5acacd3390
-  # https://github.com/NixOS/nixpkgs/issues/25264#issuecomment-333361711
-  unstable = import <nixos-unstable> {};
-in
 {
   environment.systemPackages = [
     # system
@@ -24,6 +13,7 @@ in
     nix-repl
     ag
     ntfs3g
+    alsaUtils
 
     pavucontrol
     conky
@@ -43,7 +33,7 @@ in
     vanilla-dmz
 
     ## misc
-    unstable.transmission-gtk
+    transmission_gtk
     feh
     mpv
     xclip
@@ -91,7 +81,7 @@ in
     gcc
     inkscape
 
-    unstable.docker_compose
+    docker_compose
     mkpasswd
 
     # android-studio

@@ -48,6 +48,12 @@ with (import /etc/nixos/metaconfiguration.nix);
   };
 
   time.timeZone = "Europe/Kiev";
-  nix.extraOptions = "auto-optimise-store = true";
+  nix.useSandbox = true;
+  nix.extraOptions = ''
+    auto-optimise-store = true
+  '';
   nix.gc.automatic = false;
+
+  # use unstable
+  # nix.package = pkgs.nixUnstable;
 }
