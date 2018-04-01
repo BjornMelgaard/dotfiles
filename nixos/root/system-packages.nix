@@ -120,11 +120,14 @@ in
     randomize_background
     kb-light
 
-    # packages from local nixpkgs
-    nixpkgs-local.safeeyes
+    safeeyes
   ];
 
+  # TODO: override lib with root/lib/default using packageOverrides also
   nixpkgs.config.packageOverrides = super: {
+    # packages from local nixpkgs
+    safeeyes = nixpkgs-local.safeeyes;
+
     # My remote packages
 
     # update command example: nix-prefetch-git https://github.com/BjornMelgaard/dunsted-volume > $DOTFILES/nixos/root/nix-prefetch-git-revisions/dunsted-volume.json
