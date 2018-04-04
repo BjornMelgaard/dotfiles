@@ -11,21 +11,6 @@ let
 in
 
 rec {
-  user.services.safeeyes = {
-    description = "Safeeyes";
-
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-
-    serviceConfig = {
-      ExecStart = ''
-        ${safeeyes}/bin/safeeyes
-      '';
-      RestartSec = 3;
-      Restart = "always";
-    };
-  };
-
   # TODO: QtFatal: This application failed to start because it could not find or load the Qt platform
   # user.services.copyq = {
   #   description = "Copyq";

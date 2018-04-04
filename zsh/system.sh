@@ -21,3 +21,5 @@ alias pjodot="cd $DOTFILES && $EDITOR"
 alias nh="n-history"
 
 alias rmf="rm -rfd"
+
+# alias cmus='screen -q -r -D cmus || screen -S cmus $(whereis cmus)'

@@ -90,7 +90,7 @@ rec {
     # android-studio
     ctags
     filezilla
-    firefox
+    # firefox
     vlc
     asciinema
     tree
@@ -120,5 +120,6 @@ rec {
     kb-light
 
     safeeyes
+    cmus
   ];
 }
