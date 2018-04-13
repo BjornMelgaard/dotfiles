@@ -13,7 +13,7 @@ with pkgs;
   environment = import ./environment { inherit pkgs; };
   services    = import ./services    { inherit pkgs; };
   fonts       = import ./fonts       { inherit pkgs; };
-  nixpkgs     = import ./nixpkgs     { inherit pkgs; };
+  nixpkgs     = import ./nixpkgs     { inherit pkgs config; };
   users       = import ./users       { inherit pkgs; };
   systemd     = import ./systemd     { inherit pkgs config; };
 

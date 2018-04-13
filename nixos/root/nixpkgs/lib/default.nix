@@ -1,6 +1,19 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
+
+with pkgs;
+with lib;
 
 rec {
+  # XXX:
+  # update command example:
+  # nix-prefetch-git https://github.com/BjornMelgaard/dunsted-volume > $DOTFILES/nixos/root/prefetched-git-revisions/dunsted-volume.json
+  callPackageFromGithubThatHasDefaultNix = revisionDataPath:
+    callPackage (
+      fetchFromGitHub (
+        revisionDataFromFile revisionDataPath
+      )
+    );
+
   revisionDataFromFile = path:
   let
     revData = builtins.fromJSON (builtins.readFile path);

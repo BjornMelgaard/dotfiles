@@ -1,28 +1,20 @@
-{ pkgs }:
+{ pkgs, config }:
 
 with pkgs;
 with callPackage ./lib {};
 
 let
-  nixpkgs-local = import /home/bjorn/projects/nixpkgs {};
-
-  # XXX:
-  # update command example:
-  # nix-prefetch-git https://github.com/BjornMelgaard/dunsted-volume > $DOTFILES/nixos/root/prefetched-git-revisions/dunsted-volume.json
-  callPackageFromGithubThatHasDefaultNix = revisionDataPath:
-    callPackage (
-      fetchFromGitHub (
-        revisionDataFromFile revisionDataPath
-      )
-    );
+  # pass config so that packages use correct allowUnfree for example
+  nixpkgs-local = import /home/bjorn/projects/nixpkgs { inherit config; };
 in
 
 rec {
   config.allowUnfree = true;
 
   config.packageOverrides = old: {
+
     # packages from local nixpkgs
-    safeeyes = nixpkgs-local.safeeyes;
+    inherit (nixpkgs-local) safeeyes hubstaff;
 
     # My remote packages
     dunsted-volume =
@@ -39,5 +31,6 @@ rec {
       callPackageFromGithubThatHasDefaultNix
       ./prefetched-git-revisions/kb-light.json
       {};
+
   };
 }
