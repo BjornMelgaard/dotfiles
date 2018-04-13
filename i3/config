@@ -77,8 +77,8 @@ bindsym $mod+Shift+w exec qutebrowser
 bindsym $mod+s       exec $terminal -e "zsh -c 'SHELL=rshell ranger'"
 bindsym $mod+Shift+s exec nautilus
 bindsym $mod+p       exec --no-startup-id "copyq show"
-bindsym $mod+n       exec smplayer
-bindsym $mod+m       exec anki
+bindsym $mod+n       exec anki
+bindsym $mod+m       exec $terminal -e "zsh -c 'screen -q -r -D cmus || screen -S cmus cmus'"
 bindsym $mod+Shift+m exec pavucontrol
 
 bindsym $mod+a       focus parent
