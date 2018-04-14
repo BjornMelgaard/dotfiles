@@ -2,6 +2,8 @@
 
 with pkgs;
 
+let config_ = lib.debug.showVal (config); in
+
 {
   imports = [
     ./hardware-configuration.nix
@@ -15,7 +17,7 @@ with pkgs;
   fonts       = import ./fonts       { inherit pkgs; };
   nixpkgs     = import ./nixpkgs     { inherit pkgs config; };
   users       = import ./users       { inherit pkgs; };
-  systemd     = import ./systemd     { inherit pkgs config; };
+  systemd     = import ./systemd     { inherit pkgs; config = config_; };
 
   security = {
     sudo = {

@@ -14,7 +14,8 @@ rec {
   config.packageOverrides = old: {
 
     # packages from local nixpkgs
-    inherit (nixpkgs-local) safeeyes hubstaff;
+    # inherit (nixpkgs-local) safeeyes hubstaff;
+    inherit (nixpkgs-local) safeeyes;
 
     # My remote packages
     dunsted-volume =

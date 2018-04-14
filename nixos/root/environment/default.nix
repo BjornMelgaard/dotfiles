@@ -122,5 +122,6 @@ rec {
     safeeyes
     cmus
     hubstaff
+    screen
   ];
 }
