@@ -1,7 +1,7 @@
 { pkgs, config }:
 
 with pkgs;
-with callPackage ./lib {};
+with callPackage ./lib { };
 
 let
   # pass config so that packages use correct allowUnfree for example
@@ -14,8 +14,7 @@ rec {
   config.packageOverrides = old: {
 
     # packages from local nixpkgs
-    # inherit (nixpkgs-local) safeeyes hubstaff;
-    inherit (nixpkgs-local) safeeyes;
+    inherit (nixpkgs-local) safeeyes hubstaff;
 
     # My remote packages
     dunsted-volume =

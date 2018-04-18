@@ -1,10 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
-with pkgs;
-
-let config_ = lib.debug.showVal (config); in
-
-{
+let r = {
   imports = [
     ./hardware-configuration.nix
     ./hardware-configuration-override.nix
@@ -17,7 +13,7 @@ let config_ = lib.debug.showVal (config); in
   fonts       = import ./fonts       { inherit pkgs; };
   nixpkgs     = import ./nixpkgs     { inherit pkgs config; };
   users       = import ./users       { inherit pkgs; };
-  systemd     = import ./systemd     { inherit pkgs; config = config_; };
+  systemd     = import ./systemd     { inherit pkgs config; };
 
   security = {
     sudo = {
@@ -67,4 +63,7 @@ let config_ = lib.debug.showVal (config); in
   # virtualisation.virtualbox.host.enable = true;
 
   system.stateVersion = "18.03";
-}
+};
+
+in
+builtins.seq (lib.debug.showVal config.nixpkgs.allowUnfree) r

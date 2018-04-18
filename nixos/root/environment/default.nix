@@ -123,5 +123,6 @@ rec {
     cmus
     hubstaff
     screen
+    abiword
   ];
 }
