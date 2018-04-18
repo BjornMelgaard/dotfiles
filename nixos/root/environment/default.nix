@@ -1,6 +1,14 @@
-{ pkgs }:
+{ config, pkgs }:
 
 with pkgs;
+
+let
+  # pass config so that packages use correct allowUnfree for example
+  unfreeConfig = config.nixpkgs.config // {
+    allowUnfree = true;
+  };
+  nixpkgs-local = import /home/bjorn/projects/nixpkgs { config = unfreeConfig; };
+in
 
 rec {
   variables = {
@@ -121,7 +129,8 @@ rec {
 
     safeeyes
     cmus
-    hubstaff
+    # and here
+    nixpkgs-local.hubstaff
     screen
     abiword
   ];

@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 
-let r = {
+{
   imports = [
     ./hardware-configuration.nix
     ./hardware-configuration-override.nix
@@ -8,7 +8,7 @@ let r = {
     /home/bjorn/projects/nixpkgs/nixos/modules/services/misc/safeeyes.nix
   ];
 
-  environment = import ./environment { inherit pkgs; };
+  environment = import ./environment { inherit pkgs config; };
   services    = import ./services    { inherit pkgs; };
   fonts       = import ./fonts       { inherit pkgs; };
   nixpkgs     = import ./nixpkgs     { inherit pkgs config; };
@@ -63,7 +63,4 @@ let r = {
   # virtualisation.virtualbox.host.enable = true;
 
   system.stateVersion = "18.03";
-};
-
-in
-builtins.seq (lib.debug.showVal config.nixpkgs.allowUnfree) r
+}
