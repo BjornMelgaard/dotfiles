@@ -2,14 +2,6 @@
 
 with pkgs;
 
-let
-  # pass config so that packages use correct allowUnfree for example
-  unfreeConfig = config.nixpkgs.config // {
-    allowUnfree = true;
-  };
-  nixpkgs-local = import /home/bjorn/projects/nixpkgs { config = unfreeConfig; };
-in
-
 rec {
   variables = {
     EDITOR="nvim";
@@ -129,8 +121,7 @@ rec {
 
     safeeyes
     cmus
-    # and here
-    nixpkgs-local.hubstaff
+    hubstaff
     screen
     abiword
   ];
