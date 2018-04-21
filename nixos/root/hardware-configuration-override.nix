@@ -46,7 +46,7 @@ with lib;
         };
       };
 
-    binds = traceValSeq (listToAttrs (map mkBind homeMount));
+    binds = listToAttrs (map mkBind homeMount);
 
     merged = hdd // binds;
   in
