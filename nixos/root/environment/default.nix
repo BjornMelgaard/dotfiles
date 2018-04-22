@@ -2,6 +2,10 @@
 
 with pkgs;
 
+let
+  nixpkgs-working-hubstaff = import ../lib/nixpkgs-working-hubstaff.nix;
+in
+
 rec {
   variables = {
     EDITOR="nvim";
@@ -121,7 +125,7 @@ rec {
 
     safeeyes
     cmus
-    hubstaff
+    nixpkgs-working-hubstaff.hubstaff
     screen
     abiword
   ];
