@@ -42,7 +42,7 @@ with lib;
         value = {
           device  = "/mnt/hdd/${x}";
           fsType  = "none";
-          options = [ "bind" ];
+          options = [ "bind" "rw" ];
         };
       };
 
