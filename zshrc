@@ -7,6 +7,8 @@ ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 ZSH_CUSTOM=$DOTFILES/oh-my-zsh-custom
 if [[ ! -d $ZSH_CACHE_DIR ]]; then mkdir $ZSH_CACHE_DIR; fi
 DISABLE_UPDATE_PROMPT=true
+HISTSIZE=1000
+SAVEHIST=1000
 
 plugins=(
   ## appearence
@@ -44,14 +46,14 @@ plugins=(
   # rake-fast
 
   ## haskell
-  stack
+  # stack
 
   ## docker
   docker
   docker-compose
 
   ## js
-  yarn
+  # yarn
 )
 
 source $ZSH/oh-my-zsh.sh
