@@ -20,6 +20,10 @@ docker-python () {
     "$@"
 }
 
+# npm config set prefix "/home/node/.npm-global"
+# export PATH="/home/node/.npm-global/bin:${PATH}"
+# npm i -g npm-check-updates
+
 docker-node () {
   docker run \
     --user node:node \
