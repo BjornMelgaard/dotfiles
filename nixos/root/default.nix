@@ -27,7 +27,55 @@
       enable = true;
       enableCompletion = true;
       enableAutosuggestions = true;
-      ohMyZsh.enable = true;
+      ohMyZsh = {
+        enable = true;
+        theme = "agnoster";
+        plugins = [
+          ## appearence
+          "colorize"
+          "compleat"
+          "common-aliases"
+          # zsh-autosuggestions
+          # zsh-completions
+
+          ## editing
+          "vi-mode"
+
+          ## navigation
+          "history-substring-search"
+          "dircycle"
+          "dirpersist"
+          "pj"
+          "zsh-navigation-tools"
+
+          ## programs
+          # tmux
+          "git"
+
+          ## nixos
+          # NOTE: nix-zsh-completions already installed via `programs.zsh.enableCompletion = true`
+          "systemd"
+          "sudo"
+
+          ## ruby
+          "bundler"
+          "ruby"
+          "rails"
+          "gem"
+          # rvm
+          # rake-fast
+
+          ## haskell
+          # stack
+
+          ## docker
+          "docker"
+          "docker-compose"
+
+          ## js
+          # yarn
+        ];
+      };
     };
     command-not-found.enable = true;
   };
