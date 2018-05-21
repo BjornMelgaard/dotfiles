@@ -3,28 +3,6 @@ resize_and_optimize_images () {
   optimize_images 100 $PWD
 }
 
-resize_images () {
-  max="$1"
-  dir="$2"
-
-  echo "Resizing dir $dir, max size - $max"
-
-  shopt -s globstar
-
-  for f in $dir/**/*.jpg $dir/**/*.jpeg $dir/**/*.png ; do
-    echo "Checking $f"
-    s=`identify -format "%w" "$f"`
-
-    if [ $s -gt $max ]; then
-      echo "Resizing..."
-      mogrify -verbose -resize "$max" "$f"
-    fi
-    echo
-  done
-
-  echo "Done resizing dir $dir"
-}
-
 optimize_images () {
   quality="$1"
   dir="$2"

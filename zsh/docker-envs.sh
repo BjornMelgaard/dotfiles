@@ -1,11 +1,14 @@
+# npm config set prefix "/home/node/.npm-global"
+# export PATH="/home/node/.npm-global/bin:${PATH}"
+# npm i -g npm-check-updates
 docker-ruby () {
   docker run \
     -it \
     --rm \
-    --name "$(basename $PWD)-ruby23" \
+    --name "$(basename $PWD)-ruby" \
     -v `pwd`:/usr/src/app \
     -w /usr/src/app \
-    ruby:2.3 \
+    starefossen/ruby-node:latest \
     "$@"
 }
 
@@ -20,18 +23,6 @@ docker-python () {
     "$@"
 }
 
-# npm config set prefix "/home/node/.npm-global"
-# export PATH="/home/node/.npm-global/bin:${PATH}"
-# npm i -g npm-check-updates
-
-docker-node () {
-  docker run \
-    --user node:node \
-    -it \
-    --rm \
-    --name "$(basename $PWD)-node9" \
-    -v "$PWD":/usr/src/app \
-    -w /usr/src/app \
-    node:9-stretch \
-    bash
+update-npm-packages () {
+  docker run -it --rm -v $(pwd)/package.json:/app/package.json creack/ncu -u -a
 }

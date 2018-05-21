@@ -19,5 +19,6 @@
     },
     "editor.wordWrap": "on",
     "extensions.ignoreRecommendations": true,
-    "gitlens.keymap": "alternate"
+    "gitlens.keymap": "alternate",
+    "gitlens.historyExplorer.enabled": true
 }

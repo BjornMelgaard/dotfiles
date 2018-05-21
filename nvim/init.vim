@@ -826,6 +826,7 @@ autocmd FileType yaml,eruby.yaml setlocal tabstop=2 shiftwidth=2 commentstring=#
 
 " force filetype on odd extension
 au BufRead,BufNewFile *.js.erb set filetype=javascript
+au BufRead,BufNewFile *.mjml set filetype=slim
 au BufRead,BufNewFile Vagrantfile,Guardfile set filetype=ruby
 
 " autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
