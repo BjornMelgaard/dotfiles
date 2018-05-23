@@ -1,5 +1,5 @@
 GPG_BACKUP_DIR="$HOME/projects/gpg-backup"
-USER_EMAIL="melgaardbjorn@gmail.com"
+USER_EMAIL="srghma@gmail.com"
 
 # https://gist.github.com/chrisroos/1205934
 
