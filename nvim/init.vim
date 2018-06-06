@@ -324,7 +324,10 @@ call dein#add('bkad/CamelCaseMotion') " {{{
   sunmap ge
 " }}}
 call dein#add('jeetsukumaran/vim-indentwise')
-call dein#add('AndrewRadev/splitjoin.vim') " mapping - gJ, gS
+call dein#add('AndrewRadev/splitjoin.vim') " {{{
+  let g:splitjoin_ruby_hanging_args=0
+" }}}
+" mapping - gJ, gS
 call dein#add('tpope/vim-abolish') " {{{
   " abolish current highlightment
   nnoremap <leader>a "+y//e<CR>:%Subvert:::g<left><left><left><C-r>+<right>
@@ -825,6 +828,7 @@ autocmd FileType yaml,eruby.yaml setlocal tabstop=2 shiftwidth=2 commentstring=#
 " autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 expandtab
 
 " force filetype on odd extension
+au BufRead,BufNewFile Dockerfile.template set filetype=dockerfile
 au BufRead,BufNewFile *.js.erb set filetype=javascript
 au BufRead,BufNewFile *.mjml set filetype=slim
 au BufRead,BufNewFile Vagrantfile,Guardfile set filetype=ruby
