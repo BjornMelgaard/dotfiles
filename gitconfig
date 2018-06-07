@@ -25,3 +25,5 @@
 	prompt = false
 [difftool "meld"]
 	cmd = meld "$LOCAL" "$REMOTE"
+[pull]
+	rebase = true
