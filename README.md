@@ -6,7 +6,7 @@ features: i3, neovim
 # how to install on new computer
 
 ```sh
-export MYUSERNAME=yourusername
+export MYUSERNAME=srghma
 
 # INSTALL SOFTWARE
 mkdir -p ~/.config/nixpkgs
