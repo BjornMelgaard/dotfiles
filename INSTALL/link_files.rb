@@ -31,6 +31,7 @@ inhome_indotfiles = [
   ['.config/Code/User/snippets',              'Code/snippets'],
 
   ['.Xresources',                             'Xresources'],
+  ['.Xresources.d',                           'Xresources.d'],
 
   ['.config/nvim',                            'nvim']
 ]
