@@ -61,14 +61,14 @@ bindsym $mod+Shift+0 move workspace $WS9
 set $terminal termite
 set $browser  google-chrome-stable --remote-debugging-port=4444
 
-exec --no-startup-id randomize_background /home/bjorn/.config/dotfiles/i3/wallpallers/*
+exec --no-startup-id randomize_background /home/bjorn/.dotfiles/i3/wallpallers/*
 exec --no-startup-id $browser
 # -------------------------------------
 # Shortcuts
 # -------------------------------------
 bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
-bindsym $mod+e       exec $terminal -e "/home/bjorn/.config/dotfiles/scripts/tmuxx"
+bindsym $mod+e       exec $terminal -e "/home/bjorn/.dotfiles/scripts/tmuxx"
 bindsym $mod+Shift+e exec $terminal -e "tmux new"
 bindsym $mod+Ctrl+e  exec code
 
@@ -110,7 +110,7 @@ bindsym XF86AudioMute         exec "dunsted-volume mute"
 bindsym XF86MonBrightnessDown exec "xbacklight -10"
 bindsym XF86MonBrightnessUp   exec "xbacklight +10"
 
-bindsym XF86TouchpadToggle    exec "/home/bjorn/.config/dotfiles/scripts/switch_touchpad"
+bindsym XF86TouchpadToggle    exec "/home/bjorn/.dotfiles/scripts/switch_touchpad"
 bindsym Print                 exec "scrot /home/bjorn/Pictures/%Y-%m-%d-%T-screenshot.png"
 # bindsym XF86Display         exec "arandr"
 # bindsym $mod+e              exec $terminal -e "alsamixer"
@@ -219,7 +219,7 @@ bindsym $mod+Caps_Lock mode "$mode_system"
 bar {
   strip_workspace_numbers yes
   position top
-  status_command /home/bjorn/.config/dotfiles/i3/conky-wrapper
+  status_command /home/bjorn/.dotfiles/i3/conky-wrapper
   colors {
     statusline #AAAAAA
     background #333333

@@ -275,8 +275,8 @@ if $TMUX != ''
   " }}}
 
   " tmux status line
-  autocmd VimEnter * silent! !tmux source ~/.config/dotfiles/tmux/themes/jellybeans_tmuxline
-  autocmd VimLeave * silent! !tmux source ~/.config/dotfiles/tmux/themes/iceberg_tmuxline
+  autocmd VimEnter * silent! !tmux source ~/.dotfiles/tmux/themes/jellybeans_tmuxline
+  autocmd VimLeave * silent! !tmux source ~/.dotfiles/tmux/themes/iceberg_tmuxline
 
   " call dein#add('edkolev/tmuxline.vim') " {{{
   "   let g:tmuxline_theme = 'jellybeans'

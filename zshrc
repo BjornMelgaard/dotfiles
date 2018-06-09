@@ -1,5 +1,5 @@
 # oh-my-zsh
-DOTFILES=$HOME/.config/dotfiles
+DOTFILES=$HOME/.dotfiles
 DEFAULT_USER="bjorn"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_UPDATE_PROMPT=true
