@@ -45,13 +45,13 @@ alias grh="git reset --hard"
 bitbucket-delete-repository () {
   curdir=${PWD##*/}
   repo_name=${1:-$curdir}
-  curl -X DELETE --user "${BITBUCKET_LOGIN}":"${BITBUCKET_PASS}" https://api.bitbucket.org/2.0/repositories/melgaardbjorn/$repository
+  curl -X DELETE --user "${BITBUCKET_LOGIN}":"${BITBUCKET_PASS}" https://api.bitbucket.org/2.0/repositories/srghma/$repository
 }
 
 github-create-and-upload () {
   curdir=${PWD##*/}
   repo_name=${1:-$curdir}
-  username='BjornMelgaard'
+  username='srghma'
   curl -u $username https://api.github.com/user/repos -d "{\"name\":\"$repo_name\"}"
   git remote rm origin
   git remote add origin git@github.com:$username/$repo_name.git

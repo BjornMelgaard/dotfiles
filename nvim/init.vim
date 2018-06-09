@@ -575,7 +575,7 @@ au BufWritePost *.hs InteroReload
 " => Purescript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('purescript-contrib/purescript-vim', { 'on_ft':['purescript'] })
-" call dein#add('/home/bjorn/projects/psc-ide-vim', { 'on_ft':['purescript'] })
+" call dein#add('/home/srghma/projects/psc-ide-vim', { 'on_ft':['purescript'] })
 call dein#add('FrigoEU/psc-ide-vim', { 'on_ft':['purescript'] })
 let g:psc_ide_log_level=4
 " checking in file
@@ -632,7 +632,7 @@ call dein#add('chr4/nginx.vim')
 "   nmap <leader>gf yif<C-k>:e <M-p><CR>
 " }}}
 " call dein#add('bramblex/ranger.vim', { 'depends': 'rbgrouleff/bclose.vim' }) " {{{
-"   let g:ranger_path='SHELL=/home/bjorn/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
+"   let g:ranger_path='SHELL=/home/srghma/.config/ranger/rshell ranger --cmd "set colorscheme snow"'
 " " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

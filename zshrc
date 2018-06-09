@@ -1,6 +1,6 @@
 # oh-my-zsh
 DOTFILES=$HOME/.dotfiles
-DEFAULT_USER="bjorn"
+DEFAULT_USER="srghma"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_UPDATE_PROMPT=true
 

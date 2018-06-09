@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     ./hardware-configuration-override.nix
     ./hardware-programs.nix
-    /home/bjorn/projects/nixpkgs/nixos/modules/services/misc/safeeyes.nix
+    /home/srghma/projects/nixpkgs/nixos/modules/services/misc/safeeyes.nix
   ];
 
   environment = import ./environment { inherit pkgs config; };

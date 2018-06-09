@@ -1,1 +1,1 @@
-import /home/bjorn/projects/nixpkgs { config = { allowUnfree = true; }; }
+import /home/srghma/projects/nixpkgs { config = { allowUnfree = true; }; }

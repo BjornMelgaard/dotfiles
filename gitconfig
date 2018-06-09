@@ -1,6 +1,6 @@
 [user]
-	name = BjornMelgaard
-	email = melgaardbjorn@gmail.com
+	name = srghma
+	email = srghma@gmail.com
 [credential]
 	helper = cache --timeout=3600
 [core]
@@ -16,7 +16,7 @@
 	permission-reset = !git diff -p -R --no-color | grep -E \"^(diff|(old|new) mode)\" --color=never | git apply
 	po = "!git push -u origin \"$(git rev-parse --abbrev-ref HEAD)\""
 [github]
-	user = BjornMelgaard
+	user = srghma
 [rebase]
 	instructionFormat = (%an <%ae>) %s
 [diff]

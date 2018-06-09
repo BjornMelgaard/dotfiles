@@ -1,9 +1,9 @@
 templates:
   params:
-   author-name: BjornMelgaard
-   author-email: melgaardbjorn@gmail.com
+   author-name: srghma
+   author-email: srghma@gmail.com
    copyright: MIT
-   github-username: BjornMelgaard
+   github-username: srghma
 
 nix:
   enable: true
