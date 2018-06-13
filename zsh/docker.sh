@@ -38,7 +38,7 @@ drmac() { docker rm $(docker ps -a -q); }
 drmai() { docker rmi -f $(docker images -q); }
 
 # Stop and Remove all containers
-alias drmaci='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) || true'
+alias drmaci='(docker stop $(docker ps -a -q) || true) && (docker rm $(docker ps -a -q) || true)'
 
 # Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
