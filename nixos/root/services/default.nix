@@ -12,7 +12,6 @@ rec {
   openssh.enable = true;
   xbanish.enable = true;
   compton.enable = true;
-  safeeyes.enable = true;
 
   gnome3.gnome-documents.enable = false;
   gnome3.gnome-online-accounts.enable = false;
