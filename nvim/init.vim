@@ -372,7 +372,7 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   let NERDTreeShowLineNumbers=1
   let NERDTreeChDirMode=0
   let NERDTreeShowBookmarks=1
-  let NERDTreeIgnore=['\.git$','\.hg$','\node_modules$']
+  let NERDTreeIgnore=['\.git$','\.hg$','\node_modules$','\.pyc$']
   let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
 
   " disable f and F in privilege of find commands
@@ -546,6 +546,17 @@ exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 " call dein#add('idris-hackers/idris-vim')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Python
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" call dein#add('hdima/python-syntax')
+" let python_highlight_all = 1
+" let python_version_2 = 1
+
+call dein#add('vim-python/python-syntax')
+let g:python_highlight_all = 1
+let g:python_version_2 = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Haskell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('neovimhaskell/haskell-vim', { 'on_ft':['haskell'] })
@@ -574,10 +585,10 @@ au BufWritePost *.hs InteroReload
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Purescript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('purescript-contrib/purescript-vim', { 'on_ft':['purescript'] })
-" call dein#add('/home/srghma/projects/psc-ide-vim', { 'on_ft':['purescript'] })
-call dein#add('FrigoEU/psc-ide-vim', { 'on_ft':['purescript'] })
-let g:psc_ide_log_level=4
+" call dein#add('purescript-contrib/purescript-vim', { 'on_ft':['purescript'] })
+" call dein#add('FrigoEU/psc-ide-vim', { 'on_ft':['purescript'] })
+" let g:psc_ide_log_level=4
+
 " checking in file
 " let g:deoplete#omni#input_patterns.purescript = '[^. *\t]'
 " let g:deoplete#omni#input_patterns.purescript = '[.\w]+'
@@ -792,7 +803,6 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('nanotech/jellybeans.vim')
 call dein#add('ryanoasis/vim-devicons')
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 
 call dein#end()
 

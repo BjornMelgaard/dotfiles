@@ -20,5 +20,16 @@
     "editor.wordWrap": "on",
     "extensions.ignoreRecommendations": true,
     "gitlens.keymap": "alternate",
-    "gitlens.historyExplorer.enabled": true
+    "gitlens.historyExplorer.enabled": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/node_modules": true,
+    },
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
 }

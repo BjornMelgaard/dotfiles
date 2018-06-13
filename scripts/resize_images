@@ -1,5 +1,8 @@
 #! /bin/sh
 
+# Example:
+# resize_images 500 ~/Downloads
+
 max="$1"
 dir="$2"
 
@@ -7,7 +10,7 @@ echo "Resizing dir $dir, max size - $max"
 
 shopt -s globstar
 
-for f in "$dir"/**/*.jpg "$dir"/**/*.jpeg "$dir"/**/*.png ; do
+for f in "$dir"/**/*.jpg "$dir"/**/*.jpeg "$dir"/**/*.png "$dir"/**/*.JPG "$dir"/**/*.JPEG "$dir"/**/*.PNG ; do
   echo "Checking $f"
   s=`identify -format "%w" "$f"`
 
