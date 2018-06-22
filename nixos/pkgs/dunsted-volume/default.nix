@@ -1,0 +1,3 @@
+{ callPackageFromGithubThatHasDefaultNix }:
+
+callPackageFromGithubThatHasDefaultNix ./revision.json {}

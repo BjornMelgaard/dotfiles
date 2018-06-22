@@ -2,10 +2,6 @@
 
 with pkgs;
 
-let
-  nixpkgs-working-hubstaff = import ../lib/nixpkgs-working-hubstaff.nix;
-in
-
 rec {
   variables = {
     EDITOR="nvim";
@@ -123,9 +119,9 @@ rec {
     randomize_background
     kb-light
 
-    safeeyes
+    # safeeyes
     cmus
-    nixpkgs-working-hubstaff.hubstaff
+    hubstaff
     screen
     abiword
   ];

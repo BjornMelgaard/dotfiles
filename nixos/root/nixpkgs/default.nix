@@ -1,35 +1,23 @@
-{ pkgs, config }:
-
-with pkgs;
-with callPackage ./lib { };
-
-let
-  # pass config so that packages use correct allowUnfree for example
-  nixpkgs-local = import ../lib/nixpkgs-local.nix;
-in
+{ }:
 
 rec {
   config.allowUnfree = true;
 
-  config.packageOverrides = old: {
-    # packages from local nixpkgs
-    inherit (nixpkgs-local) safeeyes;
+  config.packageOverrides = pkgs:
+    rec {
+      lib = import ../../lib { inherit (pkgs) lib; };
 
-    # My remote packages
-    dunsted-volume =
-      callPackageFromGithubThatHasDefaultNix
-      ./prefetched-git-revisions/dunsted-volume.json
-      {};
+      callPackageFromGithubThatHasDefaultNix = revisionDataPath:
+        pkgs.callPackage (
+          pkgs.fetchFromGitHub (
+            lib.revisionDataFromFile revisionDataPath
+          )
+        );
 
-    randomize_background =
-      callPackageFromGithubThatHasDefaultNix
-      ./prefetched-git-revisions/randomize_background.json
-      {};
+      dunsted-volume       = import ../../pkgs/dunsted-volume { inherit callPackageFromGithubThatHasDefaultNix; };
+      kb-light             = import ../../pkgs/kb-light { inherit callPackageFromGithubThatHasDefaultNix; };
+      randomize_background = import ../../pkgs/randomize_background { inherit callPackageFromGithubThatHasDefaultNix; };
 
-    kb-light =
-      callPackageFromGithubThatHasDefaultNix
-      ./prefetched-git-revisions/kb-light.json
-      {};
-
-  };
+      hubstaff = import ../../pkgs/hubstaff;
+    };
 }

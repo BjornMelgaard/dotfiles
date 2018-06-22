@@ -10,7 +10,7 @@
   environment = import ./environment { inherit pkgs config; };
   services    = import ./services    { inherit pkgs; };
   fonts       = import ./fonts       { inherit pkgs; };
-  nixpkgs     = import ./nixpkgs     { inherit pkgs config; };
+  nixpkgs     = import ./nixpkgs     { };
   users       = import ./users       { inherit pkgs; };
   systemd     = import ./systemd     { inherit pkgs config; };
 
@@ -83,6 +83,9 @@
     hostName = "machine";
     networkmanager.enable = true;
 
+    # for libvirtd (https://nixos.org/nixops/manual/#idm140737318329504)
+    firewall.checkReversePath = false;
+
     # firewall = {
     #   enable = true;
     #   allowPing = false;
@@ -107,7 +110,8 @@
   # nix.package = pkgs.nixUnstable;
 
   virtualisation.docker.enable = true;
-  # virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  # virtualisation.libvirtd.enable = true;
 
   system.stateVersion = "18.03";
 }

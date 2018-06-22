@@ -15,7 +15,7 @@ rec {
     };
     ${userName} = {
       isNormalUser = true;
-      extraGroups = [ "audio" "disk" "wheel" "networkmanager" "docker" "vboxusers" ];
+      extraGroups = [ "audio" "disk" "wheel" "networkmanager" "docker" "vboxusers" "libvirtd" ];
       inherit hashedPassword;
     };
   };

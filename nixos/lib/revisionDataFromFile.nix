@@ -1,18 +1,11 @@
-{ lib, pkgs, ... }:
+{ lib }:
 
-with pkgs;
 with lib;
 
-rec {
+{
   # XXX:
   # update command example:
   # nix-prefetch-git https://github.com/srghma/dunsted-volume > $DOTFILES/nixos/root/prefetched-git-revisions/dunsted-volume.json
-  callPackageFromGithubThatHasDefaultNix = revisionDataPath:
-    callPackage (
-      fetchFromGitHub (
-        revisionDataFromFile revisionDataPath
-      )
-    );
 
   revisionDataFromFile = path:
   let

@@ -31,5 +31,5 @@
         "**/node_modules": true,
     },
     "editor.formatOnPaste": true,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": false
 }

@@ -7,7 +7,7 @@ let
   mkBind = device: {
     inherit device;
     fsType  = "none";
-    options = [ "bind" "rw" ];
+    options = [ "defaults" "bind" "rw" ];
   };
 in
 
