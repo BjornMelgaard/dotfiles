@@ -1,9 +1,9 @@
-{ config, pkgs }:
+{ pkgs, ... }:
 
 with pkgs;
 
-rec {
-  user.services.disable-touchpad = {
+{
+  systemd.user.services.disable-touchpad = {
     description = "Disable touchpad";
 
     wantedBy = [ "graphical-session.target" ];

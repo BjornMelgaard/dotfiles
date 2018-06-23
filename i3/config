@@ -1,4 +1,5 @@
 # vim: ft=i3
+
 set $mod Mod4
 floating_modifier $mod
 focus_follows_mouse  no
@@ -239,5 +240,4 @@ for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"]      floating enable
 for_window [title="Edit Current$"]     floating enable
 for_window [class="(?i)nautilus"]      floating enable
-for_window [class="copyq"]             floating enable
-
+for_window [class="(?i)copyq"]         floating enable

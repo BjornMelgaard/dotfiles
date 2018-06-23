@@ -49,7 +49,7 @@ rec {
 
     dpi = 96;
     deviceSection = ''
-      Option   "DPI"            "96 x 96"
+      Option "DPI" "96 x 96"
     '';
 
     windowManager = {
@@ -70,6 +70,7 @@ rec {
           user = userName;
         };
       };
+
       sessionCommands = ''
         ${xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY &
         ${copyq}/bin/copyq &

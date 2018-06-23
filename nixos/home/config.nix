@@ -1,12 +1,9 @@
-with (import /etc/nixos/metaconfiguration.nix);
-
 { pkgs, ... }:
 
 {
   allowUnfree = true;
 
   packageOverrides = pkgs : with pkgs; {
-
     # TODO: impure python env
     # pythonEnv = with pkgs; buildEnv {
     #   name = "pythonEnv";
@@ -58,6 +55,5 @@ with (import /etc/nixos/metaconfiguration.nix);
     #     . ~/.rvm/scripts/rvm
     #   '';
     # };
-
   };
 }

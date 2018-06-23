@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./hardware-configuration-override.nix
     ./hardware-programs.nix
+    ./systemd/disable-touchpad.nix
   ];
 
   environment = import ./environment { inherit pkgs config; };
@@ -12,7 +13,6 @@
   fonts       = import ./fonts       { inherit pkgs; };
   nixpkgs     = import ./nixpkgs     { };
   users       = import ./users       { inherit pkgs; };
-  systemd     = import ./systemd     { inherit pkgs config; };
 
   security = {
     sudo = {
