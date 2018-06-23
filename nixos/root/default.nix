@@ -26,6 +26,21 @@
       enable = true;
       enableCompletion = true;
       enableAutosuggestions = true;
+
+      interactiveShellInit = ''
+        DEFAULT_USER="srghma"
+
+        autoload -U zmv
+
+        # npm/yarn
+        export PATH="$HOME/.node_modules/bin:$PATH"
+
+        # gem
+        GEM_HOME=$HOME/.gem/ruby/${pkgs.ruby_2_4.version.libDir}
+        GEM_PATH=$GEM_HOME
+        export PATH="$GEM_HOME/bin:$PATH"
+      '';
+
       ohMyZsh = {
         enable = true;
         theme = "agnoster";
