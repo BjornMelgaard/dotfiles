@@ -127,4 +127,8 @@ rec {
     switch_touchpad
     tmuxx
   ];
+
+  # TODO
+  # variables."GTK2_RC_FILES" =
+  #   "${pkgs.gnome3.gnome_themes_standard}/share/themes/Adwaita/gtk-2.0/gtkrc";
 }
