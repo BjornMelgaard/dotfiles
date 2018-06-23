@@ -7,6 +7,7 @@ with lib;
   # update command example:
   # nix-prefetch-git https://github.com/srghma/dunsted-volume > $DOTFILES/nixos/root/prefetched-git-revisions/dunsted-volume.json
 
+  # nix-prefetch-git-output-to-fetchFromGitHub-arguments
   revisionDataFromFile = path:
   let
     revData = builtins.fromJSON (builtins.readFile path);

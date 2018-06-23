@@ -126,6 +126,7 @@ rec {
     kb-light
     switch_touchpad
     tmuxx
+    umsf
   ];
 
   # TODO
