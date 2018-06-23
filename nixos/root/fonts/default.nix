@@ -4,6 +4,7 @@ rec {
   enableCoreFonts = true;
   enableFontDir = true;
   enableGhostscriptFonts = true;
+
   fonts = with pkgs; [
     ubuntu_font_family
     powerline-fonts
@@ -14,6 +15,7 @@ rec {
     noto-fonts
     emojione
   ];
+
   fontconfig = {
     # dpi = 80;
     defaultFonts = {

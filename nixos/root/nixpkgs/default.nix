@@ -19,6 +19,7 @@ rec {
       randomize_background = pkgs.callPackage ../../pkgs/randomize_background {};
       switch_touchpad      = pkgs.callPackage ../../pkgs/switch_touchpad {};
       tmuxx                = pkgs.callPackage ../../pkgs/tmuxx {};
+      umsf                 = pkgs.callPackage /home/srghma/projects/umsf/default.nix {};
 
       hubstaff = import ../../pkgs/hubstaff;
     };
