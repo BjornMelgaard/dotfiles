@@ -14,9 +14,11 @@ rec {
           )
         );
 
-      dunsted-volume       = import ../../pkgs/dunsted-volume { inherit callPackageFromGithubThatHasDefaultNix; };
-      kb-light             = import ../../pkgs/kb-light { inherit callPackageFromGithubThatHasDefaultNix; };
-      randomize_background = import ../../pkgs/randomize_background { inherit callPackageFromGithubThatHasDefaultNix; };
+      dunsted-volume       = pkgs.callPackage ../../pkgs/dunsted-volume {};
+      kb-light             = pkgs.callPackage ../../pkgs/kb-light {};
+      randomize_background = pkgs.callPackage ../../pkgs/randomize_background {};
+      switch_touchpad      = pkgs.callPackage ../../pkgs/switch_touchpad {};
+      tmuxx                = pkgs.callPackage ../../pkgs/tmuxx {};
 
       hubstaff = import ../../pkgs/hubstaff;
     };

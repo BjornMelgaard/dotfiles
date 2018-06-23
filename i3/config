@@ -68,7 +68,7 @@ exec --no-startup-id $browser
 # -------------------------------------
 bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
-bindsym $mod+e       exec $terminal -e "/home/srghma/.dotfiles/scripts/tmuxx"
+bindsym $mod+e       exec tmuxx
 bindsym $mod+Shift+e exec $terminal -e "tmux new"
 bindsym $mod+Ctrl+e  exec code
 
@@ -110,7 +110,7 @@ bindsym XF86AudioMute         exec "dunsted-volume mute"
 bindsym XF86MonBrightnessDown exec "xbacklight -10"
 bindsym XF86MonBrightnessUp   exec "xbacklight +10"
 
-bindsym XF86TouchpadToggle    exec "/home/srghma/.dotfiles/scripts/switch_touchpad"
+bindsym XF86TouchpadToggle    exec switch_touchpad
 bindsym Print                 exec "scrot /home/srghma/Pictures/%Y-%m-%d-%T-screenshot.png"
 # bindsym XF86Display         exec "arandr"
 # bindsym $mod+e              exec $terminal -e "alsamixer"

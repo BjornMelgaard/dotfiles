@@ -114,15 +114,17 @@ rec {
     gimp
     imagemagick
 
-    # My remote packages
-    dunsted-volume
-    randomize_background
-    kb-light
-
     # safeeyes
     cmus
     hubstaff
     screen
     abiword
+
+    # My packages
+    dunsted-volume
+    randomize_background
+    kb-light
+    switch_touchpad
+    tmuxx
   ];
 }
