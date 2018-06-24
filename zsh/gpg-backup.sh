@@ -1,14 +1,10 @@
-GPG_BACKUP_DIR="$HOME/projects/gpg-backup"
+GPG_BACKUP_DIR="$HOME/.dotfiles/secrets/gpg"
 USER_EMAIL="srghma@gmail.com"
 
 # https://gist.github.com/chrisroos/1205934
 
 gpg-backup () {
   mkdir -p $GPG_BACKUP_DIR
-
-  if [ ! -d "$GPG_BACKUP_DIR/.git" ]; then
-    (cd $GPG_BACKUP_DIR && git init)
-  fi
 
   # ownertrust
   gpg --export-ownertrust > $GPG_BACKUP_DIR/ownertrust.txt
