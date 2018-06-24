@@ -8,8 +8,5 @@ let
   callLibs = file: import file { inherit lib; };
 
 in
-  (callLibs ./revisionDataFromFile.nix) //
-  {
-    nixpkgs-local = import ./nixpkgs-local.nix;
-  }
+  (callLibs ./fetchFromGitHubAttrsFromRevision.nix)
 )

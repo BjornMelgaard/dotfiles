@@ -1,14 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ options, config, pkgs, lib, ... }:
 
 {
   imports = [
+    ../modules/cachix.nix
+
     ./hardware-configuration.nix
     ./hardware-configuration-override.nix
     ./hardware-programs.nix
     ./systemd/disable-touchpad.nix
   ];
 
-  environment = import ./environment { inherit pkgs config; };
+  environment = import ./environment { inherit pkgs; };
   services    = import ./services    { inherit pkgs; };
   fonts       = import ./fonts       { inherit pkgs; };
   nixpkgs     = import ./nixpkgs     { };
@@ -22,6 +24,11 @@
   };
 
   programs = {
+    cachix = {
+      enable = true;
+      cachixSigningKey = builtins.readFile ../../secrets/cachixSigningKey.txt;
+    };
+
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -115,11 +122,30 @@
   };
 
   time.timeZone = "Europe/Kiev";
-  nix.useSandbox = true;
-  nix.extraOptions = ''
-    auto-optimise-store = true
-  '';
-  nix.gc.automatic = false;
+
+  nix = {
+    useSandbox = true;
+
+    extraOptions = ''
+      auto-optimise-store = true
+    '';
+
+    gc.automatic = false;
+
+    binaryCaches = [
+      "https://cache.nixos.org"
+      "https://cachix.cachix.org"
+      "https://srghma.cachix.org"
+    ];
+
+    binaryCachePublicKeys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
+      "srghma.cachix.org-1:EUHKjTh/WKs49hFtw6bwDE9oQLeX5afml0cAKc97MbI="
+    ];
+
+    trustedUsers = [ "root" "srghma" ];
+  };
 
   # use unstable
   # nix.package = pkgs.nixUnstable;

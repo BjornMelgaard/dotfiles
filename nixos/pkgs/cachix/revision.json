@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/cachix/cachix",
+  "rev": "6a65632a4b51488b5355377e5c292a6a01efee2e",
+  "date": "2018-06-23T18:08:01+01:00",
+  "sha256": "13l12xkqpx6l7pfqwysz6yrgpjk6ydj6w7c85h74mzz4fvzihxyl",
+  "fetchSubmodules": true
+}

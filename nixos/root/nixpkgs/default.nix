@@ -7,10 +7,12 @@ rec {
     rec {
       lib = import ../../lib { inherit (pkgs) lib; };
 
+      pkgsLocal = import /home/srghma/projects/nixpkgs { config = { allowUnfree = true; }; };
+
       callPackageFromGithubThatHasDefaultNix = revisionDataPath:
         pkgs.callPackage (
           pkgs.fetchFromGitHub (
-            lib.revisionDataFromFile revisionDataPath
+            lib.fetchFromGitHubAttrsFromRevision revisionDataPath
           )
         );
 
@@ -20,6 +22,7 @@ rec {
       switch_touchpad      = pkgs.callPackage ../../pkgs/switch_touchpad {};
       tmuxx                = pkgs.callPackage ../../pkgs/tmuxx {};
       umsf                 = pkgs.callPackage ../../pkgs/umsf {};
+      cachix               = pkgs.callPackage ../../pkgs/cachix {};
 
       hubstaff = import ../../pkgs/hubstaff;
     };
