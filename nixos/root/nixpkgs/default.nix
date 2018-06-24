@@ -25,5 +25,11 @@ rec {
       cachix               = pkgs.callPackage ../../pkgs/cachix {};
 
       hubstaff = import ../../pkgs/hubstaff;
+
+      haskellPackages = pkgs.haskellPackages.override {
+        overrides = self: super: {
+          nixfromnpm = self.callPackage ../../pkgs/nixfromnpm { };
+        };
+      };
     };
 }

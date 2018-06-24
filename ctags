@@ -45,3 +45,7 @@
 --regex-typescript=/^[ \t]*(static|abstract)?[ \t]*([gs]et)[ \t]+([a-zA-Z0-9_]+)/\3/m,members/
 --regex-typescript=/^[ \t]*(export|declare)?.*interface[ \t]+([a-zA-Z0-9_]+)/\2/i,interfaces/
 --regex-typescript=/^[ \t]*(export|declare)?.*enum[ \t]+([a-zA-Z0-9_]+)/\2/e,enums/
+
+--langdef=NIX
+--langmap=NIX:.nix
+--regex-NIX=/([^ \t*]*)[ \t]*=/\1/f/

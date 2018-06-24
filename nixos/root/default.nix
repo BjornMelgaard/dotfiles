@@ -130,7 +130,7 @@
       auto-optimise-store = true
     '';
 
-    gc.automatic = false;
+    gc.automatic = true;
 
     binaryCaches = [
       "https://cache.nixos.org"

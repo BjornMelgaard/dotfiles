@@ -1,6 +1,5 @@
 { config, lib, pkgs, ... }:
 
-with import /etc/nixos/metaconfiguration.nix;
 with lib;
 
 let
@@ -30,12 +29,12 @@ in
         options = [ "nofail" ];
       };
 
-    "/home/${userName}/Documents" = mkBind "/mnt/hdd/Documents";
-    "/home/${userName}/Downloads" = mkBind "/mnt/hdd/Downloads";
-    "/home/${userName}/Music"     = mkBind "/mnt/hdd/Music";
-    "/home/${userName}/Pictures"  = mkBind "/mnt/hdd/Pictures";
-    "/home/${userName}/Public"    = mkBind "/mnt/hdd/Public";
-    "/home/${userName}/Templates" = mkBind "/mnt/hdd/Templates";
-    "/home/${userName}/Videos"    = mkBind "/mnt/hdd/Videos";
+    "/home/srghma/Documents" = mkBind "/mnt/hdd/Documents";
+    "/home/srghma/Downloads" = mkBind "/mnt/hdd/Downloads";
+    "/home/srghma/Music"     = mkBind "/mnt/hdd/Music";
+    "/home/srghma/Pictures"  = mkBind "/mnt/hdd/Pictures";
+    "/home/srghma/Public"    = mkBind "/mnt/hdd/Public";
+    "/home/srghma/Templates" = mkBind "/mnt/hdd/Templates";
+    "/home/srghma/Videos"    = mkBind "/mnt/hdd/Videos";
   };
 }

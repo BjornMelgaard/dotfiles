@@ -42,24 +42,19 @@ mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hardware-configurati
 cp /mnt/etc/nixos/hardware-configuration.nix.old /mnt/home/$MYUSERNAME/.dotfiles/nixos/root/hardware-configuration.nix
 
 # LINK CONFIGS TO CONFIGS IN DOTFILES
-# this configuration is used only during installation, because dotfiles have `import /etc/nixos/metaconfiguration.nix` hardcoded
-printf "rec {\n  userName=\"$MYUSERNAME\";\n  dotfilesDir=/mnt/home/$MYUSERNAME/.dotfiles;\n}" > /etc/nixos/metaconfiguration.nix
 
-# this configuration system will use after reboot
-printf "rec {\n  userName=\"$MYUSERNAME\";\n  dotfilesDir=/home/$MYUSERNAME/.dotfiles;\n}" > /mnt/etc/nixos/metaconfiguration.nix
-
-# link /etc/nixos/configuration.nix to dotfiles
-printf "with (import /etc/nixos/metaconfiguration.nix);\nimport \"\${dotfilesDir}/nixos/root/default.nix\"" > /mnt/etc/nixos/configuration.nix
-
-# link /home/$MYUSERNAME/.config/nixpkgs/config.nix to dotfiles
-mkdir -p /mnt/home/$MYUSERNAME/.config/nixpkgs
-printf "with (import /etc/nixos/metaconfiguration.nix);\nimport \"\${dotfilesDir}/nixos/home/config.nix\"" > /mnt/home/$MYUSERNAME/.config/nixpkgs/config.nix
+# this configuration is used only during installation
+printf "import /mnt/home/$MYUSERNAME/.dotfiles/nixos/root/default.nix" > /mnt/etc/nixos/configuration.nix
 
 # MODIFY HARDWARE CONFIGURATION IF YOU WANT
 code --user-data-dir=/tmp/code /mnt/home/$MYUSERNAME/.dotfiles /mnt/etc/nixos/
 
 # INSTALL
 nixos-install
+
+# this configuration system will use after reboot
+printf "import /home/$MYUSERNAME/.dotfiles/nixos/root/default.nix" > /mnt/etc/nixos/configuration.nix
+
 # reboot
 # execute each file in INSTALL directory
 ```

@@ -127,6 +127,7 @@ rec {
     switch_touchpad
     tmuxx
     umsf
+    haskellPackages.nixfromnpm
   ];
 
   # TODO

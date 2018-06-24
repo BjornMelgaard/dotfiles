@@ -2,7 +2,6 @@
 
 with pkgs;
 with pkgs.lib;
-with (import /etc/nixos/metaconfiguration.nix);
 
 let
   layout = ../../../layouts/en_ru;
@@ -67,7 +66,7 @@ rec {
         enable = true;
         autoLogin = {
           enable = true;
-          user = userName;
+          user = "srghma";
         };
       };
 
