@@ -1,5 +1,7 @@
 { lib }:
 
+# TODO: move to fetchGitFromRevision, in pkgs
+# TODO: create repo with utils
 with lib;
 
 {
