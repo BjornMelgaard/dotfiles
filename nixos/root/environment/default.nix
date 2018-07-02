@@ -128,6 +128,7 @@ rec {
     tmuxx
     umsf
     haskellPackages.nixfromnpm
+    fix_github_https_repo
   ];
 
   # TODO

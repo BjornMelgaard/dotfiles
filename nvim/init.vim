@@ -794,7 +794,7 @@ map J <Plug>(IndentWiseBlockScopeBoundaryEnd)
 
 nnoremap <M-i> J
 
-function! UmsfRemoveChars() abort
+function! RemoveNonascii() abort
   exe "normal! :s:\ \|(\|)\|\.::g"
 endfunction
 

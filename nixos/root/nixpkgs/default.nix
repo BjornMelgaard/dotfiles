@@ -16,13 +16,14 @@ rec {
           )
         );
 
-      dunsted-volume       = pkgs.callPackage ../../pkgs/dunsted-volume {};
-      kb-light             = pkgs.callPackage ../../pkgs/kb-light {};
-      randomize_background = pkgs.callPackage ../../pkgs/randomize_background {};
-      switch_touchpad      = pkgs.callPackage ../../pkgs/switch_touchpad {};
-      tmuxx                = pkgs.callPackage ../../pkgs/tmuxx {};
-      umsf                 = pkgs.callPackage ../../pkgs/umsf {};
-      cachix               = pkgs.callPackage ../../pkgs/cachix {};
+      dunsted-volume        = pkgs.callPackage ../../pkgs/dunsted-volume {};
+      kb-light              = pkgs.callPackage ../../pkgs/kb-light {};
+      randomize_background  = pkgs.callPackage ../../pkgs/randomize_background {};
+      switch_touchpad       = pkgs.callPackage ../../pkgs/switch_touchpad {};
+      tmuxx                 = pkgs.callPackage ../../pkgs/tmuxx {};
+      umsf                  = pkgs.callPackage ../../pkgs/umsf {};
+      cachix                = pkgs.callPackage ../../pkgs/cachix {};
+      fix_github_https_repo = pkgs.callPackage ../../pkgs/fix_github_https_repo {};
 
       hubstaff = import ../../pkgs/hubstaff;
 
