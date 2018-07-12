@@ -24,6 +24,8 @@
   };
 
   programs = {
+    java.enable = true;
+
     cachix = {
       enable = true;
       cachixSigningKey = builtins.readFile ../../secrets/cachixSigningKey.txt;
@@ -98,6 +100,7 @@
         ];
       };
     };
+
     command-not-found.enable = true;
   };
 
