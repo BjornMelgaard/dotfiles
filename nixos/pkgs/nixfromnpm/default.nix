@@ -1,7 +1,13 @@
 { pkgs, haskellPackages, lib }:
 
 let
-  src = /home/srghma/projects/nixfromnpm;
+  revisionDataPath = ./revision.json;
+
+  src = pkgs.fetchFromGitHub (
+    lib.fetchFromGitHubAttrsFromRevision revisionDataPath
+  );
+
+  # src = /home/srghma/projects/nixfromnpm;
 in
 
 (import "${src}/release.nix" { }).nixfromnpm

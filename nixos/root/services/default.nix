@@ -1,7 +1,6 @@
 { pkgs }:
 
 with pkgs;
-with pkgs.lib;
 
 let
   layout = ../../../layouts/en_ru;
@@ -17,6 +16,15 @@ rec {
   gnome3.gnome-terminal-server.enable = false;
   gnome3.gnome-user-share.enable = false;
   gnome3.tracker.enable = false;
+  gnome3.evolution-data-server.enable = lib.mkForce false;
+  packagekit.enable = false;
+  gnome3.gnome-keyring.enable = lib.mkForce false;
+  gnome3.seahorse.enable = false;
+  gnome3.tracker-miners.enable = false;
+  geoclue2.enable = false;
+  dleyna-renderer.enable = false;
+  dleyna-server.enable = false;
+
 
   redshift = {
     enable = true;

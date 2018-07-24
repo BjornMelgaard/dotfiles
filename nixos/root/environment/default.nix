@@ -65,7 +65,9 @@ rec {
 
     python
 
-    stack
+    # stack
+    haskellPackages.intero
+
     ruby_2_4
 
     transmission
@@ -127,7 +129,7 @@ rec {
     switch_touchpad
     tmuxx
     umsf
-    haskellPackages.nixfromnpm
+    # haskellPackages.nixfromnpm
     fix_github_https_repo
   ];
 

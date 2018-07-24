@@ -303,7 +303,10 @@ call dein#add('terryma/vim-expand-region') " mapping - + and _
 call dein#add('chrisbra/NrrwRgn') " mapping - ,nr
 call dein#add('jiangmiao/auto-pairs') "{{{
   let g:AutoPairsShortcutToggle = ''
-  let g:AutoPairsMapCh = 0
+  let g:AutoPairsMapCh = 0 " I use `move to left pane` here
+  let g:AutoPairsFlyMode = 0
+  let g:AutoPairsShortcutBackInsert = ''
+  let g:AutoPairsMultilineClose = 0
 "}}}
 call dein#add('justinmk/vim-sneak') "{{{
   let g:sneak#streak = 1
