@@ -245,13 +245,17 @@ call dein#add('Shougo/echodoc.vim') " {{{
 
 call dein#add('autozimu/LanguageClient-neovim', {
     \ 'rev': 'next',
-    \ 'build': 'bash install.sh',
+    \ 'build': './install.sh',
     \ })
 
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'haskell': ['hie', '--lsp'],
     \ }
+
+" let g:LanguageClient_devel = 1 " Use rust debug build
+let g:LanguageClient_loggingLevel = 'DEBUG' " Use highest logging level
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
@@ -563,19 +567,6 @@ let g:python_version_2 = 1
 " => Haskell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('neovimhaskell/haskell-vim', { 'on_ft':['haskell'] })
-
-call dein#add('eagletmt/neco-ghc', { 'on_ft':['haskell'] })
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-
-call dein#add('Twinside/vim-hoogle', { 'on_ft':['haskell'] })
-
-call dein#add('parsonsmatt/intero-neovim', { 'on_ft':['haskell'] })
-let g:intero_type_on_hover = 1
-" call dein#add('glittershark/vim-hare', { 'on_ft':['haskell'] })
-
-" Reloading (pick one)
-" Automatically reload on save
-au BufWritePost *.hs InteroReload
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C#
