@@ -27,10 +27,10 @@ rec {
 
       hubstaff = import ../../pkgs/hubstaff;
 
-      haskellPackages = pkgs.haskellPackages.override {
-        overrides = self: super: {
-          nixfromnpm = self.callPackage ../../pkgs/nixfromnpm { };
-        };
-      };
+      # haskellPackages = pkgs.haskellPackages.override {
+      #   overrides = self: super: {
+      #     nixfromnpm = self.callPackage ../../pkgs/nixfromnpm { };
+      #   };
+      # };
     };
 }

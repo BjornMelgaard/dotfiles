@@ -22,6 +22,6 @@ nix-find-haskell-package () {
 
 nix-ghci () {
   nix-shell --pure \
-            -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ mtl protolude turtle ])" \
+            -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ adjunctions ])" \
             --run "ghci"
 }

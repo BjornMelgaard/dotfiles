@@ -108,14 +108,15 @@
     hostName = "machine";
     networkmanager.enable = true;
 
-    # for libvirtd (https://nixos.org/nixops/manual/#idm140737318329504)
-    firewall.checkReversePath = false;
+    firewall = {
+      # for libvirtd (https://nixos.org/nixops/manual/#idm140737318329504)
+      # checkReversePath = false;
 
-    # firewall = {
-    #   enable = true;
-    #   allowPing = false;
-    #   allowedTCPPorts = [ 35732 ];
-    # };
+      enable = true;
+      allowPing = false;
+
+      # allowedTCPPorts = [ 35732 ];
+    };
   };
 
   i18n = {

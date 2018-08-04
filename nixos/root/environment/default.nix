@@ -66,7 +66,7 @@ rec {
     python
 
     # stack
-    haskellPackages.intero
+    # haskellPackages.intero
 
     ruby_2_4
 
