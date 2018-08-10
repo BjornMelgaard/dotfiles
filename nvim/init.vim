@@ -590,11 +590,6 @@ call dein#add('neovimhaskell/haskell-vim', { 'on_ft':['haskell'] })
 " let g:psc_ide_syntastic_mode = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Nix
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('LnL7/vim-nix', { 'on_ft':['nix'] })
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " call dein#add('kana/vim-vspec') " Testing framework
@@ -602,7 +597,10 @@ call dein#add('jparise/vim-graphql', {'on_ft':['graphql']})
 call dein#add('tpope/vim-scriptease', {'on_ft':['vim']})
 call dein#add('tpope/vim-markdown',{'on_ft':['markdown']})
 call dein#add('PotatoesMaster/i3-vim-syntax',{'on_ft':['i3']})
-call dein#add('chr4/nginx.vim')
+call dein#add('chr4/nginx.vim',{'on_ft':['nginx']})
+call dein#add('vim-scripts/vim-terraform',{'on_ft':['terraform']})
+call dein#add('LnL7/vim-nix', { 'on_ft':['nix'] })
+
 " call dein#add('takac/vim-hardtime') " {{{
 "   let g:hardtime_default_on = 1
 "   let g:hardtime_allow_different_key = 1
