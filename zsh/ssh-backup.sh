@@ -3,6 +3,8 @@ SSH_DIR="$HOME/.ssh"
 
 ssh-backup () {
   # archive all except hidden
+  rm -f $SSH_BACKUP
+
   (cd $SSH_DIR && tar zcf $SSH_BACKUP .)
 }
 
