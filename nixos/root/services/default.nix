@@ -25,7 +25,6 @@ rec {
   dleyna-renderer.enable = false;
   dleyna-server.enable = false;
 
-
   redshift = {
     enable = true;
     latitude = "47.517201";

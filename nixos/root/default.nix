@@ -26,6 +26,13 @@
   programs = {
     java.enable = true;
 
+    # use gnupg-agent instead ssh-agent
+    # my ssh keys are password protected
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+
     cachix = {
       enable = true;
       cachixSigningKey = builtins.readFile ../../secrets/cachixSigningKey.txt;
@@ -130,8 +137,15 @@
   nix = {
     useSandbox = true;
 
+    # TODO: wait https://github.com/NixOS/nixpkgs/pull/44880
+    # maxJobs = "auto";
+
+    # 0 means to use all available cores
+    buildCores = 0;
+
     extraOptions = ''
       auto-optimise-store = true
+      max-jobs = auto
     '';
 
     gc.automatic = true;
