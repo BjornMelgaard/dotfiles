@@ -122,6 +122,9 @@ rec {
     screen
     abiword
 
+    # pass
+    # qtpass
+
     # My packages
     dunsted-volume
     randomize_background

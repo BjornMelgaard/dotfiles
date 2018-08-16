@@ -83,4 +83,10 @@ rec {
       '';
     };
   };
+
+  hostapd = {
+    enable = false;
+    wpaPassphrase = "passphrase";
+    ssid = "srghma-nixos";
+  };
 }

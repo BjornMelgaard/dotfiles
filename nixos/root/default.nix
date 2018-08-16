@@ -146,6 +146,8 @@
     extraOptions = ''
       auto-optimise-store = true
       max-jobs = auto
+
+      # keep-outputs = true # don't delete store paths that are used at build time
     '';
 
     gc.automatic = true;
