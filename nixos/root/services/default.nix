@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 
 with pkgs;
 
@@ -84,9 +84,10 @@ rec {
     };
   };
 
-  hostapd = {
-    enable = false;
-    wpaPassphrase = "passphrase";
-    ssid = "srghma-nixos";
-  };
+  # hostapd = {
+  #   enable        = true;
+  #   wpaPassphrase = "passphrase";
+  #   ssid          = "srghma-nixos";
+  #   interface     = "wlp3s0";
+  # };
 }

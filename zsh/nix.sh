@@ -21,3 +21,7 @@ install-latest-docker-compose () {
   sudo nix-channel --update
   nix-env -f "<nixos-unstable>" -i docker-compose
 }
+
+nix-format () {
+  cat "$1" | nix-beautify | tee "$1"
+}

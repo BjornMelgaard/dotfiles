@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 
 with pkgs;
 
@@ -134,6 +134,7 @@ rec {
     umsf
     # haskellPackages.nixfromnpm
     fix_github_https_repo
+    nix-beautify
   ];
 
   # TODO

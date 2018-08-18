@@ -1,4 +1,4 @@
-{ }:
+{ ... }:
 
 rec {
   config.allowUnfree = true;
@@ -24,6 +24,7 @@ rec {
       umsf                  = pkgs.callPackage ../../pkgs/umsf {};
       cachix                = pkgs.callPackage ../../pkgs/cachix {};
       fix_github_https_repo = pkgs.callPackage ../../pkgs/fix_github_https_repo {};
+      nix-beautify          = pkgs.callPackage ../../pkgs/nix-beautify {};
 
       hubstaff = import ../../pkgs/hubstaff;
 

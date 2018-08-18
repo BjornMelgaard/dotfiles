@@ -1,4 +1,4 @@
-{ options, config, pkgs, lib, ... }:
+{ options, config, pkgs, lib, ... }@args:
 
 {
   imports = [
@@ -10,11 +10,11 @@
     ./systemd/disable-touchpad.nix
   ];
 
-  environment = import ./environment { inherit pkgs; };
-  services    = import ./services    { inherit pkgs; };
-  fonts       = import ./fonts       { inherit pkgs; };
-  nixpkgs     = import ./nixpkgs     { };
-  users       = import ./users       { inherit pkgs; };
+  environment = import ./environment args;
+  services    = import ./services    args;
+  fonts       = import ./fonts       args;
+  nixpkgs     = import ./nixpkgs     args;
+  users       = import ./users       args;
 
   security = {
     sudo = {
@@ -143,11 +143,13 @@
     # 0 means to use all available cores
     buildCores = 0;
 
+    # max-jobs is about the number of derivations that Nix will build in parallel, while cores is about parallelism inside a derivation, e.g. what make -j will use
+
     extraOptions = ''
       auto-optimise-store = true
       max-jobs = auto
 
-      # keep-outputs = true # don't delete store paths that are used at build time
+      keep-outputs = true # don't delete store paths that are used at build time, useful for development
     '';
 
     gc.automatic = true;
