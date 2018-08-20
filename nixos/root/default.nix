@@ -167,6 +167,10 @@
     ];
 
     trustedUsers = [ "root" "srghma" ];
+
+    envVars = {
+      IMPURE = "true";
+    };
   };
 
   # use unstable
