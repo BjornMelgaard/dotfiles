@@ -166,11 +166,11 @@
       "srghma.cachix.org-1:EUHKjTh/WKs49hFtw6bwDE9oQLeX5afml0cAKc97MbI="
     ];
 
-    trustedUsers = [ "root" "srghma" ];
+    # trustedUsers = [ "root" "srghma" ];
 
-    envVars = {
-      IMPURE = "true";
-    };
+    # envVars = {
+    #   IMPURE = "true";
+    # };
   };
 
   # use unstable
