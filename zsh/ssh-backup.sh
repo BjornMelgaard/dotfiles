@@ -9,7 +9,7 @@ ssh-backup () {
 }
 
 ssh-restore () {
-  mkdir -p "$HOME/.ssh"
+  mkdir -p "$SSH_DIR"
 
   tar xzf $SSH_BACKUP --directory $SSH_DIR
 }
