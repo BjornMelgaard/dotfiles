@@ -17,7 +17,7 @@ xkb_keymap {
     replace key <AC10> { [ colon, semicolon ], [ Cyrillic_zhe, Cyrillic_ZHE ] };
 
     // swap " and ' only in us layout
-    replace key <AC11> { [ quotedbl, apostrophe ], [ Cyrillic_e, Cyrillic_E ] };
+    // replace key <AC11> { [ quotedbl, apostrophe ], [ Cyrillic_e, Cyrillic_E ] };
 
     // helpers //
     // xinput list | grep 'AT Translated Set 2 keyboard'
