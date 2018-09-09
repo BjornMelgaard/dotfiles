@@ -135,7 +135,7 @@
   time.timeZone = "Europe/Kiev";
 
   nix = {
-    useSandbox = true;
+    useSandbox = false;
 
     # TODO: wait https://github.com/NixOS/nixpkgs/pull/44880
     # maxJobs = "auto";
@@ -149,7 +149,7 @@
       auto-optimise-store = true
       max-jobs = auto
 
-      keep-outputs = true # don't delete store paths that are used at build time, useful for development
+      keep-outputs = true # by default nix deletes build dependencies and leaves only resuliting package, this prevents it, useful for development
     '';
 
     gc.automatic = true;
