@@ -113,7 +113,10 @@
 
   networking = {
     hostName = "machine";
-    networkmanager.enable = true;
+
+    networkmanager = {
+      enable = true;
+    };
 
     firewall = {
       # for libvirtd (https://nixos.org/nixops/manual/#idm140737318329504)
@@ -122,7 +125,7 @@
       enable = true;
       allowPing = false;
 
-      # allowedTCPPorts = [ 35732 ];
+      # allowedTCPPorts = [ 5432 ];
     };
   };
 

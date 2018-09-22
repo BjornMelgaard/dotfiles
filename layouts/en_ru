@@ -22,7 +22,7 @@ xkb_keymap {
     // helpers //
     // xinput list | grep 'AT Translated Set 2 keyboard'
     // xinput test NUM
-    // xkbcomp ~/.dotfiles/layouts/en_ru $DISPLAY
+    // xkbcomp $HOME/.dotfiles/layouts/en_ru $DISPLAY
     // vim $(nix-build --no-out-link '<nixpkgs>' -A xorg.xkeyboardconfig)/etc/X11/xkb/rules/base.lst
 
     // vim $(nix-build --no-out-link '<nixpkgs>' -A xorg.xkeyboardconfig)/etc/X11/xkb/keycodes/evdev

@@ -7,6 +7,38 @@ let
 in
 
 rec {
+  # see https://github.com/NixOS/nixpkgs/blob/cad1c18743699fa7458f1e49f6cfab0b86b024e9/nixos/modules/services/databases/postgresql.nix#L12
+
+  # To connect by local:
+  # HOST_IP=`ip -4 addr show scope global dev docker0 | grep inet | awk '{print $2}' | cut -d / -f 1`
+  # or
+  # HOST_IP=`ip -4 addr show wlp3s0 | grep inet | awk '{print $2}' | cut -d / -f 1`
+  # psql --dbname=postgres://foo:bar@$HOST_IP:5432/dev_db
+
+  # To connect by from docker container (https://github.com/docker/for-linux/issues/264#issuecomment-402575483):
+  # psql --dbname=postgres://foo:bar@$(ip route|awk '/default/ { print $3 }'):5432/dev_db
+
+  # postgresql = {
+  #   enable = true;
+
+  #   extraConfig = ''
+  #     listen_addresses = '*'
+  #   '';
+
+  #   authentication = ''
+  #     # Allow login as user foo from any ip (0.0.0.0/0) by encrypted password (md5)
+  #     host all foo 0.0.0.0/0 md5
+  #   '';
+
+  #   package = pkgs.postgresql100;
+
+  #   initialScript = pkgs.writeText "postgres-initScript" ''
+  #     CREATE ROLE foo WITH LOGIN PASSWORD 'bar' CREATEDB;
+  #     CREATE DATABASE dev_db;
+  #     GRANT ALL PRIVILEGES ON DATABASE dev_db TO foo;
+  #   '';
+  # };
+
   openssh.enable = true;
   xbanish.enable = true;
   compton.enable = true;
