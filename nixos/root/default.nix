@@ -120,7 +120,7 @@
 
     firewall = {
       # for libvirtd (https://nixos.org/nixops/manual/#idm140737318329504)
-      # checkReversePath = false;
+      checkReversePath = false;
 
       enable = true;
       allowPing = false;
@@ -185,7 +185,8 @@
 
   virtualisation.docker.enable = true;
   # virtualisation.virtualbox.host.enable = true;
-  # virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enable = true;
+  # virtualisation.memorySize = 1024;
 
   system.stateVersion = "18.03";
 }

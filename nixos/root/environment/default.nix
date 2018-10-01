@@ -3,6 +3,10 @@
 with pkgs;
 
 rec {
+  etc."resolvconf.conf".text = ''
+    name_servers_append='8.8.8.8'
+  '';
+
   variables = {
     EDITOR="nvim";
   };
@@ -134,7 +138,8 @@ rec {
     umsf
     # haskellPackages.nixfromnpm
     fix_github_https_repo
-    nixfmt
+    # nixfmt
+    # nix-lsp
   ];
 
   # TODO

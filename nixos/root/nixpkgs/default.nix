@@ -25,6 +25,7 @@ rec {
       cachix                = pkgs.callPackage ../../pkgs/cachix {};
       fix_github_https_repo = pkgs.callPackage ../../pkgs/fix_github_https_repo {};
       nixfmt                = pkgs.haskellPackages.callPackage ../../pkgs/nixfmt {};
+      nix-lsp               = pkgs.haskellPackages.callPackage ../../pkgs/nix-lsp {};
 
       hubstaff = import ../../pkgs/hubstaff;
 
