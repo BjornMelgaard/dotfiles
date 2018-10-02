@@ -1,15 +1,15 @@
 {
-  fetchFromGitLab,
+  # fetchFromGitLab,
 }:
 
 let
-  revData = builtins.fromJSON (builtins.readFile ./revision.json);
+  # revData = builtins.fromJSON (builtins.readFile ./revision.json);
 
-  url     = revData.url;
+  # url     = revData.url;
 
-  m       = builtins.match "https?://.*/(.*)/(.*)" url;
-  owner   = builtins.elemAt m 0;
-  repo    = builtins.elemAt m 1;
+  # m       = builtins.match "https?://.*/(.*)/(.*)" url;
+  # owner   = builtins.elemAt m 0;
+  # repo    = builtins.elemAt m 1;
 
   # src = fetchFromGitLab {
   #   inherit owner repo;
@@ -19,4 +19,4 @@ let
   src = /home/srghma/projects/nix-lsp;
 in
 
-import "${src}/default.nix"
+import "${src}/default.nix" {}

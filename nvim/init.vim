@@ -252,6 +252,7 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'typescript': ['javascript-typescript-stdio'],
     \ 'haskell': ['hie', '--lsp'],
+    \ 'nix': ['nix-lsp'],
     \ }
 
 " let g:LanguageClient_devel = 1 " Use rust debug build
@@ -837,3 +838,6 @@ au BufRead,BufNewFile Vagrantfile,Guardfile set filetype=ruby
 
 " autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
 " autocmd FileType html,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=0 copyindent preserveindent noexpandtab
+
+" nmap g[ 0ciw1<ESC>
+" nmap g] 0kyiwjciw<M-p><ESC>

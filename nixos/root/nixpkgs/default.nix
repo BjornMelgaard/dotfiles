@@ -7,7 +7,7 @@ rec {
     rec {
       lib = import ../../lib { inherit (pkgs) lib; };
 
-      pkgsLocal = import /home/srghma/projects/nixpkgs { config = { allowUnfree = true; }; };
+      # pkgsLocal = import /home/srghma/projects/nixpkgs { config = { allowUnfree = true; }; };
 
       callPackageFromGithubThatHasDefaultNix = revisionDataPath:
         pkgs.callPackage (
@@ -25,7 +25,7 @@ rec {
       cachix                = pkgs.callPackage ../../pkgs/cachix {};
       fix_github_https_repo = pkgs.callPackage ../../pkgs/fix_github_https_repo {};
       nixfmt                = pkgs.haskellPackages.callPackage ../../pkgs/nixfmt {};
-      nix-lsp               = pkgs.haskellPackages.callPackage ../../pkgs/nix-lsp {};
+      nix-lsp               = pkgs.callPackage ../../pkgs/nix-lsp {};
 
       hubstaff = import ../../pkgs/hubstaff;
 
