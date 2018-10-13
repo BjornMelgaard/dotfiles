@@ -136,10 +136,9 @@ rec {
     switch_touchpad
     tmuxx
     umsf
-    # haskellPackages.nixfromnpm
+    nixfromnpm
     fix_github_https_repo
-    # nixfmt
-    # nix-lsp
+    linted-git-commit
 
     xmind
   ];

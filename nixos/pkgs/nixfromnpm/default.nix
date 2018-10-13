@@ -1,10 +1,10 @@
-{ pkgs, haskellPackages, fetchFromGitHubAttrsFromRevision }:
+{ pkgs, haskellPackages, readRevision }:
 
 let
   revisionDataPath = ./revision.json;
 
   src = pkgs.fetchFromGitHub (
-    fetchFromGitHubAttrsFromRevision revisionDataPath
+    readRevision revisionDataPath
   );
 
   # src = /home/srghma/projects/nixfromnpm;

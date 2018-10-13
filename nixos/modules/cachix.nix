@@ -18,7 +18,8 @@ in
         type = types.nullOr types.str;
         default = null;
         description = ''
-          Global CACHIX_SIGNING_KEY environment variable
+          Global (will be available to user users on machine) CACHIX_SIGNING_KEY environment variable.
+          Should be kept in secret.
         '';
       };
     };

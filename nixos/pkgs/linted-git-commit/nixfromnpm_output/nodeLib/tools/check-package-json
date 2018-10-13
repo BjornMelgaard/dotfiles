@@ -1,0 +1,147 @@
+#!/usr/bin/env node
+'use strict'
+var fs = require('fs');
+
+if (!fs.existsSync('./package.json')) {
+  throw new Error('This must be run in a directory with a package.json');
+}
+
+// Load up the package object.
+var packageObj = JSON.parse(fs.readFileSync('./package.json'));
+
+// Exit with an error message.
+function fail(msg) {
+  console.error(msg);
+  process.exit(1);
+}
+
+// Ensure that the declared package name matches the expected.
+function checkPackageName(expectedName) {
+  if (expectedName !== packageObj.name) {
+    fail("Package name declared in package.json (" + packageObj.name +
+         ") does not match expected name (" + expectedName + ")");
+  }
+}
+
+// Returns true if a file path exists.
+function exists(path) {
+  try {
+     fs.lstatSync(path);
+     return true;
+  } catch (e) {
+     return false;
+  }
+}
+
+// Ensure that the main entry point exists.
+function checkMainEntryPoint() {
+  if (packageObj.main) {
+    var mainEntryPoint = packageObj.main;
+    if (!(exists(mainEntryPoint) ||
+          exists(mainEntryPoint + ".js") ||
+          exists(mainEntryPoint + ".node"))) {
+      fail("Main entry point " + mainEntryPoint + " does not exist");
+    }
+  }
+}
+
+// Check that all dependencies of a package have been satisfied. This
+// should only be called when npm fails, assuming it failed because of
+// a missing dependency.
+function checkDependencies() {
+  if (!process.env.SEMVER_PATH) {
+    throw new Error("No path to the semver module is set.");
+  };
+  var semver = require(process.env.SEMVER_PATH);
+  // This will be keyed on the dependency name and version, and valued with
+  // the error.
+  var errorsFound = {};
+  var warningsFound = {};
+
+  // Given the name and version range of a package, check:
+  // * That a package with the given name exists in the node_modules folder.
+  // * That its version satisfies the given version bounds.
+  function checkDependency(name, versionRange, errorIfMissing, description) {
+    process.stderr.write("  " + name + "@" + versionRange + " -> ");
+    var dependencyPackageObj;
+    var pkgJsonPath = process.cwd() + "/node_modules/" + name + "/package.json";
+    var errorKey = name + "@" + versionRange;
+    function err(message) {
+      var prefix = errorIfMissing ? "ERROR" : "WARNING";
+      message = "(" + description + ") " + message;
+      console.error(prefix + ": " + message);
+      (errorIfMissing ? errorsFound : warningsFound)[errorKey] = message;
+    }
+    try {
+      dependencyPackageObj = JSON.parse(fs.readFileSync(pkgJsonPath));
+    } catch (e) {
+      return err("Not found in node_modules");
+    }
+    // Check that the version matches
+    var version = dependencyPackageObj.version;
+    if (!semver.satisfies(version, versionRange)) {
+      return err("version " + version + " doesn't match range " + versionRange);
+    }
+    console.error("OK (found version " + dependencyPackageObj.version + ")");
+
+    // If the package has any peer dependencies, check that they are satisfied
+    if (dependencyPackageObj.peerDependencies) {
+      console.error("Checking peer dependencies of " + name);
+      for (var depName in dependencyPackageObj.peerDependencies) {
+        var range = dependencyPackageObj.peerDependencies[depName];
+        checkDependency(depName, range, false, "peer dependency of " + name);
+      }
+    };
+  }
+
+  // Verify that all of the declared dependencies in a package.json file
+  // are satisfied by the environment.
+  var depTypes = ["dependencies", "devDependencies"];
+  for (var depTypeIdx in depTypes) {
+    var depType = depTypes[depTypeIdx];
+    if (depType === "devDependencies" && process.env.NO_DEV_DEPENDENCIES) {
+      continue;
+    }
+    if (packageObj[depType]) {
+      console.log("Checking " + depType + " of " + packageObj.name);
+      for (var depName in packageObj[depType]) {
+        checkDependency(depName, packageObj[depType][depName], true,
+                        "Appears in " + packageObj.name + "'s " + depType);
+      }
+    }
+  }
+
+  if (JSON.stringify(warningsFound) !== "{}") {
+    console.error("Found the following warnings:");
+    for (var depName in warningsFound) {
+      console.error("  " + depName + ":  " + warningsFound[depName]);
+    }
+  }
+  if (JSON.stringify(errorsFound) !== "{}") {
+    console.error("Found the following errors:");
+    for (var depName in errorsFound) {
+      console.error("  " + depName + ":  " + errorsFound[depName]);
+    }
+    fail("One or more dependencies were unsatisfied. :(");
+  }
+}
+
+var commands = ['checkPackageName', 'checkMainEntryPoint', 'checkDependencies'];
+switch (process.argv[2]) {
+  case 'checkPackageName': {
+    if (!process.argv[3]) {
+      fail("Need an argument for the package name.");
+    }
+    checkPackageName(process.argv[3]); break;
+  }
+  case 'checkMainEntryPoint': {
+    checkMainEntryPoint(); break;
+  }
+  case 'checkDependencies': {
+    checkDependencies(); break;
+  }
+  default: {
+    fail('No command, or unrecognized command given. Commands are: '
+         + commands.join(", "));
+  }
+}

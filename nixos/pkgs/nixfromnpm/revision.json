@@ -1,7 +1,7 @@
 {
   "url": "https://github.com/adnelson/nixfromnpm",
-  "rev": "76775d22d743c5908b65e25574156dd624baf489",
-  "date": "2018-06-25T15:01:25-05:00",
-  "sha256": "0qzbqayr4qwnirddsjhcyz6sq5zhj8kkngkj9bh62qsyg3z4jmy8",
+  "rev": "ad97240d6ecf0873c9141d3257af0d06d3553b63",
+  "date": "2018-07-03T13:23:51-05:00",
+  "sha256": "0r7gs9qmiiwrwp1l0aanvzignjqxfxhplb6f962c5nw6f4lkaklh",
   "fetchSubmodules": true
 }
