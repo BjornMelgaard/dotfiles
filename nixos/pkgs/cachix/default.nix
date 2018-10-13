@@ -1,13 +1,12 @@
-{ fetchFromGitHub, lib }:
+{ fetchFromGitHub, readRevision, preventImplicitDepsFromBeingGarbagecollected, ... }:
 
 let
-  cachix =
-    fetchFromGitHub (
-      lib.fetchFromGitHubAttrsFromRevision ./revision.json
-    );
+  src = fetchFromGitHub (
+    readRevision ./revision.json
+  );
 
-
-  # TODO: add source as buildInput to prevent source from being garbage-collected
+  drv = import src {};
 in
-
-import cachix {}
+  # TODO
+  # preventImplicitDepsFromBeingGarbagecollected [src] drv
+  drv

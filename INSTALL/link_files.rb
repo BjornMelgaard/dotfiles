@@ -33,7 +33,8 @@ inhome_indotfiles = [
   ['.Xresources',                             'Xresources'],
   ['.Xresources.d',                           'Xresources.d'],
 
-  ['.config/nvim',                            'nvim']
+  ['.config/nvim',  'nvim'],
+  ['.cabal/config', 'cabal_config']
 ]
 
 inhome_indotfiles.each do |(inhome, indotfiles)|

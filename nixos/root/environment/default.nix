@@ -139,7 +139,9 @@ rec {
     # haskellPackages.nixfromnpm
     fix_github_https_repo
     # nixfmt
-    nix-lsp
+    # nix-lsp
+
+    xmind
   ];
 
   # TODO

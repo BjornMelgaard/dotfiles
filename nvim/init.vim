@@ -252,11 +252,14 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'typescript': ['javascript-typescript-stdio'],
     \ 'haskell': ['hie', '--lsp'],
-    \ 'nix': ['nix-lsp'],
     \ }
+
+    " \ 'nix': ['nix-lsp'],
 
 " let g:LanguageClient_devel = 1 " Use rust debug build
 let g:LanguageClient_loggingLevel = 'DEBUG' " Use highest logging level
+" let g:LanguageClient_loggingFile = 'nvim.log' " Use highest logging level
+" let g:LanguageClient_serverStderr = 'language-server.log' " Use highest logging level
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
@@ -551,7 +554,7 @@ exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Idris
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" call dein#add('idris-hackers/idris-vim')
+call dein#add('idris-hackers/idris-vim')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
@@ -580,7 +583,7 @@ call dein#add('neovimhaskell/haskell-vim', { 'on_ft':['haskell'] })
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Purescript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" call dein#add('purescript-contrib/purescript-vim', { 'on_ft':['purescript'] })
+call dein#add('purescript-contrib/purescript-vim', { 'on_ft':['purescript'] })
 " call dein#add('FrigoEU/psc-ide-vim', { 'on_ft':['purescript'] })
 " let g:psc_ide_log_level=4
 

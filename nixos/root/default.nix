@@ -13,8 +13,18 @@
   environment = import ./environment args;
   services    = import ./services    args;
   fonts       = import ./fonts       args;
-  nixpkgs     = import ./nixpkgs     args;
   users       = import ./users       args;
+
+  nixpkgs     = {
+    config = {
+      allowUnfree = true;
+    };
+
+    overlays = [
+      (import ../pkgs/overlay.nix)
+      (import ../utils/overlay.nix)
+    ];
+  };
 
   security = {
     sudo = {

@@ -1,3 +1,4 @@
+{ ... }:
 # TODO: https://github.com/NixOS/nixpkgs/issues/38988
 
 let

@@ -1,3 +1,7 @@
-{ callPackageFromGithubThatHasDefaultNix }:
+{ callPackage, fetchFromGitHub, readRevision }:
 
-callPackageFromGithubThatHasDefaultNix ./revision.json {}
+callPackage (
+  fetchFromGitHub (
+    readRevision ./revision.json
+  )
+) {}
