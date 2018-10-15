@@ -62,7 +62,9 @@ world-file: /home/srghma/.cabal/world
 -- extra-framework-dirs:
 extra-prog-path: /home/srghma/.cabal/bin
 -- instantiate-with:
--- tests: False
+
+-- global cabal configure --enable-tests
+tests: True
 -- coverage: False
 -- library-coverage:
 -- allow-older: False
