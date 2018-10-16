@@ -150,7 +150,6 @@ call dein#add('mhinz/vim-startify') "{{{
     \ |   redraw!
     \ | endif
 
-  nnoremap <F1> :Startify<cr>
   nnoremap <leader>S :SSave <C-R>=fnamemodify(getcwd(), ':t')<cr><cr>
 "}}}
 call dein#add('neomake/neomake') " {{{
@@ -255,6 +254,14 @@ let g:LanguageClient_serverCommands = {
     \ }
 
     " \ 'nix': ['nix-lsp'],
+
+nnoremap <F3> :call LanguageClient_contextMenu()<CR>
+
+" support for haskell-ide-engine errors (e.g. underline errors)
+hi link ALEError Error
+hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
+hi link ALEWarning Warning
+hi link ALEInfo SpellCap
 
 " let g:LanguageClient_devel = 1 " Use rust debug build
 let g:LanguageClient_loggingLevel = 'DEBUG' " Use highest logging level
@@ -375,7 +382,7 @@ call dein#add('dkprice/vim-easygrep') "{{{
 call dein#add('mbbill/undotree', {'on_cmd':'UndotreeToggle'}) "{{{
   let g:undotree_SplitLocation='botright'
   let g:undotree_SetFocusWhenToggle=1
-  nnoremap <silent> <F5> :UndotreeToggle<CR>
+  nnoremap <silent> <F1> :UndotreeToggle<CR>
 "}}}
 call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']}) "{{{
   let NERDTreeShowHidden=1
@@ -394,7 +401,6 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
 
   let g:NERDTreeMapQuit='Q'
   nnoremap <F2> :NERDTreeToggle<CR>
-  nnoremap <F3> :NERDTreeFind<CR>
 "}}}
 
 "call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
