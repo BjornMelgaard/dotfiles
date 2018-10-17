@@ -255,7 +255,7 @@ let g:LanguageClient_serverCommands = {
 
     " \ 'nix': ['nix-lsp'],
 
-nnoremap <F3> :call LanguageClient_contextMenu()<CR>
+nnoremap <F4> :call LanguageClient_contextMenu()<CR>
 
 " support for haskell-ide-engine errors (e.g. underline errors)
 hi link ALEError Error
@@ -401,6 +401,7 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
 
   let g:NERDTreeMapQuit='Q'
   nnoremap <F2> :NERDTreeToggle<CR>
+  nnoremap <F3> :NERDTreeFind<CR>
 "}}}
 
 "call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
