@@ -14,4 +14,5 @@ pkgs: pkgsOld:
   nixfromnpm            = pkgs.callPackage ./nixfromnpm {};
   linted-git-commit     = pkgs.callPackage ./linted-git-commit {};
   hies                  = pkgs.callPackage ./hie-nix {};
+  auto-hie-wrapper      = pkgs.callPackage ./auto-hie-wrapper {};
 }

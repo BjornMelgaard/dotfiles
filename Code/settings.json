@@ -34,5 +34,5 @@
     "editor.formatOnSave": false,
     "workbench.startupEditor": "welcomePage",
     "languageServerHaskell.useCustomHieWrapper": true,
-    "languageServerHaskell.useCustomHieWrapperPath": "~/.dotfiles//wrapper-in-home.sh",
+    "languageServerHaskell.useCustomHieWrapperPath": "auto-hie-wrapper",
 }

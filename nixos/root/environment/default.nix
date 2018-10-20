@@ -140,6 +140,7 @@ rec {
     jq
 
     hies.hies
+    auto-hie-wrapper
     (import <nixpkgs-unstable> {}).pkgs.stack
 
     # haskellPackages.intero
