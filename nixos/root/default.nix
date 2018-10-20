@@ -54,6 +54,8 @@
       enableAutosuggestions = true;
 
       interactiveShellInit = ''
+        ${builtins.readFile ./zsh/movements.sh}
+
         DEFAULT_USER="srghma"
 
         autoload -U zmv

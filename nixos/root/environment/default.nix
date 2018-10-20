@@ -2,6 +2,12 @@
 
 with pkgs;
 
+let
+  nixpkgs-unstable-src = fetchTarball https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz;
+
+  nixpkgsUnstable = import nixpkgs-unstable-src { config = { allowUnfree = true; }; };
+in
+
 rec {
   etc."resolvconf.conf".text = ''
     name_servers_append='8.8.8.8'
@@ -54,7 +60,7 @@ rec {
     termite
     neovim
     tmux
-    vscode
+    nixpkgsUnstable.pkgs.vscode
 
     ## development
     git
@@ -64,7 +70,7 @@ rec {
 
     docker
 
-    (import <nixpkgs-unstable> {}).pkgs.nodejs-10_x
+    nixpkgsUnstable.pkgs.nodejs-10_x
 
     python
 
@@ -141,12 +147,12 @@ rec {
 
     hies.hies
     auto-hie-wrapper
-    (import <nixpkgs-unstable> {}).pkgs.stack
+    nixpkgsUnstable.pkgs.stack
 
     # haskellPackages.intero
-    (import <nixpkgs-unstable> {}).pkgs.stack2nix
+    nixpkgsUnstable.pkgs.stack2nix
 
-    (import <nixpkgs-unstable> {}).pkgs.idris
+    nixpkgsUnstable.pkgs.idris
   ];
 
   # TODO
