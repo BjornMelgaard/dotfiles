@@ -64,8 +64,7 @@ rec {
 
     docker
 
-    nodejs-8_x
-    yarn
+    (import <nixpkgs-unstable> {}).pkgs.nodejs-10_x
 
     python
 
@@ -141,6 +140,10 @@ rec {
     linted-git-commit
 
     xmind
+    jq
+    (import <nixpkgs-unstable> {}).pkgs.stack2nix
+
+    (import <nixpkgs-unstable> {}).pkgs.idris
   ];
 
   # TODO
