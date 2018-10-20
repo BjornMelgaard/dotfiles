@@ -32,5 +32,7 @@
     },
     "editor.formatOnPaste": true,
     "editor.formatOnSave": false,
-    "workbench.startupEditor": "welcomePage"
+    "workbench.startupEditor": "welcomePage",
+    "languageServerHaskell.useCustomHieWrapper": true,
+    "languageServerHaskell.useCustomHieWrapperPath": "~/.dotfiles//wrapper-in-home.sh",
 }

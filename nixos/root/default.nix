@@ -169,6 +169,7 @@
 
     gc.automatic = true;
 
+    # FIXME: https://cache.nixos.org should not be added by hand, but rather merged
     binaryCaches = [
       "https://cache.nixos.org"
       "https://cachix.cachix.org"

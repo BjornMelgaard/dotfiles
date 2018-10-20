@@ -1,8 +1,7 @@
 pkgs: pkgsOld:
 {
-  # nixfmt                = pkgs.haskellPackages.callPackage ../../pkgs/nixfmt {};
-  # nix-lsp               = pkgs.callPackage ../../pkgs/nix-lsp {};
-
+  nixfmt                = pkgs.haskellPackages.callPackage ../../pkgs/nixfmt {};
+  nix-lsp               = pkgs.callPackage ../../pkgs/nix-lsp {};
   dunsted-volume        = pkgs.callPackage ./dunsted-volume {};
   kb-light              = pkgs.callPackage ./kb-light {};
   randomize_background  = pkgs.callPackage ./randomize_background {};
@@ -14,4 +13,5 @@ pkgs: pkgsOld:
   hubstaff              = pkgs.callPackage ./hubstaff {};
   nixfromnpm            = pkgs.callPackage ./nixfromnpm {};
   linted-git-commit     = pkgs.callPackage ./linted-git-commit {};
+  hies                  = pkgs.callPackage ./hie-nix {};
 }

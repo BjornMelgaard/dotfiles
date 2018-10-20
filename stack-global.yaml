@@ -2,7 +2,7 @@ templates:
   params:
    author-name: srghma
    author-email: srghma@gmail.com
-   copyright: MIT
+   license: Apache-2.0
    github-username: srghma
 
 nix:
@@ -13,8 +13,4 @@ nix:
     - gcc
     - ncurses
     - zlib
-
-# extra-deps:
-# - intero
-# - QuickCheck
-# - stack-run
+    - openssl

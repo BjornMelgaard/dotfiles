@@ -68,9 +68,6 @@ rec {
 
     python
 
-    # stack
-    # haskellPackages.intero
-
     ruby_2_4
 
     transmission
@@ -141,6 +138,11 @@ rec {
 
     xmind
     jq
+
+    hies.hies
+    (import <nixpkgs-unstable> {}).pkgs.stack
+
+    # haskellPackages.intero
     (import <nixpkgs-unstable> {}).pkgs.stack2nix
 
     (import <nixpkgs-unstable> {}).pkgs.idris
