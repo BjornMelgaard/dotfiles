@@ -11,7 +11,7 @@ export MYUSERNAME=srghma
 # INSTALL SOFTWARE
 mkdir -p ~/.config/nixpkgs
 echo '{ allowUnfree = true; }' > ~/.config/nixpkgs/config.nix
-nix-env -i git git-crypt vscode ranger google-chrome
+nix-env -i git git-crypt vscode ranger google-chrome pcmanfm
 code --user-data-dir=/tmp/code --install-extension bbenoist.Nix
 
 # MAKE PARTITIONS
@@ -21,13 +21,24 @@ mkfs.vfat /dev/sdb1
 mkswap -L swap /dev/sdb2
 mkfs.ext4 -L nixos /dev/sdb3
 
+# zfs info:
+# https://apple.stackexchange.com/questions/111177/how-to-format-external-drive-into-zfs
+# https://github.com/zfsonlinux/zfs/wiki/Ubuntu-18.04-Root-on-ZFS
+# https://nixos.wiki/wiki/NixOS_on_ZFS (bottom)
+
 zpool create -o ashift=12 -R /mnt rpool raidz /dev/sdb2
+zfs create -o mountpoint=legacy rpool/nixos
+zfs create -o mountpoint=legacy rpool/home
+zfs set compression=lz4 rpool/home
+zfs set reservation=1G rpool
 
 # MOUNT
 swapon /dev/sdb2
-mount /dev/disk/by-label/nixos /mnt
+mount -t zfs rpool/nixos /mnt
 mkdir /mnt/boot
 mount /dev/sdb1 /mnt/boot
+mkdir /mnt/home
+mount -t zfs rpool/home /mnt/home
 
 # GENERATE CONFIGURATION
 nixos-generate-config --root /mnt
@@ -50,6 +61,9 @@ printf "import /mnt/home/$MYUSERNAME/.dotfiles/nixos/root/default.nix" > /mnt/et
 
 # MODIFY HARDWARE CONFIGURATION IF YOU WANT
 code --user-data-dir=/tmp/code /mnt/home/$MYUSERNAME/.dotfiles /mnt/etc/nixos/
+
+# validate
+nixos-rebuild dry-build -I nixos-config=/mnt/etc/nixos/configuration.nix
 
 # INSTALL
 nixos-install
