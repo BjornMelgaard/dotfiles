@@ -76,13 +76,14 @@ printf "import /mnt/home/srghma/.dotfiles/nixos/root/default.nix" > /mnt/etc/nix
 # MODIFY HARDWARE CONFIGURATION IF YOU WANT
 code --user-data-dir=/tmp/code /mnt/home/srghma/.dotfiles /mnt/etc/nixos
 
-# validate (only if nixos-install throws errors)
-nixos-rebuild dry-build -I nixos-config=/mnt/etc/nixos/configuration.nix
-
 # INSTALL
 nixos-install
+# or validate (only if nixos-install throws errors)
+nixos-rebuild dry-build -I nixos-config=/mnt/etc/nixos/configuration.nix
 # or just rebuild configuration
 nixos-install --no-bootloader --no-root-passwd --no-channel-copy
+# or enter using chroot
+nixos-enter
 
 # this configuration system will use after reboot
 printf "import /home/srghma/.dotfiles/nixos/root/default.nix" > /mnt/etc/nixos/configuration.nix
