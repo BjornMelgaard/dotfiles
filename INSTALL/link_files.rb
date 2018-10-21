@@ -33,7 +33,13 @@ inhome_indotfiles = [
   ['.Xresources',                             'Xresources'],
   ['.Xresources.d',                           'Xresources.d'],
 
-  ['.config/nvim',  'nvim'],
+  ['.config/nvim/ftplugin',  'nvim/ftplugin'],
+  ['.config/nvim/plugin',    'nvim/plugin'],
+  ['.config/nvim/snippets',  'nvim/snippets'],
+  ['.config/nvim/ginit.vim', 'nvim/ginit.vim'],
+  ['.config/nvim/init.vim',  'nvim/init.vim'],
+  ['.config/nvim/bundle/repos/github.com/Shougo/dein.vim',  'nvim/bundle/repos/github.com/Shougo/dein.vim'],
+
   ['.cabal/config', 'cabal_config']
 ]
 

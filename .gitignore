@@ -10,3 +10,4 @@ nvim/bundle
 .cache
 commitlint/node_modules
 result
+*.log

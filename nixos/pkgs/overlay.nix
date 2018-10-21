@@ -10,6 +10,7 @@ pkgs: pkgsOld:
   umsf                  = pkgs.callPackage ./umsf {};
   cachix                = pkgs.callPackage ./cachix {};
   fix_github_https_repo = pkgs.callPackage ./fix_github_https_repo {};
+  fix_gitlab_https_repo = pkgs.callPackage ./fix_gitlab_https_repo {};
   hubstaff              = pkgs.callPackage ./hubstaff {};
   nixfromnpm            = pkgs.callPackage ./nixfromnpm {};
   linted-git-commit     = pkgs.callPackage ./linted-git-commit {};

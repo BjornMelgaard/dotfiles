@@ -9,19 +9,21 @@ if [ -z "$REPO_URL" ]; then
   exit
 fi
 
-USER=`echo $REPO_URL | sed -Ene's#https://gitlab.nordicresults.com/([^/]*)/(.*)(.git)?#\1#p'`
+DOMAIN=`echo $REPO_URL | sed -Ene's#https://gitlab(/.?[^/.]*).com#\1#p'`
+
+USER=`echo $REPO_URL | sed -Ene's#https://gitlab.?[^\.]*.com/([^/]*)/(.*)(.git)?#\1#p'`
 if [ -z "$USER" ]; then
   echo "-- ERROR:  Could not identify User."
   exit
 fi
 
-REPO=`echo $REPO_URL | sed -Ene's#https://gitlab.nordicresults.com/([^/]*)/(.*)(.git)?#\2#p'`
+REPO=`echo $REPO_URL | sed -Ene's#https://gitlab.?[^\.]*.com/([^/]*)/(.*)(.git)?#\2#p'`
 if [ -z "$REPO" ]; then
   echo "-- ERROR:  Could not identify Repo."
   exit
 fi
 
-NEW_URL="ssh://git@gitlab.nordicresults.com:446/$USER/$REPO.git"
+NEW_URL="ssh://git@gitlab$DOMAIN.com/$USER/$REPO.git"
 echo "Changing repo url from "
 echo "  '$REPO_URL'"
 echo "      to "
