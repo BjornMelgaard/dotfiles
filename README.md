@@ -26,7 +26,7 @@ mkfs.ext4 -L nixos /dev/sdb3
 # https://github.com/zfsonlinux/zfs/wiki/Ubuntu-18.04-Root-on-ZFS
 # https://nixos.wiki/wiki/NixOS_on_ZFS (bottom)
 
-zpool create -o ashift=12 -R /mnt rpool raidz /dev/sdb2
+zpool create -o ashift=12 -R /mnt rpool -f /dev/sdb3
 zfs create -o mountpoint=legacy rpool/nixos
 zfs create -o mountpoint=legacy rpool/home
 zfs set compression=lz4 rpool/home
