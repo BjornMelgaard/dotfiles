@@ -6,6 +6,8 @@ features: i3, neovim
 # how to install on new computer
 
 ```sh
+nmtui # to enable internet (KDE gui is buggy)
+
 # INSTALL SOFTWARE
 mkdir -p ~/.config/nixpkgs
 echo '{ allowUnfree = true; }' > ~/.config/nixpkgs/config.nix
@@ -79,6 +81,8 @@ nixos-rebuild dry-build -I nixos-config=/mnt/etc/nixos/configuration.nix
 
 # INSTALL
 nixos-install
+# or just rebuild configuration
+nixos-install --no-bootloader --no-root-passwd --no-channel-copy
 
 # this configuration system will use after reboot
 printf "import /home/srghma/.dotfiles/nixos/root/default.nix" > /mnt/etc/nixos/configuration.nix
