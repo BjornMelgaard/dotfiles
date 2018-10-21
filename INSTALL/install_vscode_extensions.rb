@@ -5,18 +5,20 @@
 # code --list-extensions
 
 extensions = %w[
-  HookyQR.beautify
-  PeterJausovec.vscode-docker
-  UCL.haskelly
+  alanz.vscode-hie-server
+  bbenoist.nix
+  castwide.solargraph
+  eamodio.gitlens
   eg2.tslint
   eg2.vscode-npm-script
   felipecaputo.git-project-manager
-  eamodio.gitlens
   justusadam.language-haskell
   karunamurti.haml
-  rebornix.Ruby
+  Kasik96.swift
+  ms-python.python
+  PeterJausovec.vscode-docker
+  rebornix.ruby
   sianglim.slim
-  bbenoist.Nix
 ]
 
 extensions.each { |e| `code --install-extension #{e}` }
