@@ -32,11 +32,19 @@ mkfs.ext4 -L nixos /dev/sdb3
 # https://github.com/zfsonlinux/zfs/wiki/Ubuntu-18.04-Root-on-ZFS
 # https://nixos.wiki/wiki/NixOS_on_ZFS (bottom)
 
-zpool create -o ashift=12 -R /mnt rpool -f /dev/sdb3
+zpool create -o ashift=12 -f -R /mnt rpool /dev/sdb3 # create pool named rpool with ssd partition (type - disk)
+zpool add -f rpool /dev/sda5 # add hdd partition to pool (type - disk)
 zfs create -o mountpoint=legacy rpool/nixos
 zfs create -o mountpoint=legacy rpool/home
 zfs set compression=lz4 rpool/home
 zfs set reservation=1G rpool
+
+# Useful zfs commands:
+zpool import rpool # to import alredy created pool (searches all /dev/*)
+zfs list # to list filesystems
+zpool list # to list pools
+zpool status # to show pool status
+zdb # to show type of each disk in pool
 
 # MOUNT
 swapon /dev/sdb2
