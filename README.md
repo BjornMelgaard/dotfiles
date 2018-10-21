@@ -21,9 +21,8 @@ modprobe zfs
 # MAKE PARTITIONS
 gdisk /dev/sdb
 # make 3 partitions: efi (code - ef00, last sector - +100M), swap (code - 8200, last sector - +8G), nixos (code - default, last sector - default)
-mkfs.vfat /dev/sdb1
-mkswap -L swap /dev/sdb2
-mkfs.ext4 -L nixos /dev/sdb3
+mkfs.vfat -n NIXOS_BOOT /dev/sdb1
+mkswap -L NIXOS_SWAP /dev/sdb2
 
 # zfs info:
 # https://apple.stackexchange.com/questions/111177/how-to-format-external-drive-into-zfs
