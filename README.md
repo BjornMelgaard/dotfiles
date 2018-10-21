@@ -14,6 +14,12 @@ echo '{ allowUnfree = true; }' > ~/.config/nixpkgs/config.nix
 nix-env -i git git-crypt vscode ranger google-chrome pcmanfm
 code --user-data-dir=/tmp/code --install-extension bbenoist.Nix
 
+# ENABLE ZFS
+vim /etc/nixos/configuration.nix
+# add `boot.supportedFilesystems = [ "zfs" ];`
+nixos-rebuild switch
+modprobe zfs
+
 # MAKE PARTITIONS
 gdisk /dev/sdb
 # make 3 partitions: efi (code - ef00, last sector - +100M), swap (code - 8200, last sector - +8G), nixos (code - default, last sector - default)
