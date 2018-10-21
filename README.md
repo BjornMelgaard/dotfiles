@@ -11,7 +11,7 @@ export MYUSERNAME=srghma
 # INSTALL SOFTWARE
 mkdir -p ~/.config/nixpkgs
 echo '{ allowUnfree = true; }' > ~/.config/nixpkgs/config.nix
-nix-env -i git vscode
+nix-env -i git git-crypt vscode ranger google-chrome
 code --user-data-dir=/tmp/code --install-extension bbenoist.Nix
 
 # MAKE PARTITIONS
@@ -20,6 +20,8 @@ gdisk /dev/sdb
 mkfs.vfat /dev/sdb1
 mkswap -L swap /dev/sdb2
 mkfs.ext4 -L nixos /dev/sdb3
+
+zpool create -o ashift=12 -R /mnt rpool raidz /dev/sdb2
 
 # MOUNT
 swapon /dev/sdb2
