@@ -86,6 +86,7 @@ rec {
     libinput.enable = true;
 
     dpi = 96;
+
     deviceSection = ''
       Option "DPI" "96 x 96"
     '';
@@ -96,7 +97,7 @@ rec {
     };
 
     desktopManager = {
-      default = "gnome3";
+      # default = "gnome3";
       gnome3.enable = true;
     };
 

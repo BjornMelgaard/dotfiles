@@ -13,19 +13,24 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/cdf4e483-fa0e-4c10-b254-4f452dc50c17";
-      fsType = "ext4";
+    { device = "rpool/nixos";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home" =
+    { device = "rpool/home";
+      fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7302-E285";
+    { device = "/dev/disk/by-uuid/4C3D-4F3C";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/bd595cf9-5ba2-453b-af96-78290fa03f9d"; }
+    [ { device = "/dev/disk/by-uuid/11eb48bc-73bd-4d5f-80a9-00ca0897a46e"; }
     ];
 
   nix.maxJobs = lib.mkDefault 8;
-  powerManagement.cpuFreqGovernor = "powersave";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

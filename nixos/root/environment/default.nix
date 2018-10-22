@@ -18,35 +18,34 @@ rec {
   };
 
   systemPackages = [
-    # system
     google-chrome
     zip
     unzip
     htop
-    nix-repl
+    # nix-repl
     ag
     ntfs3g
     alsaUtils
-
+ 
     pavucontrol
     conky
-
+ 
     dunst
     copyq
     rofi
     pasystray
     scrot
-    anki
+    # anki
     xarchiver
-
+ 
     # XXX: set themes with gconf
     numix-sx-gtk-theme
     numix-icon-theme-circle
     numix-icon-theme
     vanilla-dmz
-
+ 
     ## misc
-    transmission_gtk
+    # transmission_gtk
     feh
     mpv
     xclip
@@ -54,31 +53,29 @@ rec {
     wget
     gnupg
     thunderbird
-    psmisc
-
+    # psmisc
+ 
     ranger
     termite
     neovim
     tmux
     nixpkgsUnstable.pkgs.vscode
-
+ 
     ## development
     git
     gitAndTools.diff-so-fancy
     gitAndTools.git-crypt
     meld
-
-    docker
-
+ 
     nixpkgsUnstable.pkgs.nodejs-10_x
-
-    python
-
+ 
+    # python
+ 
     ruby_2_4
 
     transmission
-
-    netcat-openbsd # nc -U /var/run/acpid.socket
+ 
+    # netcat-openbsd # nc -U /var/run/acpid.socket
     lsof
     xorg.xbacklight
     openssl
@@ -86,74 +83,74 @@ rec {
     unar
     unrar
 
-    automake
-    autoconf
-    gnumake
-    gcc
-    inkscape
-
+    # automake
+    # autoconf
+    # gnumake
+    # gcc
+    # inkscape
+ 
     docker_compose
-    mkpasswd
-
+    # mkpasswd
+ 
     # android-studio
     ctags
-    filezilla
-    # firefox
-    vlc
+    # filezilla
+    firefox
     asciinema
-    tree
-    youtube-dl
+    # tree
+    # youtube-dl
     tigervnc
-
+ 
     # screencast
     # gtk-recordmydesktop
-    kdenlive
+    # kdenlive
     simplescreenrecorder
     # kazam
-
+ 
     # vagrant
     # virtualbox
-
-    fzf
-    bfg-repo-cleaner # removes passwords from git repo
-
+ 
+    # fzf
+    # bfg-repo-cleaner # removes passwords from git repo
+ 
     nox
     nix-prefetch-git
-    gimp
-    imagemagick
-
+    # gimp
+    # imagemagick
+ 
     # safeeyes
-    cmus
-    hubstaff
-    screen
-    abiword
-
+    # cmus
+    # hubstaff
+    # screen
+    # abiword
+ 
     # pass
     # qtpass
 
+    # nixfromnpm
+ 
     # My packages
     dunsted-volume
     randomize_background
     kb-light
     switch_touchpad
     tmuxx
-    umsf
-    nixfromnpm
+    # umsf
     fix_github_https_repo
     fix_gitlab_https_repo
     linted-git-commit
-
-    xmind
+ 
+    # xmind
     jq
-
-    hies.hies
-    auto-hie-wrapper
-    nixpkgsUnstable.pkgs.stack
-
+ 
+    # hies.hies
+    # auto-hie-wrapper
+    # nixpkgsUnstable.pkgs.stack
+ 
     # haskellPackages.intero
-    nixpkgsUnstable.pkgs.stack2nix
+    # nixpkgsUnstable.pkgs.stack2nix
 
-    nixpkgsUnstable.pkgs.idris
+    # nixpkgsUnstable.pkgs.idris
   ];
 
   # TODO

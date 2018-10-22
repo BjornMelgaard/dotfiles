@@ -8,12 +8,12 @@
     ./hardware-configuration-override.nix
     ./hardware-programs.nix
     ./systemd/disable-touchpad.nix
+    ./users
   ];
 
   environment = import ./environment args;
   services    = import ./services    args;
   fonts       = import ./fonts       args;
-  users       = import ./users       args;
 
   nixpkgs     = {
     config = {
@@ -34,7 +34,7 @@
   };
 
   programs = {
-    java.enable = true;
+    # java.enable = true;
 
     # use gnupg-agent instead ssh-agent
     # my ssh keys are password protected
@@ -51,7 +51,7 @@
     zsh = {
       enable = true;
       enableCompletion = true;
-      enableAutosuggestions = true;
+      autosuggestions.enable = true;
 
       interactiveShellInit = ''
         ${builtins.readFile ./zsh/movements.sh}
@@ -125,6 +125,7 @@
 
   networking = {
     hostName = "machine";
+    hostId = "210b80eb"; # generated with `head -c 8 /etc/machine-id` 
 
     networkmanager = {
       enable = true;
@@ -132,7 +133,7 @@
 
     firewall = {
       # for libvirtd (https://nixos.org/nixops/manual/#idm140737318329504)
-      checkReversePath = false;
+      # checkReversePath = false;
 
       enable = true;
       allowPing = false;
@@ -185,12 +186,6 @@
       "srghma.cachix.org-1:EUHKjTh/WKs49hFtw6bwDE9oQLeX5afml0cAKc97MbI="
       "hie-nix.cachix.org-1:EjBSHzF6VmDnzqlldGXbi0RM3HdjfTU3yDRi9Pd0jTY="
     ];
-
-    # trustedUsers = [ "root" "srghma" ];
-
-    # envVars = {
-    #   IMPURE = "true";
-    # };
   };
 
   # use unstable
@@ -198,8 +193,8 @@
 
   virtualisation.docker.enable = true;
   # virtualisation.virtualbox.host.enable = true;
-  virtualisation.libvirtd.enable = true;
+  # virtualisation.libvirtd.enable = true;
   # virtualisation.memorySize = 1024;
 
-  system.stateVersion = "18.03";
+  system.stateVersion = "18.09";
 }
