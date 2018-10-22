@@ -10,7 +10,7 @@ rec {
     powerline-fonts
     font-awesome-ttf
     source-code-pro
-    nerdfonts
+    # nerdfonts
     # hasklig
     noto-fonts
     emojione
