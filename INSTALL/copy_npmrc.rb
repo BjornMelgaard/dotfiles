@@ -1,4 +1,5 @@
-#! /usr/bin/env ruby
+#! /usr/bin/env nix-shell
+#! nix-shell -i ruby -p ruby
 
 # XXX: copy, instead of link, because npm adds secret access_token to it
 require_relative './config'
