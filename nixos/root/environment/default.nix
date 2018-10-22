@@ -26,10 +26,10 @@ rec {
     ag
     ntfs3g
     alsaUtils
- 
+
     pavucontrol
     conky
- 
+
     dunst
     copyq
     rofi
@@ -37,13 +37,13 @@ rec {
     scrot
     # anki
     xarchiver
- 
+
     # XXX: set themes with gconf
     numix-sx-gtk-theme
     numix-icon-theme-circle
     numix-icon-theme
     vanilla-dmz
- 
+
     ## misc
     # transmission_gtk
     feh
@@ -54,27 +54,25 @@ rec {
     gnupg
     thunderbird
     # psmisc
- 
+
     ranger
     termite
     neovim
     tmux
     nixpkgsUnstable.pkgs.vscode
- 
+
     ## development
     git
     gitAndTools.diff-so-fancy
     gitAndTools.git-crypt
     meld
- 
+
     nixpkgsUnstable.pkgs.nodejs-10_x
- 
+
     # python
- 
-    ruby_2_4
 
     transmission
- 
+
     # netcat-openbsd # nc -U /var/run/acpid.socket
     lsof
     xorg.xbacklight
@@ -85,13 +83,13 @@ rec {
 
     # automake
     # autoconf
-    # gnumake
+    gnumake
     # gcc
     # inkscape
- 
+
     docker_compose
     # mkpasswd
- 
+
     # android-studio
     ctags
     # filezilla
@@ -100,35 +98,35 @@ rec {
     # tree
     # youtube-dl
     tigervnc
- 
+
     # screencast
     # gtk-recordmydesktop
     # kdenlive
     simplescreenrecorder
     # kazam
- 
+
     # vagrant
     # virtualbox
- 
+
     # fzf
     # bfg-repo-cleaner # removes passwords from git repo
- 
+
     nox
     nix-prefetch-git
     # gimp
     # imagemagick
- 
-    # safeeyes
+
+    safeeyes
     # cmus
     # hubstaff
     # screen
     # abiword
- 
+
     # pass
     # qtpass
 
     # nixfromnpm
- 
+
     # My packages
     dunsted-volume
     randomize_background
@@ -139,14 +137,14 @@ rec {
     fix_github_https_repo
     fix_gitlab_https_repo
     linted-git-commit
- 
+
     # xmind
     jq
- 
+
     # hies.hies
     # auto-hie-wrapper
     # nixpkgsUnstable.pkgs.stack
- 
+
     # haskellPackages.intero
     # nixpkgsUnstable.pkgs.stack2nix
 

@@ -3,9 +3,9 @@
 {
   users = {
     mutableUsers = false;
-  
+
     defaultUserShell = pkgs.zsh;
-  
+
     extraUsers =
       let
         # generated via: mkpasswd -m sha-512
@@ -14,7 +14,7 @@
         root = {
           inherit hashedPassword;
         };
-  
+
         srghma = {
           isNormalUser = true;
           extraGroups = [ "audio" "disk" "wheel" "networkmanager" "docker" "vboxusers" "libvirtd" ];

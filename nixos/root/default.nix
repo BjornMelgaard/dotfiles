@@ -125,7 +125,7 @@
 
   networking = {
     hostName = "machine";
-    hostId = "210b80eb"; # generated with `head -c 8 /etc/machine-id` 
+    hostId = "210b80eb"; # generated with `head -c 8 /etc/machine-id`
 
     networkmanager = {
       enable = true;
@@ -167,7 +167,7 @@
 
       keep-outputs = true # by default nix deletes build dependencies and leaves only resuliting package, this prevents it, useful for development
 
-      allow-unsafe-native-code-during-evaluation = true # allows use of builtins.exec
+      # allow-unsafe-native-code-during-evaluation = true # allows use of builtins.exec
     '';
 
     gc.automatic = true;

@@ -97,7 +97,7 @@ rec {
     };
 
     desktopManager = {
-      # default = "gnome3";
+      default = "none";
       gnome3.enable = true;
     };
 
@@ -113,6 +113,7 @@ rec {
       sessionCommands = ''
         ${xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY &
         ${copyq}/bin/copyq &
+        ${pasystray}/bin/pasystray &
       '';
     };
   };
