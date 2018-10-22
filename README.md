@@ -32,12 +32,15 @@ mkswap -L NIXOS_SWAP /dev/sdb2
 # https://nixos.wiki/wiki/NixOS_on_ZFS (bottom)
 # https://unix.stackexchange.com/questions/304369/combining-ssd-hdd-into-single-fast-large-partition
 
-zpool create -o ashift=12 -f -R /mnt rpool /dev/sdb3 # create pool named rpool with ssd partition (type - disk)
-zpool add -f rpool /dev/sda5 # add hdd partition to pool (type - disk)
-zfs create -o mountpoint=legacy rpool/nixos
-zfs create -o mountpoint=legacy rpool/home
-zfs set compression=lz4 rpool/home
-zfs set reservation=1G rpool
+# create pool named mypool
+zpool create -o ashift=12 -O compression=lz4 -O reservation=1G -O xattr=sa -f -R /mnt mypool /dev/sdb3 /dev/sda5 cache /dev/sdb4
+
+# create datasets
+zfs create -o mountpoint=legacy                                              mypool/root
+zfs create -o mountpoint=legacy -o com.sun:auto-snapshot=false               mypool/var_cache
+zfs create -o mountpoint=legacy -o com.sun:auto-snapshot=false -o acltype=posixacl -o xattr=sa              mypool/var_log
+zfs create -o mountpoint=legacy -o com.sun:auto-snapshot=false -o exec=on    mypool/var_tmp
+zfs create -o mountpoint=legacy -o com.sun:auto-snapshot=false -o setuid=off mypool/tmp
 
 # Useful zfs commands:
 zpool import rpool # to import alredy created pool (searches all /dev/*)
@@ -48,11 +51,22 @@ zdb # to show type of each disk in pool
 
 # MOUNT
 swapon /dev/sdb2
-mount -t zfs rpool/nixos /mnt
-mkdir /mnt/boot
+mount -t zfs mypool/root /mnt
+
+mkdir -p /mnt/boot
 mount /dev/sdb1 /mnt/boot
-mkdir /mnt/home
-mount -t zfs rpool/home /mnt/home
+
+mkdir -p /mnt/var/cache
+mount -t zfs mypool/var_cache /mnt/var/cache
+
+mkdir -p /mnt/var/log
+mount -t zfs mypool/var_log /mnt/var/log
+
+mkdir -p /mnt/var/tmp
+mount -t zfs mypool/var_tmp /mnt/var/tmp
+
+mkdir -p /mnt/tmp
+mount -t zfs mypool/tmp /mnt/tmp
 
 # GENERATE CONFIGURATION
 nixos-generate-config --root /mnt
