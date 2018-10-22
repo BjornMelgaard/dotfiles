@@ -17,8 +17,18 @@
       fsType = "zfs";
     };
 
-  fileSystems."/home" =
-    { device = "mypool/home";
+  fileSystems."/tmp" =
+    { device = "mypool/tmp";
+      fsType = "zfs";
+    };
+
+  fileSystems."/var/cache" =
+    { device = "mypool/var_cache";
+      fsType = "zfs";
+    };
+
+  fileSystems."/var/tmp" =
+    { device = "mypool/var_tmp";
       fsType = "zfs";
     };
 
