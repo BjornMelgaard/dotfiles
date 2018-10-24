@@ -140,6 +140,7 @@ rec {
 
     # xmind
     jq
+    nixpkgsUnstable.pkgs.rubocop
 
     # hies.hies
     # auto-hie-wrapper
