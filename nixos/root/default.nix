@@ -191,7 +191,11 @@
   # use unstable
   # nix.package = pkgs.nixUnstable;
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "zfs";
+  };
+
   # virtualisation.virtualbox.host.enable = true;
   # virtualisation.libvirtd.enable = true;
   # virtualisation.memorySize = 1024;
