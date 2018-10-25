@@ -16,4 +16,5 @@ pkgs: pkgsOld:
   linted-git-commit     = pkgs.callPackage ./linted-git-commit {};
   hies                  = pkgs.callPackage ./hie-nix {};
   auto-hie-wrapper      = pkgs.callPackage ./auto-hie-wrapper {};
+  yed                   = pkgs.callPackage ./yed {};
 }

@@ -57,6 +57,8 @@ rec {
   dleyna-renderer.enable = false;
   dleyna-server.enable = false;
 
+  zfs.autoScrub.enable = true;
+
   redshift = {
     enable = true;
     latitude = "47.517201";

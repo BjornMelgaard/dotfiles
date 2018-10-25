@@ -150,6 +150,7 @@ rec {
     # nixpkgsUnstable.pkgs.stack2nix
 
     # nixpkgsUnstable.pkgs.idris
+    # yed
   ];
 
   # TODO

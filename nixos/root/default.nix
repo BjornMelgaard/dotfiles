@@ -11,6 +11,8 @@
     ./users
   ];
 
+  # TODO: add i3 conf to etc https://github.com/derchrisuk/nixos/blob/afc6089cfe14e2b34141b6bda0219bde30e7fd37/environment.nix#L115
+
   environment = import ./environment args;
   services    = import ./services    args;
   fonts       = import ./fonts       args;
@@ -36,11 +38,10 @@
   programs = {
     # java.enable = true;
 
-    # use gnupg-agent instead ssh-agent
-    # my ssh keys are password protected
+    # don't forget to `ssh-add` to add key to keychain
     gnupg.agent = {
       enable = true;
-      enableSSHSupport = true;
+      enableSSHSupport = true; # use gnupg-agent instead ssh-agent
     };
 
     cachix = {
