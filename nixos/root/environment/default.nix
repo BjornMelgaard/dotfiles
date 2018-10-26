@@ -85,7 +85,7 @@ rec {
     # autoconf
     gnumake
     # gcc
-    # inkscape
+    inkscape
 
     docker_compose
     # mkpasswd
@@ -144,13 +144,13 @@ rec {
 
     # hies.hies
     # auto-hie-wrapper
-    # nixpkgsUnstable.pkgs.stack
+    nixpkgsUnstable.pkgs.stack
 
     # haskellPackages.intero
-    # nixpkgsUnstable.pkgs.stack2nix
+    nixpkgsUnstable.pkgs.stack2nix
+    nixpkgsUnstable.pkgs.cabal2nix
 
     # nixpkgsUnstable.pkgs.idris
-    # yed
   ];
 
   # TODO

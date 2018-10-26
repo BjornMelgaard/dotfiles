@@ -604,6 +604,7 @@ call dein#add('purescript-contrib/purescript-vim', { 'on_ft':['purescript'] })
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " call dein#add('kana/vim-vspec') " Testing framework
+call dein#add('aklt/plantuml-syntax', {'on_ft':['plantuml']})
 call dein#add('jparise/vim-graphql', {'on_ft':['graphql']})
 call dein#add('tpope/vim-scriptease', {'on_ft':['vim']})
 call dein#add('tpope/vim-markdown',{'on_ft':['markdown']})
