@@ -136,7 +136,6 @@ rec {
     # umsf
     fix_github_https_repo
     fix_gitlab_https_repo
-    linted-git-commit
 
     # xmind
     jq
