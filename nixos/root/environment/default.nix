@@ -125,7 +125,7 @@ rec {
     # pass
     # qtpass
 
-    # nixfromnpm
+    nixfromnpm
 
     # My packages
     dunsted-volume
