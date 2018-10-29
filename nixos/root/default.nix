@@ -36,7 +36,7 @@
   };
 
   programs = {
-    # java.enable = true;
+    java.enable = true;
 
     # don't forget to `ssh-add` to add key to keychain
     gnupg.agent = {
