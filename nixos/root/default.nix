@@ -3,6 +3,7 @@
 {
   imports = [
     ../modules/cachix.nix
+    ../modules/unifiedGtkQtTheme.nix
 
     ./hardware-configuration.nix
     ./hardware-configuration-override.nix
@@ -11,7 +12,51 @@
     ./users
   ];
 
-  # TODO: add i3 conf to etc https://github.com/derchrisuk/nixos/blob/afc6089cfe14e2b34141b6bda0219bde30e7fd37/environment.nix#L115
+  unifiedGtkQtTheme = {
+    enable = true;
+
+    theme.name = "Numix-SX-Light";
+    theme.package = pkgs.numix-sx-gtk-theme;
+
+    iconTheme.name    = "Numix-Circle";
+    iconTheme.package = pkgs.numix-icon-theme-circle;
+
+    cursorTheme.name    = "Vanilla-DMZ";
+    cursorTheme.package = pkgs.vanilla-dmz;
+
+    font = "Cantarell 9";
+
+    additionalGtk20 = ''
+      gtk-cursor-theme-size=24
+      gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
+      gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+      gtk-button-images=0
+      gtk-menu-images=0
+      gtk-enable-event-sounds=1
+      gtk-enable-input-feedback-sounds=0
+      gtk-xft-antialias=1
+      gtk-xft-hinting=1
+      gtk-xft-hintstyle="hintslight"
+      gtk-xft-rgba="none"
+    '';
+
+    additionalGtk30 = ''
+      gtk-fallback-icon-theme=AwOkenDark
+      gtk-application-prefer-dark-theme=true
+      gtk-cursor-theme-size=0
+      gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
+      gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+      gtk-button-images=0
+      gtk-menu-images=0
+      gtk-enable-event-sounds=1
+      gtk-enable-input-feedback-sounds=1
+      gtk-xft-antialias=1
+      gtk-xft-hinting=1
+      gtk-xft-hintstyle=hintfull
+      gtk-xft-rgba=rgb
+      gtk-modules=gail:atk-bridge
+    '';
+  };
 
   environment = import ./environment args;
   services    = import ./services    args;

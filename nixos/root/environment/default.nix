@@ -9,14 +9,6 @@ let
 in
 
 rec {
-  etc."resolvconf.conf".text = ''
-    name_servers_append='8.8.8.8'
-  '';
-
-  variables = {
-    EDITOR="nvim";
-  };
-
   systemPackages = [
     google-chrome
     zip
@@ -37,12 +29,6 @@ rec {
     scrot
     # anki
     xarchiver
-
-    # XXX: set themes with gconf
-    numix-sx-gtk-theme
-    numix-icon-theme-circle
-    numix-icon-theme
-    vanilla-dmz
 
     ## misc
     # transmission_gtk
@@ -152,7 +138,11 @@ rec {
     # nixpkgsUnstable.pkgs.idris
   ];
 
-  # TODO
-  # variables."GTK2_RC_FILES" =
-  #   "${pkgs.gnome3.gnome_themes_standard}/share/themes/Adwaita/gtk-2.0/gtkrc";
+  variables = {
+    EDITOR = "nvim";
+  };
+
+  etc."resolvconf.conf".text = ''
+    name_servers_append='8.8.8.8'
+  '';
 }
