@@ -129,10 +129,11 @@ rec {
 
     # hies.hies
     # auto-hie-wrapper
-    nixpkgsUnstable.pkgs.stack
+    # nixpkgsUnstable.pkgs.stack
+    stack
 
     # haskellPackages.intero
-    nixpkgsUnstable.pkgs.stack2nix
+    stack2nix
     nixpkgsUnstable.pkgs.cabal2nix
 
     # nixpkgsUnstable.pkgs.idris
