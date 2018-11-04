@@ -158,6 +158,7 @@ call dein#add('neomake/neomake') " {{{
   " let g:neomake_verbose = 3
 
   let g:neomake_ruby_enabled_makers = ['rubocop']
+  let g:neomake_sql_enabled_makers = ['sqlint']
   let g:neomake_typescript_enabled_makers = ['tslint']
   " let g:neomake_typescript_tslint_args = ['--fix']
 

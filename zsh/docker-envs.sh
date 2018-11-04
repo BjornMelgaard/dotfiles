@@ -24,5 +24,5 @@ docker-python () {
 }
 
 update-npm-packages () {
-  docker run -it --rm -v $(pwd)/package.json:/app/package.json creack/ncu -u -a
+  docker run -it --rm -v $(pwd)/package.json:/app/package.json creack/ncu -u --upgradeAll
 }

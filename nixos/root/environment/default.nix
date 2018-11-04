@@ -31,7 +31,7 @@ rec {
     xarchiver
 
     ## misc
-    # transmission_gtk
+    transmission_gtk
     feh
     mpv
     xclip
@@ -54,10 +54,6 @@ rec {
     meld
 
     nixpkgsUnstable.pkgs.nodejs-10_x
-
-    # python
-
-    transmission
 
     # netcat-openbsd # nc -U /var/run/acpid.socket
     lsof
@@ -137,6 +133,11 @@ rec {
     nixpkgsUnstable.pkgs.cabal2nix
 
     # nixpkgsUnstable.pkgs.idris
+
+    # sql linters parsers for vim
+    # python36Packages.sqlparse
+    sqlint
+    pgFormatter
   ];
 
   variables = {

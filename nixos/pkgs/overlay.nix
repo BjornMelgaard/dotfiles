@@ -17,4 +17,5 @@ pkgs: pkgsOld:
   hies                  = pkgs.callPackage ./hie-nix {};
   auto-hie-wrapper      = pkgs.callPackage ./auto-hie-wrapper {};
   yed                   = pkgs.callPackage ./yed {};
+  pgFormatter           = pkgs.callPackage ./pgFormatter {};
 }
