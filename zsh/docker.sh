@@ -14,7 +14,7 @@ alias dpa="docker ps -a"
 alias di="docker images"
 
 # Get container IP
-alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+alias dip="docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 
 # Run deamonized container, e.g., $drd base /bin/echo hello
 alias drd="docker run -d -P"

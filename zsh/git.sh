@@ -63,3 +63,8 @@ github-push-all () {
   git push --set-upstream origin --all
   git push --set-upstream origin --tags
 }
+
+git-diff-full-context-wihout-diff-so-fancy () {
+  file_path=$@
+  git diff -U$(wc -l $file_path) | less
+}

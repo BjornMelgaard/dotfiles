@@ -137,7 +137,8 @@ rec {
     # sql linters parsers for vim
     # python36Packages.sqlparse
     sqlint
-    pgFormatter
+    # pgFormatter
+    python36Packages.syncthing-gtk
   ];
 
   variables = {

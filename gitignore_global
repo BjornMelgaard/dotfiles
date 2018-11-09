@@ -1,3 +1,5 @@
 .rake_tasks
 .DS_Store
 tags
+.stfolder
+.stversions
