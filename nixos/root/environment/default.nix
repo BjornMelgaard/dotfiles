@@ -139,6 +139,11 @@ rec {
     sqlint
     # pgFormatter
     python36Packages.syncthing-gtk
+
+    # for vim
+    haskellPackages.hindent
+    haskellPackages.stylish-haskell
+    haskellPackages.brittany
   ];
 
   variables = {

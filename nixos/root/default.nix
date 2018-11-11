@@ -18,6 +18,7 @@
     theme.name = "Numix-SX-Light";
     theme.package = pkgs.numix-sx-gtk-theme;
 
+    # TODO: not working, use home-manager
     iconTheme.name    = "Numix-Circle";
     iconTheme.package = pkgs.numix-icon-theme-circle;
 
@@ -218,7 +219,7 @@
 
     gc.automatic = true;
 
-    # FIXME: https://cache.nixos.org should not be added by hand, but rather merged
+    # FIXME: https://cache.nixos.org already exists in standard config and should not be added by hand, but rather merged
     binaryCaches = [
       "https://cache.nixos.org"
       "https://cachix.cachix.org"

@@ -35,4 +35,6 @@
     "workbench.startupEditor": "welcomePage",
     "languageServerHaskell.useCustomHieWrapper": true,
     "languageServerHaskell.useCustomHieWrapperPath": "auto-hie-wrapper",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
 }
