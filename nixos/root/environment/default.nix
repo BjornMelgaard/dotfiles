@@ -27,7 +27,7 @@ rec {
     rofi
     pasystray
     scrot
-    # anki
+    anki
     xarchiver
 
     ## misc

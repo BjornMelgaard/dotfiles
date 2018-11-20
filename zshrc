@@ -7,3 +7,5 @@ for file in $HOME/.dotfiles/zsh/*.sh; do
 done
 
 PROJECT_PATHS=($HOME/projects)
+
+export MAKEFLAGS='-j5'
