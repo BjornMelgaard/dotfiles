@@ -1,5 +1,5 @@
-// config for chrome plugin cvim
-// https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh?hl=en
+" config for chrome plugin cvim
+" https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh?hl=en
 
 imap <A-u> backwardWord
 imap <A-o> forwardWord
