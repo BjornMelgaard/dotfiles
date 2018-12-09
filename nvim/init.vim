@@ -194,7 +194,7 @@ call dein#add('airblade/vim-gitgutter') " {{{
   nmap [h <Plug>GitGutterPrevHunk
 " }}}
 call dein#add('tpope/vim-fugitive') "{{{
-  nnoremap <silent> <leader>ga :Git add --all<CR>
+  nnoremap <silent> <leader>ga :silent !git add --all<CR>
   nnoremap <silent> <leader>gs :Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
   nnoremap <silent> <leader>gc :Gcommit<CR>
