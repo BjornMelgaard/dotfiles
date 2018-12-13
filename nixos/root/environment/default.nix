@@ -144,6 +144,7 @@ rec {
     haskellPackages.hindent
     haskellPackages.stylish-haskell
     haskellPackages.brittany
+    haskellPackages.Agda
   ];
 
   variables = {

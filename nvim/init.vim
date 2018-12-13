@@ -562,7 +562,7 @@ exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Idris
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('idris-hackers/idris-vim')
+call dein#add('idris-hackers/idris-vim', { 'on_ft':['idris'] })
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
@@ -571,7 +571,7 @@ call dein#add('idris-hackers/idris-vim')
 " let python_highlight_all = 1
 " let python_version_2 = 1
 
-call dein#add('vim-python/python-syntax')
+call dein#add('vim-python/python-syntax', { 'on_ft':['python'] })
 let g:python_highlight_all = 1
 let g:python_version_2 = 1
 
@@ -605,14 +605,16 @@ call dein#add('purescript-contrib/purescript-vim', { 'on_ft':['purescript'] })
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " call dein#add('kana/vim-vspec') " Testing framework
-call dein#add('aklt/plantuml-syntax', {'on_ft':['plantuml']})
-call dein#add('jparise/vim-graphql', {'on_ft':['graphql']})
-call dein#add('tpope/vim-scriptease', {'on_ft':['vim']})
-call dein#add('tpope/vim-markdown',{'on_ft':['markdown']})
-call dein#add('PotatoesMaster/i3-vim-syntax',{'on_ft':['i3']})
-call dein#add('chr4/nginx.vim',{'on_ft':['nginx']})
-call dein#add('vim-scripts/vim-terraform',{'on_ft':['terraform']})
-call dein#add('LnL7/vim-nix', { 'on_ft':['nix'] })
+
+call dein#add('aklt/plantuml-syntax',         {'on_ft':['plantuml']})
+call dein#add('jparise/vim-graphql',          {'on_ft':['graphql']})
+call dein#add('tpope/vim-scriptease',         {'on_ft':['vim']})
+call dein#add('tpope/vim-markdown',           {'on_ft':['markdown']})
+call dein#add('PotatoesMaster/i3-vim-syntax', {'on_ft':['i3']})
+call dein#add('chr4/nginx.vim',               {'on_ft':['nginx']})
+call dein#add('vim-scripts/vim-terraform',    {'on_ft':['terraform']})
+call dein#add('LnL7/vim-nix',                 {'on_ft':['nix']})
+call dein#add('srghma/agda-vim',         {'on_ft':['agda']})
 
 " call dein#add('takac/vim-hardtime') " {{{
 "   let g:hardtime_default_on = 1
@@ -840,6 +842,7 @@ autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal nolist
 autocmd FileType yaml,eruby.yaml setlocal tabstop=2 shiftwidth=2 commentstring=#\ %s
+autocmd FileType agda setlocal commentstring=--\ %s
 " autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 expandtab
 
 " force filetype on odd extension
@@ -848,6 +851,7 @@ autocmd BufRead,BufNewFile *.js.erb set filetype=javascript
 autocmd BufRead,BufNewFile *.mjml set filetype=slim
 autocmd BufRead,BufNewFile Vagrantfile,Guardfile set filetype=ruby
 autocmd BufRead,BufNewFile *.axlsx set filetype=ruby
+autocmd BufRead,BufNewFile *.agda setf agda
 
 " autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
 " autocmd FileType html,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=0 copyindent preserveindent noexpandtab
