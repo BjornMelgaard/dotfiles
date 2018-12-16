@@ -14,7 +14,6 @@ rec {
     zip
     unzip
     htop
-    # nix-repl
     ag
     ntfs3g
     alsaUtils
@@ -63,10 +62,10 @@ rec {
     unar
     unrar
 
-    # automake
-    # autoconf
+    automake
+    nixpkgsUnstable.autoconf
     gnumake
-    # gcc
+    gcc
     inkscape
 
     docker_compose

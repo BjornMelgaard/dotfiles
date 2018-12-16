@@ -9,3 +9,5 @@ done
 PROJECT_PATHS=($HOME/projects)
 
 export MAKEFLAGS='-j5'
+
+export PATH=$PATH:./node_modules/.bin
