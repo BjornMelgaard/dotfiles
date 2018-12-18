@@ -101,6 +101,8 @@ nixos-enter
 
 # this configuration system will use after reboot
 printf "import /home/srghma/.dotfiles/nixos/root/default.nix" > /mnt/etc/nixos/configuration.nix
+mkdir -p /mnt/home/srghma/.config/nixpkgs/
+printf "import /home/srghma/.dotfiles/nixos/home/config.nix" > /mnt/home/srghma/.config/nixpkgs/config.nix
 
 # reboot
 # execute each file in INSTALL directory

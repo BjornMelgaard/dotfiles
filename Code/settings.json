@@ -37,4 +37,6 @@
     "languageServerHaskell.useCustomHieWrapperPath": "auto-hie-wrapper",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
 }
