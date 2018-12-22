@@ -1,4 +1,4 @@
-{ fetchFromGitHub, ... }:
+{ fetchFromGitHub, preventImplicitDepsFromBeingGarbagecollected }:
 
 let
   revData = builtins.fromJSON (builtins.readFile ./revision.json);
@@ -17,6 +17,6 @@ let
   drv = import src {};
 in
   # TODO
-  # preventImplicitDepsFromBeingGarbagecollected [src] drv
+  preventImplicitDepsFromBeingGarbagecollected [src] drv
   # src
-  drv
+  # drv

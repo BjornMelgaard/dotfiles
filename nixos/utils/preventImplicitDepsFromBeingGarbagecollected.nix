@@ -3,6 +3,13 @@
 with pkgs;
 with lib;
 
+let
+  discard = builtins.unsafeDiscardStringContext;
+
+  drvName = drv:
+    discard (substring 33 (stringLength (builtins.baseNameOf drv)) (builtins.baseNameOf drv));
+in
+
 {
   # How this works:
   # this function adds txt file, containing paths to dependencies (/nix/store/HASH-name) to build dependencies of derivation
@@ -23,7 +30,8 @@ with lib;
         concatMapStringsSep "\n" toString implicitDeps + "\n"
       );
     in
-      overrideDerivation drv (oldAttrs: {
-        buildInputs = [ fileWithLinks ] ++ oldAttrs.buildInputs;
-      });
+      runCommand (drvName drv) { nixStore = "${nix.out}/bin/nix-store"; } ''
+        $nixStore --dump ${drv} | $nixStore --restore $out
+        ${coreutils}/bin/cp ${fileWithLinks} $out/references
+      '';
 }

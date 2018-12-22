@@ -1,4 +1,4 @@
-{ pkgs, haskellPackages, readRevision }:
+{ pkgs, haskellPackages, readRevision, preventImplicitDepsFromBeingGarbagecollected, ... }:
 
 let
   revisionDataPath = ./revision.json;
@@ -8,6 +8,8 @@ let
   );
 
   # src = /home/srghma/projects/nixfromnpm;
-in
 
-(import "${src}/release.nix" { }).nixfromnpm
+  drv = (import "${src}/release.nix" { }).nixfromnpm;
+in
+  # drv
+  preventImplicitDepsFromBeingGarbagecollected [src] drv

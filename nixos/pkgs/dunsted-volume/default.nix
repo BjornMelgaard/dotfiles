@@ -1,7 +1,8 @@
-{ callPackage, fetchFromGitHub, readRevision }:
+{ callPackage, fetchFromGitHub, readRevision, preventImplicitDepsFromBeingGarbagecollected }:
 
-callPackage (
-  fetchFromGitHub (
-    readRevision ./revision.json
-  )
-) {}
+let
+  src = fetchFromGitHub (readRevision ./revision.json);
+
+  drv = callPackage src {};
+in
+  preventImplicitDepsFromBeingGarbagecollected [src] drv
