@@ -87,7 +87,7 @@
     # don't forget to `ssh-add` to add key to keychain
     gnupg.agent = {
       enable = true;
-      enableSSHSupport = true; # use gnupg-agent instead ssh-agent
+      enableSSHSupport = true; # use gnupg-agent instead ssh-agent to temporarily remember password for password-protected keys
     };
 
     cachix = {

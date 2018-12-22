@@ -138,6 +138,7 @@ rec {
     sqlint
     # pgFormatter
     python36Packages.syncthing-gtk
+    arion
 
     # for vim
     haskellPackages.hindent

@@ -18,4 +18,5 @@ pkgs: pkgsOld:
   auto-hie-wrapper      = pkgs.callPackage ./auto-hie-wrapper {};
   yed                   = pkgs.callPackage ./yed {};
   pgFormatter           = pkgs.callPackage ./pgFormatter {};
+  arion                 = pkgs.callPackage ./arion {};
 }
