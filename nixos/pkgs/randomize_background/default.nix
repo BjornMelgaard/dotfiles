@@ -1,9 +1,9 @@
-{ callPackage, fetchFromGitHub, readRevision, preventImplicitDepsFromBeingGarbagecollected }:
+{ callPackage, fetchFromGitHub, readRevision, addAsRuntimeDeps }:
 
 let
   src = fetchFromGitHub (readRevision ./revision.json);
 
   drv = callPackage src {};
 in
-  preventImplicitDepsFromBeingGarbagecollected [src] drv
+  addAsRuntimeDeps [src] drv
 

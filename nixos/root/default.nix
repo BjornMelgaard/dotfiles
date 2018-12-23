@@ -212,7 +212,7 @@
       auto-optimise-store = true
       max-jobs = auto
 
-      keep-outputs = true # by default nix deletes build dependencies and leaves only resuliting package, this prevents it, useful for development
+      # keep-outputs = true # by default nix deletes build dependencies and leaves only resuliting package, this prevents it, useful for development
 
       # allow-unsafe-native-code-during-evaluation = true # allows use of builtins.exec
     '';

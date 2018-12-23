@@ -1,4 +1,4 @@
-{ pkgs, haskellPackages, readRevision, preventImplicitDepsFromBeingGarbagecollected, ... }:
+{ pkgs, haskellPackages, readRevision, addAsRuntimeDeps, ... }:
 
 let
   revisionDataPath = ./revision.json;
@@ -12,4 +12,4 @@ let
   drv = (import "${src}/release.nix" { }).nixfromnpm;
 in
   # drv
-  preventImplicitDepsFromBeingGarbagecollected [src] drv
+  addAsRuntimeDeps [src] drv

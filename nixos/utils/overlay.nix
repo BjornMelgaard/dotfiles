@@ -7,4 +7,4 @@ let
 in
 
 (callUtil ./readRevision.nix) //
-(callUtil ./preventImplicitDepsFromBeingGarbagecollected.nix)
+(callUtil ./addAsRuntimeDeps.nix)
