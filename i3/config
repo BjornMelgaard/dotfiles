@@ -241,3 +241,4 @@ for_window [title="Preferences$"]      floating enable
 for_window [title="Edit Current$"]     floating enable
 for_window [class="(?i)nautilus"]      floating enable
 for_window [class="(?i)copyq"]         floating enable
+for_window [class="(?i)hubstaff"]      floating enable
