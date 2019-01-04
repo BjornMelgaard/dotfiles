@@ -45,6 +45,7 @@ rec {
     neovim
     tmux
     nixpkgsUnstable.pkgs.vscode
+    nixpkgsUnstable.pkgs.nix
 
     ## development
     git
@@ -99,7 +100,7 @@ rec {
 
     safeeyes
     # cmus
-    # hubstaff
+    hubstaff
     # screen
     # abiword
 
@@ -152,6 +153,6 @@ rec {
   };
 
   etc."resolvconf.conf".text = ''
-    name_servers_append='8.8.8.8'
+    name_servers='8.8.8.8'
   '';
 }

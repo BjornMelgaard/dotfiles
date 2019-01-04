@@ -205,12 +205,14 @@
 
     # 0 means to use all available cores
     buildCores = 0;
+    # buildCores = 1;
 
     # max-jobs is about the number of derivations that Nix will build in parallel, while cores is about parallelism inside a derivation, e.g. what make -j will use
 
     extraOptions = ''
       auto-optimise-store = true
       max-jobs = auto
+      # max-jobs = 1
 
       # keep-outputs = true # by default nix deletes build dependencies and leaves only resuliting package, this prevents it, useful for development
 
