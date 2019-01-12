@@ -45,7 +45,7 @@ rec {
     neovim
     tmux
     nixpkgsUnstable.pkgs.vscode
-    nixpkgsUnstable.pkgs.nix
+    # nixpkgsUnstable.pkgs.nix
 
     ## development
     git
@@ -64,7 +64,8 @@ rec {
     unrar
 
     automake
-    nixpkgsUnstable.autoconf
+    autoconf
+    # nixpkgsUnstable.autoconf
     gnumake
     gcc
     inkscape
@@ -130,7 +131,7 @@ rec {
 
     # haskellPackages.intero
     stack2nix
-    nixpkgsUnstable.pkgs.cabal2nix
+    # nixpkgsUnstable.pkgs.cabal2nix
 
     # nixpkgsUnstable.pkgs.idris
 
@@ -146,6 +147,7 @@ rec {
     haskellPackages.stylish-haskell
     haskellPackages.brittany
     haskellPackages.Agda
+    nixpkgsUnstable.pkgs.steam
   ];
 
   variables = {

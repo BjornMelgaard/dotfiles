@@ -1,18 +1,8 @@
-{ callPackage, fetchFromGitHub, ... }:
+{ callPackage, fetchFromGitHub, readRevision, addAsRuntimeDeps }:
 
 let
-  revData = builtins.fromJSON (builtins.readFile ./revision.json);
+  src = fetchFromGitHub (readRevision ./revision.json);
 
-  url     = revData.url;
-
-  m       = builtins.match "https?://.*/(.*)/(.*)" url;
-  owner   = builtins.elemAt m 0;
-  repo    = builtins.elemAt m 1;
-
-  src = fetchFromGitHub {
-    inherit owner repo;
-    inherit (revData) rev sha256;
-  };
+  drv = callPackage src {};
 in
-  callPackage src { }
-  # src
+  addAsRuntimeDeps [src] drv

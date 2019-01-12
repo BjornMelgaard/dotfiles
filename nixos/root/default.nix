@@ -202,6 +202,7 @@
 
     # TODO: wait https://github.com/NixOS/nixpkgs/pull/44880
     # maxJobs = "auto";
+    # maxJobs = 1;
 
     # 0 means to use all available cores
     buildCores = 0;

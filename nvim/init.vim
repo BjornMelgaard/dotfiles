@@ -614,7 +614,7 @@ call dein#add('PotatoesMaster/i3-vim-syntax', {'on_ft':['i3']})
 call dein#add('chr4/nginx.vim',               {'on_ft':['nginx']})
 call dein#add('vim-scripts/vim-terraform',    {'on_ft':['terraform']})
 call dein#add('LnL7/vim-nix',                 {'on_ft':['nix']})
-call dein#add('srghma/agda-vim',         {'on_ft':['agda']})
+call dein#add('srghma/agda-vim',              {'on_ft':['agda']})
 
 " call dein#add('takac/vim-hardtime') " {{{
 "   let g:hardtime_default_on = 1
