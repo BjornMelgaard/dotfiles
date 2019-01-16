@@ -95,13 +95,28 @@
       cachixSigningKey = builtins.readFile ../../secrets/cachixSigningKey.txt;
     };
 
+    bash = {
+      interactiveShellInit = ''
+        source ${./shells/docker-compose.sh}
+        source ${./shells/docker.sh}
+        source ${./shells/git.sh}
+        source ${./shells/nix.sh}
+        source ${./shells/system.sh}
+      '';
+    };
+
     zsh = {
       enable = true;
       enableCompletion = true;
       autosuggestions.enable = true;
 
       interactiveShellInit = ''
-        ${builtins.readFile ./zsh/movements.sh}
+        source ${./zsh/movements.sh}
+        source ${./shells/docker-compose.sh}
+        source ${./shells/docker.sh}
+        source ${./shells/git.sh}
+        source ${./shells/nix.sh}
+        source ${./shells/system.sh}
 
         DEFAULT_USER="srghma"
 
@@ -212,6 +227,7 @@
 
     extraOptions = ''
       auto-optimise-store = true
+
       max-jobs = auto
       # max-jobs = 1
 
