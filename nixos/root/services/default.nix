@@ -126,4 +126,8 @@ rec {
   #   ssid          = "srghma-nixos";
   #   interface     = "wlp3s0";
   # };
+
+  emacs = {
+    enable = true;
+  };
 }

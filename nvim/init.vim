@@ -152,8 +152,11 @@ call dein#add('mhinz/vim-startify') "{{{
 
   nnoremap <leader>S :SSave <C-R>=fnamemodify(getcwd(), ':t')<cr><cr>
 "}}}
-call dein#add('neomake/neomake') " {{{
-  autocmd! BufWritePost * Neomake
+
+function s:on_neomake_source()
+  call neomake#configure#automake('w')
+endfunction
+call dein#add('neomake/neomake', {'hook_post_source': function('s:on_neomake_source')}) " {{{
   let g:neomake_open_list = 0
   " let g:neomake_verbose = 3
 
@@ -391,7 +394,7 @@ call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']
   let NERDTreeShowLineNumbers=1
   let NERDTreeChDirMode=0
   let NERDTreeShowBookmarks=1
-  let NERDTreeIgnore=['\.git$','\.hg$','\node_modules$','\.pyc$', '^__generated__$']
+  let NERDTreeIgnore=['\.git$','\.hg$','\node_modules$','\.pyc$', '^__generated__$','\.agdai$','\.agda\.vim$']
   let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
 
   " disable f and F in privilege of find commands
@@ -850,6 +853,7 @@ autocmd BufRead,BufNewFile Dockerfile.template set filetype=dockerfile
 autocmd BufRead,BufNewFile *.js.erb set filetype=javascript
 autocmd BufRead,BufNewFile *.mjml set filetype=slim
 autocmd BufRead,BufNewFile Vagrantfile,Guardfile set filetype=ruby
+autocmd BufRead,BufNewFile emacs,spaceemacs set filetype=lisp
 autocmd BufRead,BufNewFile *.axlsx set filetype=ruby
 autocmd BufRead,BufNewFile *.agda setf agda
 

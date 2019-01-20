@@ -41,7 +41,9 @@ inhome_indotfiles = [
   ['.config/nvim/init.vim',  'nvim/init.vim'],
   ['.config/nvim/bundle/repos/github.com/Shougo/dein.vim',  'nvim/bundle/repos/github.com/Shougo/dein.vim'],
 
-  ['.cabal/config', 'cabal_config']
+  ['.cabal/config', 'cabal_config'],
+  ['.spaceemacs', 'spaceemacs'],
+  # ['.emacs', 'emacs'],
 ]
 
 inhome_indotfiles.each do |(inhome, indotfiles)|
