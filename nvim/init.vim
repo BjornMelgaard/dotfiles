@@ -157,7 +157,7 @@ function s:on_neomake_source()
   call neomake#configure#automake('w')
 endfunction
 call dein#add('neomake/neomake', {'hook_post_source': function('s:on_neomake_source')}) " {{{
-  let g:neomake_open_list = 0
+  " let g:neomake_open_list = 0
   " let g:neomake_verbose = 3
 
   let g:neomake_ruby_enabled_makers = ['rubocop']

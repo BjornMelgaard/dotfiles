@@ -260,6 +260,7 @@
   virtualisation.docker = {
     enable = true;
     storageDriver = "zfs";
+    extraOptions = "--host=0.0.0.0:2375";
   };
 
   # virtualisation.virtualbox.host.enable = true;
