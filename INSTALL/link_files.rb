@@ -43,6 +43,7 @@ inhome_indotfiles = [
 
   ['.cabal/config', 'cabal_config'],
   ['.spaceemacs', 'spaceemacs'],
+  ['.gnupg/gpg-agent.conf', 'gpg-agent.conf'],
   # ['.emacs', 'emacs'],
 ]
 

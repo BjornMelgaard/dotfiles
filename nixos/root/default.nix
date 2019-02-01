@@ -84,10 +84,12 @@
   programs = {
     java.enable = true;
 
-    # don't forget to `ssh-add` to add key to keychain
     gnupg.agent = {
       enable = true;
-      enableSSHSupport = true; # use gnupg-agent instead ssh-agent to temporarily remember password for password-protected keys
+
+      # use gnupg-agent instead ssh-agent to temporarily remember password for password-protected keys
+      # don't forget to `ssh-add` to add key to keychain
+      enableSSHSupport = true;
     };
 
     cachix = {
