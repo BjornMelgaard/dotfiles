@@ -350,7 +350,7 @@ call dein#add('AndrewRadev/splitjoin.vim') " {{{
   let g:splitjoin_ruby_hanging_args=0
 " }}}
 " mapping - gJ, gS
-call dein#add('tpope/vim-abolish', { 'rev': '62a593e9fcccc33afc63cc94e5d08da7c52a4fab' }) " {{{
+call dein#add('tpope/vim-abolish') " {{{
   " abolish current highlightment
   nnoremap <leader>a "+y//e<CR>:%Subvert:::g<left><left><left><C-r>+<right>
   nnoremap <leader>A :%Subvert:::g<left><left><left>
