@@ -1,4 +1,4 @@
-set-ssh-permissions () {
+ssh-set-file-permissions () {
   sudo chmod 700 -R $HOME/.ssh
   sudo chown "$USER":wheel -R $HOME/.ssh
 

@@ -246,20 +246,19 @@ call dein#add('Shougo/echodoc.vim') " {{{
 " }}}
 " " call dein#add('thalesmello/webcomplete.vim')
 
-call dein#add('autozimu/LanguageClient-neovim', {
-    \ 'rev': 'next',
-    \ 'build': './install.sh',
-    \ })
+" call dein#add('autozimu/LanguageClient-neovim', {
+"     \ 'rev': 'next',
+"     \ 'build': './install.sh',
+"     \ })
 
-let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ 'haskell': ['hie', '--lsp'],
-    \ }
+" let g:LanguageClient_serverCommands = {
+"     \ 'javascript': ['javascript-typescript-stdio'],
+"     \ 'typescript': ['javascript-typescript-stdio'],
+"     \ 'haskell': ['hie', '--lsp'],
+"     \ }
+"     " \ 'nix': ['nix-lsp'],
 
-    " \ 'nix': ['nix-lsp'],
-
-nnoremap <F4> :call LanguageClient_contextMenu()<CR>
+" nnoremap <F4> :call LanguageClient_contextMenu()<CR>
 
 " support for haskell-ide-engine errors (e.g. underline errors)
 hi link ALEError Error
@@ -268,12 +267,12 @@ hi link ALEWarning Warning
 hi link ALEInfo SpellCap
 
 " let g:LanguageClient_devel = 1 " Use rust debug build
-let g:LanguageClient_loggingLevel = 'DEBUG' " Use highest logging level
+" let g:LanguageClient_loggingLevel = 'DEBUG' " Use highest logging level
 " let g:LanguageClient_loggingFile = 'nvim.log' " Use highest logging level
 " let g:LanguageClient_serverStderr = 'language-server.log' " Use highest logging level
 
 " Automatically start language servers.
-let g:LanguageClient_autoStart = 1
+" let g:LanguageClient_autoStart = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tmux
