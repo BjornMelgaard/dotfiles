@@ -26,7 +26,7 @@ bindkey -M viins '^Q' push-line-or-edit # ctrl+Q
 bindkey -M vicmd '^Q' push-line-or-edit # ctrl+Q
 
 # erase WORD backward
-backward-kill-bigword() { local WORDCHARS='@:*?_-.[]~=&;!#$%^(){}<>/'; zle backward-kill-word; }
+backward-kill-bigword() { local WORDCHARS='@:*?_-.[]~=&;!#$%^(){}<>/\'; zle backward-kill-word; }
 zle -N backward-kill-bigword
 bindkey -M viins '^[w' backward-kill-bigword
 
