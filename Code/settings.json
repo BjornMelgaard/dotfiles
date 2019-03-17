@@ -42,4 +42,5 @@
     "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
     "editor.tabSize": 2,
+    "search.location": "panel",
 }

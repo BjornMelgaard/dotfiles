@@ -19,4 +19,5 @@ pkgs: pkgsOld:
   yed                   = pkgs.callPackage ./yed {};
   pgFormatter           = pkgs.callPackage ./pgFormatter {};
   arion                 = pkgs.callPackage ./arion {};
+  pgmodeler             = pkgs.libsForQt5.callPackage ./pgmodeler {};
 }

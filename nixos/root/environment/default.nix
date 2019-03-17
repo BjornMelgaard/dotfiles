@@ -148,6 +148,8 @@ rec {
     haskellPackages.brittany
     haskellPackages.Agda
     nixpkgsUnstable.pkgs.steam
+
+    pgmodeler
   ];
 
   variables = {
