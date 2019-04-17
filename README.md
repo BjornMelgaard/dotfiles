@@ -6,7 +6,14 @@ features: i3, neovim
 # how to install on new computer
 
 ```sh
-nmtui # to enable internet (KDE gui is buggy)
+# to enable internet using networkmanager (because KDE gui is buggy)
+nmtui
+
+# OR to enable internet using wpa_supplicant
+ip address show # to show <IFNAME>, e.g. wlp3s0
+iwlist scanning # to show SSID of network you want to connect to
+wpa_passphrase <MYSSID> <MYPASS> > /tmp/wifi.conf
+wpa_supplicant -Dwext -i<IFNAME> -C/tmp/wifi.conf
 
 # INSTALL SOFTWARE
 mkdir -p ~/.config/nixpkgs
@@ -15,6 +22,7 @@ nix-env -i git git-crypt vscode ranger google-chrome pcmanfm
 code --user-data-dir=/tmp/code --install-extension bbenoist.Nix
 
 # ENABLE ZFS
+chmod +w /etc/nixos/configuration.nix
 vim /etc/nixos/configuration.nix
 # add `boot.supportedFilesystems = [ "zfs" ];`
 nixos-rebuild switch
@@ -43,7 +51,7 @@ zfs create -o mountpoint=legacy -o com.sun:auto-snapshot=false -o exec=on    myp
 zfs create -o mountpoint=legacy -o com.sun:auto-snapshot=false -o setuid=off mypool/tmp
 
 # Useful zfs commands:
-zpool import rpool # to import alredy created pool (searches all /dev/*)
+zpool import mypool # to import alredy created pool (searches all /dev/*)
 zfs list # to list filesystems
 zpool list # to list pools
 zpool status # to show pool status
