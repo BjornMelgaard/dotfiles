@@ -191,11 +191,8 @@
     hostName = "machine";
     hostId = "210b80eb"; # generated with `head -c 8 /etc/machine-id`
 
-    wireless.enable = true;
-
-    networkmanager = {
-      enable = true;
-    };
+    # wireless.enable = true;
+    networkmanager.enable = true;
 
     firewall = {
       # for libvirtd (https://nixos.org/nixops/manual/#idm140737318329504)
