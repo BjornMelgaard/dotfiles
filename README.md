@@ -20,6 +20,7 @@ mkdir -p ~/.config/nixpkgs
 echo '{ allowUnfree = true; }' > ~/.config/nixpkgs/config.nix
 nix-env -i git git-crypt vscode ranger google-chrome pcmanfm
 code --user-data-dir=/tmp/code --install-extension bbenoist.Nix
+export EDITOR=vim
 
 # ENABLE ZFS
 chmod +w /etc/nixos/configuration.nix
