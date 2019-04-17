@@ -94,7 +94,7 @@
 
     cachix = {
       enable = true;
-      cachixSigningKey = builtins.readFile ../../secrets/cachixSigningKey.txt;
+      cachixSigningKey = import ../../secrets/cachixSigningKey.nix;
     };
 
     bash = {
@@ -268,5 +268,5 @@
   # virtualisation.libvirtd.enable = true;
   # virtualisation.memorySize = 1024;
 
-  system.stateVersion = "18.09";
+  system.stateVersion = "19.03";
 }

@@ -76,7 +76,7 @@ rec {
     # android-studio
     ctags
     # filezilla
-    firefox
+    # firefox
     asciinema
     # tree
     # youtube-dl
@@ -85,7 +85,7 @@ rec {
     # screencast
     # gtk-recordmydesktop
     # kdenlive
-    simplescreenrecorder
+    # simplescreenrecorder
     # kazam
 
     # vagrant
@@ -108,7 +108,7 @@ rec {
     # pass
     # qtpass
 
-    nixfromnpm
+    # nixfromnpm
 
     # My packages
     dunsted-volume
@@ -127,29 +127,29 @@ rec {
     # hies.hies
     # auto-hie-wrapper
     # nixpkgsUnstable.pkgs.stack
-    stack
+    #stack
 
     # haskellPackages.intero
-    stack2nix
+    # stack2nix
     # nixpkgsUnstable.pkgs.cabal2nix
 
     # nixpkgsUnstable.pkgs.idris
 
     # sql linters parsers for vim
     # python36Packages.sqlparse
-    sqlint
+    # sqlint
     # pgFormatter
-    python36Packages.syncthing-gtk
+    # python36Packages.syncthing-gtk
     # arion
 
     # for vim
-    haskellPackages.hindent
-    haskellPackages.stylish-haskell
-    haskellPackages.brittany
-    haskellPackages.Agda
-    nixpkgsUnstable.pkgs.steam
+    # haskellPackages.hindent
+    # haskellPackages.stylish-haskell
+    # haskellPackages.brittany
+    # haskellPackages.Agda
+    # nixpkgsUnstable.pkgs.steam
 
-    pgmodeler
+    # pgmodeler
   ];
 
   variables = {

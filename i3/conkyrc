@@ -1,14 +1,16 @@
-background      no
-out_to_console  yes
-out_to_x        no
-update_interval 2
-total_run_times 0
-short_units     yes
-pad_percents    3
+conky.config = {
+  background = false,
+  out_to_console = true,
+  out_to_x = false,
+  update_interval = 2,
+  total_run_times = 0,
+  short_units = true,
+  pad_percents = 3,
 
-override_utf8_locale yes
+  override_utf8_locale = true,
+};
 
-TEXT
+conky.text = [=[
 [
   {"full_text": " ❤ $acpitemp°C [$cpu%] ","color": "\#DC322F"},
   {"full_text": " ≣ [$membar] ", "color":"\#B58900"},
@@ -26,3 +28,4 @@ $endif
   {"full_text": " ${time %a %d %b} ${time %H:%M} "}
 ],
 
+]=];
