@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  hardware.brightnessctl.enable = true;
+
   boot = {
     tmpOnTmpfs = false;
     cleanTmpDir = true;

@@ -57,8 +57,10 @@ rec {
 
     # netcat-openbsd # nc -U /var/run/acpid.socket
     lsof
-    xorg.xbacklight
     openssl
+
+    # xorg.xbacklight
+    acpilight
 
     unar
     unrar
@@ -76,7 +78,7 @@ rec {
     # android-studio
     ctags
     # filezilla
-    # firefox
+    firefox
     asciinema
     # tree
     # youtube-dl
