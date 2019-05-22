@@ -1,8 +1,8 @@
-{ callPackage, fetchFromGitHub, readRevision, addAsRuntimeDeps }:
+{ lib, callPackage, fetchFromGitHub, readRevision, addAsRuntimeDeps }:
 
 let
   src = fetchFromGitHub (readRevision ./revision.json);
 
   drv = callPackage src {};
 in
-  addAsRuntimeDeps [src] drv
+  drv

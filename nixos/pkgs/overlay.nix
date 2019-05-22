@@ -14,7 +14,7 @@ pkgs: pkgsOld:
   hubstaff              = pkgs.callPackage ./hubstaff {};
   nixfromnpm            = pkgs.callPackage ./nixfromnpm {};
   linted-git-commit     = pkgs.callPackage ./linted-git-commit {};
-  hies                  = pkgs.callPackage ./hie-nix {};
+  hie-nix               = pkgs.callPackage ./hie-nix {};
   auto-hie-wrapper      = pkgs.callPackage ./auto-hie-wrapper {};
   yed                   = pkgs.callPackage ./yed {};
   pgFormatter           = pkgs.callPackage ./pgFormatter {};

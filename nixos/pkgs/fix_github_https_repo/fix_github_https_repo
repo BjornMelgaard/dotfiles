@@ -2,6 +2,13 @@
 
 #-- Script to automate https://help.github.com/articles/why-is-git-always-asking-for-my-password
 
+# https://github.com/srghma/dotfiles -> git@github.com:srghma/dotfiles.git
+# https://gitlab.nordicresults.com/srghma/nuuz-dockerfiles -> git@gitlab.nordicresults.com:srghma/nuuz-dockerfiles.git
+# https://gitlab.nordicresults.com/srghma/nuuz-dockerfiles + 446 -> ssh://git@gitlab.nordicresults.com:446/srghma/nuuz-dockerfiles.git
+# git@gitlab.nordicresults.com/srghma/nuuz-dockerfiles.git + 446 -> ssh://git@gitlab.nordicresults.com:446/srghma/nuuz-dockerfiles.git
+# git@gitlab.nordicresults.com:999/srghma/nuuz-dockerfiles.git + 446 -> ssh://git@gitlab.nordicresults.com:446/srghma/nuuz-dockerfiles.git
+# ssh://git@gitlab.nordicresults.com:999/srghma/nuuz-dockerfiles.git + 446 -> ssh://git@gitlab.nordicresults.com:446/srghma/nuuz-dockerfiles.git
+
 REPO_URL=`git remote -v | grep -m1 '^origin' | sed -Ene's#.*(https://[^[:space:]]*).*#\1#p'`
 if [ -z "$REPO_URL" ]; then
   echo "-- ERROR:  Could not identify Repo url."

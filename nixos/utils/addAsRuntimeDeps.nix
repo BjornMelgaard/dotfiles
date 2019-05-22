@@ -44,6 +44,7 @@
   # E.g. addAsRuntimeDeps [src2] (addAsRuntimeDeps [src1] drv)
 
   addAsRuntimeDeps = deps: drv:
+    assert (pkgs.lib.isDerivation drv);
     let
       fileWithLinks = pkgs.writeText "fileWithLinks" (
         pkgs.lib.concatMapStringsSep "\n" toString deps + "\n"

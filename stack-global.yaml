@@ -7,10 +7,5 @@ templates:
 
 nix:
   enable: true
-  packages:
-    - libcxx
-    - icu
-    - gcc
-    - ncurses
-    - zlib
-    - openssl
+  # there are two options to use nix with stack: `packages` option, `shell-file` option
+  shell-file: shell.nix

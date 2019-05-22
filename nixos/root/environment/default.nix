@@ -126,10 +126,10 @@ rec {
     jq
     nixpkgsUnstable.pkgs.rubocop
 
-    # hies.hies
-    # auto-hie-wrapper
+    hie-nix.hies
+    auto-hie-wrapper
     # nixpkgsUnstable.pkgs.stack
-    #stack
+    stack
 
     # haskellPackages.intero
     # stack2nix

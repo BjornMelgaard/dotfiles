@@ -246,17 +246,17 @@ call dein#add('Shougo/echodoc.vim') " {{{
 " }}}
 " " call dein#add('thalesmello/webcomplete.vim')
 
-" call dein#add('autozimu/LanguageClient-neovim', {
-"     \ 'rev': 'next',
-"     \ 'build': './install.sh',
-"     \ })
+call dein#add('autozimu/LanguageClient-neovim', {
+    \ 'rev': 'next',
+    \ 'build': './install.sh',
+    \ })
 
-" let g:LanguageClient_serverCommands = {
-"     \ 'javascript': ['javascript-typescript-stdio'],
-"     \ 'typescript': ['javascript-typescript-stdio'],
-"     \ 'haskell': ['hie', '--lsp'],
-"     \ }
-"     " \ 'nix': ['nix-lsp'],
+let g:LanguageClient_serverCommands = {
+    \ 'haskell': ['hie', '--lsp'],
+    \ }
+    " \ 'javascript': ['javascript-typescript-stdio'],
+    " \ 'typescript': ['javascript-typescript-stdio'],
+    " \ 'nix': ['nix-lsp'],
 
 " nnoremap <F4> :call LanguageClient_contextMenu()<CR>
 
@@ -272,7 +272,7 @@ hi link ALEInfo SpellCap
 " let g:LanguageClient_serverStderr = 'language-server.log' " Use highest logging level
 
 " Automatically start language servers.
-" let g:LanguageClient_autoStart = 1
+let g:LanguageClient_autoStart = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tmux
