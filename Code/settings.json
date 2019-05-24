@@ -36,7 +36,7 @@
     "editor.formatOnSave": false,
     "workbench.startupEditor": "welcomePage",
     "languageServerHaskell.useCustomHieWrapper": true,
-    "languageServerHaskell.useCustomHieWrapperPath": "auto-hie-wrapper",
+    "languageServerHaskell.useCustomHieWrapperPath": "hie",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "gitlens.views.fileHistory.enabled": true,

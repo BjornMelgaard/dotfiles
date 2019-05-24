@@ -126,8 +126,8 @@ rec {
     jq
     nixpkgsUnstable.pkgs.rubocop
 
-    hie-nix.hies
-    auto-hie-wrapper
+    all-hies.latest
+    # auto-hie-wrapper
     # nixpkgsUnstable.pkgs.stack
     stack
 
@@ -145,9 +145,14 @@ rec {
     # arion
 
     # for vim
-    # haskellPackages.hindent
-    # haskellPackages.stylish-haskell
-    # haskellPackages.brittany
+    nixpkgsUnstable.haskellPackages.hindent
+    nixpkgsUnstable.haskellPackages.stylish-haskell
+    # nixpkgsUnstable.haskellPackages.brittany
+    (
+      let
+        oldPkgs = import (fetchTarball https://nixos.org/channels/nixos-18.09/nixexprs.tar.xz) {};
+      in oldPkgs.haskellPackages.brittany
+    )
     # haskellPackages.Agda
     # nixpkgsUnstable.pkgs.steam
 

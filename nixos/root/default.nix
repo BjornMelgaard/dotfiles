@@ -63,9 +63,10 @@
   services    = import ./services    args;
   fonts       = import ./fonts       args;
 
-  nixpkgs     = {
+  nixpkgs = {
     config = {
       allowUnfree = true;
+      allowBroken = true;
     };
 
     overlays = [
@@ -241,6 +242,7 @@
 
     # FIXME: https://cache.nixos.org already exists in standard config and should not be added by hand, but rather merged
     binaryCaches = [
+      "https://all-hies.cachix.org"
       "https://cache.nixos.org"
       "https://cachix.cachix.org"
       "https://srghma.cachix.org"
@@ -248,11 +250,14 @@
     ];
 
     binaryCachePublicKeys = [
+      "all-hies.cachix.org-1:JjrzAOEUsD9ZMt8fdFbzo3jNAyEWlPAwdVuHw4RD43k="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
       "srghma.cachix.org-1:EUHKjTh/WKs49hFtw6bwDE9oQLeX5afml0cAKc97MbI="
       "hie-nix.cachix.org-1:EjBSHzF6VmDnzqlldGXbi0RM3HdjfTU3yDRi9Pd0jTY="
     ];
+
+    trustedUsers = [ "root" "srghma" ];
   };
 
   # use unstable

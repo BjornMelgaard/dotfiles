@@ -2,6 +2,7 @@
 
 {
   allowUnfree = true;
+  allowBroken = true;
 
   packageOverrides = pkgs : with pkgs; {
     # TODO: impure python env
