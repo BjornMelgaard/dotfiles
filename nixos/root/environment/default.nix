@@ -72,7 +72,7 @@ rec {
     gcc
     inkscape
 
-    docker_compose
+    nixpkgsUnstable.pkgs.docker_compose
     # mkpasswd
 
     # android-studio
