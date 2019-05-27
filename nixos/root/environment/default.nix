@@ -119,8 +119,7 @@ rec {
     switch_touchpad
     tmuxx
     # umsf
-    fix_github_https_repo
-    fix_gitlab_https_repo
+    fix-github-https-repo
 
     # xmind
     jq

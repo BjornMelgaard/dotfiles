@@ -77,7 +77,7 @@ rec {
     };
   };
 
-  logind.extraConfig = "HandleLidSwitch=ignore";
+  logind.lidSwitch = "ignore"; # Specifies what to be done when the laptop lid is closed.
 
   xserver = {
     enable = true;

@@ -16,4 +16,4 @@
 # }
 { pkgs }:
 
-import ~/projects/fix-github-https-repo { inherit pkgs; }
+import /home/srghma/projects/fix-github-https-repo { }
