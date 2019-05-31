@@ -10,7 +10,7 @@ in
 
 rec {
   systemPackages = [
-    google-chrome
+    nixpkgsUnstable.pkgs.google-chrome
     zip
     unzip
     htop

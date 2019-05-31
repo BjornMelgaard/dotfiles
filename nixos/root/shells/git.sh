@@ -31,16 +31,16 @@ alias lc!="linted-git-commit --amend"
 alias lcn!="linted-git-commit --no-verify --amend"
 
 # !!! DANGER ZONE !!!
-alias gco-all="git checkout -- ."
+# alias gco-all="git checkout -- ."
 alias gcln="git clean -fd" # without ignored
 alias gclna="git clean -xfd" # with ignore
-alias git-reset-to-origin="git reset --hard origin/\$(git rev-parse --abbrev-ref HEAD)"
-alias gpf="git push --force"
+# alias git-reset-to-origin="git reset --hard origin/\$(git rev-parse --abbrev-ref HEAD)"
+# alias gpf="git push --force"
 
 alias gr="git reset"
 alias grH="git reset HEAD"
 alias grH~="git reset HEAD~"
-alias grh="git reset --hard"
+# alias grh="git reset --hard"
 # !!! DANGER ZONE !!!
 
 bitbucket-delete-repository () {
