@@ -247,6 +247,7 @@
       "https://cachix.cachix.org"
       "https://srghma.cachix.org"
       "https://hie-nix.cachix.org"
+      "https://nixcache.reflex-frp.org"
     ];
 
     binaryCachePublicKeys = [
@@ -255,6 +256,7 @@
       "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
       "srghma.cachix.org-1:EUHKjTh/WKs49hFtw6bwDE9oQLeX5afml0cAKc97MbI="
       "hie-nix.cachix.org-1:EjBSHzF6VmDnzqlldGXbi0RM3HdjfTU3yDRi9Pd0jTY="
+      "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
     ];
 
     trustedUsers = [ "root" "srghma" ];
