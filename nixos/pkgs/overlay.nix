@@ -19,4 +19,5 @@ pkgs: pkgsOld:
   pgFormatter           = pkgs.callPackage ./pgFormatter {};
   arion                 = pkgs.callPackage ./arion {};
   pgmodeler             = pkgs.libsForQt5.callPackage ./pgmodeler {};
+  obelisk               = pkgs.libsForQt5.callPackage ./obelisk {};
 }

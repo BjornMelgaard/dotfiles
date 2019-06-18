@@ -160,6 +160,7 @@ rec {
     # nixpkgsUnstable.pkgs.steam
 
     # pgmodeler
+    obelisk.command
   ];
 
   variables = {
