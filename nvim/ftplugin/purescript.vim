@@ -14,6 +14,9 @@ nmap <buffer><silent> <localleader>i :<C-U>Pimport<CR>
 
 nmap <buffer><silent> <localleader>s :<C-U>Pursuit<CR>
 nmap <buffer><silent> <localleader>t :<C-U>Ptype<CR>
+" nmap <buffer><silent> <localleader>t :call LanguageClient_textDocument_hover()<CR>
+
+nnoremap <buffer><localleader>r :call LanguageClient_textDocument_rename()<CR>
 
 " nmap <buffer><silent> <localleader>t :<C-U>Plist<CR>
 " nmap <buffer><silent> <localleader>t :<C-U>Pimports<CR>

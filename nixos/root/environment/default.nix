@@ -126,6 +126,8 @@ rec {
     nixpkgsUnstable.pkgs.rubocop
 
     all-hies.latest
+    nixpkgsUnstable.pkgs.hlint
+    # all-hies.versions.ghc844
     # auto-hie-wrapper
     # nixpkgsUnstable.pkgs.stack
     stack
@@ -142,6 +144,8 @@ rec {
     # pgFormatter
     # python36Packages.syncthing-gtk
     # arion
+
+    (nixpkgsUnstable.python37.withPackages (ps: with ps; [ pynvim ])) # for denite https://github.com/Shougo/denite.nvim/issues/456
 
     # for vim
     nixpkgsUnstable.haskellPackages.hindent

@@ -17,12 +17,6 @@ nix-purge () {
   sudo nix-collect-garbage -d
 }
 
-install-latest-docker-compose () {
-  sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos-unstable
-  sudo nix-channel --update
-  nix-env -f "<nixos-unstable>" -i docker-compose
-}
-
 nix-format () {
   cat "$1" | nix-beautify | tee "$1"
 }

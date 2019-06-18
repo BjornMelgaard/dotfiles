@@ -252,19 +252,14 @@ call dein#add('autozimu/LanguageClient-neovim', {
     \ })
 
 let g:LanguageClient_serverCommands = {
-    \ 'haskell': ['hie', '--lsp'],
+    \ 'haskell':    ['hie', '--lsp'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
     \ }
-    " \ 'javascript': ['javascript-typescript-stdio'],
-    " \ 'typescript': ['javascript-typescript-stdio'],
+    " \ 'purescript': ['purescript-language-server', '--stdio'],
     " \ 'nix': ['nix-lsp'],
 
 " nnoremap <F4> :call LanguageClient_contextMenu()<CR>
-
-" support for haskell-ide-engine errors (e.g. underline errors)
-hi link ALEError Error
-hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
-hi link ALEWarning Warning
-hi link ALEInfo SpellCap
 
 " let g:LanguageClient_devel = 1 " Use rust debug build
 " let g:LanguageClient_loggingLevel = 'DEBUG' " Use highest logging level
@@ -273,6 +268,12 @@ hi link ALEInfo SpellCap
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
+
+" support for haskell-ide-engine errors (e.g. underline errors)
+hi link ALEError Error
+hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
+hi link ALEWarning Warning
+hi link ALEInfo SpellCap
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tmux
@@ -594,12 +595,12 @@ call dein#add('neovimhaskell/haskell-vim', { 'on_ft':['haskell'] })
 " => Purescript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('purescript-contrib/purescript-vim', { 'on_ft':['purescript'] })
-" call dein#add('FrigoEU/psc-ide-vim', { 'on_ft':['purescript'] })
+call dein#add('danieljharvey/psc-ide-vim', { 'on_ft':['purescript'] })
 " let g:psc_ide_log_level=4
 
 " checking in file
-" let g:deoplete#omni#input_patterns.purescript = '[^. *\t]'
-" let g:deoplete#omni#input_patterns.purescript = '[.\w]+'
+let g:deoplete#omni#input_patterns.purescript = '[^. *\t]'
+let g:deoplete#omni#input_patterns.purescript = '[.\w]+'
 " checking wia `pulp -w build` (faster)
 " let g:psc_ide_syntastic_mode = 0
 
@@ -617,6 +618,7 @@ call dein#add('chr4/nginx.vim',               {'on_ft':['nginx']})
 call dein#add('vim-scripts/vim-terraform',    {'on_ft':['terraform']})
 call dein#add('LnL7/vim-nix',                 {'on_ft':['nix']})
 call dein#add('derekelkins/agda-vim',         {'on_ft':['agda']})
+call dein#add('vmchale/dhall-vim',            {'on_ft':['dhall']})
 
 " call dein#add('takac/vim-hardtime') " {{{
 "   let g:hardtime_default_on = 1
