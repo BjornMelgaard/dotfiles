@@ -42,6 +42,7 @@ rec {
   openssh.enable = true;
   xbanish.enable = true;
   compton.enable = true;
+  keybase.enable = true;
 
   gnome3.gnome-documents.enable = false;
   gnome3.gnome-online-accounts.enable = false;
@@ -128,6 +129,6 @@ rec {
   # };
 
   emacs = {
-    enable = true;
+    enable = false;
   };
 }

@@ -3,7 +3,8 @@
 with pkgs;
 
 let
-  nixpkgs-unstable-src = fetchTarball https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz;
+  # nixpkgs-unstable-src = fetchTarball https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz;
+  nixpkgs-unstable-src = <nixpkgs-unstable>;
 
   nixpkgsUnstable = import nixpkgs-unstable-src { config = { allowUnfree = true; }; };
 in
@@ -11,6 +12,7 @@ in
 rec {
   systemPackages = [
     nixpkgsUnstable.pkgs.google-chrome
+    nixpkgsUnstable.pkgs.chromium
     zip
     unzip
     htop
@@ -125,9 +127,9 @@ rec {
     jq
     nixpkgsUnstable.pkgs.rubocop
 
-    all-hies.latest
+    all-hies.versions.ghc865
+
     nixpkgsUnstable.pkgs.hlint
-    # all-hies.versions.ghc844
     # auto-hie-wrapper
     # nixpkgsUnstable.pkgs.stack
     stack

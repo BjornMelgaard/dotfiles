@@ -84,6 +84,7 @@
 
   programs = {
     java.enable = true;
+    chromium.enable = true; # add chrome and chromium config files to /etc
 
     gnupg.agent = {
       enable = true;
@@ -215,7 +216,7 @@
   time.timeZone = "Europe/Kiev";
 
   nix = {
-    useSandbox = false;
+    useSandbox = true;
 
     # TODO: wait https://github.com/NixOS/nixpkgs/pull/44880
     # maxJobs = "auto";

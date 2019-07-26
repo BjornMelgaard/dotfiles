@@ -381,6 +381,7 @@ call dein#add('dkprice/vim-easygrep') "{{{
   let g:EasyGrepAllOptionsInExplorer=1
   let g:EasyGrepCommand=1
   let g:EasyGrepFilesToExclude=".svn,.git,node_modules"
+  let g:EasyGrepWindow=1 " Specifies the window to use for matches.  0 - quickfix 1 - location list
   nnoremap <leader>vo :GrepOptions<cr>
 "}}}
 call dein#add('mbbill/undotree', {'on_cmd':'UndotreeToggle'}) "{{{
