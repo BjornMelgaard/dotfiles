@@ -20,6 +20,8 @@ rec {
     ntfs3g
     alsaUtils
 
+    nixpkgsUnstable.pkgs.okular
+
     pavucontrol
     conky
 
@@ -88,8 +90,8 @@ rec {
 
     # screencast
     # gtk-recordmydesktop
-    # kdenlive
-    # simplescreenrecorder
+    kdenlive
+    simplescreenrecorder
     # kazam
 
     # vagrant
@@ -155,14 +157,15 @@ rec {
     # nixpkgsUnstable.haskellPackages.brittany
     (
       let
-        oldPkgs = import (fetchTarball https://nixos.org/channels/nixos-18.09/nixexprs.tar.xz) {};
+        # oldPkgs = import (fetchTarball https://nixos.org/channels/nixos-18.09/nixexprs.tar.xz) {};
+        oldPkgs = import <nixos1803> {};
       in oldPkgs.haskellPackages.brittany
     )
     # haskellPackages.Agda
     # nixpkgsUnstable.pkgs.steam
 
     # pgmodeler
-    obelisk.command
+    # obelisk.command
   ];
 
   variables = {

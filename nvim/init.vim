@@ -268,6 +268,7 @@ let g:LanguageClient_serverCommands = {
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
+let g:LanguageClient_diagnosticsList = "Disabled" " fix error with easy-grep
 
 " support for haskell-ide-engine errors (e.g. underline errors)
 hi link ALEError Error
@@ -381,7 +382,7 @@ call dein#add('dkprice/vim-easygrep') "{{{
   let g:EasyGrepAllOptionsInExplorer=1
   let g:EasyGrepCommand=1
   let g:EasyGrepFilesToExclude=".svn,.git,node_modules"
-  let g:EasyGrepWindow=1 " Specifies the window to use for matches.  0 - quickfix 1 - location list
+  " let g:EasyGrepWindow=1 " Specifies the window to use for matches.  0 - quickfix 1 - location list
   nnoremap <leader>vo :GrepOptions<cr>
 "}}}
 call dein#add('mbbill/undotree', {'on_cmd':'UndotreeToggle'}) "{{{
