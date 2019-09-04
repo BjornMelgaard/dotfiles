@@ -166,6 +166,10 @@ rec {
 
     # pgmodeler
     # obelisk.command
+
+    # Research
+    nixpkgsUnstable.pkgs.zotero
+    google-drive-ocamlfuse
   ];
 
   variables = {

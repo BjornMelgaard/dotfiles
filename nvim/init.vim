@@ -370,6 +370,10 @@ call dein#add('romgrk/replace.vim') " {{{
 " }}}
 
 call dein#add('AndrewRadev/deleft.vim') " mapping - dh
+" call dein#add('triglav/vim-visual-increment') " use CTRL+A/X to create increasing sequence of numbers or letters via visual mode
+" vmap <C-S> <Plug>VisualDecrement
+" vmap <C-X> <Plug>VisualIncrement
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
