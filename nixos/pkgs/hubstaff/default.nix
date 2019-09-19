@@ -7,6 +7,6 @@ let
 
   # nixpkgs = /home/srghma/projects/nixpkgs;
 
-  nixpkgs-with-working-hubstaff = import nixpkgs { config = { allowUnfree = true; }; };
+  nixpkgs-with-working-app = import nixpkgs { config = { allowUnfree = true; }; };
 in
-  nixpkgs-with-working-hubstaff.hubstaff
+  nixpkgs-with-working-app.hubstaff

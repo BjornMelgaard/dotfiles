@@ -107,32 +107,32 @@ rec {
 
     safeeyes
     # cmus
-    hubstaff
+    mypkgs.hubstaff
     # screen
     # abiword
 
     # pass
     # qtpass
 
-    # nixfromnpm
+    # mypkgs.nixfromnpm
 
     # My packages
-    dunsted-volume
-    randomize_background
-    kb-light
-    switch_touchpad
-    tmuxx
-    # umsf
-    fix-github-https-repo
+    mypkgs.dunsted-volume
+    mypkgs.randomize_background
+    mypkgs.kb-light
+    mypkgs.switch_touchpad
+    mypkgs.tmuxx
+    # mypkgs.umsf
+    mypkgs.fix-github-https-repo
 
     # xmind
     jq
     nixpkgsUnstable.pkgs.rubocop
 
-    all-hies.versions.ghc865
+    mypkgs.all-hies.versions.ghc865
 
     nixpkgsUnstable.pkgs.hlint
-    # auto-hie-wrapper
+    # mypkgs.auto-hie-wrapper
     # nixpkgsUnstable.pkgs.stack
     stack
 
@@ -145,9 +145,9 @@ rec {
     # sql linters parsers for vim
     # python36Packages.sqlparse
     # sqlint
-    # pgFormatter
+    # mypkgs.pgFormatter
     # python36Packages.syncthing-gtk
-    # arion
+    # mypkgs.arion
 
     (nixpkgsUnstable.python37.withPackages (ps: with ps; [ pynvim ])) # for denite https://github.com/Shougo/denite.nvim/issues/456
 
@@ -164,12 +164,14 @@ rec {
     # haskellPackages.Agda
     # nixpkgsUnstable.pkgs.steam
 
-    # pgmodeler
-    # obelisk.command
+    # mypkgs.pgmodeler
+    # mypkgs.obelisk.command
 
     # Research
     nixpkgsUnstable.pkgs.zotero
     google-drive-ocamlfuse
+
+    mypkgs.dropbox-cli
   ];
 
   variables = {
