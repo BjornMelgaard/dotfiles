@@ -115,4 +115,7 @@ printf "import /home/srghma/.dotfiles/nixos/home/config.nix" > /mnt/home/srghma/
 
 # reboot
 # execute each file in INSTALL directory
+net-mgr-restore
+ssh-restore
+gpg-restore
 ```
