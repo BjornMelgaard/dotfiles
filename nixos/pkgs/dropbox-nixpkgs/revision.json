@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/srghma/nixpkgs",
+  "rev": "36c772b5f3b79c6831427edb3bc4e61c72316bec",
+  "date": "2019-09-19T20:26:50+03:00",
+  "sha256": "1rg8jcs5d9na030dv6ymmvdp50wv4j4h1fpy4aswmpqn8kia1pby",
+  "fetchSubmodules": false
+}

@@ -9,4 +9,4 @@ let
 
   nixpkgs-with-working-app = import nixpkgs { config = { allowUnfree = true; }; };
 in
-  nixpkgs-with-working-app.dropbox-cli
+  nixpkgs-with-working-app

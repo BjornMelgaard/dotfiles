@@ -1,11 +1,11 @@
 pkgs: pkgsOld:
-{
+rec {
   mypkgs = {
     all-hies              = pkgs.callPackage ./all-hies {};
     arion                 = pkgs.callPackage ./arion {};
     auto-hie-wrapper      = pkgs.callPackage ./auto-hie-wrapper {};
     cachix                = pkgs.callPackage ./cachix {};
-    dropbox-cli           = pkgs.callPackage ./dropbox-cli {};
+    dropbox-nixpkgs           = pkgs.callPackage ./dropbox-nixpkgs {};
     dunsted-volume        = pkgs.callPackage ./dunsted-volume {};
     fix-github-https-repo = pkgs.callPackage ./fix-github-https-repo {};
     hubstaff              = pkgs.callPackage ./hubstaff {};
@@ -23,4 +23,6 @@ pkgs: pkgsOld:
     umsf                  = pkgs.callPackage ./umsf {};
     yed                   = pkgs.callPackage ./yed {};
   };
+
+  inherit (mypkgs.dropbox-nixpkgs) dropbox-cli dropbox;
 }

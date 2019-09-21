@@ -117,6 +117,7 @@ rec {
         ${xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY &
         ${copyq}/bin/copyq &
         ${pasystray}/bin/pasystray &
+        ${pkgs.dropbox-cli}/bin/dropbox start --install &
       '';
     };
   };

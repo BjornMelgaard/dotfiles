@@ -171,7 +171,7 @@ rec {
     nixpkgsUnstable.pkgs.zotero
     google-drive-ocamlfuse
 
-    mypkgs.dropbox-cli
+    dropbox-cli
   ];
 
   variables = {
