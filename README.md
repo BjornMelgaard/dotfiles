@@ -22,60 +22,25 @@ nix-env -i git git-crypt vscode ranger google-chrome pcmanfm
 code --user-data-dir=/tmp/code --install-extension bbenoist.Nix
 export EDITOR=vim
 
-# ENABLE ZFS
-chmod +w /etc/nixos/configuration.nix
-vim /etc/nixos/configuration.nix
-# add `boot.supportedFilesystems = [ "zfs" ];`
-nixos-rebuild switch
-modprobe zfs
-
 # MAKE PARTITIONS
-gdisk /dev/sdb
-# make 3 partitions: efi (code - ef00, last sector - +100M), swap (code - 8200, last sector - +8G), nixos (code - default, last sector - default)
-mkfs.vfat -n NIXOS_BOOT /dev/sdb1
-mkswap -L NIXOS_SWAP /dev/sdb2
-
-# zfs info:
-# https://apple.stackexchange.com/questions/111177/how-to-format-external-drive-into-zfs
-# https://github.com/zfsonlinux/zfs/wiki/Ubuntu-18.04-Root-on-ZFS
-# https://nixos.wiki/wiki/NixOS_on_ZFS (bottom)
-# https://unix.stackexchange.com/questions/304369/combining-ssd-hdd-into-single-fast-large-partition
-
-# create pool named mypool
-zpool create -o ashift=12 -O compression=lz4 -O reservation=1G -O xattr=sa -f -R /mnt mypool /dev/sdb3 /dev/sda5 cache /dev/sdb4
-
-# create datasets
-zfs create -o mountpoint=legacy                                              mypool/root
-zfs create -o mountpoint=legacy -o com.sun:auto-snapshot=false               mypool/var_cache
-zfs create -o mountpoint=legacy -o com.sun:auto-snapshot=false -o acltype=posixacl -o xattr=sa              mypool/var_log
-zfs create -o mountpoint=legacy -o com.sun:auto-snapshot=false -o exec=on    mypool/var_tmp
-zfs create -o mountpoint=legacy -o com.sun:auto-snapshot=false -o setuid=off mypool/tmp
-
-# Useful zfs commands:
-zpool import mypool # to import alredy created pool (searches all /dev/*)
-zfs list # to list filesystems
-zpool list # to list pools
-zpool status # to show pool status
-zdb # to show type of each disk in pool
+lsblk
+gdisk /dev/sda # ssd for 1TB
+# make 3 partitions (gpt table, n for new partition, w for write, q for exit): efi (code - ef00, last sector - +100M), swap (code - 8200, last sector - +8G), nixos (code - default, last sector - default)
+gdisk /dev/sdb # ssd for 126GB
+mkfs.vfat -n NIXOS_BOOT /dev/sda1
+mkswap -L NIXOS_SWAP /dev/sda2
+mkfs.ext4 -L NIXOS_ROOT /dev/sda3
+mkfs.ext4 -L NIXOS_ADJUNCT /dev/sdb1
 
 # MOUNT
-swapon /dev/sdb2
-mount -t zfs mypool/root /mnt
+swapon /dev/disk/by-label/NIXOS_SWAP
+mount /dev/disk/by-label/NIXOS_ROOT /mnt
 
 mkdir -p /mnt/boot
-mount /dev/sdb1 /mnt/boot
+mount /dev/disk/by-label/NIXOS_BOOT /mnt/boot
 
-mkdir -p /mnt/var/cache
-mount -t zfs mypool/var_cache /mnt/var/cache
-
-mkdir -p /mnt/var/log
-mount -t zfs mypool/var_log /mnt/var/log
-
-mkdir -p /mnt/var/tmp
-mount -t zfs mypool/var_tmp /mnt/var/tmp
-
-mkdir -p /mnt/tmp
-mount -t zfs mypool/tmp /mnt/tmp
+mkdir -p /mnt/home/srghma/Documents
+mount /dev/disk/by-label/NIXOS_ADJUNCT /mnt/home/srghma/Documents
 
 # GENERATE CONFIGURATION
 nixos-generate-config --root /mnt
