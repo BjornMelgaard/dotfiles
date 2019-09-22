@@ -8,37 +8,30 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "mypool/root";
-      fsType = "zfs";
-    };
-
-  fileSystems."/tmp" =
-    { device = "mypool/tmp";
-      fsType = "zfs";
-    };
-
-  fileSystems."/var/cache" =
-    { device = "mypool/var_cache";
-      fsType = "zfs";
-    };
-
-  fileSystems."/var/tmp" =
-    { device = "mypool/var_tmp";
-      fsType = "zfs";
+    { device = "/dev/disk/by-uuid/d6ac1048-e6cf-4bab-89ec-27db808aae54";
+      fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/64FD-0ED9";
+    { device = "/dev/disk/by-uuid/8CAD-D11F";
       fsType = "vfat";
     };
 
+  fileSystems."/home/srghma/Documents" =
+    { device = "/dev/disk/by-uuid/5a025346-9261-402a-8117-581f422dd1f5";
+      fsType = "ext4";
+    };
+
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/5f09addd-be26-41b5-8d09-26a42d2c3424"; }
+    [ { device = "/dev/disk/by-uuid/2f870400-67d6-4e6f-bf59-536a010cc1e0"; }
     ];
 
+  nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

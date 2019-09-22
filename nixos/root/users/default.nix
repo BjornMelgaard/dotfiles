@@ -9,7 +9,7 @@
     extraUsers =
       let
         # generated via: mkpasswd -m sha-512
-        hashedPassword = "$6$.afts/PK1fV$KsiZjqj188SfERHNsnz1mQWKeWOuB6dvjZIof8uomNqYOFQDj0uf9oGB6Kq5dGmZj3APIr7kvSss09IM1AoYW.";
+        hashedPassword = "$6$boVpiwO79WKlR2$Egc0DLU76n/mRuRgmFxHjnwCWUnajsY7snqe.OZ2awOUd0ymOpAf3OiSRmsOTxo0fLsQcKFRa8DdMQWcbu/8x1";
       in {
         root = {
           inherit hashedPassword;

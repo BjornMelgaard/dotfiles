@@ -3,6 +3,7 @@
 with pkgs;
 
 let
+  # sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
   # nixpkgs-unstable-src = fetchTarball https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz;
   nixpkgs-unstable-src = <nixpkgs-unstable>;
 
@@ -12,7 +13,7 @@ in
 rec {
   systemPackages = [
     nixpkgsUnstable.pkgs.google-chrome
-    nixpkgsUnstable.pkgs.chromium
+    # nixpkgsUnstable.pkgs.chromium
     zip
     unzip
     htop
@@ -30,7 +31,7 @@ rec {
     rofi
     pasystray
     scrot
-    anki
+    # anki
     xarchiver
 
     ## misc
@@ -74,7 +75,7 @@ rec {
     # nixpkgsUnstable.autoconf
     gnumake
     gcc
-    inkscape
+    # inkscape
 
     nixpkgsUnstable.pkgs.docker_compose
     # mkpasswd
@@ -82,7 +83,7 @@ rec {
     # android-studio
     ctags
     # filezilla
-    firefox
+    # firefox
     asciinema
     # tree
     # youtube-dl
@@ -90,7 +91,7 @@ rec {
 
     # screencast
     # gtk-recordmydesktop
-    kdenlive
+    # kdenlive
     simplescreenrecorder
     # kazam
 
@@ -100,12 +101,12 @@ rec {
     # fzf
     # bfg-repo-cleaner # removes passwords from git repo
 
-    nox
+    # nox
     nix-prefetch-git
     # gimp
     # imagemagick
 
-    safeeyes
+    # safeeyes
     # cmus
     mypkgs.hubstaff
     # screen
@@ -125,16 +126,16 @@ rec {
     # mypkgs.umsf
     mypkgs.fix-github-https-repo
 
-    # xmind
+    xmind
     jq
     nixpkgsUnstable.pkgs.rubocop
 
     mypkgs.all-hies.versions.ghc865
 
-    nixpkgsUnstable.pkgs.hlint
+    # nixpkgsUnstable.pkgs.hlint
     # mypkgs.auto-hie-wrapper
-    # nixpkgsUnstable.pkgs.stack
-    stack
+    nixpkgsUnstable.pkgs.stack
+    # stack
 
     # haskellPackages.intero
     # stack2nix
@@ -152,15 +153,15 @@ rec {
     (nixpkgsUnstable.python37.withPackages (ps: with ps; [ pynvim ])) # for denite https://github.com/Shougo/denite.nvim/issues/456
 
     # for vim
-    nixpkgsUnstable.haskellPackages.hindent
-    nixpkgsUnstable.haskellPackages.stylish-haskell
+    # nixpkgsUnstable.haskellPackages.hindent
+    # nixpkgsUnstable.haskellPackages.stylish-haskell
     # nixpkgsUnstable.haskellPackages.brittany
-    (
-      let
-        # oldPkgs = import (fetchTarball https://nixos.org/channels/nixos-18.09/nixexprs.tar.xz) {};
-        oldPkgs = import <nixos1803> {};
-      in oldPkgs.haskellPackages.brittany
-    )
+    # (
+    #   let
+    #     # oldPkgs = import (fetchTarball https://nixos.org/channels/nixos-18.09/nixexprs.tar.xz) {};
+    #     oldPkgs = import <nixos1803> {};
+    #   in oldPkgs.haskellPackages.brittany
+    # )
     # haskellPackages.Agda
     # nixpkgsUnstable.pkgs.steam
 
@@ -169,7 +170,7 @@ rec {
 
     # Research
     nixpkgsUnstable.pkgs.zotero
-    google-drive-ocamlfuse
+    # google-drive-ocamlfuse
 
     dropbox-cli
   ];
