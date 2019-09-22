@@ -129,10 +129,19 @@
         # npm/yarn
         export PATH="$HOME/.node_modules/bin:$PATH"
 
+        # npm/yarn local
+        export PATH="$PATH:./node_modules/.bin"
+
         # gem
-        GEM_HOME=$HOME/.gem/ruby/${pkgs.ruby_2_4.version.libDir}
-        GEM_PATH=$GEM_HOME
+        GEM_HOME="$HOME/.gem/ruby/${pkgs.ruby_2_4.version.libDir}"
+        GEM_PATH="$GEM_HOME"
         export PATH="$GEM_HOME/bin:$PATH"
+
+        DOTFILES="$HOME/.dotfiles"
+
+        PROJECT_PATHS=($HOME/projects)
+
+        export MAKEFLAGS="-j5"
       '';
 
       ohMyZsh = {
@@ -270,7 +279,7 @@
 
   virtualisation.docker = {
     enable = true;
-    storageDriver = "zfs";
+    # storageDriver = "zfs";
     # extraOptions = "--host=0.0.0.0:2375";
   };
 

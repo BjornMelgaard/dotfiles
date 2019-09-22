@@ -58,7 +58,7 @@ rec {
   dleyna-renderer.enable = false;
   dleyna-server.enable = false;
 
-  zfs.autoScrub.enable = true;
+  # zfs.autoScrub.enable = true;
 
   redshift = {
     enable = true;
