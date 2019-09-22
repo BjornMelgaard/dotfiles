@@ -126,7 +126,7 @@ rec {
     # mypkgs.umsf
     mypkgs.fix-github-https-repo
 
-    xmind
+    # xmind
     jq
     nixpkgsUnstable.pkgs.rubocop
 

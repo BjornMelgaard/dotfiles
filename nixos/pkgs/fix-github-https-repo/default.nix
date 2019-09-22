@@ -1,19 +1,10 @@
-# { stdenv, lib, makeWrapper, git }:
+{ pkgs, fetchFromGitHub, readRevision, addAsRuntimeDeps }:
 
-# stdenv.mkDerivation rec {
-#   name = "fix_github_https_repo";
+let
+  src = fetchFromGitHub (readRevision ./revision.json);
 
-#   nativeBuildInputs = [ makeWrapper ];
-
-#   phases = [ "installPhase" ];
-
-#   installPhase = ''
-#     mkdir -p $out/bin
-
-#     makeWrapper ${./fix_github_https_repo} $out/bin/${name} \
-#       --prefix PATH : ${lib.makeBinPath [ git ]}
-#   '';
-# }
-{ pkgs }:
-
-import /home/srghma/projects/fix-github-https-repo { }
+  config = { allowUnfree = true; };
+  overlays = import "${src}/nix/overlays.nix";
+  mypkgs = import pkgs.path { inherit config overlays; };
+in
+  import src { pkgs = mypkgs; }
