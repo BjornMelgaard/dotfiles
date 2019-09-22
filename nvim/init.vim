@@ -448,33 +448,31 @@ call dein#add('mhinz/vim-sayonara') " {{{
 " => Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-call dein#add('Shougo/denite.nvim') " {{{
-  call denite#custom#var('file_rec', 'command', ['ag', '--vimgrep', '--hidden',
-    \ '--ignore', '.hg',
-    \ '--ignore', '.svn',
-    \ '--ignore', '.git',
-    \ '--ignore', '.bzr',
-    \ '--ignore', '.cache'])
-  call denite#custom#map('normal', 'Q', '<denite:quit>', 'noremap')
-" }}}
-call dein#add('Shougo/neomru.vim')
+" " http://ctrlpvim.github.io/ctrlp.vim/#installation
+" Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+" Press <c-f> and <c-b> to cycle between modes.
+" Press <c-d> to switch to filename search instead of full path.
+" Press <c-r> to switch to regexp mode.
+" Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+" Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+" Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+" Use <c-y> to create a new file and its parent directories.
+" Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 
-nmap <space> [denite]
-nnoremap [denite] <nop>
+call dein#add('ctrlpvim/ctrlp.vim')
+let g:ctrlp_map = '<Space>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 
-nnoremap <silent> [denite]l :<C-u>Denite line<cr>
-nnoremap <silent> [denite]m :<C-u>Denite file_mru <cr>
-nnoremap <silent> [denite]b :<C-u>Denite buffer<cr>
-nnoremap <silent> [denite]j :<C-u>JunkfileTodo<cr>
-nnoremap [denite]g :<C-u>Grep<space>
-" nnoremap <silent> [denite]y :<C-u>Denite neoyank<cr>
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
-" git project nav {{{
-  call denite#custom#alias('source', 'file_rec/git', 'file_rec')
-  call denite#custom#var('file_rec/git', 'command',
-    \ ['git', 'ls-files', '-co', '--exclude-standard'])
-  nnoremap <silent> [denite]<space> :<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
-" }}}
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Textobj
