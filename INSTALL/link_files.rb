@@ -13,9 +13,6 @@ inhome_indotfiles = [
   ['.config/ranger/rc.conf',                  'ranger/rc.conf'],
   ['.config/ranger/scope.sh',                 'ranger/scope.sh'],
 
-  ['.gtkrc-2.0',                              'themes/gtkrc-2.0'],
-  ['.config/gtk-3.0/settings.ini',            'themes/gtk-3.0-settings.ini'],
-
   ['.stack/config.yaml',                      'stack-global.yaml'],
   ['.gitconfig',                              'gitconfig'],
   ['.gitignore_global',                       'gitignore_global'],

@@ -173,13 +173,17 @@ rec {
     # google-drive-ocamlfuse
 
     dropbox-cli
+
+    # ID kaart
+    chrome-token-signing
+    qdigidoc
   ];
 
   variables = {
     EDITOR = "nvim";
   };
 
-  etc."resolvconf.conf".text = ''
-    name_servers='8.8.8.8'
-  '';
+  # etc."resolvconf.conf".text = ''
+  #   name_servers='8.8.8.8'
+  # '';
 }

@@ -227,7 +227,6 @@ call dein#add('Shougo/neosnippet') " {{{
     \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
   snoremap <expr><TAB> neosnippet#expandable_or_jumpable() ?
     \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
 " }}}
 
 call dein#add('Shougo/deoplete.nvim') " {{{
@@ -374,7 +373,6 @@ call dein#add('AndrewRadev/deleft.vim') " mapping - dh
 " vmap <C-S> <Plug>VisualDecrement
 " vmap <C-X> <Plug>VisualIncrement
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -388,6 +386,8 @@ call dein#add('dkprice/vim-easygrep') "{{{
   let g:EasyGrepFilesToExclude=".svn,.git,node_modules"
   " let g:EasyGrepWindow=1 " Specifies the window to use for matches.  0 - quickfix 1 - location list
   nnoremap <leader>vo :GrepOptions<cr>
+  nnoremap <Space>g :Grep<Space>
+  nnoremap <Space>r :Replace<Space>
 "}}}
 call dein#add('mbbill/undotree', {'on_cmd':'UndotreeToggle'}) "{{{
   let g:undotree_SplitLocation='botright'
@@ -460,7 +460,7 @@ call dein#add('mhinz/vim-sayonara') " {{{
 " Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 
 call dein#add('ctrlpvim/ctrlp.vim')
-let g:ctrlp_map = '<Space>'
+let g:ctrlp_map = '<Space><Space>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 

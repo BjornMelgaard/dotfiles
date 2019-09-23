@@ -126,7 +126,8 @@ rec {
   #   interface     = "wlp3s0";
   # };
 
-  emacs = {
-    enable = false;
-  };
+  emacs.enable = false;
+
+  # ID kaart
+  pcscd.enable = true;
 }
