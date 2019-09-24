@@ -103,7 +103,7 @@ rec {
 
     # nox
     nix-prefetch-git
-    # gimp
+    gimp
     # imagemagick
 
     # safeeyes
@@ -177,6 +177,8 @@ rec {
     # ID kaart
     chrome-token-signing
     qdigidoc
+
+    nixpkgsUnstable.pkgs.gfxtablet
   ];
 
   variables = {
