@@ -66,7 +66,7 @@ exec --no-startup-id randomize_background /home/srghma/.dotfiles/i3/wallpallers/
 exec --no-startup-id $browser
 exec --no-startup-id copyq
 exec --no-startup-id pasystray
-exec --no-startup-id dropbox start --install
+exec --no-startup-id dropbox start
 
 # -------------------------------------
 # Shortcuts

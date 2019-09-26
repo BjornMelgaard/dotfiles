@@ -43,4 +43,5 @@
     "gitlens.views.lineHistory.enabled": true,
     "editor.tabSize": 2,
     "search.location": "panel",
+    "latex-workshop.view.pdf.viewer": "tab",
 }

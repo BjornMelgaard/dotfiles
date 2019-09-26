@@ -170,15 +170,28 @@ rec {
 
     # Research
     nixpkgsUnstable.pkgs.zotero
-    # google-drive-ocamlfuse
+    google-drive-ocamlfuse
 
     dropbox-cli
 
     # ID kaart
-    chrome-token-signing
-    qdigidoc
+    nixpkgsUnstable.pkgs.chrome-token-signing
+    nixpkgsUnstable.pkgs.qdigidoc
 
     nixpkgsUnstable.pkgs.gfxtablet
+    nixpkgsUnstable.pkgs.patchelf
+    # nixpkgsUnstable.pkgs.write_stylus
+    # xournal
+    nixpkgsUnstable.pkgs.texworks
+    # nixpkgsUnstable.pkgs.lex
+
+    (
+      texlive.combine {
+        # tabularx is not available
+        inherit (pkgs.texlive) scheme-small cleveref latexmk bibtex algorithms cm-super
+        csvsimple subfigure  glossaries collection-latexextra;
+      }
+    )
   ];
 
   variables = {
