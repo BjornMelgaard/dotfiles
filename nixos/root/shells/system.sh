@@ -15,8 +15,8 @@ alias share-wifi="sudo create_ap wlp3s0 enp2s0 MyAccessPoint passphrase"
 alias wifi="nmtui"
 alias sctl="systemctl"
 
-alias pjdot="cd $DOTFILES"
-alias pjodot="cd $DOTFILES && $EDITOR"
+alias pjdot="cd $HOME/.dotfiles"
+alias pjodot="cd $HOME/.dotfiles && $EDITOR"
 
 alias nh="n-history"
 

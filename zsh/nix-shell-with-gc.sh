@@ -7,7 +7,7 @@
 # ./dev-shell --command 'srghma_gitlab_runner_ssh -t "journalctl --catalog --pager-end --follow"'
 
 nix-shell-with-gc () {
-  # set -e
+  set -e
 
   shell_file=$(test -f ./shell.nix && echo "shell.nix" || echo "default.nix")
 

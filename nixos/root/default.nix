@@ -210,9 +210,15 @@
       # checkReversePath = false;
 
       enable = true;
-      allowPing = false;
+      allowPing = true;
 
-      # allowedTCPPorts = [ 5432 ];
+      allowedTCPPorts = [
+        # 5432
+      ];
+
+      allowedUDPPorts = [
+        40118 # https://github.com/rfc2822/GfxTablet
+      ];
     };
   };
 
@@ -239,13 +245,13 @@
 
     extraOptions = ''
       auto-optimise-store = true
-
       max-jobs = auto
-      # max-jobs = 1
 
-      keep-outputs = true # by default nix deletes build dependencies and leaves only resuliting package, this prevents it, useful for development
+      # by default nix deletes build dependencies and leaves only resuliting package, this prevents it, useful for development
+      keep-outputs = true
 
-      # allow-unsafe-native-code-during-evaluation = true # allows use of builtins.exec
+      # allows use of builtins.exec
+      # allow-unsafe-native-code-during-evaluation = true
     '';
 
     gc.automatic = true;
@@ -279,8 +285,10 @@
 
   virtualisation.docker = {
     enable = true;
-    # storageDriver = "zfs";
+    # liveRestore = false;
+    storageDriver = "overlay"; # TODO: use overlay2, delete before switch /var/lib/docker
     # extraOptions = "--host=0.0.0.0:2375";
+    # extraOptions = "-H unix:///var/run/docker.sock";
   };
 
   # virtualisation.virtualbox.host.enable = true;

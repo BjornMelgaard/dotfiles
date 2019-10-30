@@ -14,6 +14,7 @@ rec {
   systemPackages = [
     nixpkgsUnstable.pkgs.google-chrome
     # nixpkgsUnstable.pkgs.chromium
+    libreoffice
     zip
     unzip
     htop
@@ -83,7 +84,7 @@ rec {
     # android-studio
     ctags
     # filezilla
-    # firefox
+    firefox
     asciinema
     # tree
     # youtube-dl
@@ -192,6 +193,8 @@ rec {
         csvsimple subfigure  glossaries collection-latexextra;
       }
     )
+
+    ruby_2_6
   ];
 
   variables = {

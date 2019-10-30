@@ -193,8 +193,8 @@ call dein#add('jszakmeister/vim-togglecursor')
 " => Git
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('airblade/vim-gitgutter') " {{{
-  nmap ]h <Plug>GitGutterNextHunk
-  nmap [h <Plug>GitGutterPrevHunk
+  nmap ]h <Plug>(GitGutterNextHunk)
+  nmap [h <Plug>(GitGutterPrevHunk)
 " }}}
 call dein#add('tpope/vim-fugitive') "{{{
   nnoremap <silent> <leader>ga :silent !git add --all<CR>

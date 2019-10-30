@@ -1,4 +1,13 @@
 pkgs: pkgsOld:
+
+let
+  # sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
+  # nixpkgs-unstable-src = fetchTarball https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz;
+  nixpkgs-unstable-src = <nixpkgs-unstable>;
+
+  nixpkgsUnstable = import nixpkgs-unstable-src { config = { allowUnfree = true; }; };
+in
+
 rec {
   mypkgs = {
     all-hies              = pkgs.callPackage ./all-hies {};
@@ -25,4 +34,6 @@ rec {
   };
 
   inherit (mypkgs.dropbox-nixpkgs) dropbox-cli dropbox;
+
+  pcscd = nixpkgsUnstable.pcscd;
 }
