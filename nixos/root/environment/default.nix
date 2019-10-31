@@ -195,6 +195,8 @@ rec {
     )
 
     ruby_2_6
+
+    nixpkgsUnstable.pkgs.gnome3.evolution
   ];
 
   variables = {

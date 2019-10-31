@@ -44,15 +44,15 @@ rec {
   compton.enable = true;
   keybase.enable = true;
 
-  gnome3.gnome-documents.enable = false;
-  gnome3.gnome-online-accounts.enable = false;
+  gnome3.gnome-documents.enable = true;
+  gnome3.gnome-online-accounts.enable = true;
   gnome3.gnome-terminal-server.enable = false;
-  gnome3.gnome-user-share.enable = false;
-  gnome3.tracker.enable = false;
-  gnome3.evolution-data-server.enable = lib.mkForce false;
+  gnome3.gnome-user-share.enable = true;
+  gnome3.tracker.enable = true;
+  gnome3.evolution-data-server.enable = true;
   packagekit.enable = false;
-  gnome3.gnome-keyring.enable = lib.mkForce false;
-  gnome3.seahorse.enable = false;
+  gnome3.gnome-keyring.enable = true;
+  gnome3.seahorse.enable = true;
   gnome3.tracker-miners.enable = false;
   geoclue2.enable = false;
   dleyna-renderer.enable = false;
