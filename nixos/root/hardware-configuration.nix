@@ -23,11 +23,6 @@
       fsType = "vfat";
     };
 
-  fileSystems."/home/srghma/Documents" =
-    { device = "/dev/disk/by-uuid/5a025346-9261-402a-8117-581f422dd1f5";
-      fsType = "ext4";
-    };
-
   swapDevices =
     [ { device = "/dev/disk/by-uuid/2f870400-67d6-4e6f-bf59-536a010cc1e0"; }
     ];
