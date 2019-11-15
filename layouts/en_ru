@@ -10,8 +10,8 @@ xkb_keymap {
     include "capslock(swapescape)"
 
     // swap right alt and left control
-    replace key <RALT> { [ Control_L ] };
-    modifier_map Control { <RALT> };
+    // replace key <RALT> { [ Control_L ] };
+    // modifier_map Control { <RALT> };
 
     // swap ; and : only in us layout
     replace key <AC10> { [ colon, semicolon ], [ Cyrillic_zhe, Cyrillic_ZHE ] };
