@@ -11,3 +11,4 @@ nvim/bundle
 commitlint/node_modules
 result
 *.log
+gitconfig-other

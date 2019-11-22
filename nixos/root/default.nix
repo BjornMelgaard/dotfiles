@@ -214,6 +214,7 @@
 
       allowedTCPPorts = [
         # 5432
+        3000
       ];
 
       allowedUDPPorts = [
