@@ -1,20 +1,19 @@
 pkgs: pkgsOld:
 
-let
-  # sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
-  # nixpkgs-unstable-src = fetchTarball https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz;
-  nixpkgs-unstable-src = <nixpkgs-unstable>;
-
-  nixpkgsUnstable = import nixpkgs-unstable-src { config = { allowUnfree = true; }; };
-in
-
 rec {
+  nixpkgsUnstable =
+    let
+      # sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
+      # nixpkgs-unstable-src = fetchTarball https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz;
+      nixpkgs-unstable-src = <nixpkgs-unstable>;
+    in import nixpkgs-unstable-src { config = { allowUnfree = true; }; };
+
   mypkgs = {
     all-hies              = pkgs.callPackage ./all-hies {};
     arion                 = pkgs.callPackage ./arion {};
     auto-hie-wrapper      = pkgs.callPackage ./auto-hie-wrapper {};
     cachix                = pkgs.callPackage ./cachix {};
-    dropbox-nixpkgs           = pkgs.callPackage ./dropbox-nixpkgs {};
+    dropbox-nixpkgs       = pkgs.callPackage ./dropbox-nixpkgs {};
     dunsted-volume        = pkgs.callPackage ./dunsted-volume {};
     fix-github-https-repo = pkgs.callPackage ./fix-github-https-repo {};
     hubstaff              = pkgs.callPackage ./hubstaff {};
@@ -31,9 +30,13 @@ rec {
     tmuxx                 = pkgs.callPackage ./tmuxx {};
     umsf                  = pkgs.callPackage ./umsf {};
     yed                   = pkgs.callPackage ./yed {};
+    lorri                 = pkgs.callPackage ./lorri {};
   };
 
   inherit (mypkgs.dropbox-nixpkgs) dropbox-cli dropbox;
 
-  pcscd = nixpkgsUnstable.pcscd;
+  # lorri  = nixpkgsUnstable.pkgs.lorri;
+  lorri  = mypkgs.lorri;
+  direnv = nixpkgsUnstable.pkgs.direnv;
+  pcscd  = nixpkgsUnstable.pkgs.pcscd;
 }

@@ -130,4 +130,6 @@ rec {
 
   # ID kaart
   pcscd.enable = true;
+
+  lorri.enable = true;
 }

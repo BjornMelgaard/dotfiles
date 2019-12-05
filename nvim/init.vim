@@ -250,13 +250,36 @@ call dein#add('autozimu/LanguageClient-neovim', {
     \ 'build': './install.sh',
     \ })
 
+" https://github.com/sriharshachilakapati/dotfiles/blob/f1635f73eccd36a493f168b34e67bd1fa5e0e123/.vimrc#L117
+" https://github.com/sduchesneau/nvim-config/blob/0f3ce63e825e27f0a0a631c68743435432e56cf8/bundle/.neobundle/doc/ale-purescript.txt#L18
+let purescriptConfigWrapper =
+    \ { 'purescript':
+    \   {
+    \     'autoStartPscIde': v:true
+    \   , 'pscIdePort': v:null
+    \   , 'addSpagoSources': v:true
+    \   , 'autocompleteAddImport': v:true
+    \   , 'pursExe': 'purs'
+    \   , 'addNpmPath': v:true
+    \   , 'buildCommand': 'spago build -- --json-errors'
+    \   }
+    \ }
+
 let g:LanguageClient_serverCommands = {
     \ 'haskell':    ['hie', '--lsp'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'purescript': ['purescript-language-server', '--stdio', '--config', json_encode(purescriptConfigWrapper)]
     \ }
-    " \ 'purescript': ['purescript-language-server', '--stdio'],
     " \ 'nix': ['nix-lsp'],
+
+let g:LanguageClient_rootMarkers = {
+    \ 'javascript': ['project.json'],
+    \ 'rust': ['Cargo.toml'],
+    \ 'purescript': ['bower.json', 'psc-package.json', 'spago.dhall'],
+    \ }
+
+autocmd filetype purescript setlocal omnifunc=LanguageClient#complete
 
 " nnoremap <F4> :call LanguageClient_contextMenu()<CR>
 
@@ -384,7 +407,7 @@ call dein#add('dkprice/vim-easygrep') "{{{
   let g:EasyGrepAllOptionsInExplorer=1
   let g:EasyGrepCommand=1
   let g:EasyGrepFilesToExclude=".svn,.git,node_modules"
-  " let g:EasyGrepWindow=1 " Specifies the window to use for matches.  0 - quickfix 1 - location list
+  let g:EasyGrepWindow=0 " Specifies the window to use for matches.  0 - quickfix 1 - location list
   nnoremap <leader>vo :GrepOptions<cr>
   nnoremap <Space>g :Grep<Space>
   nnoremap <Space>r :Replace<Space>

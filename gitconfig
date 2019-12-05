@@ -29,3 +29,5 @@
 	rebase = true
 [merge]
 	tool = meld
+[url "git@github.com:"]
+	insteadOf = https://github.com/

@@ -2,14 +2,6 @@
 
 with pkgs;
 
-let
-  # sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
-  # nixpkgs-unstable-src = fetchTarball https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz;
-  nixpkgs-unstable-src = <nixpkgs-unstable>;
-
-  nixpkgsUnstable = import nixpkgs-unstable-src { config = { allowUnfree = true; }; };
-in
-
 rec {
   systemPackages = [
     nixpkgsUnstable.pkgs.google-chrome
@@ -196,7 +188,7 @@ rec {
 
     ruby_2_6
 
-    nixpkgsUnstable.pkgs.gnome3.evolution
+    # nixpkgsUnstable.pkgs.gnome3.evolution
   ];
 
   variables = {

@@ -4,6 +4,8 @@
   imports = [
     ../modules/cachix.nix
     ../modules/unifiedGtkQtTheme.nix
+    ../modules/direnv-from-lorri-repo.nix
+    ../modules/lorri-from-nixpkgs.nix
 
     ./hardware-configuration.nix
     ./hardware-configuration-override.nix
@@ -266,6 +268,7 @@
       "https://hie-nix.cachix.org"
       "https://nixcache.reflex-frp.org"
       "https://hydra.iohk.io"
+      "https://lorri-test.cachix.org"
     ];
 
     binaryCachePublicKeys = [
@@ -276,6 +279,7 @@
       "hie-nix.cachix.org-1:EjBSHzF6VmDnzqlldGXbi0RM3HdjfTU3yDRi9Pd0jTY="
       "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+      "lorri-test.cachix.org-1:wZCd/aYaK5pMR0odlnNIdinNTR+3mz3A60NYlFiCeO0="
     ];
 
     trustedUsers = [ "root" "srghma" ];
