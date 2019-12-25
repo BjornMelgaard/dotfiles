@@ -269,6 +269,7 @@
       "https://nixcache.reflex-frp.org"
       "https://hydra.iohk.io"
       "https://lorri-test.cachix.org"
+      "https://nix-tools.cachix.org"
     ];
 
     binaryCachePublicKeys = [
@@ -280,6 +281,7 @@
       "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
       "lorri-test.cachix.org-1:wZCd/aYaK5pMR0odlnNIdinNTR+3mz3A60NYlFiCeO0="
+      "nix-tools.cachix.org-1:ebBEBZLogLxcCvipq2MTvuHlP7ZRdkazFSQsbs0Px1A="
     ];
 
     trustedUsers = [ "root" "srghma" ];

@@ -622,7 +622,7 @@ call dein#add('neovimhaskell/haskell-vim', { 'on_ft':['haskell'] })
 " => Purescript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('purescript-contrib/purescript-vim', { 'on_ft':['purescript'] })
-call dein#add('danieljharvey/psc-ide-vim', { 'on_ft':['purescript'] })
+call dein#add('FrigoEU/psc-ide-vim', { 'on_ft':['purescript'] })
 " let g:psc_ide_log_level=4
 
 " checking in file

@@ -8,4 +8,4 @@ templates:
 nix:
   enable: true
   # there are two options to use nix with stack: `packages` option, `shell-file` option
-  shell-file: shell.nix
+  # shell-file: shell.nix

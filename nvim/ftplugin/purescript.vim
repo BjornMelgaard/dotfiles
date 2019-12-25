@@ -13,8 +13,8 @@ nmap <buffer><silent> <localleader>i :<C-U>Pimport<CR>
 " nmap <buffer><silent> <localleader>t :<C-U>PimportModule<CR>
 
 nmap <buffer><silent> <localleader>s :<C-U>Pursuit<CR>
-nmap <buffer><silent> <localleader>t :<C-U>Ptype<CR>
-" nmap <buffer><silent> <localleader>t :call LanguageClient_textDocument_hover()<CR>
+" nmap <buffer><silent> <localleader>t :<C-U>Ptype<CR>
+nmap <buffer><silent> <localleader>t :call LanguageClient_textDocument_hover()<CR>
 
 nnoremap <buffer><localleader>r :call LanguageClient_textDocument_rename()<CR>
 
@@ -29,3 +29,7 @@ nmap <buffer><silent> <C-]> :<C-U>Pgoto<CR>
 " nmap <buffer><silent> <localleader>t :<C-U>Pend<CR>
 " nmap <buffer><silent> <localleader>t :<C-U>Psearch<CR>
 " nmap <buffer><silent> <localleader>t :<C-U>Pstart<CR>
+
+
+vmap <buffer><silent> <localleader>h S)%i<Space>::<Space>?hole1<ESC>
+nmap <buffer><silent> <localleader>h viwS)%i<Space>::<Space>?hole1<ESC>
