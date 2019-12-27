@@ -123,10 +123,10 @@ rec {
     jq
     nixpkgsUnstable.pkgs.rubocop
 
-    mypkgs.all-hies.versions.ghc865
+    mypkgs.all-hies.latest # mypkgs.all-hies.unstable.latest
 
     # nixpkgsUnstable.pkgs.hlint
-    # mypkgs.auto-hie-wrapper
+    # mypkgs.auto-hie-wrapper # use mypkgs.all-hies.unstable.combined ..
     nixpkgsUnstable.pkgs.stack
     # stack
 
