@@ -156,7 +156,7 @@ rec {
     #   in oldPkgs.haskellPackages.brittany
     # )
     # haskellPackages.Agda
-    # nixpkgsUnstable.pkgs.steam
+    nixpkgsUnstable.pkgs.steam
 
     # mypkgs.pgmodeler
     # mypkgs.obelisk.command
