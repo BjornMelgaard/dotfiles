@@ -4,7 +4,7 @@ with pkgs;
 
 rec {
   systemPackages = [
-    nixpkgsUnstable.pkgs.google-chrome
+    (import /home/srghma/projects/nixpkgs { config = { allowUnfree = true; }; }).google-chrome-beta
     # nixpkgsUnstable.pkgs.chromium
     libreoffice
     zip
@@ -175,7 +175,7 @@ rec {
     nixpkgsUnstable.pkgs.patchelf
     # nixpkgsUnstable.pkgs.write_stylus
     # xournal
-    nixpkgsUnstable.pkgs.texworks
+    # nixpkgsUnstable.pkgs.texworks
     # nixpkgsUnstable.pkgs.lex
 
     (
@@ -195,7 +195,7 @@ rec {
     EDITOR = "nvim";
   };
 
-  # etc."resolvconf.conf".text = ''
-  #   name_servers='8.8.8.8'
-  # '';
+  etc."resolvconf.conf".text = ''
+    name_servers='8.8.8.8'
+  '';
 }
