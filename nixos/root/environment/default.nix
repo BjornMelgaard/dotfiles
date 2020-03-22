@@ -4,7 +4,7 @@ with pkgs;
 
 rec {
   systemPackages = [
-    (import /home/srghma/projects/nixpkgs { config = { allowUnfree = true; }; }).google-chrome-beta
+    nixpkgsUnstable.pkgs.google-chrome-beta
     # nixpkgsUnstable.pkgs.chromium
     libreoffice
     zip
@@ -51,7 +51,9 @@ rec {
     gitAndTools.git-crypt
     meld
 
-    nixpkgsUnstable.pkgs.nodejs-10_x
+    # nixpkgsUnstable.pkgs.mplayer
+
+    nixpkgsUnstable.pkgs.nodejs-13_x
 
     # netcat-openbsd # nc -U /var/run/acpid.socket
     lsof
@@ -156,7 +158,7 @@ rec {
     #   in oldPkgs.haskellPackages.brittany
     # )
     # haskellPackages.Agda
-    nixpkgsUnstable.pkgs.steam
+    # nixpkgsUnstable.pkgs.steam
 
     # mypkgs.pgmodeler
     # mypkgs.obelisk.command
@@ -178,17 +180,20 @@ rec {
     # nixpkgsUnstable.pkgs.texworks
     # nixpkgsUnstable.pkgs.lex
 
-    (
-      texlive.combine {
-        # tabularx is not available
-        inherit (pkgs.texlive) scheme-small cleveref latexmk bibtex algorithms cm-super
-        csvsimple subfigure  glossaries collection-latexextra;
-      }
-    )
+    # (
+    #   texlive.combine {
+    #     # tabularx is not available
+    #     inherit (pkgs.texlive) scheme-small cleveref latexmk bibtex algorithms cm-super
+    #     csvsimple subfigure  glossaries collection-latexextra;
+    #   }
+    # )
 
     ruby_2_6
 
     # nixpkgsUnstable.pkgs.gnome3.evolution
+
+    # nixpkgsUnstable.pkgs.ib-tws
+    # nixpkgsUnstable.pkgs.ib-controller
   ];
 
   variables = {
