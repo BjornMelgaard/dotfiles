@@ -639,7 +639,9 @@ let g:deoplete#omni#input_patterns.purescript = '[.\w]+'
 call dein#add('aklt/plantuml-syntax',         {'on_ft':['plantuml']})
 call dein#add('jparise/vim-graphql',          {'on_ft':['graphql']})
 call dein#add('tpope/vim-scriptease',         {'on_ft':['vim']})
-call dein#add('tpope/vim-markdown',           {'on_ft':['markdown']})
+call dein#add('plasticboy/vim-markdown',      {'on_ft':['markdown']})
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_fenced_languages = ['csharp=cs', 'c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'purs=purescript']
 call dein#add('PotatoesMaster/i3-vim-syntax', {'on_ft':['i3']})
 call dein#add('chr4/nginx.vim',               {'on_ft':['nginx']})
 call dein#add('vim-scripts/vim-terraform',    {'on_ft':['terraform']})
@@ -874,6 +876,7 @@ autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal nolist
 autocmd FileType yaml,eruby.yaml setlocal tabstop=2 shiftwidth=2 commentstring=#\ %s
 autocmd FileType agda setlocal commentstring=--\ %s
+autocmd FileType purescript setlocal iskeyword+=- commentstring=--\ %s
 " autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 expandtab
 
 " force filetype on odd extension

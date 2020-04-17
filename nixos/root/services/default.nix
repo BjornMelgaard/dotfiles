@@ -64,7 +64,7 @@ rec {
     enable = true;
     latitude = "47.517201";
     longitude = "35.859375";
-    temperature.night = 5000;
+    temperature.night = 3000;
     brightness.night = "0.5";
   };
 
