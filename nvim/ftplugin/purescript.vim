@@ -33,3 +33,50 @@ nmap <buffer><silent> <C-]> :<C-U>Pgoto<CR>
 
 vmap <buffer><silent> <localleader>h S)%i<Space>::<Space>?hole1<ESC>
 nmap <buffer><silent> <localleader>h viwS)%i<Space>::<Space>?hole1<ESC>
+
+
+" -----------------------------------------------------------------
+
+" https://gist.github.com/paluh/5f3d27708be4f8002cd74be51a228fc9
+
+" turn all symbols into unicode or back
+
+nmap <buffer><silent> <localleader>cu  :%s/ => / ⇒ /ge<CR>:%s/ -> / → /ge<CR>:%s/ <- / ← /ge<CR>:%s/ :: / ∷ /ge<CR>:%s/ <= / ⇐ /ge<CR>:%s/ forall / ∀ /ge<CR>
+nmap <buffer><silent> <localleader>cU  :%s/⇒/=>/ge<CR>:%s/→/->/ge<CR>:%s/←/<-/ge<CR>:%s/∷/::/ge<CR>:%s/⇐/<=/ge<CR>:%s/∀/forall/ge<CR>
+
+" convert symbols while typing
+
+iab forall ∀
+iab -> →
+iab <- ←
+iab => ⇒
+iab <= ⇐
+iab :: ∷
+
+" these greek letters mapping is probably an overkill ;-)
+
+iab alpha α
+iab beta β
+iab gama γ
+iab delta δ
+iab epsilon ε
+iab lambda λ
+iab mu μ
+iab sigma σ
+
+" enable line searching for unicode chars
+
+map f:: f∷
+map t:: t∷
+map F:: F∷
+map T:: T∷
+
+map f-> f→
+map t-> t→
+map F-> F→
+map T-> T→
+
+map f=> f⇒
+map t=> t⇒
+map F=> F⇒
+map T=> T⇒
