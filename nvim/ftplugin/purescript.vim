@@ -46,37 +46,37 @@ nmap <buffer><silent> <localleader>cU  :%s/⇒/=>/ge<CR>:%s/→/->/ge<CR>:%s/←
 
 " convert symbols while typing
 
-iab forall ∀
-iab -> →
-iab <- ←
-iab => ⇒
-iab <= ⇐
-iab :: ∷
+iabbrev <buffer> forall ∀
+iabbrev <buffer> -> →
+iabbrev <buffer> <- ←
+iabbrev <buffer> => ⇒
+iabbrev <buffer> <= ⇐
+iabbrev <buffer> :: ∷
 
 " these greek letters mapping is probably an overkill ;-)
 
-iab alpha α
-iab beta β
-iab gama γ
-iab delta δ
-iab epsilon ε
-iab lambda λ
-iab mu μ
-iab sigma σ
+iabbrev <buffer> alpha α
+iabbrev <buffer> beta β
+iabbrev <buffer> gama γ
+iabbrev <buffer> delta δ
+iabbrev <buffer> epsilon ε
+iabbrev <buffer> lambda λ
+iabbrev <buffer> mu μ
+iabbrev <buffer> sigma σ
 
 " enable line searching for unicode chars
 
-map f:: f∷
-map t:: t∷
-map F:: F∷
-map T:: T∷
+map <buffer><silent> f:: f∷
+map <buffer><silent> t:: t∷
+map <buffer><silent> F:: F∷
+map <buffer><silent> T:: T∷
 
-map f-> f→
-map t-> t→
-map F-> F→
-map T-> T→
+map <buffer><silent> f-> f→
+map <buffer><silent> t-> t→
+map <buffer><silent> F-> F→
+map <buffer><silent> T-> T→
 
-map f=> f⇒
-map t=> t⇒
-map F=> F⇒
-map T=> T⇒
+map <buffer><silent> f=> f⇒
+map <buffer><silent> t=> t⇒
+map <buffer><silent> F=> F⇒
+map <buffer><silent> T=> T⇒
