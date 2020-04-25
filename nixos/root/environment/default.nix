@@ -39,7 +39,8 @@ rec {
     # psmisc
 
     ranger
-    termite
+    # nixpkgsMaster.pkgs.termite
+    nixpkgsMaster.pkgs.kitty
     neovim
     tmux
     nixpkgsUnstable.pkgs.vscode

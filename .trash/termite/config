@@ -1,6 +1,9 @@
 # vim: set ft=dosini
 [options]
-font            = DejaVu Sans Mono for Powerline 9
+# font            = FiraCode Nerd Font Mono 9
+# font            = Inconsolata-dz for Powerline 9
+font            = FiraCode Nerd Font Mono 9
+# font            = DejaVu Sans Mono for Powerline 9
 # font            = DejaVu Sans Mono Nerd Font Complete 10
 
 [colors]

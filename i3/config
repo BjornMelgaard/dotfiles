@@ -59,7 +59,7 @@ bindsym $mod+Shift+0 move workspace $WS9
 # -------------------------------------
 # Autostart
 # -------------------------------------
-set $terminal termite
+set $terminal kitty
 set $browser  google-chrome-beta --remote-debugging-port=4444
 
 exec --no-startup-id randomize_background /home/srghma/.dotfiles/i3/wallpallers/*
@@ -73,8 +73,8 @@ exec --no-startup-id dropbox start
 # -------------------------------------
 bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q exec $terminal
-bindsym $mod+e       exec $terminal -e "tmuxx"
-bindsym $mod+Shift+e exec $terminal -e "tmux new"
+bindsym $mod+e       exec $terminal -e tmuxx
+bindsym $mod+Shift+e exec $terminal -e tmux new
 bindsym $mod+Ctrl+e  exec code
 
 bindsym $mod+w       exec $browser

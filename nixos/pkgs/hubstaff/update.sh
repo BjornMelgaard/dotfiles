@@ -2,4 +2,4 @@
 #!nix-shell -i bash -p nix-prefetch-git
 
 SCRIPT_DIR=$(dirname "$(readlink -f "$BASH_SOURCE")")
-nix-prefetch-git https://github.com/NixOS/nixpkgs --rev 4a3a31be57a363f24de1e69410433c7e3edc8a76 --no-deepClone > "$SCRIPT_DIR/revision.json"
+nix-prefetch-git https://github.com/srghma/nixpkgs --rev 004b3125975c9eb501938cee515e2016402fff2e --no-deepClone > "$SCRIPT_DIR/revision.json"
