@@ -37,9 +37,10 @@ rec {
     # })
 
     # pkgs.nixpkgsMaster.pkgs.monoid
-    pkgs.nixpkgsMaster.pkgs.hasklig
-    # pkgs.nixpkgsMaster.pkgs.fira-code
-    # pkgs.nixpkgsMaster.pkgs.fira-code-symbols
+    # pkgs.nixpkgsMaster.pkgs.hasklig
+    pkgs.nixpkgsMaster.pkgs.fira-code
+    pkgs.nixpkgsMaster.pkgs.fira-code-symbols
+    pkgs.nixpkgsMaster.pkgs.jetbrains-mono
 
     # the font package loads very slow (https://github.com/NixOS/nixpkgs/issues/47921)
     # to prevent error - download for github manually from

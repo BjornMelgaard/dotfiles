@@ -5,12 +5,12 @@ nmap <buffer><silent> <localleader>at :<C-U>PaddType<CR>
 " suggestion
 nmap <buffer><silent> <localleader>ap :<C-U>Papply<CR>
 " split case
-nmap <buffer><silent> <localleader>s :<C-U>Pcase<CR>
+nmap <buffer><silent> <localleader>s :<C-U>Pcase
 
 " ?
-nmap <buffer><silent> <localleader>ai :<C-U>PaddImportQualifications<CR>
-nmap <buffer><silent> <localleader>i :<C-U>Pimport<CR>
-" nmap <buffer><silent> <localleader>t :<C-U>PimportModule<CR>
+nmap <buffer><silent> <localleader>iq :<C-U>PaddImportQualifications<CR>
+nmap <buffer><silent> <localleader>ii :<C-U>Pimport<CR>
+nmap <buffer><silent> <localleader>im :<C-U>PimportModule<CR>
 
 nmap <buffer><silent> <localleader>s :<C-U>Pursuit<CR>
 " nmap <buffer><silent> <localleader>t :<C-U>Ptype<CR>

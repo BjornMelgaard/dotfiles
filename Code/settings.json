@@ -2,7 +2,10 @@
     "editor.fontSize": 12,
     "files.autoSave": "off",
     "editor.renderWhitespace": "all",
-    "editor.fontFamily": "DejaVu Sans Mono",
+    "editor.fontFamily": "JetBrains Mono",
+    // "editor.accessibilitySupport": "off",
+   // "editor.fontFamily": "FiraCode-VF.ttf",
+    "editor.fontLigatures": true,
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "gitlens.advanced.messages": {
