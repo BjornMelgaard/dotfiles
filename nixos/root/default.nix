@@ -267,7 +267,7 @@
       "https://srghma.cachix.org"
       "https://hie-nix.cachix.org"
       "https://nixcache.reflex-frp.org"
-      "https://hydra.iohk.io"
+      # "https://hydra.iohk.io"
       "https://lorri-test.cachix.org"
       "https://nix-tools.cachix.org"
     ];
@@ -279,7 +279,7 @@
       "srghma.cachix.org-1:EUHKjTh/WKs49hFtw6bwDE9oQLeX5afml0cAKc97MbI="
       "hie-nix.cachix.org-1:EjBSHzF6VmDnzqlldGXbi0RM3HdjfTU3yDRi9Pd0jTY="
       "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
-      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+      # "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
       "lorri-test.cachix.org-1:wZCd/aYaK5pMR0odlnNIdinNTR+3mz3A60NYlFiCeO0="
       "nix-tools.cachix.org-1:ebBEBZLogLxcCvipq2MTvuHlP7ZRdkazFSQsbs0Px1A="
     ];

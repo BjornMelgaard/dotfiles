@@ -4,3 +4,6 @@ tags
 .stfolder
 .stversions
 .bash_hist
+.envrc
+nix/
+shell.nix

@@ -575,7 +575,7 @@ exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Elm
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" call dein#add('ElmCast/elm-vim') " {{{
+" call dein#add('ElmCast/elm-vim', {'on_ft':['elm']}) " {{{
 "   let g:elm_format_autosave = 1
 "   let g:elm_setup_keybindings = 0 " use bindings from ftplugin/elm.vim
 
@@ -587,7 +587,7 @@ exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 "   " let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
 "   " let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
 " " }}}
-" call dein#add('pbogut/deoplete-elm')
+" call dein#add('pbogut/deoplete-elm', {'on_ft':['elm']})
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Idris
@@ -876,7 +876,7 @@ autocmd FileType python setlocal foldmethod=indent
 autocmd FileType markdown setlocal nolist
 autocmd FileType yaml,eruby.yaml setlocal tabstop=2 shiftwidth=2 commentstring=#\ %s
 autocmd FileType agda setlocal commentstring=--\ %s
-autocmd FileType purescript setlocal iskeyword+=- commentstring=--\ %s
+autocmd FileType purescript setlocal iskeyword+=- commentstring=--\ \|\ %s
 " autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 expandtab
 
 " force filetype on odd extension
