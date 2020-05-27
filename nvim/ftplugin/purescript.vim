@@ -41,13 +41,13 @@ nmap <buffer><silent> <localleader>h viwS)%i<Space>::<Space>?hole1<ESC>
 
 " turn all symbols into unicode or back
 
-" nmap <buffer><silent> <localleader>cu  :%s/ => / ⇒ /ge<CR>:%s/ -> / → /ge<CR>:%s/ <- / ← /ge<CR>:%s/ :: / ∷ /ge<CR>:%s/ <= / ⇐ /ge<CR>:%s/ forall / ∀ /ge<CR>
-nmap <buffer><silent> <localleader>cu  :%s/ forall / ∀ /ge<CR>
+nmap <buffer><silent> <localleader>cu  :%s/ => / ⇒ /ge<CR>:%s/ -> / → /ge<CR>:%s/ <- / ← /ge<CR>:%s/ :: / ∷ /ge<CR>:%s/ <= / ⇐ /ge<CR>:%s/ forall / ∀ /ge<CR>
+" nmap <buffer><silent> <localleader>cu  :%s/ forall / ∀ /ge<CR>
 nmap <buffer><silent> <localleader>cU  :%s/⇒/=>/ge<CR>:%s/→/->/ge<CR>:%s/←/<-/ge<CR>:%s/∷/::/ge<CR>:%s/⇐/<=/ge<CR>:%s/∀/forall/ge<CR>
 
 " convert symbols while typing
 
-iabbrev <buffer> forall ∀
+" iabbrev <buffer> forall ∀
 " iabbrev <buffer> -> →
 " iabbrev <buffer> <- ←
 " iabbrev <buffer> => ⇒

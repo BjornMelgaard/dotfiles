@@ -195,6 +195,7 @@ rec {
 
     # nixpkgsUnstable.pkgs.ib-tws
     # nixpkgsUnstable.pkgs.ib-controller
+    nixpkgsUnstable.pkgs.solargraph
   ];
 
   variables = {

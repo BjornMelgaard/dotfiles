@@ -7,3 +7,6 @@ tags
 .envrc
 nix/
 shell.nix
+packages.dhall
+spago.dhall
+nohup.*
