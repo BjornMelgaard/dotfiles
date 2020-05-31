@@ -298,7 +298,9 @@
     # extraOptions = "-H unix:///var/run/docker.sock";
   };
 
-  # virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true; # for forwarding usb
+
   # virtualisation.libvirtd.enable = true;
   # virtualisation.memorySize = 1024;
 

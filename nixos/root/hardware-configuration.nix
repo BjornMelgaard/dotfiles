@@ -18,6 +18,11 @@
       fsType = "ext4";
     };
 
+  fileSystems."/home/srghma/other-disk" =
+    { device = "/dev/disk/by-uuid/1b4724d8-0f46-441b-8d80-c24ff61eb958";
+      fsType = "ext4";
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/8CAD-D11F";
       fsType = "vfat";
@@ -30,3 +35,8 @@
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
+# /dev/sdb2: UUID="1b4724d8-0f46-441b-8d80-c24ff61eb958" TYPE="ext4" PARTLABEL="Basic data partition" PARTUUID="967f8840-2462-4bba-8efa-2b4cf2277cbf"
+# /dev/sda1: SEC_TYPE="msdos" LABEL_FATBOOT="NIXOS_BOOT" LABEL="NIXOS_BOOT" UUID="8CAD-D11F" TYPE="vfat" PARTLABEL="EFI System" PARTUUID="51f7e5db-2680-4126-88ec-3d9aad898bf6"
+# /dev/sda2: LABEL="NIXOS_SWAP" UUID="2f870400-67d6-4e6f-bf59-536a010cc1e0" TYPE="swap" PARTLABEL="Linux swap" PARTUUID="34cb0c67-2964-4b4c-b202-72ec52eeb172"
+# /dev/sda3: LABEL="NIXOS_ROOT" UUID="d6ac1048-e6cf-4bab-89ec-27db808aae54" TYPE="ext4" PARTLABEL="Linux filesystem" PARTUUID="38dd8e06-0c91-4a67-bd03-240e0ff8be8d"
+# /dev/sdb1: LABEL="NIXOS_ADJUNCT" UUID="5a025346-9261-402a-8117-581f422dd1f5" TYPE="ext4" PARTLABEL="Microsoft reserved partition" PARTUUID="2c05e3fa-3803-486d-9968-840a66e0aa51"

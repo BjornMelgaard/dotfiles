@@ -1,6 +1,7 @@
 .rake_tasks
 .DS_Store
 tags
+nohup.*
 .stfolder
 .stversions
 .bash_hist
@@ -9,4 +10,3 @@ nix/
 shell.nix
 packages.dhall
 spago.dhall
-nohup.*

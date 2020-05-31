@@ -17,7 +17,18 @@
 
         srghma = {
           isNormalUser = true;
-          extraGroups = [ "audio" "video" "disk" "wheel" "networkmanager" "docker" "vboxusers" "libvirtd" ];
+          extraGroups =
+            [
+              "audio"
+              "video"
+              "disk"
+              "wheel"
+              "networkmanager"
+              "docker"
+              "vboxusers"
+              "libvirtd"
+              "user-with-access-to-virtualbox"
+            ];
           inherit hashedPassword;
         };
       };
