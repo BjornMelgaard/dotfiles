@@ -178,8 +178,6 @@
 
           ## ruby
           "bundler"
-          "ruby"
-          "rails"
           "gem"
           # rvm
           # rake-fast
