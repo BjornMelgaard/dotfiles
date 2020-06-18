@@ -6,3 +6,5 @@ nohup.*
 .stversions
 .bash_hist
 .envrc
+# spago.dhall
+# packages.dhall
