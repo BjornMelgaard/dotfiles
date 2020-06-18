@@ -196,6 +196,10 @@ rec {
     # nixpkgsUnstable.pkgs.ib-tws
     # nixpkgsUnstable.pkgs.ib-controller
     nixpkgsUnstable.pkgs.solargraph
+
+    mypkgs.easy-purescript-nix-automatic.spago
+    mypkgs.easy-purescript-nix-automatic.purs
+    mypkgs.easy-purescript-nix-automatic.purty # find ./packages/client/src -name "*.purs" -exec purty --write {} \;
   ];
 
   variables = {

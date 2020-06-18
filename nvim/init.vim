@@ -877,6 +877,7 @@ autocmd FileType markdown setlocal nolist
 autocmd FileType yaml,eruby.yaml setlocal tabstop=2 shiftwidth=2 commentstring=#\ %s
 autocmd FileType agda setlocal commentstring=--\ %s
 autocmd FileType purescript setlocal iskeyword+=- commentstring=--\ \|\ %s
+autocmd FileType zsh setlocal iskeyword+=-
 " autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 expandtab
 
 " force filetype on odd extension

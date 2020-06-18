@@ -17,6 +17,7 @@ rec {
     cachix                = pkgs.callPackage ./cachix {};
     dropbox-nixpkgs       = pkgs.callPackage ./dropbox-nixpkgs {};
     dunsted-volume        = pkgs.callPackage ./dunsted-volume {};
+    easy-purescript-nix-automatic = pkgs.callPackage ./easy-purescript-nix-automatic {};
     fix-github-https-repo = pkgs.callPackage ./fix-github-https-repo {};
     hubstaff              = pkgs.callPackage ./hubstaff {};
     kb-light              = pkgs.callPackage ./kb-light {};
