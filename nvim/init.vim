@@ -841,7 +841,8 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Finish
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('nanotech/jellybeans.vim')
+" call dein#add('nanotech/jellybeans.vim')
+call dein#add('morhetz/gruvbox')
 call dein#add('ryanoasis/vim-devicons')
 
 call dein#end()
@@ -854,7 +855,12 @@ autocmd VimEnter * call dein#call_hook('post_source')
 
 filetype plugin indent on
 syntax enable
-colorscheme jellybeans
+set background=light   " Setting light mode
+colorscheme gruvbox
+" set st cursor and background to contrasting colors on start
+silent !echo -ne "\033]4;258;\#3c3836\x7\033]4;256;\#fbf1c7\x7"
+" reset cursor and background  when vim exits
+autocmd VimLeave * silent !echo -ne "\033]104;258\x7\033]104;256\x7"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocommands
