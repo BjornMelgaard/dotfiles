@@ -857,10 +857,6 @@ filetype plugin indent on
 syntax enable
 set background=light   " Setting light mode
 colorscheme gruvbox
-" set st cursor and background to contrasting colors on start
-silent !echo -ne "\033]4;258;\#3c3836\x7\033]4;256;\#fbf1c7\x7"
-" reset cursor and background  when vim exits
-autocmd VimLeave * silent !echo -ne "\033]104;258\x7\033]104;256\x7"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocommands

@@ -201,6 +201,9 @@ rec {
     mypkgs.easy-purescript-nix-automatic.purs
     mypkgs.easy-purescript-nix-automatic.purty # find ./packages/client/src -name "*.purs" -exec purty --write {} \;
     nixpkgsUnstable.pkgs.sd
+
+    nixpkgsUnstable.pkgs.elmPackages.elm
+    nixpkgsUnstable.pkgs.elmPackages.elm-format
   ];
 
   variables = {

@@ -10,13 +10,17 @@ link-purescript-project () {( set -e
   rmf "$project/.spago/$depname" && mkdir -p "$project/.spago/$depname" && ln -s "$to" "$project/.spago/$depname/$version"
 )}
 
-link-purescript-project-all () {( set -e
+link-purescript-project-halogen () {( set -e
   rm -dRf ~/projects/purescript-halogen-nextjs/node_modules/webpack-spago-loader && ln -s ~/projects/webpack-spago-loader ~/projects/purescript-halogen-nextjs/node_modules
 
   link-purescript-project $HOME/projects/purescript-halogen-vdom web-dom
 
   link-purescript-project $HOME/projects/purescript-halogen halogen-vdom
   link-purescript-project $HOME/projects/purescript-halogen web-dom
+
+  link-purescript-project $HOME/projects/purescript-halogen-reactnative halogen
+  link-purescript-project $HOME/projects/purescript-halogen-reactnative halogen-vdom
+  link-purescript-project $HOME/projects/purescript-halogen-reactnative web-dom
 
   link-purescript-project $HOME/projects/purescript-halogen-nextjs halogen
   link-purescript-project $HOME/projects/purescript-halogen-nextjs halogen-vdom
@@ -69,4 +73,8 @@ link-purescript-project-all () {( set -e
   link-purescript-project $HOME/projects/purescript-halogen-formless halogen-hooks
   link-purescript-project $HOME/projects/purescript-halogen-formless halogen-hooks-extra
   link-purescript-project $HOME/projects/purescript-halogen-formless halogen-select
+)}
+
+link-purescript-project-all () {( set -e
+  link-purescript-project $HOME/projects/purescript-graphql-client ps-ast
 )}
