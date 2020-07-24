@@ -76,5 +76,5 @@ link-purescript-project-halogen () {( set -e
 )}
 
 link-purescript-project-all () {( set -e
-  link-purescript-project $HOME/projects/purescript-graphql-client ps-ast
+  link-purescript-project $HOME/projects/purescript-graphql-client ps-cst
 )}
