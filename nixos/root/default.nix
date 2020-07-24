@@ -1,5 +1,8 @@
 { options, config, pkgs, lib, ... }@args:
 
+let
+  environment = import ./environment args;
+in
 {
   imports = [
     ../modules/cachix.nix
@@ -61,7 +64,7 @@
     '';
   };
 
-  environment = import ./environment args;
+  environment = environment;
   services    = import ./services    args;
   fonts       = import ./fonts       args;
 
@@ -87,6 +90,7 @@
   programs = {
     java.enable = true;
     chromium.enable = true; # add chrome and chromium config files to /etc
+    adb.enable = true; # from https://nixos.wiki/wiki/Android
 
     gnupg.agent = {
       enable = true;
@@ -303,4 +307,8 @@
   # virtualisation.memorySize = 1024;
 
   system.stateVersion = "19.03";
+
+  system.activationScripts.preventCurrentSystemPackagesIfdsFromCollecting = ''
+    ln -sfn ${pkgs.collectIfdDepsToTextFile environment.systemPackages} /nix/var/nix/gcroots/ifd-deps
+  '';
 }

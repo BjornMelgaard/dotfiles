@@ -1,4 +1,4 @@
-{ lib, callPackage, fetchFromGitHub, readRevision, addAsRuntimeDeps }:
+{ lib, callPackage, fetchFromGitHub, readRevision, addIfdDeps }:
 
 let
   src = fetchFromGitHub (readRevision ./revision.json);

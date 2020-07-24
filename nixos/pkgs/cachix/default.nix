@@ -1,4 +1,4 @@
-{ fetchFromGitHub, addAsRuntimeDeps }:
+{ fetchFromGitHub, addIfdDeps }:
 
 let
   revData = builtins.fromJSON (builtins.readFile ./revision.json);
@@ -16,4 +16,4 @@ let
 
   drv = import src {};
 in
-  addAsRuntimeDeps [src] drv
+  addIfdDeps [src] drv

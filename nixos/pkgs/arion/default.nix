@@ -1,4 +1,4 @@
-{ pkgs, fetchFromGitHub, readRevision, addAsRuntimeDeps, ... }:
+{ pkgs, fetchFromGitHub, readRevision, addIfdDeps, ... }:
 
 let
   src = fetchFromGitHub (

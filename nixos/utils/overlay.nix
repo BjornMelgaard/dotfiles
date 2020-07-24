@@ -7,4 +7,4 @@ let
 in
 
 (callUtil ./readRevision.nix) //
-(callUtil ./addAsRuntimeDeps.nix)
+(callUtil ./ifdDeps.nix)

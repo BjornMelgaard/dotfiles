@@ -1,10 +1,12 @@
-{ lib, callPackage, fetchFromGitHub, readRevision, addAsRuntimeDeps }:
+{ lib, callPackage, fetchFromGitHub, readRevision, addIfdDeps }:
 
 let
   src = fetchFromGitHub (readRevision ./revision.json);
   # src = fetchTarball "https://github.com/infinisil/all-hies/tarball/master";
 
   # drv = callPackage src {};
-  drv = import src {};
+  allPackages = import src {};
 in
-  drv
+  {
+    latest = addIfdDeps [src] allPackages.latest;
+  }

@@ -2,7 +2,7 @@
 
 with pkgs;
 
-rec {
+let
   systemPackages = [
     nixpkgsUnstable.pkgs.google-chrome-beta
     # nixpkgsUnstable.pkgs.chromium
@@ -120,7 +120,7 @@ rec {
     mypkgs.switch_touchpad
     mypkgs.tmuxx
     # mypkgs.umsf
-    mypkgs.fix-github-https-repo
+    # mypkgs.fix-github-https-repo
 
     # xmind
     jq
@@ -205,6 +205,9 @@ rec {
     nixpkgsUnstable.pkgs.elmPackages.elm
     nixpkgsUnstable.pkgs.elmPackages.elm-format
   ];
+in
+{
+  systemPackages = systemPackages;
 
   variables = {
     EDITOR = "nvim";

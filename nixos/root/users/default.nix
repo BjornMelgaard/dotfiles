@@ -28,6 +28,7 @@
               "vboxusers"
               "libvirtd"
               "user-with-access-to-virtualbox"
+              "adbusers"
             ];
           inherit hashedPassword;
         };

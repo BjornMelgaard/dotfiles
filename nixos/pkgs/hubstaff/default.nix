@@ -1,4 +1,4 @@
-{ fetchFromGitHub, readRevision, ... }:
+{ fetchFromGitHub, readRevision, addIfdDeps }:
 
 let
   nixpkgs = fetchFromGitHub (
@@ -9,4 +9,4 @@ let
 
   nixpkgs-with-working-app = import nixpkgs { config = { allowUnfree = true; }; };
 in
-  nixpkgs-with-working-app.hubstaff
+  addIfdDeps [nixpkgs] nixpkgs-with-working-app.hubstaff
