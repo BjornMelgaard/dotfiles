@@ -7,4 +7,4 @@ let
   # drv = callPackage src {};
   drv = import src {};
 in
-  drv
+  addIfdDeps [src] drv

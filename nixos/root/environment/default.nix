@@ -204,6 +204,9 @@ let
 
     nixpkgsUnstable.pkgs.elmPackages.elm
     nixpkgsUnstable.pkgs.elmPackages.elm-format
+
+    # nixpkgsMaster.pkgs.android-studio
+    nixpkgsMaster.pkgs.fd
   ];
 in
 {
