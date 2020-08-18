@@ -239,7 +239,7 @@ in
   time.timeZone = "Europe/Kiev";
 
   nix = {
-    useSandbox = true;
+    useSandbox = "relaxed";
 
     # TODO: wait https://github.com/NixOS/nixpkgs/pull/44880
     # maxJobs = "auto";

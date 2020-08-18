@@ -4,7 +4,7 @@ link-purescript-project () {( set -e
   to="${3:-"$HOME/projects/purescript-$2"}"
   version=$(cd $project && (spago sources | grep ".spago/$depname/" | /nix/store/s8mprbmgm91vlvgdg5lfvyhmfdbx88k2-sd-0.6.5/bin/sd '[^/]+/[^/]+/([^/]+)/.*' '$1'))
 
-  [ -z "$version" ] && (echo "Empty for $project/.spago/$depname ($to)" && exit 1)
+  [ -z "$version" ] && (echo "\e[31mEmpty for $project/.spago/$depname ($to)\e[0m" && exit 1)
 
   echo "linking $project/.spago/$depname to $to (version = $version)"
   rmf "$project/.spago/$depname" && mkdir -p "$project/.spago/$depname" && ln -s "$to" "$project/.spago/$depname/$version"

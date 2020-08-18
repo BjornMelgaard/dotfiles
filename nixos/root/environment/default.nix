@@ -4,7 +4,7 @@ with pkgs;
 
 let
   systemPackages = [
-    nixpkgsUnstable.pkgs.google-chrome-beta
+    nixpkgsMaster.pkgs.google-chrome-beta
     # nixpkgsUnstable.pkgs.chromium
     libreoffice
     zip
@@ -54,7 +54,7 @@ let
 
     # nixpkgsUnstable.pkgs.mplayer
 
-    nixpkgsUnstable.pkgs.nodejs-13_x
+    nixpkgsUnstable.pkgs.nodejs-14_x
 
     # netcat-openbsd # nc -U /var/run/acpid.socket
     lsof
@@ -207,6 +207,7 @@ let
 
     # nixpkgsMaster.pkgs.android-studio
     nixpkgsMaster.pkgs.fd
+    nixpkgsMaster.pkgs.gitAndTools.gh
   ];
 in
 {

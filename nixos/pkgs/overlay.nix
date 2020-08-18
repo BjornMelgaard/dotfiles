@@ -8,7 +8,7 @@ rec {
       nixpkgs-unstable-src = <nixpkgs-unstable>;
     in import nixpkgs-unstable-src { config = { allowUnfree = true; }; };
 
-  nixpkgsMaster = import (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") { config = { allowUnfree = true; }; };
+  nixpkgsMaster = import <nixpkgs-master> { config = { allowUnfree = true; }; };
 
   mypkgs = {
     all-hies                      = pkgs.callPackage ./all-hies {};
