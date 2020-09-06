@@ -12,7 +12,7 @@
         { dependencies =
             upstream.halogen-vdom.dependencies
         , repo =
-            "ssh://git@github.com/srghma/purescript-halogen-vdom.git"
+            "https://github.com/srghma/purescript-halogen-vdom.git"
         , version =
             "master"
         }
@@ -101,7 +101,7 @@
         { dependencies =
             upstream.either.dependencies
         , repo =
-            "ssh://git@github.com/srghma/purescript-either.git"
+            "https://github.com/srghma/purescript-either.git"
         , version =
             "patch-1"
         }

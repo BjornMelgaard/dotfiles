@@ -3,7 +3,7 @@
     { dependencies =
         [ "strings", "arrays", "generics-rep", "partial", "unicode" ]
     , repo =
-        "ssh://git@github.com/Thimoteus/purescript-yarn.git"
+        "https://github.com/Thimoteus/purescript-yarn.git"
     , version =
         "master"
     }

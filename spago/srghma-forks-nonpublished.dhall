@@ -2,7 +2,7 @@
     { dependencies =
         [ "prelude" ]
     , repo =
-        "ssh://git@github.com/srghma/purescript-halogen-svg.git"
+        "https://github.com/srghma/purescript-halogen-svg.git"
     , version =
         "master"
     }
@@ -10,7 +10,7 @@
     { dependencies =
         [ "prelude", "halogen-vdom", "ordered-collections", "foreign" ]
     , repo =
-        "ssh://git@github.com/srghma/purescript-halogen-vdom-string-renderer.git"
+        "https://github.com/srghma/purescript-halogen-vdom-string-renderer.git"
     , version =
         "master"
     }

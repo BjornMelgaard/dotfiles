@@ -17,7 +17,7 @@
         , "generics-rep"
         ]
     , repo =
-        "ssh://git@github.com/srghma/purescript-protolude.git"
+        "https://github.com/srghma/purescript-protolude.git"
     , version =
         "master"
     }
@@ -41,7 +41,7 @@
         , "foldable-traversable"
         ]
     , repo =
-        "ssh://git@github.com/srghma/purescript-halogen-material-components-web.git"
+        "https://github.com/srghma/purescript-halogen-material-components-web.git"
     , version =
         "master"
     }
@@ -49,7 +49,7 @@
     { dependencies =
         [ "prelude", "web-dom" ]
     , repo =
-        "ssh://git@github.com/srghma/purescript-web-intersection-observer.git"
+        "https://github.com/srghma/purescript-web-intersection-observer.git"
     , version =
         "master"
     }
