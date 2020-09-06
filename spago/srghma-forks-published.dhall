@@ -1,4 +1,4 @@
-\(upstream : ./upstreamType.dhall) ->
+\(upstream : ./upstreamTypeChunk.dhall) ->
 
     { halogen =
         { dependencies =

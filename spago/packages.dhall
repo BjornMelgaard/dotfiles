@@ -1,4 +1,4 @@
-\(upstream : ./upstreamType.dhall) ->
+\(upstream : ./upstreamTypeChunk.dhall) ->
 
   ./srghma-packages.dhall
 ⫽ ./srghma-forks-published.dhall upstream
