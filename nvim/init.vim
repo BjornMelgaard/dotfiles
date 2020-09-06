@@ -153,21 +153,21 @@ call dein#add('mhinz/vim-startify') "{{{
   nnoremap <leader>S :SSave <C-R>=fnamemodify(getcwd(), ':t')<cr><cr>
 "}}}
 
-function s:on_neomake_source()
-  call neomake#configure#automake('w')
-endfunction
-call dein#add('neomake/neomake', {'hook_post_source': function('s:on_neomake_source')}) " {{{
-  " let g:neomake_open_list = 0
-  " let g:neomake_verbose = 3
+" function s:on_neomake_source()
+"   call neomake#configure#automake('w')
+" endfunction
+" call dein#add('neomake/neomake', {'hook_post_source': function('s:on_neomake_source')}) " {{{
+"   " let g:neomake_open_list = 0
+"   " let g:neomake_verbose = 3
 
-  let g:neomake_ruby_enabled_makers = ['rubocop']
-  let g:neomake_sql_enabled_makers = ['sqlint']
-  let g:neomake_typescript_enabled_makers = ['tslint']
-  " let g:neomake_typescript_tslint_args = ['--fix']
+"   let g:neomake_ruby_enabled_makers = ['rubocop']
+"   let g:neomake_sql_enabled_makers = ['sqlint']
+"   let g:neomake_typescript_enabled_makers = ['tslint']
+"   " let g:neomake_typescript_tslint_args = ['--fix']
 
-  " flow fix
-  " call dein#add('benjie/neomake-local-eslint.vim')
-" }}}
+"   " flow fix
+"   " call dein#add('benjie/neomake-local-eslint.vim')
+" " }}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map':['<Plug>ToggleGoldenViewAutoResize']}) "{{{
   let g:goldenview__enable_default_mapping=0
 "}}}
@@ -254,14 +254,13 @@ call dein#add('autozimu/LanguageClient-neovim', {
 " https://github.com/sduchesneau/nvim-config/blob/0f3ce63e825e27f0a0a631c68743435432e56cf8/bundle/.neobundle/doc/ale-purescript.txt#L18
 let purescriptConfigWrapper =
     \ { 'purescript':
-    \   {
-    \     'autoStartPscIde': v:true
+    \   { 'autoStartPscIde': v:true
     \   , 'pscIdePort': v:null
     \   , 'addSpagoSources': v:true
     \   , 'autocompleteAddImport': v:true
     \   , 'pursExe': 'purs'
     \   , 'addNpmPath': v:true
-    \   , 'buildCommand': 'spago build -- --json-errors'
+    \   , 'buildCommand': 'spago --config app/spago.dhall build -- --json-errors'
     \   }
     \ }
 

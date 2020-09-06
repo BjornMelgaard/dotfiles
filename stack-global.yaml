@@ -5,9 +5,13 @@ templates:
    license: Apache-2.0
    github-username: srghma
 
+# nix:
+#   enable: true
+#   pure: true
+#   # packages: [curl,  zlib, ncurses, gmp]
+#   # there are two options to use nix with stack: `packages` option, `shell-file` option
+#   # shell-file: shell.nix
+
 nix:
   enable: true
-  pure: true
-  # packages: [curl,  zlib, ncurses, gmp]
-  # there are two options to use nix with stack: `packages` option, `shell-file` option
-  # shell-file: shell.nix
+  shell-file: ~/.dotfiles/stack-shell.nix
