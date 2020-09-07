@@ -12,6 +12,6 @@ ps-suggest-fix () {
 
   cat $tmpfile | ps-suggest --apply
 
-  sd --flags c 'import Prelude.*' 'import Prelude' $(/nix/store/pshda93lw9mzmjy24ml0ly7cfkz480ka-fd-7.4.0/bin/fd --type f ".purs_?" ./)
-  sd --flags c 'import Protolude.*' 'import Protolude' $(/nix/store/pshda93lw9mzmjy24ml0ly7cfkz480ka-fd-7.4.0/bin/fd --type f ".purs_?" ./)
+  sd --flags c 'import Prelude \(.*' 'import Prelude' $(fd --type f ".purs_?" ./)
+  sd --flags c 'import Protolude \(.*' 'import Protolude' $(fd --type f ".purs_?" ./)
 }
