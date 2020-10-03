@@ -1,6 +1,15 @@
+; [user]
+;   name = Angelina Tarapko
+;   email = tarapko.angelina@gmail.com
+; [github]
+;   user = angelinatarapko
+
 [user]
   name = Serhii Khoma
   email = srghma@gmail.com
+[github]
+  user = srghma
+
 [credential]
   helper = cache --timeout=3600
 [core]
@@ -16,8 +25,6 @@
   permission-reset = !git diff -p -R --no-color | grep -E \"^(diff|(old|new) mode)\" --color=never | git apply
   po               = "!git push -u origin \"$(git rev-parse --abbrev-ref HEAD)\""
   remote-upsert    = "!f(){ if git remote get-url "$1" > /dev/null 2>&1; then echo "git remote set-url" "$1" "$2"; git remote set-url "$1" "$2"; else echo "git remote add" "$1" "$2"; git remote add "$1" "$2"; fi }; f"
-[github]
-  user = srghma
 [rebase]
   instructionFormat = (%an <%ae>) %s
 [diff]

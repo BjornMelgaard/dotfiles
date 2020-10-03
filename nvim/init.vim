@@ -319,10 +319,10 @@ if $TMUX != ''
   autocmd VimEnter * silent! !tmux source ~/.dotfiles/tmux/themes/jellybeans_tmuxline
   autocmd VimLeave * silent! !tmux source ~/.dotfiles/tmux/themes/iceberg_tmuxline
 
-  " call dein#add('edkolev/tmuxline.vim') " {{{
-  "   let g:tmuxline_theme = 'jellybeans'
-  "   let g:tmuxline_preset = 'minimal'
-  " " }}}
+  call dein#add('edkolev/tmuxline.vim') " {{{
+    let g:tmuxline_theme = 'jellybeans'
+    let g:tmuxline_preset = 'minimal'
+  " }}}
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -841,7 +841,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Finish
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" call dein#add('nanotech/jellybeans.vim')
+call dein#add('nanotech/jellybeans.vim')
 call dein#add('morhetz/gruvbox')
 call dein#add('ryanoasis/vim-devicons')
 
@@ -855,8 +855,12 @@ autocmd VimEnter * call dein#call_hook('post_source')
 
 filetype plugin indent on
 syntax enable
-set background=light   " Setting light mode
-colorscheme gruvbox
+
+set background=dark   " Setting light mode
+colorscheme jellybeans
+
+" set background=light   " Setting light mode
+" colorscheme gruvbox
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocommands
