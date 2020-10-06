@@ -42,7 +42,7 @@ rec {
   openssh.enable = true;
   xbanish.enable = true;
   compton.enable = true;
-  keybase.enable = true;
+  # keybase.enable = true;
 
   gnome3.gnome-documents.enable = true;
   gnome3.gnome-online-accounts.enable = true;
@@ -51,7 +51,7 @@ rec {
   gnome3.tracker.enable = true;
   gnome3.evolution-data-server.enable = true;
   packagekit.enable = false;
-  gnome3.gnome-keyring.enable = true;
+  # gnome3.gnome-keyring.enable = false;
   gnome3.seahorse.enable = true;
   gnome3.tracker-miners.enable = false;
   geoclue2.enable = false;
@@ -129,7 +129,7 @@ rec {
   emacs.enable = false;
 
   # ID kaart
-  pcscd.enable = true;
+  # pcscd.enable = true;
 
   lorri.enable = true;
 }

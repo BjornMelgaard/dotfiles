@@ -92,12 +92,9 @@ in
     chromium.enable = true; # add chrome and chromium config files to /etc
     adb.enable = true; # from https://nixos.wiki/wiki/Android
 
-    gnupg.agent = {
-      enable = true;
-
-      # use gnupg-agent instead ssh-agent to temporarily remember password for password-protected keys
+    ssh = {
       # don't forget to `ssh-add` to add key to keychain
-      enableSSHSupport = true;
+      startAgent = true;
     };
 
     cachix = {
