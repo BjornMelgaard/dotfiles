@@ -14,4 +14,4 @@ templates:
 
 nix:
   enable: true
-  shell-file: ~/.dotfiles/stack-shell.nix
+  # shell-file: ~/.dotfiles/stack-shell.nix

@@ -200,7 +200,7 @@ let
     mypkgs.easy-purescript-nix-automatic.spago
     mypkgs.easy-purescript-nix-automatic.purs
     mypkgs.easy-purescript-nix-automatic.purty # find ./packages/client/src -name "*.purs" -exec purty --write {} \;
-    nixpkgsUnstable.pkgs.sd
+    nixpkgsMaster.pkgs.sd
 
     nixpkgsUnstable.pkgs.elmPackages.elm
     nixpkgsUnstable.pkgs.elmPackages.elm-format
@@ -208,6 +208,8 @@ let
     # nixpkgsMaster.pkgs.android-studio
     nixpkgsMaster.pkgs.fd
     nixpkgsMaster.pkgs.gitAndTools.gh
+
+    mypkgs.update-module-name-purs
   ];
 in
 {

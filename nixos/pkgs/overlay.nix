@@ -34,6 +34,7 @@ rec {
     umsf                          = pkgs.callPackage ./umsf {};
     yed                           = pkgs.callPackage ./yed {};
     lorri                         = pkgs.callPackage ./lorri {};
+    update-module-name-purs       = pkgs.callPackage ./update-module-name-purs {};
   };
 
   inherit (mypkgs.dropbox-nixpkgs) dropbox-cli dropbox;
