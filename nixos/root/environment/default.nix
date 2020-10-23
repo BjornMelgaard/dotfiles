@@ -209,7 +209,7 @@ let
     nixpkgsMaster.pkgs.fd
     nixpkgsMaster.pkgs.gitAndTools.gh
 
-    mypkgs.update-module-name-purs
+    # mypkgs.update-module-name-purs
   ];
 in
 {
