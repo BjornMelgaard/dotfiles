@@ -7,7 +7,7 @@ ps-suggest-fix () {
   # remove dir to force purs output ALL warnings for ALL files
   rm -fdR ./output
 
-  eval "spago $1 build --purs-args \"--json-errors\"" 2>$tmpfile
+  eval "spago $1 build --purs-args \"--json-errors\"" 1>$tmpfile
 
   cat $tmpfile | ps-suggest --list
 

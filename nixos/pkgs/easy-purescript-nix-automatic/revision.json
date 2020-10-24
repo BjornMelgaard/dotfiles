@@ -1,7 +1,7 @@
 {
   "url": "https://github.com/srghma/easy-purescript-nix-automatic",
-  "rev": "c29978d4fb15a3c6ff2d23d9e8b0a7ba25391623",
-  "date": "2020-10-23T19:33:51+03:00",
-  "sha256": "0m9grl0037ik0gzxx72ml3yka5a39lwny039b7833csssi2h79b3",
+  "rev": "d1172a48813520cde914f82f5756fb466bd3c362",
+  "date": "2020-10-24T19:57:05+03:00",
+  "sha256": "0kcx5h0h3715yx923d6ciy7bxw912zc61c0wadh1z0krspb5zh1a",
   "fetchSubmodules": false
 }
