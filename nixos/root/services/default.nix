@@ -44,15 +44,12 @@ rec {
   compton.enable = true;
   # keybase.enable = true;
 
-  gnome3.gnome-documents.enable = true;
   gnome3.gnome-online-accounts.enable = true;
-  gnome3.gnome-terminal-server.enable = false;
   gnome3.gnome-user-share.enable = true;
   gnome3.tracker.enable = true;
   gnome3.evolution-data-server.enable = true;
   packagekit.enable = false;
   # gnome3.gnome-keyring.enable = false;
-  gnome3.seahorse.enable = true;
   gnome3.tracker-miners.enable = false;
   geoclue2.enable = false;
   dleyna-renderer.enable = false;
@@ -62,8 +59,6 @@ rec {
 
   redshift = {
     enable = true;
-    latitude = "47.517201";
-    longitude = "35.859375";
     temperature.night = 3000;
     brightness.night = "0.5";
   };
@@ -95,22 +90,23 @@ rec {
     '';
 
     windowManager = {
-      default = "i3";
       i3.enable = true;
     };
 
     desktopManager = {
-      default = "none";
       gnome3.enable = true;
     };
 
     displayManager = {
+      defaultSession = "none+i3";
+
       lightdm = {
         enable = true;
-        autoLogin = {
-          enable = true;
-          user = "srghma";
-        };
+      };
+
+      autoLogin = {
+        enable = true;
+        user = "srghma";
       };
 
       sessionCommands = ''

@@ -4,8 +4,6 @@ with lib;
 
 {
   hardware = {
-    brightnessctl.enable = true;
-
     pulseaudio = {
       enable = true;
       support32Bit = true; # for steam

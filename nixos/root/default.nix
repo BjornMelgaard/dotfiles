@@ -7,8 +7,7 @@ in
   imports = [
     ../modules/cachix.nix
     ../modules/unifiedGtkQtTheme.nix
-    ../modules/direnv-from-lorri-repo.nix
-    ../modules/lorri-from-nixpkgs.nix
+    # ../modules/direnv-from-lorri-repo.nix
 
     ./hardware-configuration.nix
     ./hardware-configuration-override.nix
@@ -68,6 +67,11 @@ in
   services    = import ./services    args;
   fonts       = import ./fonts       args;
 
+  location = {
+    latitude = 47.517201;
+    longitude = 35.859375;
+  };
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -88,6 +92,10 @@ in
   };
 
   programs = {
+    gnome-documents.enable = true;
+    seahorse.enable = true;
+    gnome-terminal.enable = false;
+
     java.enable = true;
     chromium.enable = true; # add chrome and chromium config files to /etc
     adb.enable = true; # from https://nixos.wiki/wiki/Android
@@ -126,14 +134,13 @@ in
         source ${./shells/system.sh}
 
         # from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
-        unalias fd
+        # unalias fd
 
         DEFAULT_USER="srghma"
 
         autoload -U zmv
 
         # gem
-        GEM_HOME="$HOME/.gem/ruby/${pkgs.ruby_2_4.version.libDir}"
         GEM_PATH="$GEM_HOME"
         export PATH="$GEM_HOME/bin:$PATH"
 
@@ -230,9 +237,12 @@ in
     };
   };
 
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
+  };
+
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };
 
@@ -303,8 +313,8 @@ in
     # extraOptions = "-H unix:///var/run/docker.sock";
   };
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true; # for forwarding usb
+  virtualisation.virtualbox.host.enable = false;
+  virtualisation.virtualbox.host.enableExtensionPack = false; # for forwarding usb
 
   # virtualisation.libvirtd.enable = true;
   # virtualisation.memorySize = 1024;

@@ -4,6 +4,8 @@ with pkgs;
 
 let
   systemPackages = [
+    brightnessctl
+
     nixpkgsMaster.pkgs.google-chrome-beta
     # nixpkgsUnstable.pkgs.chromium
     libreoffice
@@ -43,7 +45,7 @@ let
     nixpkgsMaster.pkgs.kitty
     neovim
     tmux
-    nixpkgsUnstable.pkgs.vscode
+    vscode
     # nixpkgsUnstable.pkgs.nix
 
     ## development
@@ -82,7 +84,7 @@ let
     firefox
     asciinema
     # tree
-    # youtube-dl
+    nixpkgsMaster.pkgs.youtube-dl
     tigervnc
 
     # screencast
@@ -189,7 +191,7 @@ let
     #   }
     # )
 
-    ruby_2_6
+    ruby
 
     # nixpkgsUnstable.pkgs.gnome3.evolution
 

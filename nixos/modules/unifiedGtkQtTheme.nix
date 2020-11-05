@@ -128,7 +128,7 @@ in {
       # GTK2/GTK3: libs/theme definitions in lib/share directories of their packages
       "GTK_PATH" = lib.mkBefore [ "${pkgs.gnome-themes-standard}/lib/gtk-2.0" ];
       "GTK2_RC_FILES" = lib.mkBefore [ "${pkgs.gnome-themes-standard}/share/themes/Adwaita/gtk-2.0/gtkrc" ];
-      "XDG_DATA_DIRS" = lib.mkBefore [ "${pkgs.gnome-themes-standard}/share" ];
+      # "XDG_DATA_DIRS" = lib.mkBefore [ "${pkgs.gnome-themes-standard}/share" ];
     };
 
     environment.extraInit = lib.mkAfter ''

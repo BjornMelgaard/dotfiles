@@ -12,11 +12,11 @@ let
 in
 
 rec {
-  enableCoreFonts = true;
   enableFontDir = true;
   enableGhostscriptFonts = true;
 
   fonts = with pkgs; [
+    corefonts
     ubuntu_font_family
     powerline-fonts
     font-awesome-ttf
