@@ -133,9 +133,6 @@ in
         source ${./shells/nix.sh}
         source ${./shells/system.sh}
 
-        # from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
-        # unalias fd
-
         DEFAULT_USER="srghma"
 
         autoload -U zmv

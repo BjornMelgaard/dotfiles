@@ -210,6 +210,7 @@ let
     # nixpkgsMaster.pkgs.android-studio
     nixpkgsMaster.pkgs.fd
     nixpkgsMaster.pkgs.gitAndTools.gh
+    nixpkgsMaster.pkgs.direnv
 
     # mypkgs.update-module-name-purs
   ];
