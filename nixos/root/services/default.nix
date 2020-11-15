@@ -128,4 +128,28 @@ rec {
   # pcscd.enable = true;
 
   lorri.enable = true;
+
+  nginx = {
+    enable = true;
+    # recommendedGzipSettings = true;
+    # recommendedOptimisation = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
+    statusPage = true;
+
+    virtualHosts."localhost" = {
+      locations = {
+        "/" = {
+          proxyPass = "http://127.0.0.1:3001"; # client
+        };
+        "/graphql" = {
+          proxyPass = "http://127.0.0.1:3000"; # server
+          proxyWebsockets = true;
+        };
+        "/graphiql" = {
+          proxyPass = "http://127.0.0.1:3000"; # server
+        };
+      };
+    };
+  };
 }

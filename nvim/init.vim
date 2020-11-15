@@ -231,10 +231,9 @@ call dein#add('Shougo/neosnippet') " {{{
 
 call dein#add('Shougo/deoplete.nvim') " {{{
   let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 150
 
   " initialize with empty, to use it later on per language
-  let g:deoplete#omni#input_patterns = {}
+  let g:deoplete#custom#var = {}
 
   " set completeopt=longest,menuone,preview
   "Amount of entries in completion popup
@@ -330,7 +329,18 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call dein#add('editorconfig/editorconfig-vim', {'on_i':1})
 call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-speeddating')
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function s:on_tpope_vim_speeddating_source()
+  nmap  <C-A-X>   <Plug>SpeedDatingUp
+  nmap  <C-X>     <Plug>SpeedDatingDown
+endfunction
+let g:speeddating_no_mappings=1
+call dein#add('tpope/vim-speeddating', {'hook_post_source': function('s:on_tpope_vim_speeddating_source')})
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 call dein#add('thinca/vim-visualstar')
 
 function s:on_commentary_source()
@@ -583,7 +593,7 @@ exec "au BufNewFile,BufRead *.rb NeoSnippetSource ".neosimpp_path."rails.snip"
 "   let g:elm_syntastic_show_warnings = 1
 
 "   " let g:deoplete#omni#functions.elm = ['elm#Complete']
-"   " let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
+"   " let g:deoplete#custom#var.elm = '[^ \t]+'
 "   " let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
 " " }}}
 " call dein#add('pbogut/deoplete-elm', {'on_ft':['elm']})
@@ -626,8 +636,8 @@ call dein#add('srghma/vim-purs-module-name', { 'on_ft':['purescript'] })
 " let g:psc_ide_log_level=4
 
 " checking in file
-let g:deoplete#omni#input_patterns.purescript = '[^. *\t]'
-let g:deoplete#omni#input_patterns.purescript = '[.\w]+'
+let g:deoplete#custom#var.purescript = '[^. *\t]'
+let g:deoplete#custom#var.purescript = '[.\w]+'
 " checking wia `pulp -w build` (faster)
 " let g:psc_ide_syntastic_mode = 0
 
