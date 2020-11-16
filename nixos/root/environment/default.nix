@@ -94,7 +94,8 @@ let
     # kazam
 
     # vagrant
-    # virtualbox
+    # nixpkgsMaster.pkgs.ib-tws
+    # nixpkgsMaster.pkgs.ib-controller
 
     # fzf
     # bfg-repo-cleaner # removes passwords from git repo
