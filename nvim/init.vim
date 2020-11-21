@@ -259,9 +259,10 @@ let purescriptConfigWrapper =
     \   , 'autocompleteAddImport': v:true
     \   , 'pursExe': 'purs'
     \   , 'addNpmPath': v:true
-    \   , 'buildCommand': 'spago --config app/spago.dhall build -- --json-errors'
     \   }
     \ }
+
+" \   , 'buildCommand': 'spago --config spago.dhall build -- --json-errors'
 
 let g:LanguageClient_serverCommands = {
     \ 'haskell':    ['hie', '--lsp'],

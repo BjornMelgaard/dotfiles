@@ -105,12 +105,12 @@ bindsym $mod+Shift+space focus mode_toggle
 bindsym $mod+space       floating toggle
 
 # multimedia keys
-bindsym XF86KbdBrightnessUp   exec "kb-light + 1"
-bindsym XF86KbdBrightnessDown exec "kb-light - 1"
+bindsym XF86KbdBrightnessUp   exec "sudo kb-light + 1"
+bindsym XF86KbdBrightnessDown exec "sudo kb-light - 1"
 
-bindsym XF86AudioRaiseVolume  exec "dunsted-volume up"
-bindsym XF86AudioLowerVolume  exec "dunsted-volume down"
-bindsym XF86AudioMute         exec "dunsted-volume mute"
+bindsym XF86AudioRaiseVolume  exec "sudo dunsted-volume up"
+bindsym XF86AudioLowerVolume  exec "sudo dunsted-volume down"
+bindsym XF86AudioMute         exec "sudo dunsted-volume mute"
 
 bindsym XF86MonBrightnessDown exec "sudo xbacklight -10"
 bindsym XF86MonBrightnessUp   exec "sudo xbacklight +10"
