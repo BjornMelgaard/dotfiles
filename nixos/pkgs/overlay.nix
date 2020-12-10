@@ -10,6 +10,8 @@ rec {
 
   nixpkgsMaster = import <nixpkgs-master> { config = { allowUnfree = true; }; };
 
+  nixpkgsLocal = import /home/srghma/projects/nixpkgs { config = { allowUnfree = true; }; };
+
   mypkgs = {
     all-hies                      = pkgs.callPackage ./all-hies {};
     arion                         = pkgs.callPackage ./arion {};
