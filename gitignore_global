@@ -8,3 +8,5 @@ nohup.*
 .envrc
 # spago.dhall
 # packages.dhall
+.spago/
+output/

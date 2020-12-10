@@ -659,6 +659,10 @@ call dein#add('vim-scripts/vim-terraform',    {'on_ft':['terraform']})
 call dein#add('LnL7/vim-nix',                 {'on_ft':['nix']})
 call dein#add('derekelkins/agda-vim',         {'on_ft':['agda']})
 call dein#add('vmchale/dhall-vim',            {'on_ft':['dhall']})
+" call dein#add('Zuckonit/vim-airline-tomato')
+" call dein#add('mnick/vim-pomodoro')
+" call dein#add('pydave/AsyncCommand')
+" let g:pomodoro_time_work = 30
 
 " call dein#add('takac/vim-hardtime') " {{{
 "   let g:hardtime_default_on = 1

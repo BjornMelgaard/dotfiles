@@ -54,6 +54,7 @@ rec {
   geoclue2.enable = false;
   dleyna-renderer.enable = false;
   dleyna-server.enable = false;
+  safeeyes.enable = true;
 
   # zfs.autoScrub.enable = true;
 

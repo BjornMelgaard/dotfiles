@@ -105,7 +105,7 @@ let
     gimp
     # imagemagick
 
-    # safeeyes
+    nixpkgsMaster.pkgs.safeeyes
     # cmus
     mypkgs.hubstaff
     # screen
