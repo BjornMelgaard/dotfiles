@@ -10,10 +10,10 @@ gpg-backup () {
   gpg --export-ownertrust > $GPG_BACKUP_DIR/ownertrust.txt
 
   # public key
-  gpg -a --export "$USER_EMAIL" > $GPG_BACKUP_DIR/public.gpg
+  gpg --armor --export "$USER_EMAIL" > $GPG_BACKUP_DIR/public.gpg
 
   # secret key
-  gpg -a --export-secret-keys  > $GPG_BACKUP_DIR/secret.gpg
+  gpg --armor --export-secret-keys  > $GPG_BACKUP_DIR/secret.gpg
 
   # all public keys
   gpg --armor --export > $GPG_BACKUP_DIR/public-keys.gpg

@@ -92,6 +92,7 @@ in
   };
 
   programs = {
+    gnupg.agent.enable = true;
     gnome-documents.enable = true;
     seahorse.enable = true;
     gnome-terminal.enable = false;
@@ -180,7 +181,7 @@ in
 
           ## programs
           # tmux
-          "git"
+          # "git"
 
           ## nixos
           # NOTE: nix-zsh-completions already installed via `programs.zsh.enableCompletion = true`

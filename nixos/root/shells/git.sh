@@ -142,12 +142,13 @@ alias gsr='git svn rebase'
 alias gss='git status -s'
 alias gst='git status'
 
-alias gstaa='git stash apply'
+alias gst="git stash"
+alias gsta="git stash apply"
 alias gstc='git stash clear'
 alias gstd='git stash drop'
 alias gstl='git stash list'
 alias gstp='git stash pop'
-alias gsts='git stash show --text'
+alias gsts='git stash show'
 alias gstall='git stash --all'
 alias gsu='git submodule update'
 
@@ -178,10 +179,6 @@ alias gmt="git mergetool"
 alias gmc="git merge --continue"
 
 alias gs="git status"
-
-alias gst="git stash"
-alias gsta="git stash apply"
-alias gsts="git stash show"
 
 alias lc="linted-git-commit"
 alias lcn="linted-git-commit --no-verify"
