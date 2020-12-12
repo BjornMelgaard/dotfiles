@@ -12,3 +12,4 @@ commitlint/node_modules
 result
 *.log
 gitconfig-other
+secrets/gpg/secret.gpg
