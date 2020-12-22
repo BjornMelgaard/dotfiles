@@ -26,7 +26,7 @@ let
     rofi
     pasystray
     scrot
-    # anki
+    nixpkgsMaster.pkgs.anki
     xarchiver
 
     ## misc
