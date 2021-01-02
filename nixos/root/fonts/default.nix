@@ -23,6 +23,7 @@ rec {
     source-code-pro
     noto-fonts
     emojione
+    kanji-stroke-order-font
 
     # (pkgs.nixpkgsMaster.pkgs.iosevka.override {
     #   set = "custom";

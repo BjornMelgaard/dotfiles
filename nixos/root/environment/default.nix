@@ -87,10 +87,10 @@ let
     nixpkgsMaster.pkgs.youtube-dl
     tigervnc
 
+    simplescreenrecorder
     # screencast
     # gtk-recordmydesktop
     # kdenlive
-    simplescreenrecorder
     # kazam
 
     # vagrant
