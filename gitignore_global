@@ -10,3 +10,4 @@ nohup.*
 # packages.dhall
 .spago/
 output/
+.psc-ide-port

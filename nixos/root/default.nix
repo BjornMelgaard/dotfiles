@@ -7,6 +7,7 @@ in
   imports = [
     ../modules/cachix.nix
     ../modules/unifiedGtkQtTheme.nix
+    ../modules/disable-main-keyboard.nix
     # ../modules/direnv-from-lorri-repo.nix
 
     ./hardware-configuration.nix
@@ -66,6 +67,9 @@ in
   environment = environment;
   services    = import ./services    args;
   fonts       = import ./fonts       args;
+
+  tilde.workstation.disable_main_keyboard.enable = true;
+  tilde.username = "srghma";
 
   location = {
     latitude = 47.517201;

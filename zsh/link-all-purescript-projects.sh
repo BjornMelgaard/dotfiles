@@ -2,7 +2,8 @@ link-purescript-project () {( set -e
   project="$1"
   depname="$2"
   to="${3:-"$HOME/projects/purescript-$2"}"
-  version=$(cd $project && (spago --config spago-feature-tests.dhall sources | grep ".spago/$depname/" | sd '[^/]+/[^/]+/([^/]+)/.*' '$1'))
+  # version=$(cd $project && (spago --config spago-feature-tests.dhall sources | grep ".spago/$depname/" | sd '[^/]+/[^/]+/([^/]+)/.*' '$1'))
+  version=$(cd $project && (spago sources | grep ".spago/$depname/" | sd '[^/]+/[^/]+/([^/]+)/.*' '$1'))
 
   [ -z "$version" ] && (echo "\e[31mEmpty for $project/.spago/$depname ($to)\e[0m" && exit 1)
 

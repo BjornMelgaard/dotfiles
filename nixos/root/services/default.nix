@@ -2,10 +2,6 @@
 
 with pkgs;
 
-let
-  layout = ../../../layouts/en_ru;
-in
-
 rec {
   # see https://github.com/NixOS/nixpkgs/blob/cad1c18743699fa7458f1e49f6cfab0b86b024e9/nixos/modules/services/databases/postgresql.nix#L12
 
@@ -54,7 +50,7 @@ rec {
   geoclue2.enable = false;
   dleyna-renderer.enable = false;
   dleyna-server.enable = false;
-  safeeyes.enable = true;
+  safeeyes.enable = false;
 
   # zfs.autoScrub.enable = true;
 
@@ -110,8 +106,9 @@ rec {
         user = "srghma";
       };
 
+      # ${xorg.xkbcomp}/bin/xkbcomp ${../../../layouts/en_ru} $DISPLAY &
       sessionCommands = ''
-        ${xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY &
+        ${xorg.xkbcomp}/bin/xkbcomp /home/srghma/.dotfiles/layouts/en_ru_swapped $DISPLAY
       '';
     };
   };
@@ -131,7 +128,7 @@ rec {
   lorri.enable = true;
 
   nginx = {
-    enable = true;
+    enable = false;
     # recommendedGzipSettings = true;
     # recommendedOptimisation = true;
     recommendedProxySettings = true;

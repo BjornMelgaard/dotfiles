@@ -1,0 +1,32 @@
+xkb_keymap {
+  xkb_keycodes      { include "evdev+aliases(qwerty)" };
+  xkb_geometry      { include "pc(pc104)" };
+  xkb_types         { include "complete" };
+  xkb_compat        { include "complete" };
+
+  xkb_symbols {
+    include "pc+us+ru:2+inet(evdev)"
+    include "group(rctrl_rshift_toggle)"
+    include "capslock(swapescape)"
+
+    // swap right alt and left control
+    replace key <RALT> { [ Control_L ] };
+    modifier_map Control { <RALT> };
+
+    // swap ; and : only in us layout
+    replace key <AC10> { [ colon, semicolon ], [ Cyrillic_zhe, Cyrillic_ZHE ] };
+
+    // swap " and ' only in us layout
+    // replace key <AC11> { [ quotedbl, apostrophe ], [ Cyrillic_e, Cyrillic_E ] };
+
+    // helpers //
+    // xinput list | grep 'AT Translated Set 2 keyboard'
+    // xinput test NUM
+    // xkbcomp $HOME/.dotfiles/layouts/en_ru $DISPLAY
+    // vim $(nix-build --no-out-link '<nixpkgs>' -A xorg.xkeyboardconfig)/etc/X11/xkb/rules/base.lst
+
+    // vim $(nix-build --no-out-link '<nixpkgs>' -A xorg.xkeyboardconfig)/etc/X11/xkb/keycodes/evdev
+    // vim $(nix-build --no-out-link '<nixpkgs>' -A xorg.xkeyboardconfig)/etc/X11/xkb/symbols/us
+  };
+};
+
