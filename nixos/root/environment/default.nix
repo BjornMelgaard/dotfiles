@@ -201,7 +201,7 @@ let
     nixpkgsUnstable.pkgs.solargraph
 
     mypkgs.easy-purescript-nix-automatic.spago
-    mypkgs.easy-purescript-nix-automatic.purs
+    mypkgs.easy-purescript-nix-automatic.purs-0-14
     mypkgs.easy-purescript-nix-automatic.purty # find ./packages/client/src -name "*.purs" -exec purty --write {} \;
     nixpkgsMaster.pkgs.sd
 

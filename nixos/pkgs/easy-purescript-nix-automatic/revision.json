@@ -1,9 +1,9 @@
 {
   "url": "https://github.com/srghma/easy-purescript-nix-automatic",
-  "rev": "4ace02d30142cffa1b05a6327d1780adff0b29c3",
-  "date": "2021-02-02T18:21:25+02:00",
-  "path": "/nix/store/awkf5ha6mhwhmsldpcjmk1wsn6x8gbsw-easy-purescript-nix-automatic",
-  "sha256": "17ghyq123cr8y762bb5220v92scw2wdn60a41pcxx2d8akswnyv6",
+  "rev": "42b90185d82de472db15e3b7932bfbf66043c2fe",
+  "date": "2021-02-02T18:49:48+02:00",
+  "path": "/nix/store/x92x0qxgfr8j23a9n0mg3gv4a7g79gjw-easy-purescript-nix-automatic",
+  "sha256": "12bsa1d5r99p84n8m0iczw6cjbghzrdsh3690mmy5m1yyafwg4yl",
   "fetchSubmodules": false,
   "deepClone": false,
   "leaveDotGit": false
