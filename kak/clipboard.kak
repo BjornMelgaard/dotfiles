@@ -1,5 +1,5 @@
 # user mode entered with ,
-map global user y '<a-|>copyq add -<ret>'     -docstring 'yank'
+map global user y '<a-|>copyq add -<ret>'     -docstring 'clipboard yank'
 map global user p '<a-!>copyq clipboard<ret>' -docstring 'clipboard paste after'
 map global user P '!copyq clipboard<ret>'     -docstring 'clipboard paste before'
 map global user R '|copyq clipboard<ret>'     -docstring 'clipboard replace current selection'

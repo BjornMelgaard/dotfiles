@@ -2,7 +2,6 @@
 def ed %{ edit *debug* }
 
 # Basic options ├───────────────────────────────────────────────────────────────
-colorscheme dracula
 set global makecmd 'make --jobs=8'
 set global grepcmd 'ag --filename --column'
 set global incsearch true
@@ -11,10 +10,80 @@ set global autoreload yes
 set global tabstop     2
 set global indentwidth 2
 
-source 'kak/bindings.kak'
-source 'kak/ui.kak'
-source 'kak/clipboard.kak'
-# source 'kak/filetypes.kak'
+add-highlighter global/ number-lines -hlcursor
+add-highlighter global/ show-matching
+add-highlighter global/ regex '\h+$' 0:Error # show trailing whitespace as an error
+add-highlighter global/ show-whitespaces -tab "▏" -lf "⋅" -nbsp "⋅" -spc "⋅"
+add-highlighter global/ dynregex '%reg{/}' 0:white,rgb:cc1010+ub
+
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+source "%val{config}/bindings.kak"
+# source "%val{config}/clipboard.kak"
+source "%val{config}/tools/cleanup-on-save.kak"
+
+plug "alexherbo2/kakoune-dracula-theme" theme config %{
+  colorscheme dracula
+}
+
+# plug "delapouite/kakoune-text-objects" %{
+#   text-object-map
+# }
+
+plug "alexherbo2/prelude.kak" config %{require-module prelude}
+
+# from https://alexherbo2.github.io/projects/#kakoune--highlighters
+# plug "alexherbo2/current-word-highlighter.kak" config %{
+#   require-module current-word-highlighter
+#   set-face global CurrentWord "default,%opt{dimmed_background}"
+# }
+# plug "alexherbo2/search-highlighter.kak" config %{require-module search-highlighter}
+# plug "alexherbo2/volatile-highlighter.kak" config %{require-module volatile-highlighter}
+# plug "alexherbo2/out-of-view.kak" config %{require-module out-of-view}
+# plug "alexherbo2/palette.kak" config %{require-module palette}
+
+plug "alexherbo2/auto-pairs.kak" config %{
+    require-module auto-pairs
+    auto-pairs-enable
+}
+# plug "alexherbo2/surround.kak" config %{
+#     require-module surround
+#     map -docstring 'Surround' global normal q ':enter-user-mode surround<ret>'
+#     map -docstring 'Surround insert' global normal Q ':surround-enter-insert-mode<ret>'
+# }
+
+# plug "krornus/kakoune-toggle-map" %{
+#     plug "krornus/kakoune-hlsearch" %{
+#         toggle-map global normal <F3> hlsearch-on hlsearch-off
+#     }
+# }
+
+plug "lePerdu/kakboard" %{
+  hook global WinCreate .* %{ kakboard-enable }
+}
+
+plug "jdugan6240/powerline.kak" defer powerline %{
+  powerline-theme base16
+} config %{
+  powerline-start
+}
+
+plug "h-youhei/kakoune-surround" %{
+  map global user s ':surround<ret>'               -docstring 'surround'
+
+  declare-user-mode surround
+  map global user S ':enter-user-mode surround<ret>'
+
+  map global surround s     ':surround<ret>'               -docstring 'surround'
+  map global surround c     ':change-surround<ret>'        -docstring 'change-surround'
+  map global surround d     ':delete-surround<ret>'        -docstring 'delete-surround'
+  map global surround <a-s> ':select-surround<ret>'        -docstring 'select-surround'
+  map global surround S     ':surround-with-tag<ret>'      -docstring 'surround-with-tag'
+  map global surround C     ':change-surrounding-tag<ret>' -docstring 'change-surrounding-tag'
+  map global surround D     ':delete-surrounding-tag<ret>' -docstring 'delete-surrounding-tag'
+  map global surround <a-S> ':select-surrounding-tag<ret>' -docstring 'select-surrounding-tag'
+}
+
+# source '%val{config}/filetypes.kak'
 
 # Tools ├─────────────────────────────────────────────────────────
 # import tools/fzf

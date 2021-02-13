@@ -14,7 +14,7 @@ xkb_keymap {
     modifier_map Control { <RALT> };
 
     // swap ; and : only in us layout
-    replace key <AC10> { [ colon, semicolon ], [ Cyrillic_zhe, Cyrillic_ZHE ] };
+    // replace key <AC10> { [ colon, semicolon ], [ Cyrillic_zhe, Cyrillic_ZHE ] };
 
     // swap " and ' only in us layout
     // replace key <AC11> { [ quotedbl, apostrophe ], [ Cyrillic_e, Cyrillic_E ] };

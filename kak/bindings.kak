@@ -36,24 +36,31 @@ map global prompt <c-d> <backspace>
 
 # Normal ────────────────────────────────────────────────────────────────────
 # swap : and ;
-map global normal ';' ':'
-map global normal ':' ';'
+#
+# ;, <semicolon> reduce selections to their cursor
+# <a-;>, <a-semicolon> flip the direction of each selection
+# <a-:> ensure selections are in forward direction (cursor after anchor)
+
+# map global normal ';' ':'
+# map global normal ':' ';'
+# map global normal '<a-;>' '<a-:>'
+# map global normal '<a-:>' '<a-semicolon>'
 
 # # swap , and <space>
-# map global normal <space> ','
-# map global normal ',' <space>
+map global normal <space> ','
+map global normal ',' <space>
 
-# # vimlike half page movements
-# map global normal <c-u> gtvc
-# map global normal <c-d> <c-d>gc
+# vimlike half page movements
+map global normal <c-u> gtvc
+map global normal <c-d> <c-d>gc
 
-# map global normal '#' :comment-line<ret>
+map global normal '#' :comment-line<ret>
 
-# # moving by paragraphs
-# map global normal <a-[> [p
-# map global normal <a-]> ]p
-# map global normal <a-}> }p
-# map global normal <a-{> {p
+# moving by paragraphs
+map global normal <a-[> [p
+map global normal <a-]> ]p
+map global normal <a-}> }p
+map global normal <a-{> {p
 
 # map global normal = ':prompt math: %{exec "a%val{text}<lt>esc>|bc<lt>ret>"}<ret>'
 

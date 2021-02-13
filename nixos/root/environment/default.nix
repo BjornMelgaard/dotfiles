@@ -174,8 +174,10 @@ let
     dropbox-cli
 
     # ID kaart
-    nixpkgsUnstable.pkgs.chrome-token-signing
-    nixpkgsUnstable.pkgs.qdigidoc
+    # nixpkgsUnstable.pkgs.chrome-token-signing
+    # nixpkgsUnstable.pkgs.qdigidoc
+
+    nixpkgsUnstable.pkgs.kakoune
 
     nixpkgsUnstable.pkgs.gfxtablet
     nixpkgsUnstable.pkgs.patchelf
@@ -220,7 +222,7 @@ in
   systemPackages = systemPackages;
 
   variables = {
-    EDITOR = "nvim";
+    EDITOR = "kak";
   };
 
   etc."resolvconf.conf".text = ''

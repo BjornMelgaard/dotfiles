@@ -13,3 +13,4 @@ result
 *.log
 gitconfig-other
 secrets/gpg/secret.gpg
+kak/plugins/*

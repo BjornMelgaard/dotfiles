@@ -43,6 +43,7 @@ inhome_indotfiles = [
   ['.gnupg/gpg-agent.conf',                                'gpg-agent.conf'],
 
   ['.config/kak',                                        'kak'],
+
   # ['.emacs', 'emacs'],
 ]
 
