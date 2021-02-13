@@ -1,14 +1,36 @@
 link-purescript-project () {( set -e
   project="$1"
   depname="$2"
-  to="${3:-"$HOME/projects/purescript-$2"}"
-  # version=$(cd $project && (spago --config spago-feature-tests.dhall sources | grep ".spago/$depname/" | sd '[^/]+/[^/]+/([^/]+)/.*' '$1'))
-  version=$(cd $project && (spago sources | grep ".spago/$depname/" | sd '[^/]+/[^/]+/([^/]+)/.*' '$1'))
 
-  [ -z "$version" ] && (echo "\e[31mEmpty for $project/.spago/$depname ($to)\e[0m" && exit 1)
+  for ARGUMENT in "$@"
+  do
 
-  echo "linking $project/.spago/$depname to $to (version = $version)"
-  rmf "$project/.spago/$depname" && mkdir -p "$project/.spago/$depname" && ln -s "$to" "$project/.spago/$depname/$version"
+      KEY=$(echo $ARGUMENT | cut -f1 -d=)
+      VALUE=$(echo $ARGUMENT | cut -f2 -d=)
+
+      case "$KEY" in
+              TO)         TO=${VALUE} ;;
+              OTHER_ARGS) OTHER_ARGS=${VALUE} ;;
+              *)
+      esac
+
+
+  done
+
+  # echo "TO = $TO"
+  # echo "OTHER_ARGS = $OTHER_ARGS"
+
+  to_="${TO:-"$HOME/projects/purescript-$depname"}"
+
+  echo "Project = $project, depname = $depname, to_ = $to_, other_args = $OTHER_ARGS"
+
+  version=$(cd $project && (bash -c "spago $OTHER_ARGS sources" | grep ".spago/$depname/" | sd '[^/]+/[^/]+/([^/]+)/.*' '$1'))
+
+  [ -z "$version" ] && (echo "\e[31mEmpty for $project/.spago/$depname ($to_)\e[0m" && exit 1)
+
+  echo "linking $project/.spago/$depname to $to_ (version = $version)"
+
+  rmf "$project/.spago/$depname" && mkdir -p "$project/.spago/$depname" && ln -s "$to_" "$project/.spago/$depname/$version"
 )}
 
 link-purescript-project-halogen () {( set -e
