@@ -9,4 +9,4 @@ for file in $HOME/.dotfiles/zsh/*.sh; do
   source $file
 done
 
-export EDITOR="kak"
+export EDITOR="nvim"

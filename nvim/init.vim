@@ -110,6 +110,7 @@ endfunction "}}}
 call dein#add('vim-scripts/matchit.zip')
 call dein#add('vim-airline/vim-airline') "{{{
   let g:airline_powerline_fonts = 1
+  let g:airline_theme = 'dracula'
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#left_sep = ''
   let g:airline#extensions#tabline#left_alt_sep = '¦'
@@ -856,8 +857,9 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Finish
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call dein#add('nanotech/jellybeans.vim')
-call dein#add('morhetz/gruvbox')
+" call dein#add('nanotech/jellybeans.vim')
+" call dein#add('morhetz/gruvbox')
+call dein#add('dracula/vim')
 call dein#add('ryanoasis/vim-devicons')
 
 call dein#end()
@@ -872,7 +874,7 @@ filetype plugin indent on
 syntax enable
 
 set background=dark   " Setting light mode
-colorscheme jellybeans
+colorscheme dracula
 
 " set background=light   " Setting light mode
 " colorscheme gruvbox

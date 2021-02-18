@@ -25,9 +25,9 @@ plug "alexherbo2/kakoune-dracula-theme" theme config %{
   colorscheme dracula
 }
 
-# plug "delapouite/kakoune-text-objects" %{
-#   text-object-map
-# }
+plug "delapouite/kakoune-text-objects" %{
+  text-object-map
+}
 
 plug "alexherbo2/prelude.kak" config %{require-module prelude}
 
